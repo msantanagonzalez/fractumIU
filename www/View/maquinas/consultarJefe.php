@@ -8,7 +8,7 @@
 
 <h1 id="headerJefe"><a><i>M&Aacute;QUINA <?php echo $row['idMaq']; ?></i></a></h1>
 	
-	<form method="POST" action="../../Controller/maquinasController?idMaq=<?php echo $row['idMaq'];?>">
+	<form method="POST" action="../../Controller/maquinasController.php?idMaq=<?php echo $row['idMaq'];?>">
 	<table class="default">
 	
 		<tr> 			

@@ -3,7 +3,7 @@
 	require_once("../structure/header.php");
 ?>
 
-<h1 id="headerJefe"><a><i>M&Aacute;QUINA $#IDm&aacute;quina</i></a></h1>
+<h1 id="headerJefe"><a><i>M&Aacute;QUINA </i></a></h1>
 <form name='FromAltaMaquina' action='../../Controller/maquinasController.php' method='POST'>
 	<table class="default">
 		<tr> 
