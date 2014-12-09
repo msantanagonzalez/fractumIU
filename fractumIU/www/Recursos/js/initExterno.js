@@ -9,12 +9,12 @@
 	skel.init({
 		reset: 'full',
 		breakpoints: {
-			global:		{ range: '*', href: 'css/style.css', containers: '100%', grid: { gutters: 50 }, viewport: { scalable: false } },
-			desktop:	{ range: '641-', href: 'css/style-desktop.css' },
-			wide:		{ range: '1201-', href: 'css/style-wide.css' },
-			narrow:		{ range: '737-1200', href: 'css/style-narrow.css' },
-			narrower:	{ range: '737-1000', href: 'css/style-narrower.css' },
-			mobile:		{ range: '-736', href: 'css/style-mobile.css', grid: { collapse: true } }
+			global:		{ range: '*', href: '../../Recursos/css/style.css', containers: '100%', grid: { gutters: 50 }, viewport: { scalable: false } },
+			desktop:	{ range: '641-', href: '../../Recursos/css/style-desktop.css' },
+			wide:		{ range: '1201-', href: '../../Recursos/css/style-wide.css' },
+			narrow:		{ range: '737-1200', href: '../../Recursos/css/style-narrow.css' },
+			narrower:	{ range: '737-1000', href: '../../Recursos/css/style-narrower.css' },
+			mobile:		{ range: '-736', href: '../../Recursos/css/style-mobile.css', grid: { collapse: true } }
 		},
 		plugins: {
 			layers: {
@@ -33,7 +33,7 @@
 				titleBar: {
 					breakpoints: ['narrower', 'mobile'],
 					height: 44,
-					html: '<span class="toggle" data-action="toggleLayer" data-args="sidePanelExterno"></span><span class="title" data-action="copyText" data-args="header"></span>',
+					html: '<span class="toggle" data-action="toggleLayer" data-args="sidePanel"></span><span class="title" data-action="copyText" data-args="header"></span>',
 					position: 'top-left',
 					side: 'top',
 					width: '100%'

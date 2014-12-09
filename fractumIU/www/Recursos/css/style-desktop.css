@@ -58,7 +58,7 @@
 	
 		#logo a{
 			display: block;
-			background-color: #c94663;
+			background-color: #F9BF00;
 			background-image: url('images/bg01.png');
 			padding: 0.875em 0.25em;
 			border-radius: 0.2em;
@@ -121,7 +121,7 @@
 		top: 0;
 		padding: 3em 1.35em 1em 1.15em;
 		width: 14em;
-		background: #c94663 url('images/bg01.png');
+		background: #508D4E;
 		box-shadow: inset -0.1em 0em 0.35em 0em rgba(0,0,0,0.15);}
 
 		body.left-sidebar #sidebarJefe{left: 0;}
