@@ -104,7 +104,7 @@
 		input[type="reset"],
 		.button{
 			cursor: pointer;
-			background-color: #c94663;
+			background-color: #df990e;
 			background-image: url('images/bg01.png');
 			border-radius: 0.4em;
 			text-align: center;
@@ -131,12 +131,12 @@
 			input[type="button"]:hover,
 			input[type="submit"]:hover,
 			input[type="reset"]:hover,
-			.button:hover{background-color: #d95673;	}
+			.button:hover{background-color: #996600;	}
 			
 			input[type="button"]:active,
 			input[type="submit"]:active,
 			input[type="reset"]:active,
-			.button:active{background-color: #b93653;}
+			.button:active{background-color: #df990e;}
 		
 			input[type="button"].alt,
 			input[type="submit"].alt,
