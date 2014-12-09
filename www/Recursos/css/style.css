@@ -421,8 +421,14 @@
 		#titleBar .toggle:active{}
 			#titleBar .toggle:active:before{background-color: #cc9900;}
 
+<<<<<<< HEAD
 	#sidePanel{
 		background: #cccccc url('images/bg01.png');
 		box-shadow: 1px;
 
 	}
+=======
+	#sidePanelJefe{background: #3d5036 url('images/bg01.png');}
+	#sidePanelInterno{background: #c94663 url('images/bg01.png');}
+	#sidePanelExterno{background: #0B8B06 url('images/bg01.png');}
+>>>>>>> FETCH_HEAD

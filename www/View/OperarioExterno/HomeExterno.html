@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<title>·Fractum!</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<script src="../../Recursos/js/jquery.min.js"></script>
+		<script src="../../Recursos/js/skel.min.js"></script>
+		<script src="../../Recursos/js/skel-layers.min.js"></script>
+		<script src="../../Recursos/js/initExterno.js"></script>
+		<script src="../../Recursos/js/Validaciones.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="../../Recursos/css/skel.css" />
+			<link rel="stylesheet" href="../../Recursos/css/style.css" />
+			<link rel="stylesheet" href="../../Recursos/css/style-desktop.css" />
+			<link rel="stylesheet" href="../../Recursos/css/style-wide.css" />
+		</noscript>
+	</head>
+	<!-- Cosas que pasaran a vistas -->
+		<script>
+		//monstramos el div que pasamos por parametro
+			function ShowOverlay(divID, xCoordinate, yCoordinate) { 
+			    var divObject = document.getElementById(divID); 
+			    divObject.style.visibility = "visible"; 
+			    divObject.style.left = xCoordinate; 
+			    divObject.style.top = yCoordinate; 
+			}
+
+			//Oculta el div que pasamos por parámetro.
+			function HideOverlay(divID) { 
+			        var divObject = document.getElementById(divID); 
+			        divObject.style.visibility = "hidden";
+			} 
+		</script>
+
+		<!-- Fin Cosas que pasaran a vistas -->
+	<body class="left-sidebar">
+		<div id="wrapper"><!--WRAPPER-->
+			<div id="content"><!--CONTENIDO-->
+				<div class="inner">
+               	  <h1 id="header"><a>- INCIDENCIAS -</a></h1> <!--SECCIÓN-->
+                	<table class="default"><!--TABLA-->
+                       	<tr>
+                       		<th width="20%">ID</th>
+                        	<th width="20%">T&iacute;tulo</th>
+                            <th width="20%">Operario</th>
+                            <th width="20%">Estado</th>
+							<th width="20%"> </th>
+                     	</tr>
+                    </table>
+                	<div style="height:107px;width:auto;overflow-y: scroll;"><!--ESTO DA LUGAR AL SCROLL-->
+                   		<table class="default"><!--TABLA-->
+                   			<tr onclick="alert('viajando con chester -> Consultar incidencia1 ')">
+	                   			<td width="20%">#xGef</td>
+	                        	<td width="20%">Centrifugadora Verduras</td>
+	                            <td width="20%">Juan Perez</td>
+	                            <td width="20%">Abierta</td>
+								<td width="20%"><button>#Modificar</button></td>
+							</tr>
+							<tr onclick="alert('viajando con chester -> Consultar incidencia2 ')">
+	                   			<td width="20%">#xGef</td>
+	                        	<td width="20%">Centrifugadora Verduras</td>
+	                            <td width="20%">Juan Perez</td>
+	                            <td width="20%">Abierta</td>
+								<td width="20%"><button>#Modificar</button></td>
+							</tr>
+                   		</table>
+                	</div> <br>
+                    
+                    <h1 id="header"><a>- MAQUINAS -</a></h1> <!--SECCIÓN-->
+                	<table class="default"><!--TABLA-->
+                       	<tr>
+                        	<th width="25%">Nombre</th>
+                            <th width="25%">Mantenimiento</th>
+                            <th width="25%">Ult. Incidencia</th>
+							<th width="25%"> </th>
+                     	</tr>
+                    </table>
+                  	<div style="height:107px;width:auto;overflow-y: scroll;"><!--ESTO DA LUGAR AL SCROLL-->
+                   		<table class="default"><!--TABLA-->
+						<tr onclick="alert('viajando con chester -> Consultar maquina1 ')">
+                        	<td width="25%">Centrifugadora Verduras</td>
+                            <td width="25%">No</td>
+                            <td width="25%">10/11/2013</td>
+							<td width="25%"><button>#Modificar</button></td>
+                     	</tr>
+                     	<tr onclick="alert('viajando con chester -> Consultar maquina2 ')">
+                        	<td width="25%">Cortadora Tomates</td>
+                            <td width="25%">Si</td>
+                            <td width="25%">14/11/2014</td>
+							<td width="25%"><button>#Modificar</button></td>
+                     	</tr>
+                   		</table>
+                	</div>
+                    
+				</div>
+			
+
+
+<!-- Cosas que pasaran a vistas -->
+				
+<!-- Fin Cosas que pasaran a vistas -->
+
+
+			</div>
+		</div>
+		
+		
+		
+        <div id="sidebarExterno"> <!--BARRA LATERAL-->
+			<h1 id='logo'><a href='#'>·Fractum!</a></h1> 	
+                <nav id='nav'> 
+              		<ul>
+                		<div align='center'>
+                       		<li class='current'>
+                            	<a href='#'>
+                            		<img src='../../Recursos/images/DefaultAvatar.png'><em><strong><br>".$operarioExterno."</strong></em><strong></strong></img>
+                            	</a>
+                         	</li>
+							<li class='current'><strong><a href='#'>Listar Incidencias</a></strong></li>
+							<li class='current'><a href='#'>Listar maquinas</a></li>
+                            <li class='current'><a href='#'>Contacto jefe</a></li>
+							<li class='current'><a href='#' id='Logout_Usuario' onclick ='return Salir_Usuario()'>   > Log Out</a></li>
+                            <form method='POST' action='#' style='text-align:center'>
+                        	<section class='box search'>
+								<input type='text' name='busqueda' placeholder='Buscar...'/>
+                      		</section>
+								<div hidden><input type='submit' name='buscar'/></div>
+                            </form>
+                      	</div>
+					</ul>
+				</nav>
+		</div>
+		<!-- FIN BARRA LATERAL -->
+
+
+		
+
+	</body>
+</html>
+
+
+
