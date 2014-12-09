@@ -33,7 +33,7 @@
 				titleBar: {
 					breakpoints: ['narrower', 'mobile'],
 					height: 44,
-					html: '<span class="toggle" data-action="toggleLayer" data-args="sidePanel"></span><span class="title" data-action="copyText" data-args="header"></span>',
+					html: '<span class="toggle" data-action="toggleLayer" data-args="sidePanelExterno"></span><span class="title" data-action="copyText" data-args="header"></span>',
 					position: 'top-left',
 					side: 'top',
 					width: '100%'
