@@ -17,7 +17,7 @@ $busqueda = $_POST['busqueda'];
 		<script src="js/jquery.min.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-layers.min.js"></script>
-		<script src="js/init.js"></script>
+		<script src="js/initJefe.js"></script>
 		<script src="js/Validaciones.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
@@ -31,18 +31,34 @@ $busqueda = $_POST['busqueda'];
 		<div id="wrapper"><!--WRAPPER-->
 			<div id="content"><!--CONTENIDO-->
 				<div class="inner">
-               	  <?php
-				  Buscar($_SESSION["ID_Usuario"]);
-				  ?>
-                	</div> <br>
-                    	<div align="center">* Este ha sido el resultado para la búsqueda: <?php echo $busqueda ?></div>
 				</div>
 			</div>
 		
-        <div id="sidebar"> <!--BARRA LATERAL-->
-			<?php
-       			$nav->NavUser($_SESSION["ID_Usuario"]);
-			?>
+			<div id='sidebarJefe'> <!--BARRA LATERAL-->
+			<h1 id='header'><a href='homeJefe.html'>·Fractum!</a></h1>		
+                <nav id='nav'> 
+              		<ul>
+                		<div align='center'>
+                       		<li class='current'>
+                            	<a href='perfil.html'>
+                            		<img src='images/DefaultAvatar.png'><em><strong><br>".$jefeNegocio"</strong></em><strong></strong></img>
+                            	</a>
+                         	</li>
+							<li class='current'><a href='gestorIncidencias.html'>GESTIONAR INCIDENCIAS</a></li>
+                           	<li class='current'><a href='gestorUsuarios.html'>GESTIONAR USUARIOS</a></li>
+                           	<li class='current'><a href='gestorMaquinas.html'>GESTIONAR MÁQUINAS</a></li>
+							<li class='current'><a href='gestorServicios.html'>GESTIONAR SERVCICOS</a></li>
+							<li class='current'><a href='../login.html'>>Log Out</a></li>
+                            <!--<form method='POST' action='AdminResultadosBusqueda.php' style='text-align:center'>-->
+                        	<section class='box search'>
+								<input type='text' name='busqueda' placeholder='Buscar...' value=''/>
+                      		</section>
+								<div hidden><input type='submit' name='buscar'/></div>
+                            <!--</form>-->
+                      	</div>
+					</ul>
+				</nav>
+		</div>
 		</div>
 		<!-- FIN BARRA LATERAL -->
 	</body>

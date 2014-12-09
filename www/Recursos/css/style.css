@@ -274,34 +274,6 @@
 /* BARRA LATERAL.                                                                */
 /*********************************************************************************/
 
-	#sidebarInterno{color: #aaa; color: rgba(255,255,255,0.55); text-shadow: -1px -1px 0px rgba(0,0,0,0.5);}
-		#sidebarInterno form input,
-		#sidebarInterno form select,
-		#sidebarInterno form textarea{border: 0;}
-		#sidebarInterno section,
-		#sidebarInterno nav{position: relative;}
-			#sidebarInterno section:before,
-			#sidebarInterno nav:before{
-				content: '';
-				border-top: solid 1px;
-				border-bottom: solid 1px;
-				border-color: #171E29;
-				border-color: rgba(0,0,0,0.25);
-				box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.075), 0px 1px 0px 0px rgba(255,255,255,0.075);
-				display: block;}
-		#sidebarInterno strong, #sidebar b{color: #fff;}
-		#sidebarInterno a{color: #d4dde0;}
-		#sidebarInterno h2,
-		#sidebarInterno h3,
-		#sidebarInterno h4,
-		#sidebarInterno h5,
-		#sidebarInterno h6{color: #fff;}
-		#sidebarInterno header{margin: 0 0 1.25em 0;}
-		#sidebarInterno section,
-		#sidebarInterno nav{margin: 2em 0 0 0; font-size: 0.9em;}
-			#sidebarInterno section:before,
-			#sidebarInterno nav:before{height: 0.5em; margin: 0 0 2em 0;}
-			
 	#sidebarJefe{color: #aaa; color: rgba(255,255,255,0.55); text-shadow: -1px -1px 0px rgba(0,0,0,0.5);}
 		#sidebarJefe form input,
 		#sidebarJefe form select,
@@ -317,7 +289,7 @@
 				border-color: rgba(0,0,0,0.25);
 				box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.075), 0px 1px 0px 0px rgba(255,255,255,0.075);
 				display: block;}
-		#sidebarJefe strong, #sidebarAdmin b{color: #fff;}
+		#sidebarJefe strong, #sidebarJefe b{color: #fff;}
 		#sidebarJefe a{color: #d4dde0;}
 		#sidebarJefe h2,
 		#sidebarJefe h3,
@@ -329,6 +301,34 @@
 		#sidebarJefe nav{margin: 2em 0 0 0; font-size: 0.9em;}
 			#sidebarJefe section:before,
 			#sidebarJefe nav:before{height: 0.5em; margin: 0 0 2em 0;}
+	
+	#sidebarInterno{color: #aaa; color: rgba(255,255,255,0.55); text-shadow: -1px -1px 0px rgba(0,0,0,0.5);}
+		#sidebarInterno form input,
+		#sidebarInterno form select,
+		#sidebarInterno form textarea{border: 0;}
+		#sidebarInterno section,
+		#sidebarInterno nav{position: relative;}
+			#sidebarInterno section:before,
+			#sidebarInterno nav:before{
+				content: '';
+				border-top: solid 1px;
+				border-bottom: solid 1px;
+				border-color: #171E29;
+				border-color: rgba(0,0,0,0.25);
+				box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.075), 0px 1px 0px 0px rgba(255,255,255,0.075);
+				display: block;}
+		#sidebarInterno strong, #sidebarInterno b{color: #fff;}
+		#sidebarInterno a{color: #d4dde0;}
+		#sidebarInterno h2,
+		#sidebarInterno h3,
+		#sidebarInterno h4,
+		#sidebarInterno h5,
+		#sidebarInterno h6{color: #fff;}
+		#sidebarInterno header{margin: 0 0 1.25em 0;}
+		#sidebarInterno section,
+		#sidebarInterno nav{margin: 2em 0 0 0; font-size: 0.9em;}
+			#sidebarInterno section:before,
+			#sidebarInterno nav:before{height: 0.5em; margin: 0 0 2em 0;}
 			
 	#sidebarExterno{color: #aaa; color: rgba(255,255,255,0.55); text-shadow: -1px -1px 0px rgba(0,0,0,0.5);}
 		#sidebarExterno form input,
@@ -345,7 +345,7 @@
 				border-color: rgba(0,0,0,0.25);
 				box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.075), 0px 1px 0px 0px rgba(255,255,255,0.075);
 				display: block;}
-		#sidebarExterno strong, #sidebarAdmin b{color: #fff;}
+		#sidebarExterno strong, #sidebarExterno b{color: #fff;}
 		#sidebarExterno a{color: #d4dde0;}
 		#sidebarExterno h2,
 		#sidebarExterno h3,
