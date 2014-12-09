@@ -380,7 +380,7 @@
 /* MÓVIL.                                                                        */
 /*********************************************************************************/
 
-	#titleBar{background: #3d5036 url('images/bg01.png');}
+	#titleBar{background: #999999 url('images/bg01.png');}
 	#titleBar .title{
 		display: block;
 		color: #fff;
@@ -411,7 +411,7 @@
 			width: 50px;
 			height: 30px;
 			line-height: 30px;
-			background: #c94663 url('images/bg01.png');
+			background: #ffcc66 url('images/bg01.png');
 			border-radius: 5px;
 			color: #fff;
 			text-align: center;
@@ -419,8 +419,10 @@
 			text-shadow: -1px -1px 0px rgba(0,0,0,0.5);}
 
 		#titleBar .toggle:active{}
-			#titleBar .toggle:active:before{background-color: #d95673;}
+			#titleBar .toggle:active:before{background-color: #cc9900;}
 
-	#sidePanelJefe{background: #3d5036 url('images/bg01.png');}
-	#sidePanelInterno{background: #c94663 url('images/bg01.png');}
-	#sidePanelExterno{background: #c94663 url('images/bg01.png');}
+	#sidePanel{
+		background: #cccccc url('images/bg01.png');
+		box-shadow: 1px;
+
+	}

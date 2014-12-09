@@ -58,7 +58,7 @@
 	
 		#logo a{
 			display: block;
-			background-color: #c94663;
+			background-color: #ffcc66;
 			background-image: url('images/bg01.png');
 			padding: 0.875em 0.25em;
 			border-radius: 0.2em;
@@ -71,23 +71,56 @@
 /* CABECERAS.                                                                    */
 /*********************************************************************************/
 
-	#header{
+	#headerJefe{
 		font-family: 'Open Sans Condensed', sans-serif;
 		font-weight: 700;
 		font-size: 1.8em;
 		letter-spacing: 0.1em;}
 	
-		#header a{
+		#headerJefe a{
 			display: block;
-			background-color: #3d5036;
+			background-color: #8b085f;
 			background-image: url('images/bg01.png');
 			padding: 0.875em 0.25em;
 			border-radius: 0.2em;
 			text-align: center;
 			box-shadow: inset 0px 0px 0px 1px rgba(255,255,255,0.15), 0 0.025em 0.15em 0em rgba(0,0,0,0.25);
 			text-decoration: none;
-			color: #fff;	}
+			color: #fff;}
 
+	#headerInterno{
+		font-family: 'Open Sans Condensed', sans-serif;
+		font-weight: 700;
+		font-size: 1.8em;
+		letter-spacing: 0.1em;}
+	
+		#headerInterno a{
+			display: block;
+			background-color: #006699;
+			background-image: url('images/bg01.png');
+			padding: 0.875em 0.25em;
+			border-radius: 0.2em;
+			text-align: center;
+			box-shadow: inset 0px 0px 0px 1px rgba(255,255,255,0.15), 0 0.025em 0.15em 0em rgba(0,0,0,0.25);
+			text-decoration: none;
+			color: #fff;}
+
+	#headerExterno{
+		font-family: 'Open Sans Condensed', sans-serif;
+		font-weight: 700;
+		font-size: 1.8em;
+		letter-spacing: 0.1em;}
+	
+		#headerExterno a{
+			display: block;
+			background-color: #336600;
+			background-image: url('images/bg01.png');
+			padding: 0.875em 0.25em;
+			border-radius: 0.2em;
+			text-align: center;
+			box-shadow: inset 0px 0px 0px 1px rgba(255,255,255,0.15), 0 0.025em 0.15em 0em rgba(0,0,0,0.25);
+			text-decoration: none;
+			color: #fff;}
 
 /*********************************************************************************/
 /* CONTENIDO                                                                     */
@@ -105,7 +138,7 @@
 		top: 0;
 		padding: 3em 1.35em 1em 1.15em;
 		width: 14em;
-		background: #3d5036 url('images/bg01.png');
+		background: #8b085f url('images/bg01.png');
 		box-shadow: inset -0.1em 0em 0.35em 0em rgba(0,0,0,0.15);}
 	
 	#sidebarInterno{
@@ -113,7 +146,7 @@
 		top: 0;
 		padding: 3em 1.35em 1em 1.15em;
 		width: 14em;
-		background: #c94663 url('images/bg01.png');
+		background: #006699 url('images/bg01.png');
 		box-shadow: inset -0.1em 0em 0.35em 0em rgba(0,0,0,0.15);}
 		
 	#sidebarExterno{
@@ -121,7 +154,7 @@
 		top: 0;
 		padding: 3em 1.35em 1em 1.15em;
 		width: 14em;
-		background: #c94663 url('images/bg01.png');
+		background: #336600 url('images/bg01.png');
 		box-shadow: inset -0.1em 0em 0.35em 0em rgba(0,0,0,0.15);}
 
 		body.left-sidebar #sidebarJefe{left: 0;}
