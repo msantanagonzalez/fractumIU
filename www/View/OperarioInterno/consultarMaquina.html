@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 <html>
-
 	<head>
 		<title>·Fractum!</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -18,62 +17,54 @@
 			<link rel="stylesheet" href="../../Recursos/css/style-wide.css" />
 		</noscript>
 	</head>
-		
+	
 	<body class="left-sidebar">
 		<div id="wrapper"><!--WRAPPER-->
 			<div id="content"><!--CONTENIDO-->
-			<div class="inner"> 
-				<!--INICIO SECCIÓN-->
-            	<h1 id="headerInterno"><a><i>NUEVA INCIDENCIA</i></a></h1>
-
-            	<form name='FormAltaIncidencia' action='' method='post'>
-					<div style='height:350px;width:auto;overflow-y: scroll;'>
-							<table class='default'>
-							   <tr>
-									<td>Apertura:</td>
-									<td><input type='text' class='text' name='idOperarioInterno' value='$USUARIO' disabled></td>
-									<td>Fecha Apertura:</td>
-									<td><input type='date' name='fechaApertura' value='$fechaSistema' disabled></td>
-								</tr>
-								
-								<tr>
-										<td>Maquina:</td>
-									<td colspan='3'>
-										<select name='idMaquina'>
-										  <option value='NULL' selected>-</option>
-										  <option value='Maquina1'>Maquina1</option>
-										  <option value='Maquina2'>Maquina2</option>
-										  <option value='Maquina3'>Maquina3</option>
-										</select> 		
-									 </td>
-								</tr>
-										
-								<tr>
-									<td colspan='5'>Descripcion:</td>
-								</tr>
-								<tr>
-									<td colspan='5'><textarea style="resize:none" class="text" rows="5" name='descripcionApertura' required></textarea></td>
-								</tr>
-										
-							</table>
-					</div>
-					
-                <table>
-							<tr> 
-								<th width="20%">
-								</th>
-								<th width="40%">
-								<input type='submit' name='accion' value='alta'>
-								</th>
-								<th width="20%">
-								</th>
-							</tr>
-                </table>
+				<div class='inner'>
+				<h1 id='headerInterno'><a>- MAQUINA: $nombreMaquina -</a></h1> <!--SECCIÓN-->
+				<!--INICIO TABLA-->
+				<br>
+				<form name='consultarMaquina' id='consultarMaquina' onsubmit='' action='' method='post'>
+				<div style='height:350px;width:auto;overflow-y: scroll;'>
+					<table class='default'>
+					<tr>
+						<td>ID Maquina:</td>
+						<td><input type='text' disabled value='$idMaquina' / name='idMaquina'></td>
+						<td>Numero de serie:</td>
+						<td><input type='text' disabled value='$numSerie' / name='numSerie'></td>
+					</tr>
+					<tr>
+						<td colspan='4'>Descripcion:</td>
+					</tr>
+					<tr>	
+                        <td colspan='4'>
+							<textarea style="resize:none" rows="4" name='descripcionApertura' disabled>
+							BREVE DESCRIPCION DE LA MAQUINA
+							</textarea>
+						</td>
+                    </tr>
+					<tr>
+						<td>Documentacion:</td>
+                        <td><img src="../../Recursos/images/PDF.png"></td>
+					</tr>
+                	</table>
+                 	</div>
+					<br>
+                    <table>
+						<tr> 
+						<td width='25%'></td>
+						<td width='50%'><a href='altaIncidencia.html'><input type='button' value='Alta Incidencia'></a></td>
+						<td width='25%'></td>
+						</tr>
+                    </table>
 				</form>
-				<!--FIN SECCIÓN-->
-			</div> <!--FIN INNER-->
-		</div> <!--FIN CONTENIDO-->
-		</div> <!--FIN WRAPPER-->
+				  <!-- FIN TABLA -->
+				</div>
+			</div>
+		</div>
+
+
 		
 		
 		
@@ -103,12 +94,5 @@
 				</nav>
 		</div>
 		<!-- FIN BARRA LATERAL -->
-
-
-		
-
 	</body>
 </html>
-
-
-
