@@ -100,6 +100,7 @@
 	/* BOTONES */
 
 		input[type="button"],
+		input[type="file"],
 		input[type="submit"],
 		input[type="reset"],
 		.button{
@@ -129,26 +130,31 @@
 			.button.disabled{opacity: 0;	}
 			
 			input[type="button"]:hover,
+			input[type="file"]:hover,
 			input[type="submit"]:hover,
 			input[type="reset"]:hover,
 			.button:hover{background-color: #996600;	}
 			
 			input[type="button"]:active,
+			input[type="file"]:active,
 			input[type="submit"]:active,
 			input[type="reset"]:active,
 			.button:active{background-color: #df990e;}
 		
 			input[type="button"].alt,
+			input[type="file"].alt,
 			input[type="submit"].alt,
 			input[type="reset"].alt,
 			.button.alt{	background-color: #364050;}
 
 				input[type="button"].alt:hover,
+				input[type="file"].alt:hover,
 				input[type="submit"].alt:hover,
 				input[type="reset"].alt:hover,
 				.button.alt:hover{background-color: #465060;	}
 				
 				input[type="button"].alt:active,
+				input[type="file"].alt:active,
 				input[type="submit"].alt:active,
 				input[type="reset"].alt:active,
 				.button.alt:active{background-color: #263040;}
