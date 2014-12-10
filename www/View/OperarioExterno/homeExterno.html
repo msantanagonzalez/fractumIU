@@ -18,43 +18,7 @@
 			<link rel="stylesheet" href="../../Recursos/css/style-wide.css" />
 		</noscript>
 	</head>
-	<!-- Cosas que pasaran a vistas -->
-		<script>
-			//monstramos el div que pasamos por parametro
-			function ShowOverlay(divID, xCoordinate, yCoordinate) { 
-			    var divObject = document.getElementById(divID); 
-			    divObject.style.visibility = "visible"; 
-			    divObject.style.left = xCoordinate; 
-			    divObject.style.top = yCoordinate; 
-			}
-
-			//Oculta el div que pasamos por parámetro.
-			function HideOverlay(divID) { 
-			        var divObject = document.getElementById(divID); 
-			        divObject.style.visibility = "hidden";
-			}
-
-			var divObjectAnt=0;         
-			function intercambioDiv(divID,xCoordinate,yCoordinate) {
-			    var divObject = document.getElementById(divID);
-			    if(divObjectAnt==0) {
-			        divObject.style.visibility = "visible"; 
-			        divObject.style.left = xCoordinate; 
-			        divObject.style.top = yCoordinate;
-			        divObjectAnt=document.getElementById(divID);
-			    } else {
-			         if(divObject!=divObjectAnt) {
-			            divObjectAnt.style.visibility = "hidden";
-			            divObject.style.visibility = "visible"; 
-			            divObject.style.left = xCoordinate; 
-			            divObject.style.top = yCoordinate;
-			            divObjectAnt=document.getElementById(divID);
-			        }
-			    }   
-			} 
-		</script>
-
-		<!-- Fin Cosas que pasaran a vistas -->
+	
 	<body class="left-sidebar">
 		<div id="wrapper"><!--WRAPPER-->
 			<div id="content"><!--CONTENIDO-->
@@ -113,16 +77,7 @@
                      	</tr>
                    		</table>
                 	</div>
-                    
 				</div>
-			
-
-
-<!-- Cosas que pasaran a vistas -->
-				
-<!-- Fin Cosas que pasaran a vistas -->
-
-
 			</div>
 		</div>
 		

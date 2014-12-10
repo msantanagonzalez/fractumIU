@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<title>·Fractum!</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<script src="../../Recursos/js/jquery.min.js"></script>
+		<script src="../../Recursos/js/skel.min.js"></script>
+		<script src="../../Recursos/js/skel-layers.min.js"></script>
+		<script src="../../Recursos/js/initExterno.js"></script>
+		<script src="../../Recursos/js/Validaciones.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="../../Recursos/css/skel.css" />
+			<link rel="stylesheet" href="../../Recursos/css/style.css" />
+			<link rel="stylesheet" href="../../Recursos/css/style-desktop.css" />
+			<link rel="stylesheet" href="../../Recursos/css/style-wide.css" />
+		</noscript>
+	</head>
+	
+	<body class="left-sidebar">
+		<div id="wrapper"><!--WRAPPER-->
+			<div id="content"><!--CONTENIDO-->
+				<div class='inner'>
+				<h1 id='headerExterno'><a>- DETALLES $IDincidencia -</a></h1> <!--SECCIÓN-->
+				<!--INICIO TABLA-->
+				<br>
+				<form name='' id='FormDetalle_Tarea' onsubmit='return Confirmar_EliminacionTarea()' action='' method='post'>
+				<div style='height:350px;width:auto;overflow-y: scroll;'>
+					<table class='default'>
+                   	<tr>
+						<td>Operario Alta:</td>
+						<td><input type='text' disabled class='text' value='' / name='Nombre_Tarea'></td>
+						<td>Operario Cierre:</td>
+						<td><input type='text' disabled class='text' value='' / name='Prioridad_Tarea' id='Prioridad_Tarea'></td>
+					</tr>
+					
+					<tr>
+						<td>#ID Incidencia:</td>
+						<td><input type='text' disabled class='text' value=''/ name='Estado_Tarea' id='Estado_Tarea'></td>
+						<td>Nombre Maquina:</td>
+						<td><input type='text' disabled class='text' value=''/ name='Etiqueta_Tarea'></td>	
+					</tr>
+					<tr>
+                        <td>Fecha Alta:</td>
+                        <td><input type='date' disabled/ value=''></td>
+                        <td>Fecha Cierre:</td>
+                        <td><input type='date' disabled/ value=''></td>
+                    </tr>
+					<tr>
+                        <td>Coste total:</td>
+                        <td><input type='date' disabled value=''></td>
+                        <td>Estado:</td>
+                        <td><input type='date' disabled/ value=''></td>
+                    </tr>
+					</tr>
+						<td>Descripcion:</td>
+                        <td colspan='3'><input type='text' disabled class='text' value=''/ name='Descripcion_Tarea'></td>
+                    </tr>
+                	</table>
+                 	</div>
+                    <table>
+						<tr> 
+						<td width='25%'><a href="trabajarIncidencia.html"><input type='button' value='TRABAJAR EN INCIDENCIA'></a> </td>
+						<td width='25%'><input type='button' value='VER TRABAJOS EN INCIDENCIA'> </td>
+						<td width='25%'><input type='button' value='FINALIZAR INCIDENCIA'> </td>
+						</tr>
+                    </table>
+					</form>
+				  <!-- FIN TABLA -->
+				</div>
+			</div>
+		</div>
+
+
+		
+		
+        <div id="sidebarExterno"> <!--BARRA LATERAL-->
+			<h1 id='logo'><a href='#'>·Fractum!</a></h1> 	
+                <nav id='nav'> 
+              		<ul>
+                		<div align='center'>
+                       		<li class='current'>
+                            	<a href='#'>
+                            		<img src='../../Recursos/images/DefaultAvatar.png'><em><strong><br>".$operarioExterno."</strong></em><strong></strong></img>
+                            	</a>
+                         	</li>
+							<li class='current'><strong><a href='#'>Listar Incidencias</a></strong></li>
+							<li class='current'><a href='#'>Listar maquinas</a></li>
+                            <li class='current'><a href='#'>Contacto jefe</a></li>
+							<li class='current'><a href='#' id='Logout_Usuario' onclick ='return Salir_Usuario()'>   > Log Out</a></li>
+                            <form method='POST' action='#' style='text-align:center'>
+                        	<section class='box search'>
+								<input type='text' name='busqueda' placeholder='Buscar...'/>
+                      		</section>
+								<div hidden><input type='submit' name='buscar'/></div>
+                            </form>
+                      	</div>
+					</ul>
+				</nav>
+		</div>
+		<!-- FIN BARRA LATERAL -->
+
+
+		
+
+	</body>
+</html>
+
+
+
