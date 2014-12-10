@@ -23,51 +23,51 @@
 		<div id="wrapper"><!--WRAPPER-->
 			<div id="content"><!--CONTENIDO-->
 				<div class='inner'>
-				<h1 id='headerExterno'><a>- DETALLES $IDincidencia -</a></h1> <!--SECCIÓN-->
+				<h1 id='headerExterno'><a>- DETALLES DE TRABAJOS EN $IDincidencia -</a></h1> <!--SECCIÓN-->
 				<!--INICIO TABLA-->
-				<br>
-				<form name='' id='FormDetalle_Tarea' onsubmit='return Confirmar_EliminacionTarea()' action='' method='post'>
-				<div style='height:350px;width:auto;overflow-y: scroll;'>
-					<table class='default'>
-                   	<tr>
-						<td>Operario Alta:</td>
-						<td><input type='text' disabled class='text' value='' / name='Nombre_Tarea'></td>
-						<td>Operario Cierre:</td>
-						<td><input type='text' disabled class='text' value='' / name='Prioridad_Tarea' id='Prioridad_Tarea'></td>
-					</tr>
-					
-					<tr>
-						<td>#ID Incidencia:</td>
-						<td><input type='text' disabled class='text' value=''/ name='Estado_Tarea' id='Estado_Tarea'></td>
-						<td>Nombre Maquina:</td>
-						<td><input type='text' disabled class='text' value=''/ name='Etiqueta_Tarea'></td>	
-					</tr>
-					<tr>
-                        <td>Fecha Alta:</td>
-                        <td><input type='date' disabled/ value=''></td>
-                        <td>Fecha Cierre:</td>
-                        <td><input type='date' disabled/ value=''></td>
-                    </tr>
-					<tr>
-                        <td>Coste total:</td>
-                        <td><input type='date' disabled value=''></td>
-                        <td>Estado:</td>
-                        <td><input type='date' disabled/ value=''></td>
-                    </tr>
-					</tr>
-						<td>Descripcion:</td>
-                        <td colspan='3'><input type='text' disabled class='text' value=''/ name='Descripcion_Tarea'></td>
-                    </tr>
-                	</table>
-                 	</div>
-                    <table>
+				<table class="default"><!--TABLA-->
+                    <tr>
+	                    <th width="5%" >Nº</th>
+	                    <th width="15%">Fecha Inicio </th>
+	                    <th width="15%">Fecha Fin </th>
+						<th width="15%">Hora Inicio </th>
+						<th width="15%">Hora Fin </th>
+						<th width="15%">Coste </th>
+						<th width="15%">Descripcion </th>
+						<th width="5%" > </th>
+                  	</tr>
+                </table>
+                  	<div style="height:350px;width:auto;overflow-y: scroll;"><!--ESTO DA LUGAR AL SCROLL-->
+                   		<table class="default"><!--TABLA-->
+						<tr onclick="location.href='consultarTrabajoIncidencia.html'">
+                        	<td width="5%">1</td>
+                            <td width="15%">11/02/2013 </td>
+		                    <td width="15%">12/02/2013 </td>
+							<td width="15%">06:00 </td>
+							<td width="15%">11:10 </td>
+							<td width="15%">2000 </td>
+							<td width="15%">Recambio rotor maqu... </td>
+							<td width="5%" ><img src="../../Recursos/images/PDF.png"> </td>
+                     	</tr>
+                     	<tr onclick="location.href='consultarTrabajoIncidencia.html'">
+                        	<td width="5%">2</td>
+                            <td width="15%">08/04/2014 </td>
+		                    <td width="15%">12/04/2014 </td>
+							<td width="15%">13:00 </td>
+							<td width="15%">17:10 </td>
+							<td width="15%">1000 </td>
+							<td width="15%">Reparacion entrada d... </td>
+							<td width="5%" > </td>
+                     	</tr>
+                   		</table>
+                   	</div>
+                   	<table>
 						<tr> 
-						<td width='25%'><a href="trabajarIncidencia.html"><input type='button' value='TRABAJAR EN INCIDENCIA'></a> </td>
-						<td width='25%'><a href="trabajosIncidencia.html"><input type='button' value='VER TRABAJOS EN INCIDENCIA'></a> </td>
-						<td width='25%'><input type='button' value='FINALIZAR INCIDENCIA'> </td>
+						<td width='25%'> </td>
+						<td width='25%'> </td>
+						<td width='25%'><a href="consultarIncidencia.html"><input type='button' value='ATRAS'></a></td>
 						</tr>
                     </table>
-					</form>
 				  <!-- FIN TABLA -->
 				</div>
 			</div>
