@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<title>·Fractum!</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<script src="../../Recursos/js/jquery.min.js"></script>
+		<script src="../../Recursos/js/skel.min.js"></script>
+		<script src="../../Recursos/js/skel-layers.min.js"></script>
+		<script src="../../Recursos/js/initInterno.js"></script>
+		<script src="../../Recursos/js/Validaciones.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="../../Recursos/css/skel.css" />
+			<link rel="stylesheet" href="../../Recursos/css/style.css" />
+			<link rel="stylesheet" href="../../Recursos/css/style-desktop.css" />
+			<link rel="stylesheet" href="../../Recursos/css/style-wide.css" />
+		</noscript>
+	</head>
+	
+	<body class="left-sidebar">
+		<div id="wrapper"><!--WRAPPER-->
+			<div id="content"><!--CONTENIDO-->
+				<div class='inner'>
+				<h1 id='headerInterno'><a>- DETALLES $IDincidencia -</a></h1> <!--SECCIÓN-->
+				<!--INICIO TABLA-->
+				<br>
+				<form name='' id='FormDetalle_Tarea' onsubmit='return Confirmar_EliminacionTarea()' action='' method='post'>
+				<div style='height:350px;width:auto;overflow-y: scroll;'>
+					<table class='default'>
+                   	<tr>
+						<td>Operario Alta:</td>
+						<td><input type='text' disabled class='text' value='$nombreOperario' / name='operarioAlta'></td>
+						<td>Operario Cierre:</td>
+						<td><input type='text' disabled class='text' value='$nombreOperario' / name='operarioCierre'></td>
+					</tr>
+					
+					<tr>
+						<td>#ID Incidencia:</td>
+						<td><input type='text' disabled class='text' value='ID00X'/ name='idIncidencia'></td>
+						<td>Nombre Maquina:</td>
+						<td><input type='text' disabled class='text' value='MA00X'/ name='nombreMaquina'></td>	
+					</tr>
+					<tr>
+                        <td>Fecha Alta:</td>
+                        <td><input type='date' disabled/ value=''></td>
+                        <td>Fecha Cierre:</td>
+                        <td><input type='date' disabled/ value=''></td>
+                    </tr>
+					<tr>
+                        <td>Coste total:</td>
+                        <td><input type='text' disabled value='0.00'></td>
+                        <td>Estado:</td>
+                        <td><input type='text' disabled value='ABIERTA/CERRADA/DERIVADA/PENDIENTE DE CIERRE'></td>
+                    </tr>
+					<tr>
+						<td colspan='5'>Descripcion:</td>
+					</tr>
+					<tr>	
+                        <td colspan='5'>
+							<textarea style="resize:none" class="text" rows="5" name='descripcionApertura' disabled>
+							BREVE DESCRIPCION DE APERTURA
+							</textarea>
+						</td>
+                    </tr>
+                	</table>
+					<br>
+					<!-- ITERACIONES -->
+					<h1 id="headerInterno"><a>- ITERACIONES -</a></h1> <!--SECCIÓN-->
+                	<table class="default"><!--TABLA-->
+                       	<tr>
+							<th width="20%">ID</th>
+                        	<th width="20%">FechaInicio</th>
+                            <th width="20%">Operario</th>
+                            <th width="20%">Coste</th>
+							<th width="20%"> </th>
+                     	</tr>
+                    </table>
+                   		<table class="default"><!--TABLA-->
+						<tr>
+							<td width="20%">IT001</td>
+                        	<td width="20%">15/04/2014</td>
+                            <td width="20%">$operario</td>
+                            <td width="20%">12.00</td>
+							<td width="10%"><a href="consultarTrabajo.html">Consultar</a></td>
+							<td width="10%"></td>
+                     	</tr>
+                     	<tr>
+							<td width="20%">IT002</td>
+                        	<td width="20%">18/04/2014</td>
+                            <td width="20%">$operario</td>
+                            <td width="20%">0.00</td>
+							<td width="20%"></td>
+                     	</tr>
+						<tr>
+							<td width="20%">IT003</td>
+                        	<td width="20%">20/04/2014</td>
+                            <td width="20%">$operario</td>
+                            <td width="20%">0.00</td>
+							<td width="20%"></td>
+                     	</tr>
+                   		</table>
+					<!-- FIN ITERACIONES -->
+                 	</div>
+					<br>
+                    <table>
+						<tr> 
+						<td><a href="trabajarIncidencia.html"><input type='button' value='Trabajar en incidencia'></a> </td>
+						<td><input type='button' value='Cerrar incidencia'> </td>
+						</tr>
+                    </table>
+					</form>
+				  <!-- FIN TABLA -->
+				</div>
+			</div>
+		</div>
+
+
+		
+		
+        <div id="sidebarInterno"> <!--BARRA LATERAL-->
+			<h1 id='logo'><a href='homeInterno.html'>·Fractum!</a></h1> 	
+                <nav id='nav'> 
+              		<ul>
+                		<div align='center'>
+                       		<li class='current'>
+                            	<a href='homeInterno.html'>
+                            		<img src='../../Recursos/images/DefaultAvatar.png'><em><strong><br>".$operarioInterno."</strong></em><strong></strong></img>
+                            	</a>
+                         	</li>
+							<li class='current'><strong><a href='listarIncidencias.html'>Listar Incidencias</a></strong></li>
+							<li class='current'><a href='altaIncidencia.html'>Alta incidencia</a></li>
+							<li class='current'><a href='listarMaquinas.html'>Listar maquinas</a></li>
+                            <li class='current'><a href='#'>Contacto jefe</a></li>
+							<li class='current'><a href='#' id='Logout_Usuario' onclick ='return Salir_Usuario()'> > Log Out</a></li>
+                            <form method='POST' action='#' style='text-align:center'>
+                        	<section class='box search'>
+								<input type='text' name='busqueda' placeholder='Buscar...'/>
+                      		</section>
+								<div hidden><input type='submit' name='buscar'/></div>
+                            </form>
+                      	</div>
+					</ul>
+				</nav>
+		</div>
+		<!-- FIN BARRA LATERAL -->
+
+
+		
+
+	</body>
+</html>
+
+
+
