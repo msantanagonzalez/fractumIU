@@ -20,7 +20,7 @@
 	</head>
 	<!-- Cosas que pasaran a vistas -->
 		<script>
-		//monstramos el div que pasamos por parametro
+			//monstramos el div que pasamos por parametro
 			function ShowOverlay(divID, xCoordinate, yCoordinate) { 
 			    var divObject = document.getElementById(divID); 
 			    divObject.style.visibility = "visible"; 
@@ -32,6 +32,25 @@
 			function HideOverlay(divID) { 
 			        var divObject = document.getElementById(divID); 
 			        divObject.style.visibility = "hidden";
+			}
+
+			var divObjectAnt=0;         
+			function intercambioDiv(divID,xCoordinate,yCoordinate) {
+			    var divObject = document.getElementById(divID);
+			    if(divObjectAnt==0) {
+			        divObject.style.visibility = "visible"; 
+			        divObject.style.left = xCoordinate; 
+			        divObject.style.top = yCoordinate;
+			        divObjectAnt=document.getElementById(divID);
+			    } else {
+			         if(divObject!=divObjectAnt) {
+			            divObjectAnt.style.visibility = "hidden";
+			            divObject.style.visibility = "visible"; 
+			            divObject.style.left = xCoordinate; 
+			            divObject.style.top = yCoordinate;
+			            divObjectAnt=document.getElementById(divID);
+			        }
+			    }   
 			} 
 		</script>
 
@@ -40,7 +59,7 @@
 		<div id="wrapper"><!--WRAPPER-->
 			<div id="content"><!--CONTENIDO-->
 				<div class="inner">
-               	  <h1 id="header"><a>- INCIDENCIAS -</a></h1> <!--SECCIÓN-->
+               	  <h1 id="headerExterno"><a>- INCIDENCIAS -</a></h1> <!--SECCIÓN-->
                 	<table class="default"><!--TABLA-->
                        	<tr>
                        		<th width="20%">ID</th>
@@ -69,7 +88,7 @@
                    		</table>
                 	</div> <br>
                     
-                    <h1 id="header"><a>- MAQUINAS -</a></h1> <!--SECCIÓN-->
+                    <h1 id="headerExterno"><a>- MAQUINAS -</a></h1> <!--SECCIÓN-->
                 	<table class="default"><!--TABLA-->
                        	<tr>
                         	<th width="25%">Nombre</th>
