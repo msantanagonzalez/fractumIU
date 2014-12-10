@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>·Fractum!</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<script src="../../Recursos/js/jquery.min.js"></script>
+	<script src="../../Recursos/js/skel.min.js"></script>
+	<script src="../../Recursos/js/skel-layers.min.js"></script>
+	<script src="../../Recursos/js/initExterno.js"></script>
+	<script src="../../Recursos/js/Validaciones.js"></script>
+	<noscript>
+		<link rel="stylesheet" href="../../Recursos/css/skel.css" />
+		<link rel="stylesheet" href="../../Recursos/css/style.css" />
+		<link rel="stylesheet" href="../../Recursos/css/style-desktop.css" />
+		<link rel="stylesheet" href="../../Recursos/css/style-wide.css" />
+	</noscript>
+</head>
+<body class="left-sidebar">
+	<div id="wrapper"><!--WRAPPER-->
+		<div id="content"><!--CONTENIDO-->
+			<div class="inner"> 
+				<!--IINICIO SECCIÓN-->
+            	<h1 id="headerExterno"><a><i>INCIDENCIAS</i></a></h1>
+
+            	<table class="default">
+                    <tr>
+                    	<th width="20%">ID</th>
+                    	<th width="20%">Maquina</th>
+                       	<th width="20%">Apertura</th>
+                        <th width="20%">Estado</th>
+                        <th width="10%">Ult.Iteracion</th>
+                        <th width="10%"></th>
+						
+                    </tr>
+                </table>
+        		<div style='height:350px;width:auto;overflow-y: scroll;'>
+        		<form method="POST" action="">
+						<table class="default">
+							<tr> 
+								<td width="20%">ID001</td> 
+								<td width="20%"><a href="consultarMaquina.html">Maquina1</a></td> 
+								<td width="20%">Usuario1</td> 
+								<td width="20%">Abierta</td>
+								<td width="15%"><a href="consultarTrabajoIncidencia.html">IT001</a></td>
+								<td width="5%"><a href="consultarIncidencia.html">Consultar</a></td>
+							</tr>
+							<tr> 
+								<td width="20%">ID003</td> 
+								<td width="20%"><a href="consultarMaquina.html">Maquina3</a></td>
+								<td width="20%">Usuario1</td> 
+								<td width="20%">Abierta</td>
+								<td width="15%"><a href="consultarTrabajoIncidencia.html">IT003</a></td>
+								<td width="5%"><a href="consultarIncidencia.html">Consultar</a></td>
+							</tr>
+							<tr> 
+								<td width="20%">ID004</td> 
+								<td width="20%"><a href="consultarMaquina.html">Maquina2</a></td> 
+								<td width="20%">Usuario1</td> 
+								<td width="20%">Abierta</td>
+								<td width="15%"><a href="consultarTrabajoIncidencia.html">IT003</a></td>
+								<td width="5%"><a href="consultarIncidencia.html">Consultar</a></td>
+							</tr>
+			 			</table>
+				</form>
+				</div>
+				<!--FIN SECCIÓN-->
+			</div>
+		</div>
+	
+		<div id="sidebarExterno"> <!--BARRA LATERAL-->
+			<h1 id='logo'><a href='homeExterno.html'>·Fractum!</a></h1> 	
+                <nav id='nav'> 
+              		<ul>
+                		<div align='center'>
+                       		<li class='current'>
+                            	<a href='perfilOperarioExterno.html'>
+                            		<img src='../../Recursos/images/DefaultAvatar.png'><em><strong><br>".$operarioExterno."</strong></em><strong></strong></img>
+                            	</a>
+                         	</li>
+							<li class='current'><strong><a href='listarIncidencias.html'>Listar Incidencias</a></strong></li>
+							<li class='current'><a href='listarMaquinas.html'>Listar maquinas</a></li>
+                            <li class='current'><a href='#'>Contacto jefe</a></li>
+							<li class='current'><a href='#' id='Logout_Usuario' onclick ='return Salir_Usuario()'>   > Log Out</a></li>
+                            <form method='POST' action='#' style='text-align:center'>
+                        	<section class='box search'>
+								<input type='text' name='busqueda' placeholder='Buscar...'/>
+                      		</section>
+								<div hidden><input type='submit' name='buscar'/></div>
+                            </form>
+                      	</div>
+					</ul>
+				</nav>
+		</div>
+		<!-- FIN BARRA LATERAL -->
+</body>
+</html>

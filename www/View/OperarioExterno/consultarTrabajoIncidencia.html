@@ -29,42 +29,45 @@
 				<form name='' id='' onsubmit='' action='' method='post'>
 				<div style='height:350px;width:auto;overflow-y: scroll;'>
 					<table class='default'>
+					<tr>
+						<td>Numero Trabajo:</td>
+                        <td><input type='text' disabled name="numeroTrabajo" value=''></td>
+                        <td>Coste:</td>
+                        <td><input type='text' disabled name="coste" value=''></td>
+                    </tr>
                    	<tr>
-						<td>Operario Alta:</td>
-						<td><input type='text' disabled class='text' value='' / name='Nombre_Tarea'></td>
-						<td>Operario Cierre:</td>
-						<td><input type='text' disabled class='text' value='' / name='Prioridad_Tarea' id='Prioridad_Tarea'></td>
-					</tr>
-					
-					<tr>
-						<td>#ID Incidencia:</td>
-						<td><input type='text' disabled class='text' value=''/ name='Estado_Tarea' id='Estado_Tarea'></td>
-						<td>Nombre Maquina:</td>
-						<td><input type='text' disabled class='text' value=''/ name='Etiqueta_Tarea'></td>	
-					</tr>
-					<tr>
-                        <td>Fecha Alta:</td>
+                        <td>Fecha Inicio:</td>
                         <td><input type='date' disabled/ value=''></td>
-                        <td>Fecha Cierre:</td>
+                        <td>Fecha Fin:</td>
                         <td><input type='date' disabled/ value=''></td>
                     </tr>
-					<tr>
-                        <td>Coste total:</td>
-                        <td><input type='date' disabled value=''></td>
-                        <td>Estado:</td>
+                    <tr>
+                        <td>Hora Inicio:</td>
+                        <td><input type='date' disabled/ value=''></td>
+                        <td>Hora Fin:</td>
                         <td><input type='date' disabled/ value=''></td>
                     </tr>
+                    </tr>
+						<td>Documentacion:</td>
+                        <td colspan='3'><input type='text' disabled class='text' name="documentacion" value='#001-"Nombre archivo"'/ name='Descripcion_Tarea'></td>
+                    </tr>
+                    <tr>
+						<td colspan='5'>Descripcion:</td>
 					</tr>
-						<td>Descripcion:</td>
-                        <td colspan='3'><input type='text' disabled class='text' value=''/ name='Descripcion_Tarea'></td>
+					</tr>
+						<td colspan='5'>
+							<textarea style="resize:none" class="text" rows="5" name='descripcionHistoricoIncidencia' disabled>
+							BREVE DESCRIPCION DEL TRABAJO
+							</textarea>
+						</td>
                     </tr>
                 	</table>
                  	</div>
                     <table>
 						<tr> 
-						<td width='25%'><a href="trabajarIncidencia.html"><input type='button' value='TRABAJAR EN INCIDENCIA'></a> </td>
-						<td width='25%'><a href="trabajosIncidencia.html"><input type='button' value='VER TRABAJOS EN INCIDENCIA'></a> </td>
-						<td width='25%'><input type='button' value='FINALIZAR INCIDENCIA'> </td>
+						<td width='25%'> </td>
+						<td width='25%'> </td>
+						<td width='25%'><a href="consultarIncidencia.html"><input type='button' value='ATRAS'></a></td>
 						</tr>
                     </table>
 					</form>
@@ -77,17 +80,17 @@
 		
 		
         <div id="sidebarExterno"> <!--BARRA LATERAL-->
-			<h1 id='logo'><a href='#'>·Fractum!</a></h1> 	
+			<h1 id='logo'><a href='homeExterno.html'>·Fractum!</a></h1> 	
                 <nav id='nav'> 
               		<ul>
                 		<div align='center'>
                        		<li class='current'>
-                            	<a href='#'>
+                            	<a href='perfilOperarioExterno.html'>
                             		<img src='../../Recursos/images/DefaultAvatar.png'><em><strong><br>".$operarioExterno."</strong></em><strong></strong></img>
                             	</a>
                          	</li>
-							<li class='current'><strong><a href='#'>Listar Incidencias</a></strong></li>
-							<li class='current'><a href='#'>Listar maquinas</a></li>
+							<li class='current'><strong><a href='listarIncidencias.html'>Listar Incidencias</a></strong></li>
+							<li class='current'><a href='listarMaquinas.html'>Listar maquinas</a></li>
                             <li class='current'><a href='#'>Contacto jefe</a></li>
 							<li class='current'><a href='#' id='Logout_Usuario' onclick ='return Salir_Usuario()'>   > Log Out</a></li>
                             <form method='POST' action='#' style='text-align:center'>

@@ -1,7 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-
-	<head>
+<head>
 		<title>·Fractum!</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
@@ -18,59 +17,39 @@
 			<link rel="stylesheet" href="../../Recursos/css/style-wide.css" />
 		</noscript>
 	</head>
-	
-	<body class="left-sidebar">
-		<div id="wrapper"><!--WRAPPER-->
-			<div id="content"><!--CONTENIDO-->
-				<div class='inner'>
-				<h1 id='headerExterno'><a>- TRABAJANDO $IDincidencia -</a></h1> <!--SECCIÓN-->
-				<!--INICIO TABLA-->
-				<br>
-				<form name='' id='' onsubmit='' action='' method='post'>
-				<div style='height:350px;width:auto;overflow-y: scroll;'>
-					<table class='default'>
-                   	<tr>
-						<td>Fecha Inicio:</td>
-						<td><input type='date' disabled class='text' value='' / name='fechaInicio'></td>
-						<td>Fecha Fin:</td>
-						<td><input type='date' disabled class='text' value='' / name='fechaFin' id=''></td>
-					</tr>
-					<tr>
-						<td>Hora Inicio:</td>
-						<td><input type='text' disabled class='text' value=''/ name='horaInicio' id=''></td>
-						<td>Hora Fin:</td>
-						<td><input type='text' disabled class='text' value=''/ name='horaFin'></td>	
-					</tr>
-					<tr>
-                        <td>Coste Trabajo:</td>
-                        <td><input type='text' disabled name="costeTrabajo" value=''></td>
-                        <td>Cargar Documentacion:</td>
-                        <td><input type="file" disabled value=""> </td>
-                    </tr>
-					</tr>
-						<td>Descripcion:</td>
-                        <td colspan='3'><input type='text' disabled class='text' value=''/ name='descripcionIncidencia'></td>
-                    </tr>
-                	</table>
-                 	</div>
-                    <table>
+<body class="left-sidebar">
+	<div id="wrapper"><!--WRAPPER-->
+		<div id="content"><!--CONTENIDO-->
+			<div class="inner">
+				<!--IINICIO SECCIÓN-->
+            	<h1 id="headerExterno"><a><i>M&Aacute;QUINA $#IDm&aacute;quina</i></a></h1>
+
+        		<form method="POST" action="" enctype="multipart/form-data">
+
+					<table class="default">
 						<tr> 
-						<td width='25%'><input type='button' value='GUARDAR TRABAJO'> </td>
-						<td width='25%'><input type='button' value='CERRAR TRABAJO'> </td>
-						<td width='25%'><a href="consultarIncidencia.html"><input type='button' value='ATRAS'></a></td>
+							<td width="25%">#ID M&aacute;quina: </td> 
+							<td width="25%"><input type="text" class="text" disabled name="mID" value=""/></td> 
+							<td width="25%">#N&uacute;m. serie: </td> 
+							<td width="25%"> <input type="text" class="text" disabled name="mNumSerie" value=""/></td>
 						</tr>
-                    </table>
-					</form>
-				  <!-- FIN TABLA -->
-				</div>
+						<tr> 
+							<td width="25%">Nombre: </td> 
+							<td width="25%"><input type="text" class="text" disabled name="mNombre" value=""/></td> 
+							<td width="25%">Descripci&oacute;n</td> 
+							<td width="25%"> <input type="text" class="text" disabled name="mDesc" value="" /></td>
+						</tr>
+						<tr>
+							<td colspan="2"><input type="submit" name="m" value="Modificar"></td>
+							<td colspan="2"><input type="file" name="m" value="Subir"></td>
+						</tr> 
+		 			</table>
+				</form>
+				<!--FIN SECCIÓN-->
 			</div>
 		</div>
-
-
-		
-		
-		
-        <div id="sidebarExterno"> <!--BARRA LATERAL-->
+	
+		<div id="sidebarExterno"> <!--BARRA LATERAL-->
 			<h1 id='logo'><a href='homeExterno.html'>·Fractum!</a></h1> 	
                 <nav id='nav'> 
               		<ul>
@@ -94,9 +73,7 @@
 					</ul>
 				</nav>
 		</div>
-		<!-- FIN BARRA LATERAL -->
-	</body>
+	</div>
+	<!-- FIN BARRA LATERAL -->
+</body>
 </html>
-
-
-
