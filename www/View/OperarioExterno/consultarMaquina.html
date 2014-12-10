@@ -22,28 +22,33 @@
 		<div id="content"><!--CONTENIDO-->
 			<div class="inner">
 				<!--IINICIO SECCIÓN-->
-            	<h1 id="headerExterno"><a><i>M&Aacute;QUINA $#IDm&aacute;quina</i></a></h1>
+            	<h1 id="headerExterno"><a><i>M&Aacute;QUINA $#nombreM&aacute;quina</i></a></h1>
 
         		<form method="POST" action="" enctype="multipart/form-data">
-
-					<table class="default">
-						<tr> 
-							<td width="25%">#ID M&aacute;quina: </td> 
-							<td width="25%"><input type="text" class="text" disabled name="mID" value=""/></td> 
-							<td width="25%">#N&uacute;m. serie: </td> 
-							<td width="25%"> <input type="text" class="text" disabled name="mNumSerie" value=""/></td>
-						</tr>
-						<tr> 
-							<td width="25%">Nombre: </td> 
-							<td width="25%"><input type="text" class="text" disabled name="mNombre" value=""/></td> 
-							<td width="25%">Descripci&oacute;n</td> 
-							<td width="25%"> <input type="text" class="text" disabled name="mDesc" value="" /></td>
-						</tr>
-						<tr>
-							<td colspan="2"><input type="submit" name="m" value="Modificar"></td>
-							<td colspan="2"><input type="file" name="m" value="Subir"></td>
-						</tr> 
-		 			</table>
+				<div style='height:350px;width:auto;overflow-y: scroll;'>
+					<table class='default'>
+					<tr>
+						<td>ID Maquina:</td>
+						<td><input type='text' disabled value='$idMaquina' / name='idMaquina'></td>
+						<td>Numero de serie:</td>
+						<td><input type='text' disabled value='$numSerie' / name='numSerie'></td>
+					</tr>
+					<tr>
+						<td colspan='4'>Descripcion:</td>
+					</tr>
+					<tr>	
+                        <td colspan='4'>
+							<textarea style="resize:none" rows="4" name='descripcionApertura' disabled>
+							BREVE DESCRIPCION DE LA MAQUINA
+							</textarea>
+						</td>
+                    </tr>
+					<tr>
+						<td>Documentacion:</td>
+                        <td><img src="../../Recursos/images/PDF.png"></td>
+					</tr>
+                	</table>
+                 	</div>
 				</form>
 				<!--FIN SECCIÓN-->
 			</div>
