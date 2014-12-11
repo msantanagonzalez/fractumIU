@@ -10,10 +10,10 @@
 		reset: 'full',
 		breakpoints: {
 			global:		{ range: '*', href: '../../Recursos/css/style.css', containers: '100%', grid: { gutters: 50 }, viewport: { scalable: false } },
-			desktop:	{ range: '641-', href: '../../Recursos/css/style-desktop.css' },
-			wide:		{ range: '1201-', href: '../../Recursos/css/style-wide.css' },
-			narrow:		{ range: '737-1200', href: '../../Recursos/css/style-narrow.css' },
-			narrower:	{ range: '737-1000', href: '../../Recursos/css/style-narrower.css' },
+			desktop:	{ range: '641-', href: '../../Recursos/css/style-desktop.css'},
+			wide:		{ range: '1201-', href: '../../Recursos/css/style-wide.css'},
+			narrow:		{ range: '737-1200', href: '../../Recursos/css/style-narrow.css'},
+			narrower:	{ range: '737-1000', href: '../../Recursos/css/style-narrower.css'},
 			mobile:		{ range: '-736', href: '../../Recursos/css/style-mobile.css', grid: { collapse: true } }
 		},
 		plugins: {
