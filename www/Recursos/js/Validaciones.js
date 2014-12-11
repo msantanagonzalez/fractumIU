@@ -54,7 +54,13 @@ function Salir_Usuario()
 		return false;
 }
 
-
+function Eliminar_Elemento()
+{
+    if(confirm("¿Seguro que quieres eliminar?")) {
+      return true;
+    }   
+    return false;
+}
 
 function Validar_Entero(Numero)
 {
