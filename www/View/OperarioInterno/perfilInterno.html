@@ -18,77 +18,54 @@
 			<link rel="stylesheet" href="../../Recursos/css/style-wide.css" />
 		</noscript>
 	</head>
-	
+
+
 	<body class="left-sidebar">
 		<div id="wrapper"><!--WRAPPER-->
 			<div id="content"><!--CONTENIDO-->
-				<div class='inner'>
-				<h1 id='headerInterno'><a>- DETALLES $IDincidencia -</a></h1> <!--SECCIÓN-->
-				<!--INICIO TABLA-->
-				<br>
-				<form name='consultarTrabajo' id='consultarTrabajo' onsubmit='' action='' method='post'>
-				<div style='height:350px;width:auto;overflow-y: scroll;'>
+				<div class="inner">
+               	  <h1 id="headerInterno"><a>- PERFIL $Op.Interno -</a></h1> <br>  <!--SECCIÓN-->
+                	<!--INICIO TABLA-->
+					<form name='FormPerfil' id='FormPerfil' method='post' onsubmit=''>
+					<div style='height:350px;width:auto;overflow-y: scroll;'>
 					<table class='default'>
-					<tr>
-						<td>Operario Alta:</td>
-						<td><input type='text' disabled value='$idOperario' / name='idOperario'></td>
-						<td>Operario Cierre:</td>
-						<td><input type='text' disabled value='$idOperario' / name='idOperario'></td>
-					</tr>
-					<tr>
-						<td>ID Incidencia:</td>
-						<td><input type='text' disabled value='I001'></td>
-						<td>Nombre Maquina:</td>
-						<td><input type='text' disabled value='$nombreMaquina'></td>
-					</tr>
-					<tr>
-						<td>Fecha Inicio:</td>
-						<td><input type='date' disabled value='15/04/2014' / name='fechaInicioTrabajo'></td>
-						<td>Fecha Fin:</td>
-						<td><input type='date' disabled value='15/04/2014' / name='fechaFinTrabajo'></td>
-					</tr>
-					<tr>
-						<td>Coste Trabajo:</td>
-						<td><input type='text' disabled value='0.00'></td>
-						<td>Estado:</td>
-						<td><input type='text' disabled value='Abierta/Cerrada'></td>
-					</tr>
-					<tr>
-						<td colspan='4'>Descripcion:</td>
-					</tr>
-					<tr>	
-                        <td colspan='4'>
-							<textarea style="resize:none" rows="5" name='descripcionApertura' disabled>
-							BREVE DESCRIPCION DEL TRABAJO REALIZADO
-							</textarea>
-						</td>
-                    </tr>
-					<tr>
-						<td>Documentacion:</td>
-                        <td><img src="../../Recursos/images/PDF.png"></td>
-					</tr>
-                	</table>
-                 	</div>
-					<br>
-                    <table>
-						<tr> 
-						<td width='25%'><a href="consultarIncidencia.html"><input type='button' value='Atras'></a></td>
-						<td width='25%'><input type='submit' value='Modificar[si abierta]'> </td>
-						<td width='25%'><input type='submit' value='Finalizar[si abierta]'> </td>
-						<td width='25%'></td>
-						</tr>
-                    </table>
-				</form>
-				  <!-- FIN TABLA -->
+							<tr>
+                             	<td>Nombre:</td>
+                               	<td><input type='text' disabled class='text' value=''/ name='nombre'></td>
+                               	<td>Apellidos:</td>
+                              	<td><input type='text' disabled class='text' value=''/ name='apellidos'></td>
+                         	</tr>
+							<tr> 
+								<td>#ID USUARIO:</td> 
+								<td><input type='text' disabled class='text' value='' name='idUsuario'></td>
+                               	<td>Password:</td>
+                              	<td><input type='password' disabled class='text' value='abcde' / name='password'></td>
+                          	</tr>
+                           	
+							<tr>
+								<td>Telefono</td>
+								<td><input type='text' disabled class='text' value='6746xxxxx' / name='telefono'></td>
+								<td>Correo:</td>
+                               	<td><input type='text' disabled class='text' value='usuario1@server.com'/ name='correo'></td>
+							</tr>
+                     	</table>
+                    </div>
+                      	<table class='alternative'>
+                          	<tr>
+                             	<td> </td>
+                               	<td colspan='4'><a href=''><input type='button' value='MODIFICAR'></a></td>
+                          	</tr>
+                      	</table>
+					</form>
+                	<!-- FIN TABLA -->
+                    
 				</div>
 			</div>
 		</div>
-
-
 		
 		
 		
-        <div id="sidebarInterno"> <!--BARRA LATERAL-->
+         <div id="sidebarInterno"> <!--BARRA LATERAL-->
 			<h1 id='logo'><a href='homeInterno.html'>·Fractum!</a></h1> 	
                 <nav id='nav'> 
               		<ul>
