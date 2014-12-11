@@ -20,49 +20,42 @@
 <body class="left-sidebar">
 	<div id="wrapper"><!--WRAPPER-->
 		<div id="content"><!--CONTENIDO-->
-			<div class="inner"> 
+			<div class="inner">
 				<!--IINICIO SECCIÓN-->
-            	<h1 id="headerJefe"><a><i>INCIDENCIAS PENDIENTES</i></a></h1>
+            	<h1 id="headerJefe"><a><i>M&Aacute;QUINA $#IDm&aacute;quina</i></a></h1>
 
-            	<table class="default">
-                    <tr>
-                    	<th width="17%">#ID Inc.</th>
-                    	<th width="17%">T&iacute;tulo</th>
-                       	<th width="17%">&Uacute;lt. operario</th>
-                        <th width="17%">&Uacute;lt. iteración</th>
-                        <th width="17%">Estado</th>
-                        <th width="17%">&nbsp;</th>
+        		<form method="POST" action="modificarMaquina.html" enctype="multipart/form-data">
 
-                    </tr>
-                </table>
-        
-        		<form method="POST" action="">
-						<table class="default">
-								<tr> 
-								<td width="17%">#233232</td> 
-								<td width="17%">Avería alternador</td> 
-								<td width="17%"><a href="consultarPerfil.html">Fulanito</a></td> 
-								<td width="17%">12/03/2014</td>
-								<td width="17%">Pendiente de derivar</td>
-								<td width="17%"><button><a href="consultarIncidencia.html">Consultar</a></button></td>
-							</tr>
-							<tr> 
-								<td width="17%">#20642</td> 
-								<td width="17%">Avería alternador</td> 
-								<td width="17%"><a href="consultarPerfil.html">Fulanito</a></td> 
-								<td width="17%">12/03/2014</td>
-								<td width="17%">Pendiente de derivar</td>
-								<td width="17%"><button><a href="consultarIncidencia.html">Consultar</a></button></td>
-							</tr>
-							<tr> 
-								<td width="17%">#23342</td> 
-								<td width="17%">Avería alternador</td> 
-								<td width="17%"><a href="consultarPerfil.html">Fulanito</a></td> 
-								<td width="17%">12/03/2014</td>
-								<td width="17%">Pendiente de derivar</td>
-								<td width="17%"><button><a href="consultarIncidencia.html">Consultar</a></button></td>
-							</tr>
-			 			</table>
+					<table class="default">
+						<tr> 
+							<td width="25%">#ID M&aacute;quina: </td> 
+							<td width="25%"><input type="text" class="text" disabled name="mID" value="#347896"/></td> 
+							<td width="25%">#N&uacute;m. serie: </td> 
+							<td width="25%"> <input type="text" class="text" disabled name="mNumSerie" value="al-870"/></td>
+						</tr>
+						<tr> 
+							<td width="25%">Nombre: </td> 
+							<td width="25%"><input type="text" class="text" disabled name="mNombre" value="Giga LX - Forja"/></td> 
+							<td width="25%"></td> 
+							<td width="25%"></td>
+						</tr>
+						<tr>
+							<td width="25%"><br>Descripci&oacute;n:</td>
+							<td colspan='3' width="75%">
+								<textarea style="resize:none; text-align:left;" style="t" rows="4" name='sDesc' disabled>
+								Descripci&oacute;n de la utilidad de la m&aacute;quina.
+								</textarea>
+							</td>
+						</tr>
+						<tr>
+							<td>Documentacion:</td>
+                        	<td><img src="../../Recursos/images/PDF.png"></td>
+                        	<td colspan="2"><input type="file" disabled name="m" value="Subir"></td>
+						</tr>
+						<tr>
+							<td colspan="4"><input type="submit" name="m" value="Modificar"></td>
+						</tr> 
+		 			</table>
 				</form>
 				<!--FIN SECCIÓN-->
 			</div>

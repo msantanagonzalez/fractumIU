@@ -26,47 +26,44 @@
 
             	<table class="default">
                     <tr>
-                    	<th width="15%">#ID Inc.</th>
-                    	<th width="15%">T&iacute;tulo</th>
-                       	<th width="15%">&Uacute;lt. operario</th>
-                        <th width="15%">&Uacute;lt. iteración</th>
-                        <th width="15%">Estado</th>
-                        <th width="15%">&nbsp;</th>
-                        <th width="15%">&nbsp;</th>
+                    	<th width="17%">#ID Inc.</th>
+                    	<th width="17%">T&iacute;tulo</th>
+                       	<th width="17%">&Uacute;lt. operario</th>
+                        <th width="17%">&Uacute;lt. iteración</th>
+                        <th width="17%">Estado</th>
+                        <th width="17%">&nbsp;</th>
 
                     </tr>
                 </table>
         
         		<form method="POST" action="">
 						<table class="default">
-							<tr> 
-								<td width="15%">#23908</td> 
-								<td width="15%">Avería alternador</td> 
-								<td width="15%">Fulanito</td> 
-								<td width="15%">12/03/2014</td>
-								<td width="15%">Derivada</td>
-								<td width="15%"><a href="dondesea.html"></a><button>Consultar</button></td>
-								<td width="15%"><a href="dondesea.html"><button>Editar</button></a></td>
+								<tr> 
+								<td width="17%">#233232</td> 
+								<td width="17%">Avería alternador</td> 
+								<td width="17%"><a href="consultarPerfil.html">Fulanito</a></td> 
+								<td width="17%">12/03/2014</td>
+								<td width="17%">Derivada</td>
+								<td width="17%"><button><a href="consultarIncidencia.html">Consultar</a></button></td>
 							</tr>
 							<tr> 
-								<td width="15%">#23934</td> 
-								<td width="15%">Avería alternador</td> 
-								<td width="15%">Fulanito</td> 
-								<td width="15%">12/03/2014</td>
-								<td width="15%">En curso</td>
-								<td width="15%"><a href="dondesea.html"></a><button>Consultar</button></td>
-								<td width="15%"><a href="dondesea.html"><button>Editar</button></a></td>
+								<td width="17%">#20642</td> 
+								<td width="17%">Avería alternador</td> 
+								<td width="17%"><a href="consultarPerfil.html">Fulanito</a></td> 
+								<td width="17%">12/03/2014</td>
+								<td width="17%">En curso</td>
+								<td width="17%"><button><a href="consultarIncidencia.html">Consultar</a></button></td>
 							</tr>
 							<tr> 
-								<td width="15%">#23342</td> 
-								<td width="15%">Avería alternador</td> 
-								<td width="15%">Fulanito</td> 
-								<td width="15%">12/03/2014</td>
-								<td width="15%">Pendiente de derivar</td>
-								<td width="15%"><a href="dondesea.html"></a><button>Consultar</button></td>
-								<td width="15%"><a href="dondesea.html"><button>Editar</button></a></td>
+								<td width="17%">#23342</td> 
+								<td width="17%">Avería alternador</td> 
+								<td width="17%"><a href="consultarPerfil.html">Fulanito</a></td> 
+								<td width="17%">12/03/2014</td>
+								<td width="17%">Pendiente de derivar</td>
+								<td width="17%"><button><a href="consultarIncidencia.html">Consultar</a></button></td>
 							</tr>
 			 			</table>
+			 		</div>
 				</form>
 				<!--FIN SECCIÓN-->
 			</div>
@@ -78,7 +75,7 @@
           		<ul>
             		<div align="center">
                    		<li class="current">
-                        	<a href="perfil.html">
+                        	<a href="consultarPerfil.html">
                         		<img src="../../Recursos/images/DefaultAvatar.png"><em><strong><br>".$jefeNegocio"</strong></em><strong></strong>
                         	</a>
                      	</li>
@@ -87,8 +84,8 @@
                        	<li class="current"><a href="gestorUsuarios.html">GESTIONAR USUARIOS</a></li>
                        	<li class="current"><a href="gestorMaquinas.html">GESTIONAR MÁQUINAS</a></li>
 						<li class="current"><a href="gestorServicios.html">GESTIONAR SERVCICOS</a></li>
-						<li class='current'><a href='#' id='Logout_Usuario' onclick ='return Salir_Usuario()'> > Log Out</a></li>
-                      	<form method="POST" action="" style="text-align:center">
+						<li class='current'><a href='../Login.html' id='Logout_Usuario' onclick ='return Salir_Usuario()'> > Log Out</a></li>
+                        <form method="POST" action="resultadosBusqueda.html" style="text-align:center">
                     	<section class="box search">
 							<input type="text" name="busqueda" placeholder="Buscar..." value=""/>
                   		</section>

@@ -60,9 +60,6 @@
 									</textarea>
 								</td>
 							</tr>
-							<tr>
-								<td colspan="4"><input type="submit" name="iModificar" value="Modificar"></td>
-							</tr> 
 			 			</table>
 					</form>
 				<h1 id="headerJefe"><a>- ITERACIONES -</a></h1> <!--SECCIÓN-->
@@ -129,7 +126,7 @@
           		<ul>
             		<div align="center">
                    		<li class="current">
-                        	<a href="perfil.html">
+                        	<a href="consultarPerfil.html">
                         		<img src="../../Recursos/images/DefaultAvatar.png"><em><strong><br>".$jefeNegocio"</strong></em><strong></strong>
                         	</a>
                      	</li>
@@ -138,8 +135,8 @@
                        	<li class="current"><a href="gestorUsuarios.html">GESTIONAR USUARIOS</a></li>
                        	<li class="current"><a href="gestorMaquinas.html">GESTIONAR MÁQUINAS</a></li>
 						<li class="current"><a href="gestorServicios.html">GESTIONAR SERVCICOS</a></li>
-						<li class='current'><a href='#' id='Logout_Usuario' onclick ='return Salir_Usuario()'> > Log Out</a></li>
-                        <form method="POST" action="" style="text-align:center">
+						<li class='current'><a href='../Login.html' id='Logout_Usuario' onclick ='return Salir_Usuario()'> > Log Out</a></li>
+                        <form method="POST" action="resultadosBusqueda.html" style="text-align:center">
                     	<section class="box search">
 							<input type="text" name="busqueda" placeholder="Buscar..." value=""/>
                   		</section>

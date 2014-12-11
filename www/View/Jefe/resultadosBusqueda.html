@@ -65,9 +65,50 @@
 				<!--FIN SECCIÓN-->
 				<br>
 				<!--IINICIO SECCIÓN-->
-            	<h1 id="headerJefe"><a><i>OPERARIOS EXTERNOS</i></a></h1>
+            	<h1 id="headerJefe"><a><i>M&Aacute;QUINAS</i></a></h1>
 
             	<table class="default">
+                    <tr>
+                    	<th width="20%">#ID M&aacute;q.</th>
+                    	<th width="20%">Servicio</th>
+                       	<th width="20%">&Uacute;lt. incidencia</th>
+                        <th width="10%">&nbsp;</th>
+                        <th width="10%">&nbsp;</th>
+
+                    </tr>
+                </table>
+        
+        		<form method="POST" action="">
+						<table class="default">
+							<tr> 
+								<td width="20%">#344089</td> 
+								<td width="20%">Sí</td> 
+								<td width="20%">13/09/2014</td> 
+								<td width="10%"><a href="dondesea.html"><button>Editar</button></a></td>
+								<td width="10%"><a href="dondesea.html"></a><button>Eliminar</button></td>
+							</tr>
+							<tr> 
+								<td width="20%">#344089</td> 
+								<td width="20%">Sí</td> 
+								<td width="20%">13/09/2014</td> 
+								<td width="10%"><a href="dondesea.html"><button>Editar</button></a></td>
+								<td width="10%"><a href="dondesea.html"></a><button>Eliminar</button></td>
+							</tr>
+							<tr> 
+								<td width="20%">#344089</td> 
+								<td width="20%">Sí</td> 
+								<td width="20%">13/09/2014</td> 
+								<td width="10%"><a href="dondesea.html"><button>Editar</button></a></td>
+								<td width="10%"><a href="dondesea.html"></a><button>Eliminar</button></td>
+							</tr>
+			 			</table>
+			 		</div>
+				</form>
+				<!--FIN SECCIÓN-->
+				<br>
+				<!--IINICIO SECCIÓN-->
+            	<h1 id="headerJefe"><a><i>OPERARIOS EXTERNOS</i></a></h1>
+<table class="default">
                     <tr>
                     	<th width="20%">#ID Ext.</th>
                     	<th width="20%">Nombre/Apellidos</th>
@@ -119,7 +160,7 @@
           		<ul>
             		<div align="center">
                    		<li class="current">
-                        	<a href="perfil.html">
+                        	<a href="consultarPerfil.html">
                         		<img src="../../Recursos/images/DefaultAvatar.png"><em><strong><br>".$jefeNegocio"</strong></em><strong></strong>
                         	</a>
                      	</li>
@@ -128,8 +169,8 @@
                        	<li class="current"><a href="gestorUsuarios.html">GESTIONAR USUARIOS</a></li>
                        	<li class="current"><a href="gestorMaquinas.html">GESTIONAR MÁQUINAS</a></li>
 						<li class="current"><a href="gestorServicios.html">GESTIONAR SERVCICOS</a></li>
-						<li class='current'><a href='#' id='Logout_Usuario' onclick ='return Salir_Usuario()'> > Log Out</a></li>
-                        <form method="POST" action="" style="text-align:center">
+						<li class='current'><a href='../Login.html' id='Logout_Usuario' onclick ='return Salir_Usuario()'> > Log Out</a></li>
+                        <form method="POST" action="resultadosBusqueda.html" style="text-align:center">
                     	<section class="box search">
 							<input type="text" name="busqueda" placeholder="Buscar..." value=""/>
                   		</section>
