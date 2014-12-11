@@ -26,30 +26,30 @@
 				<h1 id='headerExterno'><a>- TRABAJANDO $IDincidencia -</a></h1> <!--SECCIÓN-->
 				<!--INICIO TABLA-->
 				<br>
-				<form name='' id='FormDetalle_Tarea' onsubmit='return Confirmar_EliminacionTarea()' action='' method='post'>
+				<form name='' id='' onsubmit='' action='' method='post'>
 				<div style='height:350px;width:auto;overflow-y: scroll;'>
 					<table class='default'>
                    	<tr>
 						<td>Fecha Inicio:</td>
-						<td><input type='date' disabled class='text' value='' / name='Nombre_Tarea'></td>
+						<td><input type='date' disabled class='text' value='' / name='fechaInicio'></td>
 						<td>Fecha Fin:</td>
-						<td><input type='date' disabled class='text' value='' / name='Prioridad_Tarea' id='Prioridad_Tarea'></td>
+						<td><input type='date' disabled class='text' value='' / name='fechaFin' id=''></td>
 					</tr>
 					<tr>
 						<td>Hora Inicio:</td>
-						<td><input type='text' disabled class='text' value=''/ name='Estado_Tarea' id='Estado_Tarea'></td>
+						<td><input type='text' disabled class='text' value=''/ name='horaInicio' id=''></td>
 						<td>Hora Fin:</td>
-						<td><input type='text' disabled class='text' value=''/ name='Etiqueta_Tarea'></td>	
+						<td><input type='text' disabled class='text' value=''/ name='horaFin'></td>	
 					</tr>
 					<tr>
                         <td>Coste Trabajo:</td>
-                        <td><input type='date' disabled value=''></td>
+                        <td><input type='text' disabled name="costeTrabajo" value=''></td>
                         <td>Cargar Documentacion:</td>
-                        <td></td>
+                        <td><input type="file" disabled value=""> </td>
                     </tr>
 					</tr>
 						<td>Descripcion:</td>
-                        <td colspan='3'><input type='text' disabled class='text' value=''/ name='Descripcion_Tarea'></td>
+                        <td colspan='3'><input type='text' disabled class='text' value=''/ name='descripcionIncidencia'></td>
                     </tr>
                 	</table>
                  	</div>
@@ -71,17 +71,17 @@
 		
 		
         <div id="sidebarExterno"> <!--BARRA LATERAL-->
-			<h1 id='logo'><a href='#'>·Fractum!</a></h1> 	
+			<h1 id='logo'><a href='homeExterno.html'>·Fractum!</a></h1> 	
                 <nav id='nav'> 
               		<ul>
                 		<div align='center'>
                        		<li class='current'>
-                            	<a href='#'>
+                            	<a href='perfilOperarioExterno.html'>
                             		<img src='../../Recursos/images/DefaultAvatar.png'><em><strong><br>".$operarioExterno."</strong></em><strong></strong></img>
                             	</a>
                          	</li>
-							<li class='current'><strong><a href='#'>Listar Incidencias</a></strong></li>
-							<li class='current'><a href='#'>Listar maquinas</a></li>
+							<li class='current'><strong><a href='listarIncidencias.html'>Listar Incidencias</a></strong></li>
+							<li class='current'><a href='listarMaquinas.html'>Listar maquinas</a></li>
                             <li class='current'><a href='#'>Contacto jefe</a></li>
 							<li class='current'><a href='#' id='Logout_Usuario' onclick ='return Salir_Usuario()'>   > Log Out</a></li>
                             <form method='POST' action='#' style='text-align:center'>

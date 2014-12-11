@@ -1,7 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-
-	<head>
+<head>
 		<title>·Fractum!</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
@@ -18,68 +17,44 @@
 			<link rel="stylesheet" href="../../Recursos/css/style-wide.css" />
 		</noscript>
 	</head>
-	
-	<body class="left-sidebar">
-		<div id="wrapper"><!--WRAPPER-->
-			<div id="content"><!--CONTENIDO-->
-				<div class='inner'>
-				<h1 id='headerExterno'><a>- DETALLES TRABAJO -</a></h1> <!--SECCIÓN-->
-				<!--INICIO TABLA-->
-				<br>
-				<form name='' id='' onsubmit='' action='' method='post'>
+<body class="left-sidebar">
+	<div id="wrapper"><!--WRAPPER-->
+		<div id="content"><!--CONTENIDO-->
+			<div class="inner">
+				<!--IINICIO SECCIÓN-->
+            	<h1 id="headerExterno"><a><i>M&Aacute;QUINA $#nombreM&aacute;quina</i></a></h1>
+
+        		<form method="POST" action="" enctype="multipart/form-data">
 				<div style='height:350px;width:auto;overflow-y: scroll;'>
 					<table class='default'>
 					<tr>
-						<td>Numero Trabajo:</td>
-                        <td><input type='text' disabled name="numeroTrabajo" value=''></td>
-                        <td>Coste:</td>
-                        <td><input type='text' disabled name="coste" value=''></td>
-                    </tr>
-                   	<tr>
-                        <td>Fecha Inicio:</td>
-                        <td><input type='date' disabled/ value=''></td>
-                        <td>Fecha Fin:</td>
-                        <td><input type='date' disabled/ value=''></td>
-                    </tr>
-                    <tr>
-                        <td>Hora Inicio:</td>
-                        <td><input type='date' disabled/ value=''></td>
-                        <td>Hora Fin:</td>
-                        <td><input type='date' disabled/ value=''></td>
-                    </tr>
-                    </tr>
-						<td>Documentacion:</td>
-                        <td colspan='3'><input type='text' disabled class='text' name="documentacion" value='#001-"Nombre archivo"'/ name='Descripcion_Tarea'></td>
-                    </tr>
-                    <tr>
-						<td colspan='5'>Descripcion:</td>
+						<td>ID Maquina:</td>
+						<td><input type='text' disabled value='$idMaquina' / name='idMaquina'></td>
+						<td>Numero de serie:</td>
+						<td><input type='text' disabled value='$numSerie' / name='numSerie'></td>
 					</tr>
+					<tr>
+						<td colspan='4'>Descripcion:</td>
 					</tr>
-						<td colspan='5'>
-							<textarea style="resize:none" class="text" rows="5" name='descripcionHistoricoIncidencia' disabled>
-							BREVE DESCRIPCION DEL TRABAJO
+					<tr>	
+                        <td colspan='4'>
+							<textarea style="resize:none" rows="4" name='descripcionApertura' disabled>
+							BREVE DESCRIPCION DE LA MAQUINA
 							</textarea>
 						</td>
                     </tr>
+					<tr>
+						<td>Documentacion:</td>
+                        <td><img src="../../Recursos/images/PDF.png"></td>
+					</tr>
                 	</table>
                  	</div>
-                    <table>
-						<tr> 
-						<td width='25%'> </td>
-						<td width='25%'> </td>
-						<td width='25%'><a href="consultarIncidencia.html"><input type='button' value='ATRAS'></a></td>
-						</tr>
-                    </table>
-					</form>
-				  <!-- FIN TABLA -->
-				</div>
+				</form>
+				<!--FIN SECCIÓN-->
 			</div>
 		</div>
-
-
-		
-		
-        <div id="sidebarExterno"> <!--BARRA LATERAL-->
+	
+		<div id="sidebarExterno"> <!--BARRA LATERAL-->
 			<h1 id='logo'><a href='homeExterno.html'>·Fractum!</a></h1> 	
                 <nav id='nav'> 
               		<ul>
@@ -103,13 +78,7 @@
 					</ul>
 				</nav>
 		</div>
-		<!-- FIN BARRA LATERAL -->
-
-
-		
-
-	</body>
+	</div>
+	<!-- FIN BARRA LATERAL -->
+</body>
 </html>
-
-
-

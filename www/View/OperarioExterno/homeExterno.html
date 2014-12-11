@@ -26,54 +26,57 @@
                	  <h1 id="headerExterno"><a>- INCIDENCIAS -</a></h1> <!--SECCIÓN-->
                 	<table class="default"><!--TABLA-->
                        	<tr>
-                       		<th width="20%">ID</th>
-                        	<th width="20%">T&iacute;tulo</th>
-                            <th width="20%">Operario</th>
-                            <th width="20%">Estado</th>
-							<th width="20%"> </th>
+                       		<th width="10%">ID</th>
+                        	<th width="25%">T&iacute;tulo</th>
+                            <th width="25%">Operario</th>
+                            <th width="25%">Estado</th>
+							<th width="15%"> </th>
                      	</tr>
                     </table>
                 	<div style="height:107px;width:auto;overflow-y: scroll;"><!--ESTO DA LUGAR AL SCROLL-->
                    		<table class="default"><!--TABLA-->
-                   			<tr onclick="alert('viajando con chester -> Consultar incidencia1 ')">
-	                   			<td width="20%">#xGef</td>
-	                        	<td width="20%">Centrifugadora Verduras</td>
-	                            <td width="20%">Juan Perez</td>
-	                            <td width="20%">Abierta</td>
-								<td width="20%"><button>#Modificar</button></td>
+                   			<tr>
+	                   			<td width="10%">ID001</td>
+	                        	<td width="25%">Centrifugadora Verduras</td>
+	                            <td width="25%">Juan Perez</td>
+	                            <td width="25%">Abierta</td>
+								<td width="15%"><button onclick="window.location.href='consultarIncidencia.html'">Consultar</button></td>
 							</tr>
-							<tr onclick="alert('viajando con chester -> Consultar incidencia2 ')">
-	                   			<td width="20%">#xGef</td>
-	                        	<td width="20%">Centrifugadora Verduras</td>
-	                            <td width="20%">Juan Perez</td>
-	                            <td width="20%">Abierta</td>
-								<td width="20%"><button>#Modificar</button></td>
+							<tr>
+	                   			<td width="10%">ID002</td>
+	                        	<td width="25%">Cortadora Tomates</td>
+	                            <td width="25%">Alfonso Martinez</td>
+	                            <td width="25%">Abierta</td>
+								<td width="15%"><button onclick="window.location.href='consultarIncidencia.html'">Consultar</button></td>
 							</tr>
                    		</table>
                 	</div> <br>
                     
                     <h1 id="headerExterno"><a>- MAQUINAS -</a></h1> <!--SECCIÓN-->
-                	<table class="default"><!--TABLA-->
+                    <table class="default"><!--TABLA-->
                        	<tr>
+                       		<th width="10%">ID</th>
                         	<th width="25%">Nombre</th>
                             <th width="25%">Mantenimiento</th>
                             <th width="25%">Ult. Incidencia</th>
-							<th width="25%"> </th>
+							<th width="15%"> </th>
                      	</tr>
                     </table>
                   	<div style="height:107px;width:auto;overflow-y: scroll;"><!--ESTO DA LUGAR AL SCROLL-->
                    		<table class="default"><!--TABLA-->
-						<tr onclick="alert('viajando con chester -> Consultar maquina1 ')">
+						<tr>
+							<td width="10%">MA001</th>
                         	<td width="25%">Centrifugadora Verduras</td>
                             <td width="25%">No</td>
                             <td width="25%">10/11/2013</td>
-							<td width="25%"><button>#Modificar</button></td>
+							<td width="15%"><button onclick="window.location.href='consultarMaquina.html'">Consultar</button></td>
                      	</tr>
-                     	<tr onclick="alert('viajando con chester -> Consultar maquina2 ')">
+                     	<tr>
+                     		<td width="10%">MA002</th>
                         	<td width="25%">Cortadora Tomates</td>
                             <td width="25%">Si</td>
                             <td width="25%">14/11/2014</td>
-							<td width="25%"><button>#Modificar</button></td>
+							<td width="15%"><button onclick="window.location.href='consultarMaquina.html'">Consultar</button></td>
                      	</tr>
                    		</table>
                 	</div>
@@ -83,18 +86,18 @@
 		
 		
 		
-        <div id="sidebarExterno"> <!--BARRA LATERAL-->
-			<h1 id='logo'><a href='#'>·Fractum!</a></h1> 	
+       <div id="sidebarExterno"> <!--BARRA LATERAL-->
+			<h1 id='logo'><a href='homeExterno.html'>·Fractum!</a></h1> 	
                 <nav id='nav'> 
               		<ul>
                 		<div align='center'>
                        		<li class='current'>
-                            	<a href='#'>
+                            	<a href='perfilOperarioExterno.html'>
                             		<img src='../../Recursos/images/DefaultAvatar.png'><em><strong><br>".$operarioExterno."</strong></em><strong></strong></img>
                             	</a>
                          	</li>
-							<li class='current'><strong><a href='#'>Listar Incidencias</a></strong></li>
-							<li class='current'><a href='#'>Listar maquinas</a></li>
+							<li class='current'><strong><a href='listarIncidencias.html'>Listar Incidencias</a></strong></li>
+							<li class='current'><a href='listarMaquinas.html'>Listar maquinas</a></li>
                             <li class='current'><a href='#'>Contacto jefe</a></li>
 							<li class='current'><a href='#' id='Logout_Usuario' onclick ='return Salir_Usuario()'>   > Log Out</a></li>
                             <form method='POST' action='#' style='text-align:center'>
