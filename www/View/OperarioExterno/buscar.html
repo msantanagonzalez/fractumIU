@@ -22,48 +22,26 @@
 		<div id="content"><!--CONTENIDO-->
 			<div class="inner"> 
 				<!--IINICIO SECCIÓN-->
-            	<h1 id="headerExterno"><a><i>INCIDENCIAS</i></a></h1>
-
-            	<table class="default">
-                    <tr>
-                    	<th width="20%">ID</th>
-                    	<th width="20%">Maquina</th>
-                       	<th width="20%">Apertura</th>
-                        <th width="20%">Estado</th>
-                        <th width="10%">Ult.Iteracion</th>
-                        <th width="10%"></th>
-						
-                    </tr>
-                </table>
-        		<div style='height:350px;width:auto;overflow-y: scroll;'>
-        		<form method="POST" action="">
-						<table class="default">
-							<tr> 
-								<td width="20%">ID001</td> 
-								<td width="20%"><a href="consultarMaquina.html">Maquina1</a></td> 
-								<td width="20%">Usuario1</td> 
-								<td width="20%">Abierta</td>
-								<td width="15%"><a href="consultarTrabajoIncidencia.html">IT001</a></td>
-								<td width="5%"><a href="consultarIncidencia.html">Consultar</a></td>
-							</tr>
-							<tr> 
-								<td width="20%">ID003</td> 
-								<td width="20%"><a href="consultarMaquina.html">Maquina3</a></td>
-								<td width="20%">Usuario1</td> 
-								<td width="20%">Abierta</td>
-								<td width="15%"><a href="consultarTrabajoIncidencia.html">IT003</a></td>
-								<td width="5%"><a href="consultarIncidencia.html">Consultar</a></td>
-							</tr>
-							<tr> 
-								<td width="20%">ID004</td> 
-								<td width="20%"><a href="consultarMaquina.html">Maquina2</a></td> 
-								<td width="20%">Usuario1</td> 
-								<td width="20%">Abierta</td>
-								<td width="15%"><a href="consultarTrabajoIncidencia.html">IT003</a></td>
-								<td width="5%"><a href="consultarIncidencia.html">Consultar</a></td>
-							</tr>
-			 			</table>
-				</form>
+            	<h1 id="headerExterno"><a>- MAQUINAS CON $textoBuscado -</a></h1> <!--SECCIÓN-->
+                	<table class="default"><!--TABLA-->
+                       	<tr>
+                       		<th width="10%">ID</th>
+                        	<th width="25%">Nombre</th>
+                            <th width="25%">Mantenimiento</th>
+                            <th width="25%">Ult. Incidencia</th>
+							<th width="15%"> </th>
+                     	</tr>
+                    </table>
+                  	<div style="height:350px;width:auto;overflow-y: scroll;"><!--ESTO DA LUGAR AL SCROLL-->
+                   		<table class="default"><!--TABLA-->
+						<tr>
+							<td width="10%">MA001</th>
+                        	<td width="25%">Centrifugadora Verduras</td>
+                            <td width="25%">No</td>
+                            <td width="25%">10/11/2013</td>
+							<td width="15%"><button onclick="window.location.href='consultarMaquina.html'">Consultar</button></td>
+                     	</tr>
+                   		</table>
 				</div>
 				<!--FIN SECCIÓN-->
 			</div>
