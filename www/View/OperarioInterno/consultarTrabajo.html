@@ -42,16 +42,21 @@
 						<td><input type='text' disabled value='$nombreMaquina'></td>
 					</tr>
 					<tr>
-						<td>Fecha Inicio:</td>
+						<td>Fecha Creacion:</td>
 						<td><input type='date' disabled value='15/04/2014' / name='fechaInicioTrabajo'></td>
-						<td>Fecha Fin:</td>
-						<td><input type='date' disabled value='15/04/2014' / name='fechaFinTrabajo'></td>
-					</tr>
-					<tr>
 						<td>Coste Trabajo:</td>
 						<td><input type='text' disabled value='0.00'></td>
+					</tr>
+					<tr>
+						<td>Hora inicio:</td>
+						<td><input type='date' disabled value='$horaSistema' / name='fechaFinTrabajo'></td>
+						<td>Hora fin:</td>
+						<td><input type='date' disabled value='$horaSistema' / name='fechaFinTrabajo'></td>
+					</tr>
+					<tr>
+						
 						<td>Estado:</td>
-						<td><input type='text' disabled value='Abierta/Cerrada'></td>
+						<td><input type='text' disabled value='Abierta/Cerrada/Derivada'></td>
 					</tr>
 					<tr>
 						<td colspan='4'>Descripcion:</td>
@@ -104,7 +109,7 @@
 							<li class='current'><strong><a href='listarIncidencias.html'>Listar Incidencias</a></strong></li>
 							<li class='current'><a href='altaIncidencia.html'>Alta incidencia</a></li>
 							<li class='current'><a href='listarMaquinas.html'>Listar maquinas</a></li>
-                            <li class='current'><a href='#'>Contacto jefe</a></li>
+                            <li class='current'><a href='mailto:jefe@fractum.com?cc=administracion@fractum.es'>Contacto jefe</a></li>
 							<li class='current'><a href='#' id='Logout_Usuario' onclick ='return Salir_Usuario()'> > Log Out</a></li>
                             <form method='POST' action='#' style='text-align:center'>
                         	<section class='box search'>

@@ -30,21 +30,23 @@
 				<div style='height:350px;width:auto;overflow-y: scroll;'>
 					<table class='default'>
                    	<tr>
-						<td>Fecha Inicio:</td>
-						<td><input type='date' disabled class='text' value='' / name='Nombre_Tarea'></td>
-						<td>Fecha Fin:</td>
-						<td><input type='date' disabled class='text' value='' / name='Prioridad_Tarea' id='Prioridad_Tarea'></td>
-					</tr>
-					<tr>
+						<td>Operario Alta:</td>
+						<td><input type='text' disabled value='$idOperario' / name='idOperario'></td>
 						<td>Hora Inicio:</td>
-						<td><input type='text' disabled class='text' value=''/ name='Estado_Tarea' id='Estado_Tarea'></td>
-						<td>Hora Fin:</td>
-						<td><input type='text' disabled class='text' value=''/ name='Etiqueta_Tarea'></td>	
+						<td><input type='text' disabled class='text' value='$horaSistema'/ name='Estado_Tarea' id='Estado_Tarea'></td>
 					</tr>
 					<tr>
-                        <td>Coste Trabajo:</td>
+						<td>ID Incidencia:</td>
+						<td><input type='text' disabled value='I001'></td>
+						<td>Nombre Maquina:</td>
+						<td><input type='text' disabled value='$nombreMaquina'></td>
+					</tr>
+					<tr>
+						<td>Fecha Creacion:</td>
+						<td><input type='date' disabled class='text' value='' / name='Nombre_Tarea'></td>
+						<td>Coste Trabajo:</td>
                         <td><input type='text' value=''></td>
-                    </tr>
+					</tr>
 					<tr>
 						<td colspan='4'>Descripcion:</td>
 					</tr>
@@ -91,7 +93,7 @@
 							<li class='current'><strong><a href='listarIncidencias.html'>Listar Incidencias</a></strong></li>
 							<li class='current'><a href='altaIncidencia.html'>Alta incidencia</a></li>
 							<li class='current'><a href='listarMaquinas.html'>Listar maquinas</a></li>
-                            <li class='current'><a href='#'>Contacto jefe</a></li>
+                            <li class='current'><a href='mailto:jefe@fractum.com?cc=administracion@fractum.es'>Contacto jefe</a></li>
 							<li class='current'><a href='#' id='Logout_Usuario' onclick ='return Salir_Usuario()'> > Log Out</a></li>
                             <form method='POST' action='#' style='text-align:center'>
                         	<section class='box search'>

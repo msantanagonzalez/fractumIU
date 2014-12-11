@@ -48,10 +48,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 function Salir_Usuario()
 {
 		if(confirm("¿Quieres cerrar sesion?")) {
-			return true;
+			//return true;
+			close();
 		}		
 		return false;
 }
+
+
 
 function Validar_Entero(Numero)
 {
