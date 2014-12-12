@@ -44,15 +44,20 @@
 					<tr>
                         <td>Coste Trabajo:</td>
                         <td><input type='text' disabled name="costeTrabajo" value=''></td>
-                        <td>Cargar Documentacion:</td>
-                        <td><input type="file" disabled value=""> </td>
                     </tr>
 					</tr>
 						<td>Descripcion:</td>
                         <td colspan='3'><input type='text' disabled class='text' value=''/ name='descripcionIncidencia'></td>
                     </tr>
+                    <tr>
+						<td>Documentacion:</td>
+					</tr>
+					<tr>
+						<td colspan='4'><input type='file' name='documentacionTrabajo'></td>
+					</tr>
                 	</table>
                  	</div>
+                 	<br>
                     <table>
 						<tr> 
 						<td width='25%'><input type='button' value='GUARDAR TRABAJO'> </td>
@@ -80,6 +85,9 @@
                             		<img src='../../Recursos/images/DefaultAvatar.png'><em><strong><br>".$operarioExterno."</strong></em><strong></strong></img>
                             	</a>
                          	</li>
+                         	<!--NOTIFICACIONES-->		
+							<li class='current'><a href='listarIncidenciasPendientes.html'>Pendientes: <span class="badge">50</span></a></li>
+							<!-- FIN NOTIFICACIONES-->
 							<li class='current'><strong><a href='listarIncidencias.html'>Listar Incidencias</a></strong></li>
 							<li class='current'><a href='listarMaquinas.html'>Listar maquinas</a></li>
                             <li class='current'><a href='#'>Contacto jefe</a></li>

@@ -36,14 +36,16 @@
 						<td><input type='text' disabled class='text' value='MA00X'/ name='nombreMaquina'></td>	
 					</tr>
 					<tr>
+						<td>Operario Apertura:</td>
+						<td><input type='text' disabled class='text' value='Juan Perez'/ name='opApertura'></td>
+                        <td>Estado:</td>
+                        <td><input type='text' disabled value='ABIERTA/CERRADA/EN CURSO/PENDIENTE DE CIERRE'></td>
+                    </tr>
+					<tr>
                         <td>Fecha Alta:</td>
                         <td><input type='date' disabled/ value=''></td>
                         <td>Fecha Cierre:</td>
                         <td><input type='date' disabled/ value=''></td>
-                    </tr>
-					<tr>
-                        <td>Estado:</td>
-                        <td><input type='text' disabled value='ABIERTA/CERRADA/DERIVADA/PENDIENTE DE CIERRE'></td>
                     </tr>
 					<tr>
 						<td colspan='5'>Descripcion:</td>
@@ -120,6 +122,9 @@
                             		<img src='../../Recursos/images/DefaultAvatar.png'><em><strong><br>".$operarioExterno."</strong></em><strong></strong></img>
                             	</a>
                          	</li>
+                         	<!--NOTIFICACIONES-->		
+							<li class='current'><a href='listarIncidenciasPendientes.html'>Pendientes: <span class="badge">50</span></a></li>
+							<!-- FIN NOTIFICACIONES-->
 							<li class='current'><strong><a href='listarIncidencias.html'>Listar Incidencias</a></strong></li>
 							<li class='current'><a href='listarMaquinas.html'>Listar maquinas</a></li>
                             <li class='current'><a href='#'>Contacto jefe</a></li>
