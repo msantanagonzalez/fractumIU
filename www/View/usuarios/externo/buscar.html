@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>·Fractum!</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<script src="../../Recursos/js/jquery.min.js"></script>
+	<script src="../../Recursos/js/skel.min.js"></script>
+	<script src="../../Recursos/js/skel-layers.min.js"></script>
+	<script src="../../Recursos/js/initExterno.js"></script>
+	<script src="../../Recursos/js/Validaciones.js"></script>
+	<noscript>
+		<link rel="stylesheet" href="../../Recursos/css/skel.css" />
+		<link rel="stylesheet" href="../../Recursos/css/style.css" />
+		<link rel="stylesheet" href="../../Recursos/css/style-desktop.css" />
+		<link rel="stylesheet" href="../../Recursos/css/style-wide.css" />
+	</noscript>
+</head>
+<body class="left-sidebar">
+	<div id="wrapper"><!--WRAPPER-->
+		<div id="content"><!--CONTENIDO-->
+			<div class="inner"> 
+				<!--IINICIO SECCIÓN-->
+            	<h1 id="headerExterno"><a>- MAQUINAS CON $textoBuscado -</a></h1> <!--SECCIÓN-->
+                	<table class="default"><!--TABLA-->
+                       	<tr>
+                       		<th width="10%">ID</th>
+                        	<th width="25%">Nombre</th>
+                            <th width="25%">Mantenimiento</th>
+                            <th width="25%">Ult. Incidencia</th>
+							<th width="15%"> </th>
+                     	</tr>
+                    </table>
+                  	<div style="height:350px;width:auto;overflow-y: scroll;"><!--ESTO DA LUGAR AL SCROLL-->
+                   		<table class="default"><!--TABLA-->
+						<tr>
+							<td width="10%">MA001</th>
+                        	<td width="25%">Centrifugadora Verduras</td>
+                            <td width="25%">No</td>
+                            <td width="25%">10/11/2013</td>
+							<td width="15%"><button onclick="window.location.href='consultarMaquina.html'">Consultar</button></td>
+                     	</tr>
+                   		</table>
+				</div>
+				<!--FIN SECCIÓN-->
+			</div>
+		</div>
+	
+		<div id="sidebarExterno"> <!--BARRA LATERAL-->
+			<h1 id='logo'><a href='homeExterno.html'>·Fractum!</a></h1> 	
+                <nav id='nav'> 
+              		<ul>
+                		<div align='center'>
+                       		<li class='current'>
+                            	<a href='perfilOperarioExterno.html'>
+                            		<img src='../../Recursos/images/DefaultAvatar.png'><em><strong><br>".$operarioExterno."</strong></em><strong></strong></img>
+                            	</a>
+                         	</li>
+                         	<!--NOTIFICACIONES-->		
+							<li class='current'><a href='listarIncidenciasPendientes.html'>Pendientes: <span class="badge">50</span></a></li>
+							<!-- FIN NOTIFICACIONES-->
+							<li class='current'><strong><a href='listarIncidencias.html'>Listar Incidencias</a></strong></li>
+							<li class='current'><a href='listarMaquinas.html'>Listar maquinas</a></li>
+                            <li class='current'><a href='#'>Contacto jefe</a></li>
+							<li class='current'><a href='#' id='Logout_Usuario' onclick ='return Salir_Usuario()'>   > Log Out</a></li>
+                            <form method='POST' action='buscar.html' style='text-align:center'>
+                        	<section class='box search'>
+								<input type='text' name='busqueda' placeholder='Buscar...'/>
+                      		</section>
+								<div hidden><input type='submit' name='buscar'/></div>
+                            </form>
+                      	</div>
+					</ul>
+				</nav>
+		</div>
+		<!-- FIN BARRA LATERAL -->
+</body>
+</html>

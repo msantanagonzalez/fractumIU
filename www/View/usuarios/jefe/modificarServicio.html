@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>·Fractum!</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<script src="../../Recursos/js/jquery.min.js"></script>
+	<script src="../../Recursos/js/skel.min.js"></script>
+	<script src="../../Recursos/js/skel-layers.min.js"></script>
+	<script src="../../Recursos/js/initJefe.js"></script>
+	<script src="../../Recursos/js/Validaciones.js"></script>
+	<noscript>
+		<link rel="stylesheet" href="../../Recursos/css/skel.css" />
+		<link rel="stylesheet" href="../../Recursos/css/style.css" />
+		<link rel="stylesheet" href="../../Recursos/css/style-desktop.css" />
+		<link rel="stylesheet" href="../../Recursos/css/style-wide.css" />
+	</noscript>
+</head>
+<body class="left-sidebar">
+	<div id="wrapper"><!--WRAPPER-->
+		<div id="content"><!--CONTENIDO-->
+			<div class="inner">
+				<!--IINICIO SECCIÓN-->
+            	<h1 id="headerJefe"><a><i>SERVICIO $#IDservicio</i></a></h1>
+
+        		<form method="POST" action="consultarServicio.html">
+
+					<table class="default">
+						<tr> 
+							<td width="25%">CIF Empresa: </td> 
+							<td width="25%"><input type="text" class="text" disabled name="sCIF" value="X12345678"/></td> 
+							<td width="25%">Periodicidad: </td> 
+							<td width="25%"> <input type="text" class="text" name="sPerio" value="Cada 2 Meses"/></td>
+						</tr>
+						<tr> 
+							<td width="25%">#ID Servicio: </td> 
+							<td width="25%"><input type="text" class="text" disabled name="sID" value="#1234"/></td> 
+							<td width="25%">#ID M&aacute;quina: </td> 
+							<td width="25%"> <input type="text" class="text" disabled name="sMaquina" value="#708936" /></td>
+						</tr>
+						<tr> 
+							<td width="25%">Fecha inicio: </td> 
+							<td width="25%"><input type="text" class="text" name="sFechaInicio" value="12/03/2005" /></td> 
+							<td width="25%">Fecha fin: </td> 
+							<td width="25%"> <input type="text" class="text" name="sFechaFin" value="12/03/2015" /></td>
+						</tr>
+						<tr> 
+							<td width="25%">Coste: </td> 
+							<td width="25%"><input type="text" class="text" name="sCoste" value="120'00 €/Mes" /></td> 
+							<td width="25%">&nbsp;</td>
+							<td width="25%">&nbsp;</td>
+						</tr>
+						<tr><td>&nbsp;</td></tr>
+						<tr>
+							<td width="25%"><br>Descripci&oacute;n:</td>
+							<td colspan='3'width="75%">
+								<textarea style="resize:none; text-align:left;" style="t" rows="4" name='sDesc'>
+								Mantenimiento completo, coste de piezas no incluido.
+								</textarea>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="4"><input type="submit" name="sModificar" value="Guardar"></td>
+						</tr> 
+		 			</table>
+				</form>
+				<!--FIN SECCIÓN-->
+			</div>
+		</div>
+	
+		<div id="sidebarJefe"> <!--BARRA LATERAL-->
+		<h1 id="logo"><a href="homeJefe.html">·Fractum!</a></h1>		
+            <nav id="nav"> 
+          		<ul>
+            		<div align="center">
+                   		<li class="current">
+                        	<a href="consultarPerfil.html">
+                        		<img src="../../Recursos/images/DefaultAvatar.png"><em><strong><br>".$jefeNegocio"</strong></em><strong></strong>
+                        	</a>
+                     	</li>
+                     	<li class='current'><a href='gestorPendientes.html'>Pendientes: <span class="badge">100</span></a></li>
+						<li class="current"><a href="gestorIncidencias.html">GESTIONAR INCIDENCIAS</a></li>
+                       	<li class="current"><a href="gestorUsuarios.html">GESTIONAR USUARIOS</a></li>
+                       	<li class="current"><a href="gestorMaquinas.html">GESTIONAR MÁQUINAS</a></li>
+						<li class="current"><a href="gestorServicios.html">GESTIONAR SERVCICOS</a></li>
+						<li class='current'><a href='../Login.html' id='Logout_Usuario' onclick ='return Salir_Usuario()'> > Log Out</a></li>
+                        <form method="POST" action="resultadosBusqueda.html" style="text-align:center">
+                    	<section class="box search">
+							<input type="text" name="busqueda" placeholder="Buscar..." value=""/>
+                  		</section>
+							<div hidden><input type="submit" name="buscar"/></div>
+                        </form>
+                  	</div>
+				</ul>
+			</nav>
+	</div>
+	</div>
+	<!-- FIN BARRA LATERAL -->
+</body>
+</html>

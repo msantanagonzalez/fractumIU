@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<title>·Fractum!</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<script src="../../Recursos/js/jquery.min.js"></script>
+		<script src="../../Recursos/js/skel.min.js"></script>
+		<script src="../../Recursos/js/skel-layers.min.js"></script>
+		<script src="../../Recursos/js/initInterno.js"></script>
+		<script src="../../Recursos/js/Validaciones.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="../../Recursos/css/skel.css" />
+			<link rel="stylesheet" href="../../Recursos/css/style.css" />
+			<link rel="stylesheet" href="../../Recursos/css/style-desktop.css" />
+			<link rel="stylesheet" href="../../Recursos/css/style-wide.css" />
+		</noscript>
+	</head>
+
+
+	<body class="left-sidebar">
+		<div id="wrapper"><!--WRAPPER-->
+			<div id="content"><!--CONTENIDO-->
+				<div class="inner">
+               	  <h1 id="headerInterno"><a>- PERFIL $Op.Interno -</a></h1> <br>  <!--SECCIÓN-->
+                	<!--INICIO TABLA-->
+					<form name='FormPerfil' id='FormPerfil' method='post' onsubmit=''>
+					<div style='height:350px;width:auto;overflow-y: scroll;'>
+					<table class='default'>
+							<tr>
+                             	<td>Nombre:</td>
+                               	<td><input type='text' disabled class='text' value=''/ name='nombre'></td>
+                               	<td>Apellidos:</td>
+                              	<td><input type='text' disabled class='text' value=''/ name='apellidos'></td>
+                         	</tr>
+							<tr> 
+								<td>#ID USUARIO:</td> 
+								<td><input type='text' disabled class='text' value='' name='idUsuario'></td>
+                               	<td>Password:</td>
+                              	<td><input type='password' disabled class='text' value='abcde' / name='password'></td>
+                          	</tr>
+                           	
+							<tr>
+								<td>Telefono</td>
+								<td><input type='text' disabled class='text' value='6746xxxxx' / name='telefono'></td>
+								<td>Correo:</td>
+                               	<td><input type='text' disabled class='text' value='usuario1@server.com'/ name='correo'></td>
+							</tr>
+                     	</table>
+                    </div>
+                      	<table class='alternative'>
+                          	<tr>
+                             	<td> </td>
+                               	<td colspan='4'><a href=''><input type='button' value='MODIFICAR'></a></td>
+                          	</tr>
+                      	</table>
+					</form>
+                	<!-- FIN TABLA -->
+                    
+				</div>
+			</div>
+		</div>
+		
+		
+		
+         <div id="sidebarInterno"> <!--BARRA LATERAL-->
+			<h1 id='logo'><a href='homeInterno.html'>·Fractum!</a></h1> 	
+                <nav id='nav'> 
+              		<ul>
+                		<div align='center'>
+                       		<li class='current'>
+                            	<a href='perfilInterno.html'>
+                            		<img src='../../Recursos/images/DefaultAvatar.png'><em><strong><br>".$operarioInterno."</strong></em><strong></strong></img>
+                            	</a>
+                         	</li>
+							<!--NOTIFICACIONES-->		
+							<li class='current'><a href='listarPendienteCierre.html'>Pendientes: <span class="badge">100</span></a></li>
+							<!-- FIN NOTIFICACIONES-->
+							<li class='current'><strong><a href='listarIncidencias.html'>Listar Incidencias</a></strong></li>
+							<li class='current'><a href='altaIncidencia.html'>Alta incidencia</a></li>
+							<li class='current'><a href='listarMaquinas.html'>Listar maquinas</a></li>
+                            <li class='current'><a href='mailto:jefe@fractum.com?cc=administracion@fractum.es'>Contacto jefe</a></li>
+							<li class='current'><a href='#' id='Logout_Usuario' onclick ='return Salir_Usuario()'> > Log Out</a></li>
+                            <form method='POST' action='#' style='text-align:center'>
+                        	<section class='box search'>
+								<input type='text' name='busqueda' placeholder='Buscar...'/>
+                      		</section>
+								<div hidden><input type='submit' name='buscar'/></div>
+                            </form>
+                      	</div>
+					</ul>
+				</nav>
+		</div>
+		<!-- FIN BARRA LATERAL -->
+	</body>
+</html>
+
+
+
