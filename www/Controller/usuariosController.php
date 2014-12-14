@@ -1,0 +1,1 @@
+/* desde controller, mandar el alta a la class usuario y a su derivada. */
