@@ -1,29 +1,7 @@
-<!DOCTYPE HTML>
-<html>
-
-	<head>
-		<title>·Fractum!</title>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<script src="../../Recursos/js/jquery.min.js"></script>
-		<script src="../../Recursos/js/skel.min.js"></script>
-		<script src="../../Recursos/js/skel-layers.min.js"></script>
-		<script src="../../Recursos/js/initInterno.js"></script>
-		<script src="../../Recursos/js/Validaciones.js"></script>
-		<noscript>
-			<link rel="stylesheet" href="../../Recursos/css/skel.css" />
-			<link rel="stylesheet" href="../../Recursos/css/style.css" />
-			<link rel="stylesheet" href="../../Recursos/css/style-desktop.css" />
-			<link rel="stylesheet" href="../../Recursos/css/style-wide.css" />
-			<link rel="stylesheet" href="../../Recursos/css/notificaciones.css">
-		</noscript>
-	</head>
-		
-	<body class="left-sidebar">
-		<div id="wrapper"><!--WRAPPER-->
-			<div id="content"><!--CONTENIDO-->
-				<div class="inner">
+<?php
+$userType="interno";
+include_once('../../structure/bodyHeader.php');
+?>
                	  <h1 id="headerInterno"><a>- INCIDENCIAS -</a></h1> <!--SECCIÓN-->
                 	<table class="default"><!--TABLA-->
                        	<tr>
@@ -93,47 +71,9 @@
                    		</table>
                 	</div>
                     
-				</div>
-			</div>
-		</div>
-		
-		
-		
-        <div id="sidebarInterno"> <!--BARRA LATERAL-->
-			<h1 id='logo'><a href='homeInterno.html'>·Fractum!</a></h1> 	
-                <nav id='nav'> 
-              		<ul>
-                		<div align='center'>
-                       		<li class='current'>
-                            	<a href='perfilInterno.html'>
-                            		<img src='../../Recursos/images/DefaultAvatar.png'><em><strong><br>".$operarioInterno."</strong></em><strong></strong></img>
-                            	</a>
-                         	</li>
-							<!--NOTIFICACIONES-->		
-							<li class='current'><a href='listarPendienteCierre.html'>Pendientes: <span class="badge">100</span></a></li>
-							<!-- FIN NOTIFICACIONES-->
-							<li class='current'><strong><a href='listarIncidencias.html'>Listar Incidencias</a></strong></li>
-							<li class='current'><a href='altaIncidencia.html'>Alta incidencia</a></li>
-							<li class='current'><a href='listarMaquinas.html'>Listar maquinas</a></li>
-                            <li class='current'><a href='mailto:jefe@fractum.com?cc=administracion@fractum.es'>Contacto jefe</a></li>
-							<li class='current'><a href='#' id='Logout_Usuario' onclick ='return Salir_Usuario()'> > Log Out</a></li>
-                            <form method='POST' action='#' style='text-align:center'>
-                        	<section class='box search'>
-								<input type='text' name='busqueda' placeholder='Buscar...'/>
-                      		</section>
-								<div hidden><input type='submit' name='buscar'/></div>
-                            </form>
-                      	</div>
-					</ul>
-				</nav>
-		</div>
-		<!-- FIN BARRA LATERAL -->
-
-
-		
-
-	</body>
-</html>
+<?php
+include_once('../../structure/bodyFooter.php');
+?>
 
 
 

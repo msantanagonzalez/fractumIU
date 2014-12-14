@@ -1,29 +1,8 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-	<title>·Fractum!</title>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<script src="../../Recursos/js/jquery.min.js"></script>
-	<script src="../../Recursos/js/skel.min.js"></script>
-	<script src="../../Recursos/js/skel-layers.min.js"></script>
-	<script src="../../Recursos/js/initJefe.js"></script>
-	<script src="../../Recursos/js/Validaciones.js"></script>
-	<noscript>
-		<link rel="stylesheet" href="../../Recursos/css/skel.css" />
-		<link rel="stylesheet" href="../../Recursos/css/style.css" />
-		<link rel="stylesheet" href="../../Recursos/css/style-desktop.css" />
-		<link rel="stylesheet" href="../../Recursos/css/style-wide.css" />
-	</noscript>
-</head>
-<body class="left-sidebar">
-	<div id="wrapper"><!--WRAPPER-->
-		<div id="content"><!--CONTENIDO-->
-			<div class="inner"> 
-				<!--IINICIO SECCIÓN-->
+<?php
+$userType="jefe";
+include_once('../../structure/bodyHeader.php');
+?>
             	<h1 id="headerJefe"><a><i>INCIDENCIAS</i></a></h1>
-
             	<table class="default">
                     <tr>
                     	<th width="17%">#ID Inc.</th>
@@ -32,10 +11,8 @@
                         <th width="17%">&Uacute;lt. iteración</th>
                         <th width="17%">Estado</th>
                         <th width="17%">&nbsp;</th>
-
                     </tr>
                 </table>
-        
         		<form method="POST" action="">
 						<table class="default">
 								<tr> 
@@ -63,7 +40,6 @@
 								<td width="17%"><button><a href="consultarIncidencia.html">Consultar</a></button></td>
 							</tr>
 			 			</table>
-			 		</div>
 				</form>
 				<!--FIN SECCIÓN-->
 				<br>
@@ -105,39 +81,9 @@
 								<td width="10%"><button><a onclick="return Eliminar_Elemento()">Eliminar</a></button></td>
 							</tr>
 			 			</table>
-			 		</div>
+			 		
 				</form>
-				<!--FIN SECCIÓN-->
-			</div>
-		</div>
-	
-		<div id="sidebarJefe"> <!--BARRA LATERAL-->
-			<h1 id="logo"><a href="homeJefe.html">·Fractum!</a></h1>		
-            <nav id="nav"> 
-          		<ul>
-            		<div align="center">
-                   		<li class="current">
-                        	<a href="consultarPerfil.html">
-                        		<img src="../../Recursos/images/DefaultAvatar.png"><em><strong><br>".$jefeNegocio"</strong></em><strong></strong>
-                        	</a>
-                     	</li>
-                     	<li class='current'><a href='gestorPendientes.html'>Pendientes: <span class="badge">100</span></a></li>
-						<li class="current"><a href="gestorIncidencias.html">GESTIONAR INCIDENCIAS</a></li>
-                       	<li class="current"><a href="gestorUsuarios.html">GESTIONAR USUARIOS</a></li>
-                       	<li class="current"><a href="gestorMaquinas.html">GESTIONAR MÁQUINAS</a></li>
-						<li class="current"><a href="gestorServicios.html">GESTIONAR SERVCICOS</a></li>
-						<li class='current'><a href='../Login.html' id='Logout_Usuario' onclick ='return Salir_Usuario()'> > Log Out</a></li>
-                        <form method="POST" action="resultadosBusqueda.html" style="text-align:center">
-                    	<section class="box search">
-							<input type="text" name="busqueda" placeholder="Buscar..." value=""/>
-                  		</section>
-							<div hidden><input type="submit" name="buscar"/></div>
-                        </form>
-                  	</div>
-				</ul>
-			</nav>
-		</div>
-	</div>
-	<!-- FIN BARRA LATERAL -->
-</body>
-</html>
+				
+<?php
+include_once('../../structure/bodyFooter.php');
+?>
