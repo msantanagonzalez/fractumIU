@@ -1,10 +1,9 @@
 <?php
-	requiere_once("../Structure/bodyHeader.php");
-	requiere_once("../Structure/bodyFooter.php");
+	$userType="externo";
+	require_once("../structure/header.php");
 ?>
 
-<h1 id='headerExterno'><a>- DETALLES $IDincidencia -</a></h1> <!--SECCIÓN-->
-<!--INICIO TABLA-->
+<h1 id='headerExterno'><a>- DETALLES $IDincidencia -</a></h1>
 <br>
 <form name='' id='' onsubmit='' action='' method='post'>
 	<div style='height:350px;width:auto;overflow-y: scroll;'>
@@ -83,5 +82,8 @@
 		<td width='25%'><input type='button' value='FINALIZAR INCIDENCIA'> </td>
 		</tr>
     </table>
-	</form>
-  <!-- FIN TABLA -->
+</form>
+
+<?php
+	require_once("../structure/footer.php");
+?>

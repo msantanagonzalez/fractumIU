@@ -1,7 +1,8 @@
 <?php
-	require_once("../Structure/bodyHeader.php");
-	require_once("../Structure/bodyFooter.php");
+	$userType="jefe";
+	require_once("../structure/header.php");
 ?>
+
 <h1 id="headerJefe"><a><i>SERVICIO $#IDservicio</i></a></h1>
 <form method="POST" action="modificarServicio.html">
 	<table class="default">
@@ -43,3 +44,7 @@
 		</tr> 
 	</table>
 </form>
+
+<?php
+	require_once("../structure/footer.php");
+?>

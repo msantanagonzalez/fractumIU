@@ -1,6 +1,6 @@
 <?php
-	requiere_once("../Structure/bodyHeader.php");
-	requiere_once("../Structure/bodyFooter.php");
+	$userType="externo";
+	require_once("../structure/header.php");
 ?>
 
 <h1 id="headerExterno"><a><i>M&Aacute;QUINA $#nombreM&aacute;quina</i></a></h1>
@@ -59,3 +59,7 @@
 		</tr>
 	</table>
 </form>
+
+<?php
+	require_once("../structure/footer.php");
+?>

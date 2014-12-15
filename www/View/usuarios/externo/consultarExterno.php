@@ -1,6 +1,6 @@
 <?php
 	$userType="externo";
-	require_once("../../structure/bodyHeader.php");
+	require_once("../../structure/header.php");
 ?>
 
 <h1 id="headerExterno"><a>- PERFIL $Op.Externo -</a></h1> <br>  <!--SECCIÓN-->
@@ -34,5 +34,5 @@
 </form>
 
 <?php
-	require_once("../../structure/bodyFooter.php");
+	require_once("../../structure/footer.php");
 ?>

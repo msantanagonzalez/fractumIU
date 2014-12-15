@@ -1,10 +1,9 @@
 <?php
-	requiere_once("../Structure/bodyHeader.php");
-	requiere_once("../Structure/bodyFooter.php");
+	$userType="interno";
+	require_once("../structure/header.php");
 ?>
 
-<h1 id='headerInterno'><a>- DETALLES $IDincidencia -</a></h1> <!--SECCIÓN-->
-<!--INICIO TABLA-->
+<h1 id='headerInterno'><a>- DETALLES $IDincidencia -</a></h1>
 <br>
 <form name='' id='FormDetalle_Tarea' onsubmit='return Confirmar_EliminacionTarea()' action='' method='post'>
 	<div style='height:350px;width:auto;overflow-y: scroll;'>
@@ -92,3 +91,7 @@
 		</tr>
     </table>
 </form>
+
+<?php
+	require_once("../structure/footer.php");
+?>

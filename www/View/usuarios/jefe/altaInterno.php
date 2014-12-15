@@ -1,6 +1,6 @@
 <?php
-	$userType="interno";
-	require_once("../../structure/bodyHeader.php");
+	$userType="jefe";
+	require_once("../../structure/header.php");
 ?>
 
 <h1 id="headerJefe"><a><i>ALTA OPERARIO INTERNO</i></a></h1>
@@ -31,5 +31,5 @@
 </form>
 
 <?php
-	require_once("../../structure/bodyFooter.php");
+	require_once("../../structure/footer.php");
 ?>

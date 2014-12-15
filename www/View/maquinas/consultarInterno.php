@@ -1,6 +1,6 @@
 <?php
-	requiere_once("../Structure/bodyHeader.php");
-	requiere_once("../Structure/bodyFooter.php");
+	$userType="interno";
+	require_once("../structure/header.php");
 ?>
 
 <h1 id='headerInterno'><a>- MAQUINA: $nombreMaquina -</a></h1> <!--SECCIÓN-->
@@ -63,3 +63,7 @@
 		</tr>
 	</table>
 </form>		
+
+<?php
+	require_once("../structure/footer.php");
+?>

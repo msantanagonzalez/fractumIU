@@ -1,6 +1,6 @@
 <?php
-	requiere_once("../Structure/bodyHeader.php");
-	requiere_once("../Structure/bodyFooter.php");
+	$userType="externo";
+	require_once("../structure/header.php");
 ?>
 
 <h1 id="headerExterno"><a>- MAQUINAS -</a></h1> <!--SECCIÓN-->
@@ -31,3 +31,7 @@
 		</tr>
 	</table>
 </div>
+
+<?php
+	require_once("../structure/footer.php");
+?>

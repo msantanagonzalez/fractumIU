@@ -1,3 +1,8 @@
+<?php
+	$userType="jefe";
+	require_once("../structure/header.php");
+?>
+
 <h1 id="headerJefe"><a><i>M&Aacute;QUINA $#IDm&aacute;quina</i></a></h1>
 <form method="POST" action="consultarMaquina.html" enctype="multipart/form-data">
 	<table class="default">
@@ -31,3 +36,7 @@
 		</tr> 
 	</table>
 </form>
+
+<?php
+	require_once("../structure/footer.php");
+?>

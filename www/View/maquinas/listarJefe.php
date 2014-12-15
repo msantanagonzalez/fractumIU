@@ -1,6 +1,6 @@
 <?php
-	requiere_once("../Structure/bodyHeader.php");
-	requiere_once("../Structure/bodyFooter.php");
+	$userType="jefe";
+	require_once("../structure/header.php");
 ?>
 
 <h1 id="headerJefe"><a><i>M&Aacute;QUINAS</i></a></h1>
@@ -43,3 +43,7 @@
 		<td colspan="4"><a href="altaMaquina.html"><input type="button" name="sAlta" value="Alta M&aacute;quina"/></a></td>
 	</tr>
 </table>
+
+<?php
+	require_once("../structure/footer.php");
+?>

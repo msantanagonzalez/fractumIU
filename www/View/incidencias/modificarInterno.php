@@ -1,9 +1,9 @@
 <?php
-	requiere_once("../Structure/bodyHeader.php");
-	requiere_once("../Structure/bodyFooter.php");
+	$userType="interno";
+	require_once("../structure/header.php");
 ?>
 
-<h1 id="headerJefe"><a><i>INCIDENCIA $#IDincidencia</i></a></h1>
+<h1 id="headerInterno"><a><i>INCIDENCIA $#IDincidencia</i></a></h1>
 <div style='height:525px;width:auto;overflow-y: scroll;'>
 	<form method="POST" action="">
 		<table class="default">
@@ -48,3 +48,7 @@
 		</tr> 
 	</table>
 </div>
+
+<?php
+	require_once("../structure/footer.php");
+?>

@@ -1,7 +1,8 @@
 <?php
-	require_once("../Structure/bodyHeader.php");
-	require_once("../Structure/bodyFooter.php");
+	$userType="jefe";
+	require_once("../structure/header.php");
 ?>
+
 <h1 id="headerJefe"><a><i>SERVICIOS</i></a></h1>
 <table class="default">
     <tr>
@@ -46,3 +47,7 @@
 		<td colspan="4"><a href="altaServicio.html"><input type="button" name="sAlta" value="Alta Servicio"/></a></td>
 	</tr>
 </table>
+
+<?php
+	require_once("../structure/footer.php");
+?>

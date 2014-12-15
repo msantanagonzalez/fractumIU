@@ -1,6 +1,6 @@
 <?php
-	requiere_once("../Structure/bodyHeader.php");
-	requiere_once("../Structure/bodyFooter.php");
+	$userType="jefe";
+	require_once("../structure/header.php");
 ?>
 
 <h1 id="headerJefe"><a><i>NUEVA INCIDENCIA</i></a></h1>
@@ -45,4 +45,7 @@
 		</tr>
 	</table>
 </form>
-<!--FIN SECCIÓN-->
+
+<?php
+	require_once("../structure/footer.php");
+?>
