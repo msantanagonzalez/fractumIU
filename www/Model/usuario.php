@@ -1,104 +1,77 @@
-                                                                                                                                                                           <?php
-include '../Controller/bdController.php';
+<?php
+include ('../Controller/bdController.php');
 
-class user{
+class usuario {
 
-private $dni;
-private $nombre;
-private $apellidos;
-private $pass;
-public $tipoUsu;
+	protected $dniUsu;
+	private $nomUsu;
+	private $apellUsu;
+	private $passUsu;
+	private $tipoUsu;
 
-function __construct($dni, $nombre, $pass, $tipoUsu){
-	$this->dni=$dni;
-	$this->nombre=$nombre;
-	$this->apellidos=$apellidos;
-	$this->pass=$pass;
-	$this->typeUser=$typeUser;
-}
+	protected $consultarUsuario  = "SELECT * FROM USUARIO WHERE dniUsu = '$this->dniUsu'";
+	protected $insertarUsuario   = "INSERT INTO USUARIO(dniUsu, nomUsu, apellUsu, passUsu, tipoUsu) VALUES ('$this->dniUsu', '$this->nomUsu','$this->apellUsu','$this->passUsu','$this->tipoUsu')";
+	protected $eliminarUsuario   = "DELETE FROM USUARIO WHERE dniUsu = 'this->$dniUsu'";
+	protected $actualizarUsuario = "UPDATE USUARIO SET dniUsu='$this->dniUsu', nomUsu ='$this->nomUsu', apellUsu='$this->apellUsu', passUsu='$this->passUsu', tipoUsu='$this->tipoUsu' where dniUsu='$this->dniUsu'";
 
-function altaUsuario(){
-	$this->ConectDB();
-	$sql = "SELECT tipoUsu FROM USUARIO WHERE tipoUsu = '$this->tipoUsu'";
-	$resultado = mysql_query($sql) or die(mysql_error());
 
-	switch ($resultado) {
-		case 'J':
-			$sql1="INSERT INTO USUARIO(dni, nombre, apellidos, pass, tipoUsu) VALUES ('this->$dni','this->$nombre','this->$apellidos','this->$pass','this->$tipoUsu')";
-			$resultado1 = mysql_query($sql1) or die(mysql_error());
-			$sql1="INSERT INTO JEFE(dniJefe, telefJefe, mailJefe) VALUES ('this->$dniJefe','this->$telefJefe','this->$mailJefe')";
-			$resultado1 = mysql_query($sql1) or die(mysql_error());
-			break;
-		case 'E':
-			$sql1="INSERT INTO USUARIO(dni, nombre, apellidos, pass, tipoUsu) VALUES ('this->$dni','this->$nombre','this->$apellidos','this->$pass','this->$tipoUsu')";
-			$resultado1 = mysql_query($sql1) or die(mysql_error());
-			$sql1="INSERT INTO OPEXTERNO(dniOpeExt, cifEmpr) VALUES ('this->$dniOpeExt','this->$cifEmpr')";
-			$resultado1 = mysql_query($sql1) or die(mysql_error());
-			break;
-		case 'I':
-			$sql1="INSERT INTO USUARIO(dni, nombre, apellidos, pass, tipoUsu) VALUES ('this->$dni','this->$nombre','this->$apellidos','this->$pass','this->$tipoUsu')";
-			$resultado1 = mysql_query($sql1) or die(mysql_error());
-			$sql1="INSERT INTO OPINTERNO(dniOpeInt, telefOpeInt, mailOpeInt) VALUES ('this->$dniOpeInt','this->$telefOpeInt','this->$mailOpeInt')";
-			$resultado1 = mysql_query($sql1) or die(mysql_error());
-			break;
+
+	function __construct($dniUsu, $nomUsu, $apellUsu, $passUsu, $tipoUsu){
+		$this->dniUsu   =$dniUsu;
+		$this->nomUsu   =$nomUsu;
+		$this->apellUsu =$apellUsu;
+		$this->passUsu  =$passUsu;
+		$this->tipoUsu  =$tipoUsu;
 	}
 
-}
-
-function login(){
-	$this->ConectDB();
-	$sql = "SELECT tipoUsu FROM USUARIO WHERE dni = '$this->dni'";
-	$result = mysql_query($sql) or die(mysql_error());
-	if ($result){
-		return false;
-	} else {
-		return $result;
+	private function login(){
+		$this->ConectDB();
+		$sql = "SELECT tipoUsu FROM USUARIO WHERE dniUsu = '$this->dniUsu' and passUsu = '$this->passUsu'";
+		$result = mysql_query($sql) or die(mysql_error());
+		if (!$result){
+			return false;
+		} else {
+			return $result;
+		}
 	}
-}
 
-function bajaUsuario(){
-	$this->ConectDB();
-	$sql = "SELECT tipoUsu FROM usuario WHERE tipoUsu = '$this->tipoUsu'";
-	$resultado = mysql_query($sql) or die(mysql_error());
-
-	switch ($resultado) {
-		case 'J':
-			$sql1="DELETE FROM JEFE WHERE dniJefe = 'this->$dniJefe'";
-			$resultado1 = mysql_query($sql1) or die(mysql_error());
-			$sql1="DELETE FROM USUARIO WHERE dni = 'this->$dni'";
-			$resultado1 = mysql_query($sql1) or die(mysql_error());				
-			break;
-		case 'E':
-			$sql1="DELETE FROM OPEXTERNO WHERE dniOpeExt = 'this->$dniOpeExt'";
-			$resultado1 = mysql_query($sql1) or die(mysql_error());
-			$sql1="DELETE FROM USUARIO WHERE dni = 'this->$dni'";
-			$resultado1 = mysql_query($sql1) or die(mysql_error());
-			break;
-		case 'I':
-			$sql1="DELETE FROM OPINTERNO WHERE dniOpeInt = 'this->$dniOpeInt'";
-			$resultado1 = mysql_query($sql1) or die(mysql_error());
-			$sql1="DELETE FROM USUARIO WHERE dni = 'this->$dni'";
-			$resultado1 = mysql_query($sql1) or die(mysql_error());
-			break;
+	private function getTipoUsu(){
+		return $this->tipoUsu;
 	}
-}
 
-function actualizar($email) {
-	$this->ConectDB();
-	$sql="UPDATE usuarios set nombreUs='$this->name' , email='$this->email' , contraseña= '$this->pass' WHERE email='$email'";
-	echo $sql;	
-	$this->consult($sql);
-	header("Location:index.php");
-}
+	protected function altaUsuario(){
+		$this->ConectDB();
+		$resultado = mysql_query($consultarUsuario) or die(mysql_error());
+		if (!$resultado) {
+			$resultado1 = mysql_query($insertarUsuario) or die(mysql_error());
+		} else {
+			return false;
+		}
 
-function modificarUsuario(){
-	$this->ConectDB();
+	}
+
 	
-	$sql="UPDATE usuarios set nombreUs='".$this->name."',email='".$this->email."', contraseña='".$this->pass."', esAdmin=".$this->typeUser." where email='".$id."'";
-	//echo $sql;
-	$this->consult($sql);
-	header("location: administrador.php");
-}
+	protected function bajaUsuario(){
+		$this->ConectDB();
+		$sql = "SELECT dniUsu FROM USUARIO WHERE dniUsu = '$this->dniUsu'";
+		$resultado = mysql_query($sql) or die(mysql_error());
+		if (!$resultado) {
+			return false;
+		} else {
+			$resultado1 = mysql_query($eliminarUsuario) or die(mysql_error());	
+			return true;
+		}
+	}
+
+	protected function modificarUsuario(){
+		$this->ConectDB();
+		$resultado = mysql_query($consultarUsuario) or die(mysql_error());
+		if ($resultado) {
+			$resultado1 = mysql_query($actualizarUsuario) or die(mysql_error());
+		} else {
+			return false;
+		}
+	}
 
 }
 
