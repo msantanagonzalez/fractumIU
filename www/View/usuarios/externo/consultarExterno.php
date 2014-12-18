@@ -4,7 +4,7 @@
 ?>
 
 <h1 id="headerExterno"><a>- PERFIL $Op.Externo -</a></h1> <br>  <!--SECCIÓN-->
-<form name='' id='' method='post' onsubmit=''>
+<form name='' id='' method='post' onsubmit='' action="modificarExterno.php">
 	<div style='height:350px;width:auto;overflow-y: scroll;'>
 		<table class='default'>
 			<tr> 
@@ -28,7 +28,7 @@
 	</div>
 	<table class='alternative'>
   	<tr>
-     	<td colspan='12'><a href=''><input type='button' value='MODIFICAR'></a></td>
+     	<td colspan='12'><a href=''><input type='submit' value='MODIFICAR'></a></td>
   	</tr>
 	</table>
 </form>

@@ -4,7 +4,7 @@
 ?>
 
 <h1 id="headerInterno"><a>- PERFIL $Op.Interno -</a></h1> <br>
-<form name='FormPerfil' id='FormPerfil' method='post' onsubmit=''>
+<form name='FormPerfil' id='FormPerfil' method='post' onsubmit='' action="modificarInterno.php">
 	<div style='height:350px;width:auto;overflow-y: scroll;'>
 		<table class='default'>
 			<tr>
@@ -31,7 +31,7 @@
 	<table class='alternative'>
 	  	<tr>
 	     	<td> </td>
-	       	<td colspan='4'><a href=''><input type='button' value='MODIFICAR'></a></td>
+	       	<td colspan='4'><a href=''><input type='submit' value='MODIFICAR'></a></td>
 	  	</tr>
 	</table>
 </form>

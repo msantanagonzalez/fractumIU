@@ -4,7 +4,7 @@
 ?>
             	
 <h1 id="headerJefe"><a><i>PERFIL $jefeNegocio</i></a></h1>
-<form method="POST" action="modificarPerfil.html">
+<form method="POST" action="modificarJefe.php">
 	<table class="default">
 		<tr> 
 			<td width="25%">Nombre: </td> 

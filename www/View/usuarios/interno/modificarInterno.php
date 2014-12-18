@@ -18,7 +18,7 @@
 			<td>#ID USUARIO:</td> 
 			<td><input type='text' disabled class='text' value='' name='idUsuario'></td>
 	       	<td>Password:</td>
-	      	<td><input type='password' disabled class='text' value='abcde' / name='password'></td>
+	      	<td><input type='password' class='text' value='abcde' / name='password'></td>
 	  	</tr>
 	   	
 		<tr>
