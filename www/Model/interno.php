@@ -7,16 +7,16 @@ class interno extends usuario {
 	private $mailOpeInt;
 
 
-	protected $consultarUsuario  = "SELECT * FROM OPINTERNO WHERE dniUsu = '$this->dniUsu'";
-	protected $insertarUsuario   = "INSERT INTO OPINTERNO(dniUsu,mailOpeInt, telefOpeInt) VALUES ('$this->$dniUsu', '$this->$mailOpeInt', '$this->$telefOpeInt')";
-	protected $eliminarUsuario   = "DELETE FROM OPINTERNO WHERE dniUsu = '$this->dniUsu'";
-	protected $actualizarUsuario = "UPDATE OPINTERNO SET dniUsu='$this->dniUsu', mailOpeInt = '$this->$mailOpeInt', telefOpeInt='$this->telefOpeInt' where dniUsu= '$this->dniUsu'";
+	public $consultarUsuario  = 'SELECT * FROM OPINTERNO WHERE dniUsu = "$this->dniUsu"';
+	public $insertarUsuario   = 'INSERT INTO OPINTERNO(dniUsu,mailOpeInt, telefOpeInt) VALUES ("$this->$dniUsu", "$this->$mailOpeInt", "$this->$telefOpeInt")';
+	public $eliminarUsuario   = 'DELETE FROM OPINTERNO WHERE dniUsu = "$this->dniUsu"';
+	public $actualizarUsuario = 'UPDATE OPINTERNO SET dniUsu="$this->dniUsu", mailOpeInt = "$this->$mailOpeInt", telefOpeInt="$this->telefOpeInt" where dniUsu= "$this->dniUsu"';
 
-	private function setTelefOpeInt($telef){
+	public function setTelefOpeInt($telef){
 		$this->telefOpeInt = $telef;
 	}
 
-	private function setMailOpeInt($mail){
+	public function setMailOpeInt($mail){
 		$this->mailOpeInt = $mail;
 	}
 

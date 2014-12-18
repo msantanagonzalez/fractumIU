@@ -6,12 +6,28 @@ class externo extends usuario {
 
 	private $cifEmpr;
 
-	protected $consultarUsuario  = "SELECT * FROM OPEXTERNO WHERE dniUsu = '$this->dniUsu'";
-	protected $insertarUsuario   = "INSERT INTO OPEXTERNO(dniUsu, cifEmpr) VALUES ('$this->dniUsu','$this->cifEmpr')";
-	protected $eliminarUsuario   = "DELETE FROM OPEXTERNO WHERE dniUsu = 'this->$dniUsu'";
-	protected $actualizarUsuario = "UPDATE OPEXTERNO SET dniUsu='$this->dniUsu', cifEmpr='$this->cifEmpr' where dniUsu= '$this->dniUsu'";
+	/**
+	 * 
+	*	$this->insertarUsuario  = '';
+	*	$this->eliminarUsuario = 'DELETE FROM OPEXTERNO WHERE dniUsu = "this->$dniUsu"';
+	*	$this->actualizarUsuario = 'UPDATE OPEXTERNO SET dniUsu="$this->dniUsu", cifEmpr="$this->cifEmpr" where dniUsu= "$this->dniUsu"';
+	*
+	 */
 
-	private function setCifEmpr($cif){
+	protected function consultarUsuarioSql(){
+		$consultarUsuario  = "SELECT * FROM OPEXTERNO WHERE dniUsu = '$this->dniUsu'";
+		$resultado = mysql_query($consultarUsuario) or die(mysql_error());
+		return $resultado;
+	}
+
+	protected function insertarUsuarioSql(){
+		$consultarUsuario  = "INSERT INTO OPEXTERNO(dniUsu, cifEmpr) VALUES ('$this->dniUsu','$this->cifEmpr')";
+		$resultado = mysql_query($consultarUsuario) or die(mysql_error());
+		return $resultado;
+	}
+
+
+	public function setCifEmpr($cif){
 		$this->cifEmpr = $cif;
 	}
 
@@ -26,7 +42,7 @@ class externo extends usuario {
 *
 *	private function altaUsuario(){
 *		$this->ConectDB();
-*		$sql       = "SELECT * FROM OPEXTERNO WHERE dniUsu = '$this->dniUsu'";
+*		$sql       = "SELECT * FROM OPEXTERNO WHERE dniUsu = "$this->dniUsu'";
 *		$resultado = mysql_query($sql) or die(mysql_error());
 *		if (!$resultado) {
 *			$sql1       = "INSERT INTO OPEXTERNO(dniUsu, cifEmpr) VALUES ('this->$dniUsu','this->$cifEmpr')";

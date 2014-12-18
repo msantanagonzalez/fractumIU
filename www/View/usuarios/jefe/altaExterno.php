@@ -4,28 +4,22 @@
 ?>
 
 <h1 id="headerJefe"><a><i>ALTA OPERARIO EXTERNO</i></a></h1>
-<form method="POST" action="consultarPerfilExterno.html">
+<form method="POST" action="../../../Controller/usuariosController.php">
 	<table class="default">
 		<tr> 
-			<td width="25%">#ID operarioExterno: </td> 
-			<td width="25%"><input type="text" class="text" name="peID" value="00000000X"/ disabled></td> 
-			<td width="25%">Contraseña: </td> 
-			<td width="25%"> <input type="text" class="text" name="pePass" value="abcdef" /></td>
+			<td width="25%">DNI Operario Externo: </td> 
+			<td width="25%"><input type="text" class="text" name="dni" /></td> 
+			<td width="25%">Empresa: </td> 
+			<td width="25%"><input type="text" class="text" name="cif" /></td>
 		</tr>
 		<tr> 
 			<td width="25%">Nombre: </td> 
-			<td width="25%"><input type="text" class="text" name="peNombre" value="Op"/></td> 
+			<td width="25%"><input type="text" class="text" name="nombre" /></td> 
 			<td width="25%">Apellidos: </td> 
-			<td width="25%"> <input type="text" class="text" name="peApellidos" value="Externo"/></td>
-		</tr>
-		<tr> 
-			<td width="25%">Empresa: </td> 
-			<td width="25%"><input type="text" class="text" name="peEmpresa" value="Empresa1" /></td>
-			<td width="25%">#ID Jefe: </td> 
-			<td width="25%"><input type="text" class="text" name="peID" value="$idJefe"/ disabled></td> 
+			<td width="25%"> <input type="text" class="text" name="apellidos" /></td>
 		</tr>
 		<tr>
-			<td colspan="4"><input type="submit" name="peAlta" value="Alta"></td>
+			<td colspan="4"><input type="submit" name="accion" value="altaExterno"></td>
 		</tr> 
 	</table>
 </form>
