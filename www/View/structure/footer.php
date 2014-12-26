@@ -1,7 +1,7 @@
 </div> <!--FIN INNER-->	
 </div><!--FIN CONTENIDO-->
 <?php
-include_once('../../structure/nav.php');
+require_once('../../structure/nav.php');
 switch ($userType){
 	case "jefe":
 		navJefe();

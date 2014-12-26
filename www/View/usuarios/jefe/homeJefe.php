@@ -1,5 +1,5 @@
 <?php
-	$userType="jefe";
+	$userType	=	"jefe";
 	require_once("../../structure/header.php");
 ?>
 

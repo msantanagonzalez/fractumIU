@@ -45,12 +45,12 @@ class usuario {
 	public function login(){
 		$sql = "SELECT tipoUsu FROM USUARIO WHERE dniUsu = '$this->dniUsu' and passUsu = '$this->passUsu'";
 		$result = mysql_query($sql) or die(mysql_error());
-		if (!$result){
+		if (mysql_num_rows($result) == 0){
 			return false;
 		} else {
 			session_start();
-			$_SESSION['dni']  = $this->dniUsu;
-			$_SESSION['tipo'] = $this->tipoUsu;
+			$_SESSION["dni"]  = $this->dniUsu;
+			$_SESSION["tipo"] = $this->tipoUsu;
 			return $result;
 		}
 	}

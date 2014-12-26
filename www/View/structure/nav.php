@@ -10,7 +10,7 @@ function navJefe()
             		<div align="center">
                    		<li class="current">
                         	<a href="consultarJefe.php">
-                        		<img src="../../../Resources/images/DefaultAvatar.png"><em><strong><br>".$jefeNegocio"</strong></em><strong></strong>
+                        		<img src="../../../Resources/images/DefaultAvatar.png"><em><strong><br>"jefeNegocio:" <?php echo $_SESSION["dni"];?></strong></em><strong></strong>
                         	</a>
                      	</li>
                      	<li class='current'><a href="#">Pendientes: <span class="badge">100</span></a></li>
@@ -42,7 +42,7 @@ function navInterno()
                 		<div align='center'>
                        		<li class='current'>
                             	<a href='consultarInterno.php'>
-                            		<img src='../../../Resources/images/DefaultAvatar.png'><em><strong><br>".$operarioInterno."</strong></em><strong></strong></img>
+                            		<img src='../../../Resources/images/DefaultAvatar.png'><em><strong><br>"operarioInterno:" <?php echo $_SESSION["dni"];?></strong></em><strong></strong></img>
                             	</a>
                          	</li>
 							<!--NOTIFICACIONES-->		
@@ -76,7 +76,7 @@ function navExterno()
                 		<div align='center'>
                        		<li class='current'>
                             	<a href='consultarExterno.php'>
-                            		<img src='../../../Resources/images/DefaultAvatar.png'><em><strong><br>".$operarioExterno."</strong></em><strong></strong></img>
+                            		<img src='../../../Resources/images/DefaultAvatar.png'><em><strong><br>"operarioExterno:" <?php echo $_SESSION["dni"];?></strong></em><strong></strong></img>
                             	</a>
                          	</li>
                          	<!--NOTIFICACIONES-->		

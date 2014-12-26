@@ -1,4 +1,5 @@
 <?php
+session_start();
 switch ($userType){
 	case "jefe":
 		headerJefe();	
