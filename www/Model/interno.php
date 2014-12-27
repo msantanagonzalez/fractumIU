@@ -7,10 +7,9 @@ class interno extends usuario {
 	private $mailOpeInt;
 
 
-	public $consultarUsuario  = 'SELECT * FROM OPINTERNO WHERE dniUsu = "$this->dniUsu"';
-	public $insertarUsuario   = 'INSERT INTO OPINTERNO(dniUsu,mailOpeInt, telefOpeInt) VALUES ("$this->$dniUsu", "$this->$mailOpeInt", "$this->$telefOpeInt")';
-	public $eliminarUsuario   = 'DELETE FROM OPINTERNO WHERE dniUsu = "$this->dniUsu"';
-	public $actualizarUsuario = 'UPDATE OPINTERNO SET dniUsu="$this->dniUsu", mailOpeInt = "$this->$mailOpeInt", telefOpeInt="$this->telefOpeInt" where dniUsu= "$this->dniUsu"';
+	/**
+	 * Sin constructor, heredado de la class usuario, solamente setters para sus valores propios.
+	 */
 
 	public function setTelefOpeInt($telef){
 		$this->telefOpeInt = $telef;
@@ -20,27 +19,33 @@ class interno extends usuario {
 		$this->mailOpeInt = $mail;
 	}
 
+	/**
+	 * Funciones SQL difirenciadas en cada clase.
+	 */
 
-/**
-*
-*	function __construct($telefOpeInt, $mailOpeInt){
-*		$this->telefOpeInt=$telefOpeInt;
-*		$this->mailOpeInt=$mailOpeInt;
-*	}
-*
-*	function altaUsuario(){
-*		$this->ConectDB();
-*		$sql = "SELECT * FROM OPINTERNO WHERE dniUsu = '$this->dniUsu'";
-*		$resultado = mysql_query($sql) or die(mysql_error());
-*		if (!$resultado) {
-*			$sql1= "INSERT INTO OPINTERNO(dniUsu, telefOpeInt, mailOpeInt) VALUES ('this->$dniUsu', 'this->$telefOpeInt','this->$mailOpeInt')";
-*			$resultado1 = mysql_query($sql1) or die(mysql_error());
-*		} else {
-*			return false;
-*		}
-*	}
-*	
-*/
+	protected function consultarUsuarioSql(){
+		$consultarUsuario  = "SELECT * FROM OPINTERNO WHERE dniUsu = '$this->dniUsu'";
+		$resultado = mysql_query($consultarUsuario) or die(mysql_error());
+		return $resultado;
+	}
+
+	protected function insertarUsuarioSql(){
+		$insertarUsuario  = "INSERT INTO OPINTERNO(dniUsu,mailOpeInt, telefOpeInt) VALUES ('$this->$dniUsu', '$this->$mailOpeInt', '$this->$telefOpeInt')";
+		$resultado = mysql_query($insertarUsuario) or die(mysql_error());
+		return $resultado;
+	}
+
+	protected function eliminarUsuarioSql(){
+		$eliminarUsuario = "DELETE FROM OPINTERNO WHERE dniUsu = '$this->dniUsu'";
+		$resultado = mysql_query($eliminarUsuario) or die(mysql_error());
+		return $resultado;
+	}
+
+	protected function actualizarUsuarioSql(){
+		$actualizarUsuario = "UPDATE OPINTERNO SET mailOpeInt = '$this->$mailOpeInt', telefOpeInt='$this->telefOpeInt' where dniUsu= '$this->dniUsu'";
+		$resultado = mysql_query($actualizarUsuario) or die(mysql_error());
+		return $resultado;
+	}
 }
 
 ?>

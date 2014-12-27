@@ -1,7 +1,7 @@
 <?php
 include 'bdController.php';
 
-include '../Model/usuario.php';
+include '../Model/jefe.php';
 include '../Model/externo.php';
 include '../Model/interno.php';
 
@@ -11,15 +11,15 @@ $action =$_REQUEST['accion'];
 switch ($action) {
 	case 'login':
 		loginUsuario();
-	break;
+		break;
 	case 'altaInterno':
 		nuevoUsuarioInterno();
 		break;
 	case 'altaExterno':
 		nuevoUsuarioExterno();
 		break;
-	case 'modificar':
-		# code...
+	case 'Guardar Externo':
+		modificarUsuarioExterno();
 		break;
 	case 'consultar':
 		# code...
@@ -35,42 +35,39 @@ switch ($action) {
 		break;
 	
 	default:
-		# code...
+		echo "Revisa la accion del form, por aqui paso!";
 		break;
 }
+
 	function loginUsuario(){
-		$dniUsu = $_POST["dniUsu"];
+		$dniUsu  = $_POST["dniUsu"];
 		$passUsu = $_POST["passUsu"];
 		
-		$usuario   = new usuario($dniUsu, "", "", $passUsu, "" );
-		$recurso	=	$usuario->login();
-		
+		$usuario = new usuario($dniUsu, "", "", $passUsu, "" );
+		$recurso = $usuario->login();
+
 		# This is how to use the "Recurso"
-		if($recurso != FALSE )
-		{
-				# Create a temporal array to save the data, fetch array moves the pointer
-				$tipoUsuario=array();
-				
-				while ($row = mysql_fetch_array($recurso)){
-						array_push($tipoUsuario,$row[0]);
-				}
-				 
-				switch ($tipoUsuario[0]){
-						case 'J':
-						header("location:../View/usuarios/jefe/homeJefe.php");
-						break;
-						case 'I':
-						header("location:../View/usuarios/interno/homeInterno.php");
-						break;
-						case 'E':
-						header("location:../View/usuarios/externo/homeExterno.php");
-						break;
-				}
+		if($recurso != FALSE ){
+			switch ($_SESSION["tipo"]){
+				case 'J':
+					header("location:../View/usuarios/jefe/homeJefe.php");
+					break;
+				case 'I':
+					header("location:../View/usuarios/interno/homeInterno.php");
+					break;
+				case 'E':
+					header("location:../View/usuarios/externo/homeExterno.php");
+					break;
+			}
 		}else{
-		# Implementar mensaje de error
-		require_once "../View/Login.php";
+			# Implementar mensaje de error
+			require_once "../View/Login.php";
 		}
 	}
+
+	/**
+	 * Creacion de usuarios.
+	 */
 
 	function nuevoUsuarioInterno(){
 		$dniUsu    = $_REQUEST['dni'];
@@ -79,8 +76,8 @@ switch ($action) {
 		$telefono  = $_REQUEST['tlf'];
 		$email     = $_REQUEST['correo'];
 		
-		$usuario   = new usuario($dniUsu, $nombre, $apellidos, $dniUsu, 'I' );
-		$intero = $usuario;
+		$usuario = new usuario($dniUsu, $nombre, $apellidos, $dniUsu, 'I' );
+		$intero  = $usuario;
 		$usuario->altaUsuario();
 		$interno->setTelefOpeInt($telefono);
 		$interno->setMailOpeInt($mail);
@@ -95,15 +92,36 @@ switch ($action) {
 		
 
 		$usuario = new usuario($dniUsu, $nombre, $apellidos, $dniUsu, 'E' );
-		$externo = new externo($dniUsu, $nombre, $apellidos, $dniUsu, 'E' );
+		$externo = $usuario;
 		$usuario->altaUsuario();
 		$externo->setCifEmpr($cifEmpr);
 		$externo->altaUsuario();
 	}
 
+	/**
+	 * Fin de creacion de usuarios.
+	 */
 
+	/**
+	 * Inicio de modificacion de usuarios
+	 */
+	function modificarUsuarioExterno(){
+		$dniUsu    = $_REQUEST['peDNI'];
+		$nombre    = $_REQUEST['peNombre'];
+		$apellidos = $_REQUEST['peApellidos'];
+		$pass      = $_REQUEST['pePass'];
 
+		$usuario = new usuario ($dniUsu, $nombre, $apellidos, $pass, 'E');
+		$result  = $usuario->consultarUsuario();
+		if($result){
+			$usuario->modificarUsuario();
+		} else {
+			false;
+		}
+	}
 
-
+	/**
+	 * Fin de modificacion de usuarios
+	 */
 
 ?>

@@ -9,12 +9,6 @@ class jefe extends usuario {
 	private $telefJefe;
 	private $mailJefe;
 
-	protected $consultarUsuario  = "SELECT * FROM JEFE WHERE dniUsu = '$this->dniUsu'";
-	protected $insertarUsuario   = "INSERT INTO JEFE(dniUsu, telefJefe ,mailJefe) VALUES ('$this->dniUsu','$this->telefJefe','$this->mailJefe')";
-	protected $eliminarUsuario   = "DELETE FROM JEFE WHERE dniUsu = '$this->dniUsu'";
-	protected $actualizarUsuario = "UPDATE JEFE SET dniUsu='$this->dniUsu', telefJefe='$this->telefJefe', mailJefe='$this->mailJefe' where dniUsu= '$this->dniUsu'";
-
-
 	/**
 	* Usa el mismo constructor que usuario, solamente le damos valor a esos atributos
 	*/
@@ -27,30 +21,33 @@ class jefe extends usuario {
 		$this->mailJefe = $mail;
 	}
 
+	/**
+	 * Funciones Sobreescritas de la clase usuario en la clase JEFE necesarias para insetar, borrar, modificar y actualizar la clase JEFE
+	 */
+	protected function consultarUsuarioSql(){
+		$consultarUsuario  = "SELECT * FROM JEFE WHERE dniUsu = '$this->dniUsu'";
+		$resultado = mysql_query($consultarUsuario) or die(mysql_error());
+		return $resultado;
+	}
 
+	protected function insertarUsuarioSql(){
+		$insertarUsuario  = "INSERT INTO JEFE(dniUsu, telefJefe ,mailJefe) VALUES ('$this->dniUsu','$this->telefJefe','$this->mailJefe')";
+		$resultado = mysql_query($insertarUsuario) or die(mysql_error());
+		return $resultado;
+	}
 
+	protected function eliminarUsuarioSql(){
+		$eliminarUsuario =  "DELETE FROM JEFE WHERE dniUsu = '$this->dniUsu'";
+		$resultado = mysql_query($eliminarUsuario) or die(mysql_error());
+		return $resultado;
+	}
 
+	protected function actualizarUsuarioSql(){
+		$actualizarUsuario = "UPDATE JEFE SET telefJefe='$this->telefJefe', mailJefe='$this->mailJefe' where dniUsu= '$this->dniUsu'";
+		$resultado = mysql_query($actualizarUsuario) or die(mysql_error());
+		return $resultado;
+	}
 
-
-
-/**	
-*	function __construct($telefJefe,$mailJefe)
-*	{
-*		$this->telefJefe =$telefJefe;
-*		$this->mailJefe  =$mailJefe;
-*	}
-*	function altaUsuario(){
-*		$this->ConectDB();
-*		$sql = "SELECT * FROM JEFE WHERE dniUsu = '$this->dniUsu'";
-*		$resultado = mysql_query($sql) or die(mysql_error());
-*		if (!$resultado) {
-*			$sql1= "INSERT A REALIZAR";
-*			$resultado1 = mysql_query($sql1) or die(mysql_error());
-*		} else {
-*			return false;
-*		}
-*	}
-*/
 }
 
 
