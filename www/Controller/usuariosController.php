@@ -12,6 +12,9 @@ switch ($action) {
 	case 'login':
 		loginUsuario();
 		break;
+	case 'listarUsuarios':
+		listarUsuarios();
+		break;	
 	case 'altaInterno':
 		nuevoUsuarioInterno();
 		break;
@@ -59,20 +62,28 @@ switch ($action) {
 				switch ($tipoUsuario[0]){
 						case 'J':
 						header("location:../View/usuarios/jefe/homeJefe.php");
+						//require_once("../View/usuarios/jefe/homeJefe.php");
 						break;
 						case 'I':
 						header("location:../View/usuarios/interno/homeInterno.php");
+						//require_once("../View/usuarios/jefe/homeJefe.php");
 						break;
 						case 'E':
 						header("location:../View/usuarios/externo/homeExterno.php");
+						//require_once("../View/usuarios/jefe/homeJefe.php");
 						break;
 				}
-}else{
-# Implementar mensaje de error
-require_once "../View/Login.php";
-}
+		}else{
+			# Implementar mensaje de error
+			require_once "../View/Login.php";
+		}
 }
 
+	
+	function listarUsuarios(){
+		require_once '../View/usuarios/jefe/listarUsuarios.php';
+	}
+	
 	/**
 	 * Creacion de usuarios.
 	 */

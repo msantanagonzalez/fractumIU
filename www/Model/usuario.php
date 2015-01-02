@@ -60,6 +60,8 @@ class usuario {
 			session_start();
 			$_SESSION["dni"]  = $this->dniUsu;
 			$_SESSION["tipo"] = $this->tipoUsu;
+			echo getcwd();
+			$_SESSION["location"] = getcwd();
 			return $result;
 		}
 	}

@@ -1,5 +1,6 @@
 <?php
 	$userType	=	"jefe";
+	echo getcwd();
 	require_once("../../structure/header.php");
 ?>
 

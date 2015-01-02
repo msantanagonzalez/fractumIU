@@ -5,7 +5,7 @@
 	</head>
 	<body>
 	<h1 id="headerJefe"><a><i>Login</i></a></h1>
-		<form method="POST" action="../Controller/usuariosController.php">
+		<form method="POST" action="Controller/usuariosController.php">
 			<table class="default">
 				<tr> 
 					<td width="25%">Usuario: </td> 
@@ -22,11 +22,11 @@
 		<!-- TEMPORAL -->
 		<h1 id="headerJefe"><a><i>TEMPORAL</i></a></h1>
 		<br>
-		<a href="usuarios/jefe/homeJefe.php" target="_blank"> <input type="button" value="Jefe"></a>
+		<a href="View/usuarios/jefe/homeJefe.php" target="_blank"> <input type="button" value="Jefe"></a>
 		<br>
-		<a href="usuarios/interno/homeInterno.php" target="_blank"> <input type="button" value="Operario Interno"></a>
+		<a href="View/usuarios/interno/homeInterno.php" target="_blank"> <input type="button" value="Operario Interno"></a>
 		<br>
-		<a href="usuarios/externo/homeExterno.php" target="_blank"> <input type="button" value="Operario Externo"></a>
+		<a href="View/usuarios/externo/homeExterno.php" target="_blank"> <input type="button" value="Operario Externo"></a>
 		<!-- TEMPORAL -->
 		
 	</body>

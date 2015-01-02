@@ -1,6 +1,7 @@
 </div> <!--FIN INNER-->	
 </div><!--FIN CONTENIDO-->
 <?php
+echo getcwd();
 require_once('../../structure/nav.php');
 switch ($userType){
 	case "jefe":
