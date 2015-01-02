@@ -40,30 +40,38 @@ switch ($action) {
 }
 
 	function loginUsuario(){
-		$dniUsu  = $_POST["dniUsu"];
+		$dniUsu = $_POST["dniUsu"];
 		$passUsu = $_POST["passUsu"];
 		
-		$usuario = new usuario($dniUsu, "", "", $passUsu, "" );
-		$recurso = $usuario->login();
-
+		$usuario   = new usuario($dniUsu, "", "", $passUsu, "" );
+		$recurso	=	$usuario->login();
+		
 		# This is how to use the "Recurso"
-		if($recurso != FALSE ){
-			switch ($_SESSION["tipo"]){
-				case 'J':
-					header("location:../View/usuarios/jefe/homeJefe.php");
-					break;
-				case 'I':
-					header("location:../View/usuarios/interno/homeInterno.php");
-					break;
-				case 'E':
-					header("location:../View/usuarios/externo/homeExterno.php");
-					break;
-			}
-		}else{
-			# Implementar mensaje de error
-			require_once "../View/Login.php";
-		}
-	}
+		if($recurso != FALSE )
+		{
+				# Create a temporal array to save the data, fetch array moves the pointer
+				$tipoUsuario=array();
+				
+				while ($row = mysql_fetch_array($recurso)){
+						array_push($tipoUsuario,$row[0]);
+				}
+				 
+				switch ($tipoUsuario[0]){
+						case 'J':
+						header("location:../View/usuarios/jefe/homeJefe.php");
+						break;
+						case 'I':
+						header("location:../View/usuarios/interno/homeInterno.php");
+						break;
+						case 'E':
+						header("location:../View/usuarios/externo/homeExterno.php");
+						break;
+				}
+}else{
+# Implementar mensaje de error
+require_once "../View/Login.php";
+}
+}
 
 	/**
 	 * Creacion de usuarios.
