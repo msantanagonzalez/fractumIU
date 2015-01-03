@@ -46,6 +46,12 @@ class interno extends usuario {
 		$resultado = mysql_query($actualizarUsuario) or die(mysql_error());
 		return $resultado;
 	}
+
+	public function listarInternos(){
+		$sql = "SELECT * FROM OPINTERNO JOIN USUARIO ON 'OPINTERNO.dniUsu=USUARIO.dniUsu'";
+		$resul1 = mysql_query($sql) or die(mysql_error());
+		return $resul1;
+	}
 }
 
 ?>

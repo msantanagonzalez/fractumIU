@@ -14,19 +14,19 @@ function navJefe()
                         	</a>
                      	</li>
                      	<li class='current'><a href="#">Pendientes: <span class="badge">100</span></a></li>
-						<li class="current"><a href="#">GESTIONAR INCIDENCIAS</a></li>
-                       	<li class="current"><a href="../../../Controller/usuariosController.php?accion=listarUsuarios">GESTIONAR USUARIOS</a></li>
-                       	<li class="current"><a href="#">GESTIONAR MÁQUINAS</a></li>
-						<li class="current"><a href="#">GESTIONAR SERVCICOS</a></li>
-						<li class='current'><a href="#" id='Logout_Usuario' onclick ='return Salir_Usuario()'> > Log Out</a></li>
-                        <form method="POST" action="#" style="text-align:center">
-                    	<section class="box search">
-							<input type="text" name="busqueda" placeholder="Buscar..." value=""/>
-                  		</section>
-							<div hidden><input type="submit" name="buscar"/></div>
-                        </form>
-                  	</div>
-				</ul>
+						          <li class="current"><a href="#">GESTIONAR INCIDENCIAS</a></li>
+                      <li class="current"><a href="../../usuarios/jefe/gestionarUsuarios.php">GESTIONAR USUARIOS</a></li>
+                      <li class="current"><a href="#">GESTIONAR MÁQUINAS</a></li>
+						          <li class="current"><a href="#">GESTIONAR SERVCICOS</a></li>
+						          <li class='current'><a href="#" id='Logout_Usuario' onclick ='return Salir_Usuario()'> > Log Out</a></li>
+                      <form method="POST" action="#" style="text-align:center">
+                        	<section class="box search">
+    							           <input type="text" name="busqueda" placeholder="Buscar..." value=""/>
+                      		</section>
+							           <div hidden><input type="submit" name="buscar"/></div>
+                      </form>
+                </div>
+				      </ul>
 			</nav>
 </div> <!-- FIN BARRA LATERAL -->
 <?php

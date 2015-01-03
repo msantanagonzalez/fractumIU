@@ -52,16 +52,16 @@ class usuario {
 	 */
 
 	public function login(){
-		$sql = "SELECT tipoUsu FROM USUARIO WHERE dniUsu = '$this->dniUsu' and passUsu = '$this->passUsu'";
+		$sql = "SELECT * FROM USUARIO WHERE dniUsu = '$this->dniUsu' AND passUsu = '$this->passUsu'";
 		$result = mysql_query($sql) or die(mysql_error());
+		echo $result;
 		if (mysql_num_rows($result) == 0){
 			return false;
 		} else {
+			$usuario = mysql_fetch_array($result);
 			session_start();
-			$_SESSION["dni"]  = $this->dniUsu;
-			$_SESSION["tipo"] = $this->tipoUsu;
-			echo getcwd();
-			$_SESSION["location"] = getcwd();
+			$_SESSION['dni']  = $this->dniUsu;
+			$_SESSION['tipo'] = $usuario['tipoUsu'];
 			return $result;
 		}
 	}
