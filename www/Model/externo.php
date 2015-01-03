@@ -42,6 +42,16 @@ class externo extends usuario {
 		return $resultado;
 	}
 	
+	public function altaUsuario(){
+		$resultado = $this->consultarUsuarioSql();
+		if ($resultado) {
+			$resultado1 = $this->insertarUsuarioSql();
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	public function listarExternos(){
 		$sql = "SELECT * FROM USUARIO,OPEXTERNO,EMPRESA WHERE USUARIO.dniUsu = OPEXTERNO.dniUsu AND OPEXTERNO.cifEmpr=EMPRESA.cifEmpr";
 		$resul1 = mysql_query($sql) or die(mysql_error());

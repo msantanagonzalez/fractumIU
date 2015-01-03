@@ -8,15 +8,15 @@
 	<table class="default">
 		<tr> 
 			<td width="25%">DNI Operario Externo: </td> 
-			<td width="25%"><input type="text" class="text" name="dni" /></td> 
-			<td width="25%">Empresa: </td> 
-			<td width="25%"><input type="text" class="text" name="cif" /></td>
+			<td width="25%"><input type="text" class="text" name="dni"/></td> 
+			<td width="25%">Empresa: </td>
+			<td width="25%"><input type="text" class="text" name="cif"/></td>
 		</tr>
 		<tr> 
 			<td width="25%">Nombre: </td> 
-			<td width="25%"><input type="text" class="text" name="nombre" /></td> 
+			<td width="25%"><input type="text" class="text" name="nombre"/></td> 
 			<td width="25%">Apellidos: </td> 
-			<td width="25%"> <input type="text" class="text" name="apellidos" /></td>
+			<td width="25%"> <input type="text" class="text" name="apellidos"/></td>
 		</tr>
 		<tr>
 			<td colspan="4"><input type="submit" name="accion" value="altaExterno"></td>

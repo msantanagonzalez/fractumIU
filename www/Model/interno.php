@@ -30,7 +30,7 @@ class interno extends usuario {
 	}
 
 	protected function insertarUsuarioSql(){
-		$insertarUsuario  = "INSERT INTO OPINTERNO(dniUsu,mailOpeInt, telefOpeInt) VALUES ('$this->$dniUsu', '$this->$mailOpeInt', '$this->$telefOpeInt')";
+		$insertarUsuario  = "INSERT INTO OPINTERNO(dniUsu, telefOpeInt, mailOpeInt) VALUES ('$this->dniUsu', '$this->telefOpeInt', '$this->mailOpeInt')";
 		$resultado = mysql_query($insertarUsuario) or die(mysql_error());
 		return $resultado;
 	}
@@ -45,6 +45,16 @@ class interno extends usuario {
 		$actualizarUsuario = "UPDATE OPINTERNO SET mailOpeInt = '$this->$mailOpeInt', telefOpeInt='$this->telefOpeInt' where dniUsu= '$this->dniUsu'";
 		$resultado = mysql_query($actualizarUsuario) or die(mysql_error());
 		return $resultado;
+	}
+	
+	public function altaUsuario(){
+		$resultado = $this->consultarUsuarioSql();
+		if ($resultado) {
+			$resultado1 = $this->insertarUsuarioSql();
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public function listarInternos(){

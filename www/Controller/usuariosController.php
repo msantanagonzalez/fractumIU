@@ -13,17 +13,15 @@ switch ($action) {
 		loginUsuario();
 		break;
 	case 'gestionUsuarios':
-		session_start();
-		listarUsuariosInternos();
-		listarUsuariosExternos();
-		session_write_close();
-		header("location:../View/usuarios/jefe/listarUsuarios.php");
+		gestionUsuarios();
 		break;	
 	case 'altaInterno':
 		nuevoUsuarioInterno();
+		gestionUsuarios();
 		break;
 	case 'altaExterno':
 		nuevoUsuarioExterno();
+		gestionUsuarios();
 		break;
 	case 'Guardar Externo':
 		modificarUsuarioExterno();
@@ -78,6 +76,14 @@ switch ($action) {
 			require_once "../View/Login.php";
 		}
 	}
+	
+	function gestionUsuarios(){
+		session_start();
+		listarUsuariosInternos();
+		listarUsuariosExternos();
+		session_write_close();
+		header("location:../View/usuarios/jefe/listarUsuarios.php");
+	}
 
 	function listarUsuariosInternos(){
 		$interno = new interno("","","","","");
@@ -116,10 +122,13 @@ switch ($action) {
 		$email     = $_REQUEST['correo'];
 		
 		$usuario = new usuario($dniUsu, $nombre, $apellidos, $dniUsu, 'I' );
-		$intero  = $usuario;
 		$usuario->altaUsuario();
+		# NOTA: Se crea el objeto de tipo interno haciendo referencia al constructor 
+		# de la clase padre, de lo contrario peta, echarle un vistazo al ejemplo:
+		# http://php.net/manual/en/language.oop5.inheritance.php
+		$interno  = new interno($dniUsu, $nombre, $apellidos, $dniUsu, 'I' );
 		$interno->setTelefOpeInt($telefono);
-		$interno->setMailOpeInt($mail);
+		$interno->setMailOpeInt($email);
 		$interno->altaUsuario();
 	}
 
@@ -129,10 +138,14 @@ switch ($action) {
 		$apellidos = $_REQUEST['apellidos'];
 		$cifEmpr   = $_REQUEST['cif'];
 		
-
+		# Cuando este implementado empresa se tiene que validar el CIF
+		
 		$usuario = new usuario($dniUsu, $nombre, $apellidos, $dniUsu, 'E' );
-		$externo = $usuario;
 		$usuario->altaUsuario();
+		# NOTA: Se crea el objeto de tipo interno haciendo referencia al constructor 
+		# de la clase padre, de lo contrario peta, echarle un vistazo al ejemplo:
+		# http://php.net/manual/en/language.oop5.inheritance.php
+		$externo = new externo($dniUsu, $nombre, $apellidos, $dniUsu, 'E' );
 		$externo->setCifEmpr($cifEmpr);
 		$externo->altaUsuario();
 	}
