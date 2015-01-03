@@ -56,6 +56,16 @@ class interno extends usuario {
 			return false;
 		}
 	}
+	
+	public function bajaUsuario(){
+		$resultado = $this->consultarUsuarioSql();
+		if ($resultado) {
+			$resultado1 = $this->eliminarUsuarioSql();
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 	public function listarInternos(){
 		$sql = "SELECT * FROM USUARIO,OPINTERNO WHERE USUARIO.dniUsu = OPINTERNO.dniUsu";

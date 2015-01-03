@@ -37,7 +37,7 @@ class usuario {
 	}
 
 	protected function eliminarUsuarioSql(){
-		$eliminarUsuario = "DELETE FROM USUARIO WHERE dniUsu = '$this->$dniUsu'";
+		$eliminarUsuario = "DELETE FROM USUARIO WHERE dniUsu = '$this->dniUsu'";
 		$resultado = mysql_query($eliminarUsuario) or die(mysql_error());
 		return $resultado;
 	}
@@ -101,7 +101,7 @@ class usuario {
 	}
 
 	public function consultarUsuario(){
-		$resultado = mysql_query($consultarUsuario) or die(mysql_error());
+		$resultado = $this->consultarUsuarioSql();
 		if ($resultado) {
 			return $resultado;
 		} else {

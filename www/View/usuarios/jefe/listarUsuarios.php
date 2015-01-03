@@ -21,13 +21,13 @@
 							$resul2 = $_SESSION["listaInternos"];
 							foreach ($resul2 as $usuario){
 								?>
-								<form method="POST" action="../../../Controller/usuariosController.php">
+								<form method="POST" action="../../../Controller/usuariosController.php?dniUsu=<?php echo $usuario['dniUsu'];?>">
 									<tr> 
 										<td width="20%" name = "dni"><?php echo $usuario['dniUsu']; ?> </td> 
 										<td width="20%" name = "nombre"><?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></td> 
 										<td width="20%" name = "telefono"><?php echo $usuario['telefOpeInt']; ?> </td> 
-										<td width="20%"><input type="button" value="consultar" name="accion"></td>
-										<td width="20%"><input type="button" value="eliminar" name="accion"></td>
+										<td width="20%"><input type="submit" value="consultar" name="accion"></td>
+										<td width="20%"><input type="submit" value="eliminar" name="accion"></td>
 									</tr>
 								</form>
 							<?php 
@@ -48,25 +48,24 @@
                         <th width="20%">Empresa</th>
                         <th width="10%">&nbsp;</th>
                         <th width="10%">&nbsp;</th>
-
                     </tr>
                 </table>
         
-        		<form method="POST" action="">
+        		
 	        		<div style="height:150px;width:auto;overflow-y: scroll;">
 						<table class="default">
 							<?php
 							$resul2 = $_SESSION["listaExternos"];
 							foreach ($resul2 as $usuario){
 								?>
-								<form method="POST" action="../../../Controller/usuariosController.php">
+								<form method="POST" action="../../../Controller/usuariosController.php?dniUsu=<?php echo $usuario['dniUsu'];?>">
 									<tr> 
 										<td width="20%" name = "dni"><?php echo $usuario['dniUsu']; ?> </td> 
 										<td width="20%" name = "nombre"><?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></td> 
 										<td width="20%" name = "telefono"><?php echo $usuario['telefEmpr']; ?> </td> 
 										<td width="20%" name = "telefono"><?php echo $usuario['nomEmpr']; ?> </td> 
-										<td width="10%"><input type="button" value="consultar" name="accion"></td>
-										<td width="10%"><input type="button" value="eliminar" name="accion"></td>
+										<td width="10%"><input type="submit" value="consultar" name="accion"></td>
+										<td width="10%"><input type="submit" value="eliminar" name="accion"></td>
 									</tr>
 								</form>
 							<?php 
@@ -74,7 +73,7 @@
 							?>
 			 			</table>
 			 		</div>
-				</form>
+
 				<table class="default">
 			 		<tr>
 						<td colspan="2"><a href="altaExterno.php"><input type="button" name="piAlta" value="Alta Externo"/></a></td>

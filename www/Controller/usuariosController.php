@@ -5,7 +5,7 @@ include_once '../Model/jefe.php';
 include_once '../Model/externo.php';
 include_once '../Model/interno.php';
 
-
+# NOTA: CAMBIAR LOS REQUEST POR POST O GETS..... 
 $action =$_REQUEST['accion'];
 
 switch ($action) {
@@ -29,8 +29,9 @@ switch ($action) {
 	case 'consultar':
 		# code...
 		break;
-	case 'alta':
-		# code...
+	case 'eliminar':
+		eliminarUsuario();
+		gestionUsuarios();
 		break;
 	case 'alta':
 		# code...
@@ -154,6 +155,38 @@ switch ($action) {
 	 * Fin de creacion de usuarios.
 	 */
 
+	 function eliminarUsuario(){
+		$dniUsu    = $_GET['dniUsu'];
+		$usuario = new usuario ($dniUsu, "", "", "", "");
+		$recurso  = $usuario->consultarUsuario();
+		
+		# Create a temporal array to save the data
+				$datosUsuario=array();
+				
+				while($row = mysql_fetch_array($recurso)){
+						array_push($datosUsuario,$row);
+				}
+				
+		# Accedemos al array		
+				foreach($datosUsuario as $row)
+				{
+					switch ($row['tipoUsu']){
+						case 'I':
+						$interno = new interno ($dniUsu, "", "", "", "");
+						$interno->bajaUsuario();
+						break;
+						case 'E':
+						$externo = new externo ($dniUsu, "", "", "", "");
+						$externo->bajaUsuario();
+						break;
+						case 'J':
+						# ELIMINAMOS JEFE?
+						break;
+					}
+				}
+		$recurso  = $usuario->bajaUsuario();		
+	 }
+	 
 	/**
 	 * Inicio de modificacion de usuarios
 	 */

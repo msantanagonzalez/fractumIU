@@ -31,7 +31,7 @@ class externo extends usuario {
 	}
 
 	protected function eliminarUsuarioSql(){
-		$eliminarUsuario = "DELETE FROM OPEXTERNO WHERE dniUsu = '$this->$dniUsu'";
+		$eliminarUsuario = "DELETE FROM OPEXTERNO WHERE dniUsu = '$this->dniUsu'";
 		$resultado = mysql_query($eliminarUsuario) or die(mysql_error());
 		return $resultado;
 	}
@@ -46,6 +46,16 @@ class externo extends usuario {
 		$resultado = $this->consultarUsuarioSql();
 		if ($resultado) {
 			$resultado1 = $this->insertarUsuarioSql();
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public function bajaUsuario(){
+		$resultado = $this->consultarUsuarioSql();
+		if ($resultado) {
+			$resultado1 = $this->eliminarUsuarioSql();
 			return true;
 		} else {
 			return false;
