@@ -6,11 +6,11 @@
 
             	<table class="default">
                     <tr>
-                    	<th width="25%">#ID Int.</th>
-                    	<th width="25%">Nombre/Apellidos</th>
-                       	<th width="25%">Tel&eacute;fono</th>
-                        <th width="13%">&nbsp;</th>
-                        <th width="13%">&nbsp;</th>
+                    	<th width="20%">#ID Int.</th>
+                    	<th width="20%">Nombre/Apellidos</th>
+                       	<th width="20%">Tel&eacute;fono</th>
+                        <th width="20%">&nbsp;</th>
+                        <th width="20%">&nbsp;</th>
 
                     </tr>
                 </table>
@@ -18,25 +18,21 @@
 	        		<div style="height:150px;width:auto;overflow-y: scroll;">
 						<table class="default">
 							<?php
-							/**
-							 * Tapon emergencia, pensando algo mejor....
-							 */
-							$resul2 = $_SESSION["usu"];
-							while( $usuario = mysql_fetch_array($resul2) ){
+							$resul2 = $_SESSION["listaInternos"];
+							foreach ($resul2 as $usuario){
 								?>
 								<form method="POST" action="../../../Controller/usuariosController.php">
 									<tr> 
-										<td width="25%" name = "dni"><?php echo $usuario['dni']; ?> </td> 
-										<td width="25%" name = "nombre"><?php echo $usuario['nomUsu']; echo $usuario['apellUsu']; ?></td> 
-										<td width="25%" name = "telefono"><?php echo $usuario['telefOpeInt']; ?> </td> 
-										<td width="13%"><input value="consultar" name="accion"></td>
-										<td width="13%"><input value="eliminar" name="accion"></td>
+										<td width="20%" name = "dni"><?php echo $usuario['dniUsu']; ?> </td> 
+										<td width="20%" name = "nombre"><?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></td> 
+										<td width="20%" name = "telefono"><?php echo $usuario['telefOpeInt']; ?> </td> 
+										<td width="20%"><input type="button" value="consultar" name="accion"></td>
+										<td width="20%"><input type="button" value="eliminar" name="accion"></td>
 									</tr>
 								</form>
 							<?php 
 							}
 							?>
-							
 			 			</table>
 			 		</div>
 				<!--FIN SECCIÓN-->
@@ -59,30 +55,23 @@
         		<form method="POST" action="">
 	        		<div style="height:150px;width:auto;overflow-y: scroll;">
 						<table class="default">
-							<tr> 
-								<td width="20%">12345678X</td> 
-								<td width="20%">Fulanito Gonz&aacute;lez Crespo</td> 
-								<td width="20%">612345789</td> 
-								<td width="20%">Empresa 1</td> 
-								<td width="10%"><button><a href="consultarPerfilExterno.html">Consultar</a></button></td>
-								<td width="10%"><button><a onclick="return Eliminar_Elemento()">Eliminar</a></button></td>
-							</tr>
-							<tr> 
-								<td width="20%">12345678X</td> 
-								<td width="20%">Fulanito Gonz&aacute;lez Crespo</td> 
-								<td width="20%">612345789</td>
-								<td width="20%">Empresa 2</td>  
-								<td width="10%"><button><a href="consultarPerfilExterno.html">Consultar</a></button></td>
-								<td width="10%"><button><a onclick="return Eliminar_Elemento()">Eliminar</a></button></td>
-							</tr>
-							<tr> 
-								<td width="20%">12345678X</td> 
-								<td width="20%">Fulanito Gonz&aacute;lez Crespo</td> 
-								<td width="20%">612345789</td> 
-								<td width="20%">Empresa 3</td> 
-								<td width="10%"><button><a href="consultarPerfilExterno.html">Consultar</a></button></td>
-								<td width="10%"><button><a onclick="return Eliminar_Elemento()">Eliminar</a></button></td>
-							</tr>
+							<?php
+							$resul2 = $_SESSION["listaExternos"];
+							foreach ($resul2 as $usuario){
+								?>
+								<form method="POST" action="../../../Controller/usuariosController.php">
+									<tr> 
+										<td width="20%" name = "dni"><?php echo $usuario['dniUsu']; ?> </td> 
+										<td width="20%" name = "nombre"><?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></td> 
+										<td width="20%" name = "telefono"><?php echo $usuario['telefEmpr']; ?> </td> 
+										<td width="20%" name = "telefono"><?php echo $usuario['nomEmpr']; ?> </td> 
+										<td width="10%"><input type="button" value="consultar" name="accion"></td>
+										<td width="10%"><input type="button" value="eliminar" name="accion"></td>
+									</tr>
+								</form>
+							<?php 
+							}
+							?>
 			 			</table>
 			 		</div>
 				</form>

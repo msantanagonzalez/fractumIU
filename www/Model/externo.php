@@ -42,5 +42,11 @@ class externo extends usuario {
 		return $resultado;
 	}
 	
+	public function listarExternos(){
+		$sql = "SELECT * FROM USUARIO,OPEXTERNO,EMPRESA WHERE USUARIO.dniUsu = OPEXTERNO.dniUsu AND OPEXTERNO.cifEmpr=EMPRESA.cifEmpr";
+		$resul1 = mysql_query($sql) or die(mysql_error());
+		return $resul1;
+	}
+	
 }
 ?>

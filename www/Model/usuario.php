@@ -54,7 +54,6 @@ class usuario {
 	public function login(){
 		$sql = "SELECT * FROM USUARIO WHERE dniUsu = '$this->dniUsu' AND passUsu = '$this->passUsu'";
 		$result = mysql_query($sql) or die(mysql_error());
-		echo $result;
 		if (mysql_num_rows($result) == 0){
 			return false;
 		} else {

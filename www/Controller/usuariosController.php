@@ -12,8 +12,10 @@ switch ($action) {
 	case 'login':
 		loginUsuario();
 		break;
-	case 'OPERARIOS INTERNOS':
+	case 'gestionUsuarios':
+		session_start();
 		listarUsuariosInternos();
+		listarUsuariosExternos();
 		session_write_close();
 		header("location:../View/usuarios/jefe/listarUsuarios.php");
 		break;	
@@ -79,11 +81,28 @@ switch ($action) {
 
 	function listarUsuariosInternos(){
 		$interno = new interno("","","","","");
-		session_start();
-		$usu  = $interno->listarInternos();
-		$_SESSION["usu"] = $usu;
+		$recurso  = $interno->listarInternos();
+		# Create a temporal array to save the data
+				$listaInternos=array();
+				
+				while($row = mysql_fetch_array($recurso)){
+						array_push($listaInternos,$row);
+				}
+
+		$_SESSION["listaInternos"] = $listaInternos;
 	}
 	
+	function listarUsuariosExternos(){
+		$externo = new externo("","","","","");
+		$recurso  = $externo->listarExternos();
+		# Create a temporal array to save the data
+				$listaExternos=array();
+				
+				while($row = mysql_fetch_array($recurso)){
+						array_push($listaExternos,$row);
+				}
+		$_SESSION["listaExternos"] = $listaExternos;
+	}
 	
 	/**
 	 * Creacion de usuarios.
