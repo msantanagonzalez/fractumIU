@@ -6,19 +6,19 @@
 		private $idIncidencia;
 		private $fechaApertura;
 		private $fechaCierre;
-		private $dniJefe;
-		private $dniOperarioInterno;
+		private $dniResponsable;
+		private $dniApertura;
 		private $idMaquina;
 		private $estadoIncidencia;
 		private $derivada;
 
-		public function __construct($idIncidencia = NULL, $fechaApertura = NULL, $fechaCierre = NULL, $dniJefe = NULL, $dniOperarioInterno = NULL, 
+		public function __construct($idIncidencia = NULL, $fechaApertura = NULL, $fechaCierre = NULL, $dniResponsable = NULL, $dniApertura = NULL, 
 									$idMaquina = NULL, $estadoIncidencia = NULL, $derivada = NULL){
 			$this->idIncidencia = $idIncidencia;
 			$this->fechaApertura = $fechaApertura;
 			$this->fechaCierre = $fechaCierre;
-			$this->dniJefe = $dniJefe;
-			$this->dniOperarioInterno = $dniOperarioInterno;
+			$this->dniResponsable = $dniResponsable;
+			$this->dniApertura = $dniApertura;
 			$this->idMaquina = $idMaquina;
 			$this->estadoIncidencia = $estadoIncidencia;
 			$this->derivada = $derivada;
@@ -36,12 +36,12 @@
 			$this->fechaCierre = $fechaCierre;
 		}
 
-		public function setDniJefe($dniJefe){
-			$this->dniJefe = $dniJefe;
+		public function setDniResponsable($dniResponsable){
+			$this->dniResponsable = $dniResponsable;
 		}
 
-		public function setDniOperarioInterno($dniOperarioInterno){
-			$this->dniOperarioInterno = $dniOperarioInterno;
+		public function setDniApertura($dniApertura){
+			$this->dniApertura = $dniApertura;
 		}
 
 		public function setIdMaquina($idMaquina){
@@ -60,8 +60,8 @@
 		public function alta(){
 			$this->ConectDB();
 
-			mysql_query("INSERT INTO incidencia(idIncid, fAper, fCier, dniJefe, dniOpeInt, idMaq, estadoIncid, derivada) 
-						VALUES('$idIncidencia','$fechaApertura','fechaCierre','$dniJefe','$dniOperarioInterno','$idMaquina','$estadoIncidencia','$derivada')")
+			mysql_query("INSERT INTO incidencia(idIncid, fAper, fCier, dniResponsable, dniApertura, idMaq, estadoIncid, derivada) 
+						VALUES('$idIncidencia','$fechaApertura','$fechaCierre','$dniResponsable','$dniApertura','$idMaquina','$estadoIncidencia','$derivada')")
 						or die();
 		}
 
@@ -84,9 +84,9 @@
 		public function modificacion($incidencia){
 			$this->ConectDB();
 
-			if(isset($_POST['responsable'])){
-				$responsable = $_POST['responsable'];
-				mysql_query("UPDATE incidencia SET responsable = '$responsable' WHERE idIncid = '$incidencia'");
+			if(isset($_POST['idResponsable'])){
+				$responsable = $_POST['idResponsable'];
+				mysql_query("UPDATE incidencia SET dniResponsable = '$idResponsable' WHERE idIncid = '$idIncidencia'");
 			}
 		}
 
