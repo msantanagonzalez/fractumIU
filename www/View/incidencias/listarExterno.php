@@ -1,51 +1,35 @@
 <?php
-	$userType="externo";
 	require_once("../structure/header.php");
 ?>
 
 <h1 id="headerExterno"><a><i>INCIDENCIAS</i></a></h1>
-
 <table class="default">
     <tr>
-    	<th width="20%">ID</th>
-    	<th width="20%">Maquina</th>
-       	<th width="20%">Apertura</th>
-        <th width="20%">Estado</th>
-        <th width="10%">Ult.Iteracion</th>
-        <th width="10%"></th>
-		
+    	<th width="17%">#ID Inc.</th>
+       	<th width="17%">&Uacute;lt. operario</th>
+        <th width="17%">&Uacute;lt. iteración</th>
+    	<th width="17%">T&iacute;tulo</th>
+        <th width="17%">Estado</th>
+        <th width="17%">&nbsp;</th>
     </tr>
 </table>
-<div style='height:350px;width:auto;overflow-y: scroll;'>
-	<form method="POST" action="">
-		<table class="default">
-			<tr> 
-				<td width="20%">ID001</td> 
-				<td width="20%"><a href="consultarMaquina.html">Maquina1</a></td> 
-				<td width="20%">Usuario1</td> 
-				<td width="20%">Abierta</td>
-				<td width="15%"><a href="consultarTrabajoIncidencia.html">IT001</a></td>
-				<td width="5%"><a href="consultarIncidencia.html">Consultar</a></td>
-			</tr>
-			<tr> 
-				<td width="20%">ID003</td> 
-				<td width="20%"><a href="consultarMaquina.html">Maquina3</a></td>
-				<td width="20%">Usuario1</td> 
-				<td width="20%">Pendiente de cierre</td>
-				<td width="15%"><a href="consultarTrabajoIncidencia.html">IT003</a></td>
-				<td width="5%"><a href="consultarIncidencia.html">Consultar</a></td>
-			</tr>
-			<tr> 
-				<td width="20%">ID004</td> 
-				<td width="20%"><a href="consultarMaquina.html">Maquina2</a></td> 
-				<td width="20%">Usuario1</td> 
-				<td width="20%">En curso</td>
-				<td width="15%"><a href="consultarTrabajoIncidencia.html">IT003</a></td>
-				<td width="5%"><a href="consultarIncidencia.html">Consultar</a></td>
-			</tr>
-		</table>
-	</form>
-</div>
+<form method="POST" action="../../Controller/incidenciasController.php">
+	<table class="default">
+		<?php 
+			$rows = $_SESSION['listaIncidencia'];
+			foreach ($rows as $row) {
+		?>
+		<tr> 
+			<td width="17%"><?php echo $row['idIncid'];?></td> 
+			<td width="17%">Avería alternador</td> 
+			<td width="17%">Fulanito</a></td> <!-- Falta linkar al perfil del usuario. -->
+			<td width="17%"><?php echo $row['fAper']; ?></td>
+			<td width="17%"><?php echo $row['derivada']; ?></td>
+			<td width="17%"><button><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>">Consultar</a></button></td>
+		</tr>
+		<?php } ?>
+	</table>
+</form>
 
 <?php
 	require_once("../structure/footer.php");

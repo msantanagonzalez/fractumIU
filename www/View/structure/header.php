@@ -1,15 +1,17 @@
 <?php
-session_start();
-switch ($userType){
-	case "jefe":
-		headerJefe();	
-	break;
-	case "interno":
-		headerInterno();
-	break;	
-	case "externo":
-		headerExterno();
-	break;
+	session_start();
+	//header("location: ../../../Controller/incidenciasController.php?accion=contarPendientes");
+	header("../../../Controller/incidenciasController.php?accion=contarPendientes");
+	switch ($_SESSION['tipo']){
+		case "J":
+			headerJefe();	
+		break;
+		case "I":
+			headerInterno();
+		break;	
+		case "E":
+			headerExterno();
+		break;
 }
 
 function headerJefe(){

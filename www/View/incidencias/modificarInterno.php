@@ -1,52 +1,63 @@
 <?php
-	$userType="interno";
 	require_once("../structure/header.php");
 ?>
 
 <h1 id="headerInterno"><a><i>INCIDENCIA $#IDincidencia</i></a></h1>
-<div style='height:525px;width:auto;overflow-y: scroll;'>
-	<form method="POST" action="">
+<div>
+	<form method="POST" action="../../Controller/incidenciasController.php">
+
+		<?php $rows = $_SESSION['consultaIncidencia']; ?>
+	<?php foreach ($rows as $row) { ?>
+		<input type="hidden" class="text" name="idIncidencia" value="<?php echo $row['idIncid']; ?>"/>
+		<input type="hidden" class="text" name="derivada" value="<?php echo $row['derivada']; ?>"/>
+		<input type="hidden" class="text" name="dniApertura" value="<?php echo $row['dniApertura']; ?>"/>
+		<input type="hidden" class="text" name="idMaquina" value="<?php echo $row['idMaq']; ?>"/>
+		<input type="hidden" class="text" name='descripcion' value="<?php echo $row['descripIncid'];?>"/>
+		<input type="hidden" class="text" name="dniResponsable" value="<?php echo $row['dniResponsable']; ?>"/>
 		<table class="default">
 			<tr> 
-				<td width="25%">Interno alta: </td> 
-				<td width="25%"><input type="text" class="text" disabled name="iInternoAlta" value="12345678X"/></td> 
+				<td width="25%">Apertura: </td> 
+				<td width="25%"><input type="text" class="text" disabled value="<?php echo $row['dniApertura']; ?>"/></td> 
 				<td width="25%">Responsable: </td> 
-				<td width="25%"> <input type="text" class="text" name="Responsable" value="87654321Z"/></td>
+				<td width="25%"><input type="text" class="text" disabled value="<?php echo $row['dniResponsable']; ?>"/></td>
 			</tr>
 			<tr> 
-				<td width="25%">#ID Incidencia: </td> 
-				<td width="25%"><input type="text" class="text" disabled name="iID" value="#08956A"/></td> 
-				<td width="25%">#ID M&aacute;quina: </td> 
-				<td width="25%"> <input type="text" class="text" disabled name="iMaquina" value="AW-23904" /></td>
-			</tr>
-			<tr> 
-				<td width="25%">Fecha alta: </td> 
-				<td width="25%"><input type="text" class="text" disabled name="iFechaAlta" value="23/06/14" /></td> 
+				<td width="25%">Fecha apertura: </td> 
+				<td width="25%"><input type="text" class="text" name="fechaApertura" value="<?php echo $row['fAper']; ?>" /></td> 
 				<td width="25%">Fecha cierre: </td> 
-				<td width="25%"> <input type="text" class="text" disabled name="iFechaCierre" value="27/06/14" /></td>
+				<td width="25%"><input type="text" class="text" name="fechaCierre" value="<?php echo $row['fCier']; ?>" /></td>
 			</tr>
 			<tr> 
-				<td width="25%">Coste: </td> 
-				<td width="25%"><input type="text" class="text" disabled name="iCoste" value="250 €" /></td> 
-				<td width="25%">Derivada: </td> 
-				<td width="25%"> <input type="text" class="text" disabled name="iDerivada" value="No" /></td>
+				<td>Estado:</td>
+				<td>
+					<select name='estadoIncidencia'>
+						<option value='<?php echo $row['estadoIncid']; ?>' selected><?php echo $row['estadoIncid']; ?></option>
+					</select> 		
+				</td>
+				<td>Maquina:</td>
+				<td>
+					<select disabled>
+					  	<option value='<?php echo $row['idMaq']; ?>' selected><?php echo $row['idMaq']; ?></option>
+					</select> 		
+				 </td>
 			</tr>
-			<tr><td><br></td></tr>
 			<tr>
 				<td width="25%"><br>Descripci&oacute;n:</td>
 				<td colspan='3' width="75%">
-					<textarea style="resize:none; text-align:left;" style="t" rows="4" name='sDesc' disabled>
-					Mantenimiento completo, coste de piezas no incluido.
+					<textarea style="resize:none; text-align:left;" style="t" rows="4" disabled>
+					<?php echo $row['descripIncid'];?>
 					</textarea>
 				</td>
 			</tr>
-			</table>
-	</form>
+			<?php } ?>
+		</table>
+	
 	<table class="default">
 		<tr>
-			<td colspan="4"><a href="consultarIncidencia.html"><input type="submit" name="pModificar" value="Guardar"></a></td>
+			<td colspan="4"><input type="submit" name="accion" value="Modificado"></td>
 		</tr> 
 	</table>
+	</form>
 </div>
 
 <?php

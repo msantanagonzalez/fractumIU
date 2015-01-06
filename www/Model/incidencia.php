@@ -1,5 +1,4 @@
 <?php
-	include '../Controller/bdController.php';
 	include 'usuario.php';
 
 	class Incidencia{
@@ -13,7 +12,7 @@
 		private $derivada;
 
 		public function __construct($idIncidencia = NULL, $fechaApertura = NULL, $fechaCierre = NULL, $dniResponsable = NULL, $dniApertura = NULL, 
-									$idMaquina = NULL, $estadoIncidencia = NULL, $derivada = NULL){
+									$idMaquina = NULL, $estadoIncidencia = NULL, $derivada = NULL, $descripcion = NULL){
 			$this->idIncidencia = $idIncidencia;
 			$this->fechaApertura = $fechaApertura;
 			$this->fechaCierre = $fechaCierre;
@@ -22,78 +21,40 @@
 			$this->idMaquina = $idMaquina;
 			$this->estadoIncidencia = $estadoIncidencia;
 			$this->derivada = $derivada;
+			$this->descripcion = $descripcion;
 		}
-
-		public function setIdIncidencia($idIncidencia){
-			$this->idIncidencia = $idIncidencia;
-		}
-
-		public function setFechaApertura($fechaApertura){
-			$this->fechaApertura = $fechaApertura;
-		}
-
-		public function setFechaCierre($fechaCierre){
-			$this->fechaCierre = $fechaCierre;
-		}
-
-		public function setDniResponsable($dniResponsable){
-			$this->dniResponsable = $dniResponsable;
-		}
-
-		public function setDniApertura($dniApertura){
-			$this->dniApertura = $dniApertura;
-		}
-
-		public function setIdMaquina($idMaquina){
-			$this->idMaquina = $idMaquina;
-		}
-
-		public function setEstadoIncidencia($estadoIncidencia){
-			$this->estadoIncidencia = $estadoIncidencia;
-		}
-
-		public function setDerivada($derivada){
-			$this->derivada = $derivada;
-		}
-
 
 		public function alta(){
-			$this->ConectDB();
-
-			mysql_query("INSERT INTO incidencia(idIncid, fAper, fCier, dniResponsable, dniApertura, idMaq, estadoIncid, derivada) 
-						VALUES('$idIncidencia','$fechaApertura','$fechaCierre','$dniResponsable','$dniApertura','$idMaquina','$estadoIncidencia','$derivada')")
-						or die();
+			mysql_query("INSERT INTO INCIDENCIA(idIncid, fAper, fCier, dniResponsable, dniApertura, idMaq, estadoIncid, derivada, descripIncid) 
+						VALUES ('$this->idIncidencia','$this->fechaApertura','$this->fechaCierre','$this->dniResponsable','$this->dniApertura','$this->idMaquina',
+							'$this->estadoIncidencia','$this->derivada', '$this->descripcion')") or die(mysql_error());
 		}
 
 		public function consultaIncidencia($incidencia){
-			$this->ConectDB();
-
-			$sql = mysql_query("SELECT * FROM incidencia WHERE idIncid = '$incidencia'") or die();
+			$sql = mysql_query("SELECT * FROM INCIDENCIA WHERE idIncid = '$incidencia'") or die(mysql_error());
 
 			return $sql;
 		}
 
-		public function listadoMaquinas(){
-			$this->ConectDB();
-
-			$sql = mysql_query("SELECT * FROM maquina") or die();
-
-			return $sql;
-		}
-
-		public function modificacion($incidencia){
-			$this->ConectDB();
-
-			if(isset($_POST['idResponsable'])){
-				$responsable = $_POST['idResponsable'];
-				mysql_query("UPDATE incidencia SET dniResponsable = '$idResponsable' WHERE idIncid = '$idIncidencia'");
-			}
+		public function modificacion($idIncidencia){
+			mysql_query("UPDATE INCIDENCIA SET fAper = '$this->fechaApertura', fCier = '$this->fechaCierre', dniResponsable = '$this->dniResponsable', 
+				estadoIncid = '$this->estadoIncidencia' WHERE idIncid = '$idIncidencia'") or die(mysql_error());
 		}
 
 		public function lista(){
-			$this->ConectDB();
+			$sql = mysql_query("SELECT * FROM INCIDENCIA");
 
-			$sql = mysql_query("SELECT * FROM incidencia");
+			return $sql;
+		}
+
+		public function pendientes(){
+			$sql = mysql_query("SELECT * FROM INCIDENCIA WHERE estadoIncid = '$this->estadoIncidencia' ORDER BY estadoIncid") or die(mysql_error());
+
+			return $sql;
+		}
+
+		public function contarPendientes(){
+			$sql = mysql_query("SELECT count(*) as num FROM INCIDENCIA WHERE estadoIncid = 'Abierta'") or die(mysql_error());
 
 			return $sql;
 		}
