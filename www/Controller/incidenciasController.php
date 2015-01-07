@@ -24,11 +24,6 @@
 		case 'Pendientes':
 			pendientes();
 			break;
-		case 'contarPendientes':
-			contarPendientes();
-			break;
-		default:
-			break;
 	}
 
 	function alta(){
@@ -183,17 +178,5 @@
 			default:				
 				break;
 		}
-	}
-
-	function contarPendientes(){
-		session_start();
-
-		$incidencia = new Incidencia();
-		$numero = $incidencia->contarPendientes();
-		$result = mysql_fetch_array($numero);
-
-		$_SESSION['pendientes'] = $result['num'];
-	
-		session_write_close();
 	}
 ?>
