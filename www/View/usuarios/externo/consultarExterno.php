@@ -9,7 +9,7 @@ foreach ($datosUsuario as $usuario){
 ?>
 
 <h1 id="headerExterno"><a><i>PERFIL <?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></i></a></h1>
-<form method="POST" action="modificarPerfilExterno.html">
+<form method="POST" action="modificarExterno.php">
 	<table class="default">
 		<tr> 
 			<td width="25%">#ID: </td> 

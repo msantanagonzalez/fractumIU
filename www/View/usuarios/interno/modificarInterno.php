@@ -1,42 +1,47 @@
 <?php
 	$userType="interno";
 	require_once("../../structure/header.php");
+	
+	$datosUsuario = $_SESSION["datosUsuario"];
+	$datosInterno = $_SESSION["datosInterno"];
+	
+foreach ($datosUsuario as $usuario){
 ?>
 
-<h1 id="headerInterno"><a>- PERFIL $Op.Interno -</a></h1> 
-<br>
-<form name='FormPerfil' id='FormPerfil' method='post' onsubmit=''>
+<h1 id="headerInterno"><a><i>PERFIL <?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></i></a></h1>
+<form name='FormPerfil' id='FormPerfil' method='post' action="../../../Controller/usuariosController.php">
 	<div style='height:350px;width:auto;overflow-y: scroll;'>
-	<table class='default'>
-		<tr>
-	     	<td>Nombre:</td>
-	       	<td><input type='text' disabled class='text' value=''/ name='nombre'></td>
-	       	<td>Apellidos:</td>
-	      	<td><input type='text' disabled class='text' value=''/ name='apellidos'></td>
-	 	</tr>
+		<table class="default">
 		<tr> 
-			<td>#ID USUARIO:</td> 
-			<td><input type='text' disabled class='text' value='' name='idUsuario'></td>
-	       	<td>Password:</td>
-	      	<td><input type='password' class='text' value='abcde' / name='password'></td>
-	  	</tr>
-	   	
-		<tr>
-			<td>Telefono</td>
-			<td><input type='text' disabled class='text' value='6746xxxxx' / name='telefono'></td>
-			<td>Correo:</td>
-	       	<td><input type='text' disabled class='text' value='usuario1@server.com'/ name='correo'></td>
+			<td width="25%">Nombre: </td> 
+			<td width="25%"><input type="text" disabled class="text" name="piNombre" value="<?php echo $usuario['nomUsu']; ?>"/></td> 
+			<td width="25%">Apellidos: </td> 
+			<td width="25%"> <input type="text" disabled class="text" name="piApellidos" value="<?php echo $usuario['apellUsu']; ?>"/></td> 
 		</tr>
-		</table>
-	</div>
-	<table class='alternative'>
-  	<tr>
-     	<td> </td>
-       	<td colspan='4'><a href=''><input type='button' value='MODIFICAR'></a></td>
-  	</tr>
+		<tr> 
+			<td width="25%">#ID: </td> 
+			<td width="25%"><input type="text" class="text" disabled name="piID" value="<?php echo $usuario['dniUsu']; ?>"/></td> 
+			<td width="25%">Contraseña: </td> 
+			<td width="25%"> <input type="password" class="text" name="pass" value="<?php echo $usuario['passUsu']; ?>"/></td> 
+		</tr>
+		<?php
+		foreach ($datosInterno as $interno){
+		?>
+		<tr> 
+			<td width="25%">Tel&eacute;fono: </td> 
+			<td width="25%"><input type="text" class="text" disabled name="piTelf" value="<?php echo $interno['telefOpeInt']; ?>"/></td> 
+			<td width="25%">Correo: </td> 
+			<td width="25%"> <input type="text" class="text" disabled name="piCorreo" value="<?php echo $interno['mailOpeInt']; ?>"/></td> 
+		</tr>
+		<?php } ?>
+		<tr>
+			<td width="20%" colspan="4"><input type="submit" name="accion" value="Guardar"></td>
+		</tr> 
 	</table>
+	</div>
 </form>
 
 <?php
+}
 	require_once("../../structure/footer.php");
 ?>

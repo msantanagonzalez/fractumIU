@@ -47,6 +47,12 @@ class usuario {
 		$resultado = mysql_query($actualizarUsuario) or die(mysql_error());
 		return $resultado;
 	}
+	
+	protected function actualizarPassSql(){
+		$actualizarUsuario = "UPDATE USUARIO SET passUsu = '$this->passUsu' where dniUsu='$this->dniUsu'";
+		$resultado = mysql_query($actualizarUsuario) or die(mysql_error());
+		return $resultado;
+	}
 	/**
 	 * Fin de las funciones SQL
 	 */
@@ -69,6 +75,14 @@ class usuario {
 		return $this->tipoUsu;
 	}
 
+	public function getPassUsu(){
+		return $this->passUsu;
+	}
+	
+	public function setPassUsu($pass){
+	$this->passUsu  = $pass;
+	}
+	
 	public function altaUsuario(){
 		$resultado = $this->consultarUsuarioSql();
 		if ($resultado) {
@@ -104,6 +118,15 @@ class usuario {
 		$resultado = $this->consultarUsuarioSql();
 		if ($resultado) {
 			return $resultado;
+		} else {
+			return false;
+		}
+	}
+	
+	public function modificarPass(){
+		$resultado = $this->actualizarPassSql();
+		if ($resultado) {
+			return true;
 		} else {
 			return false;
 		}

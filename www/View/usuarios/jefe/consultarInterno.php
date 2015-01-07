@@ -8,7 +8,7 @@
 foreach ($datosUsuario as $usuario){
 ?>
 <h1 id="headerJefe"><a><i>PERFIL <?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></i></a></h1>
-<form method="POST" action="modificarPerfilInterno.html">
+<form method="POST" action="modificarInterno.php">
 	<table class="default">
 		<tr> 
 			<td width="25%">Nombre: </td> 

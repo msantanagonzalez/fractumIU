@@ -8,11 +8,11 @@
 foreach ($datosUsuario as $usuario){
 ?>
 <h1 id="headerJefe"><a><i>PERFIL <?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></i></a></h1>
-<form method="POST" action="modificarPerfilExterno.html">
+<form method="POST" action="modificarExterno.php">
 	<table class="default">
 		<tr> 
-			<td width="25%">#ID Jefe: </td> 
-			<td width="25%"><input type="text" class="text" name="peID" disabled value="<?php echo $_SESSION['dni']; ?>"/></td>
+			<td width="25%">#ID: </td> 
+			<td width="25%"><input type="text" class="text" name="peID" disabled value="<?php echo $usuario['dniUsu']; ?>"/></td>
 			<td width="25%">Contraseña: </td> 
 			<td width="25%"> <input type="password" class="text" name="pePass" disabled value="<?php echo $usuario['passUsu']; ?>"/></td>
 		</tr>

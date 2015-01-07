@@ -36,8 +36,8 @@ switch ($action) {
 		eliminarUsuario();
 		gestionUsuarios();
 		break;
-	case 'alta':
-		# code...
+	case 'Guardar':
+		guardarModificacion();
 		break;
 	case 'alta':
 		# code...
@@ -195,6 +195,30 @@ switch ($action) {
 				}
 		}		
 	session_write_close();
+	}
+	
+	function guardarModificacion(){
+		session_start();
+		switch ($_SESSION['tipo']){
+			case 'J':
+					
+				break;
+			case ($_SESSION['tipo'] == 'I' || $_SESSION['tipo'] == 'E'):
+					$newPass = $_POST['pass'];
+					$dniUsu = $_SESSION['dni'];
+					$usuario = new usuario($dniUsu, "", "", "", "" );
+					$usuario->setPassUsu($newPass);
+					$usuario->modificarPass();
+					if($_SESSION['tipo'] == 'I'){
+						header("location:../View/usuarios/interno/homeInterno.php");
+					}else{
+						header("location:../View/usuarios/externo/homeExterno.php");
+					}
+				break;
+			default:
+				
+				break;
+		}
 	}
 	
 	/**
