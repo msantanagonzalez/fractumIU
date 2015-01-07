@@ -1,12 +1,10 @@
 <?php
 	require_once("../Model/incidencia.php");
+	include_once 'bdController.php';
 
 	if(isset($_GET['accion'])){	$accion = $_GET['accion']; }
 	if(isset($_POST['accion'])){ $accion = $_POST['accion']; }
 
-	$tipoUsuario = $_SESSION['tipo'];
-	$incidencia = new Incidencia();
-	
 	switch ($accion) {
 		case 'Alta':
 			alta();
@@ -15,71 +13,187 @@
 			consulta();
 			break;
 		case 'Modificar':
-			modificacion();
+			modificar();
+			break;
+		case 'Modificado':
+			modificado();
 			break;
 		case 'Listar':
 			lista();
+			break;
+		case 'Pendientes':
+			pendientes();
+			break;
+		case 'contarPendientes':
+			contarPendientes();
 			break;
 		default:
 			break;
 	}
 
-	public function alta(){
-		$consultaMaquinas = $incidencia->listadoMaquinas();
-		$resultadoMaquinas = mysql_fetch_array($consultaMaquinas); // pasar a la vista
+	function alta(){
+		session_start();
 
-		if(isset($_POST['dniApertura']) && isset($_POST['dniResponsable']) && isset($_POST['idIcidencia']) && isset($_POST['idMaquina']) && 
-			isset($_POST['fechaApertura']) && isset($_POST['fechaCierre']) && isset($_POST['estadoIncidencia']) && isset($_POST['derivada'])){
-				$incidencia->setIdIncidencia($_POST['dniApertura']);
-				$incidencia->setFechaApertura($_POST['dniResponsable']);
-				$incidencia->setFechaCierre($_POST['idIcidencia']);
-				$incidencia->setDniJefe($_POST['idMaquina']);
-				$incidencia->setDniOperarioInterno($_POST['fechaApertura']);
-				$incidencia->setIdMaquina($_POST['fechaCierre']);
-				$incidencia->setEstadoIncidencia($_POST['estadoIncidencia']);
-				$incidencia->setDerivada($_POST['derivada']);
-
-				$incidencia->alta();
-		}
-		
-		switch ($tipoUsuario) {
-			case 'J':
-				require_once("../View/incidencias/listarJefe.php");
-				break;
-			case 'I':
-				require_once("../View/incidencias/listarInterno.php");
-				break;
-			default:				
-				break;
-		}
+		$incidencia = new Incidencia($_POST["idIncidencia"], $_POST["fechaApertura"], $_POST["fechaCierre"], $_POST["dniResponsable"], $_POST["dniApertura"],
+										$_POST["idMaquina"],  $_POST["estadoIncidencia"], $_POST["derivada"], $_POST['descripcion']);
+		$incidencia->alta();
+		$tempIncidencia = $_POST["idIncidencia"];
+		header("location: incidenciasController.php?accion=Consulta&idIncidencia=$tempIncidencia");
 	}
 
-	public function consulta(){
+	function consulta(){
+		session_start();
+
+		$incidencia = new Incidencia();
+
 		$idIncidencia = $_REQUEST['idIncidencia'];
 		$consultaIncidencia = $incidencia->consultaIncidencia($idIncidencia);
 
-		$resultadoIncidencia = mysql_fetch_array($consultaIncidencia); // pasar a la vista
-	}
+		$consulta = array();		
+		while($row = mysql_fetch_array($consultaIncidencia)){
+			array_push($consulta, $row);
+		}
 
-	public function modificacion(){
-		$idIncidencia = $_REQUEST['idIncidencia'];
-		$incidencia->modificacion($incidencia);
+		$_SESSION["consultaIncidencia"] = $consulta;
 
-		switch ($tipoUsuario) {
+		switch ($_SESSION['tipo']) {
 			case 'J':
-				require_once("../View/incidencias/consultarJefe.php?idIncidencia=$idIncidencia");
+				session_write_close();
+				header("location: ../View/incidencias/consultarJefe.php");
 				break;
 			case 'I':
-				require_once("../View/incidencias/consultarInterno.php?idIncidencia=$idIncidencia");
+				header("location: ../View/incidencias/consultarInterno.php");
+				session_write_close();
 				break;
 			case 'E':
-				require_once("../View/incidencias/consultarExterno.php?idIncidencia=$idIncidencia");
+				header("location: ../View/incidencias/consultarExterno.php");
+				session_write_close();
 			default:				
 				break;
 		}
 	}
 
-	public function lista(){
-		$consultaIncidencias = $incidencia->lista();	
-	}	
+	function modificar(){
+		session_start();
+
+		$incidencia = new Incidencia();
+
+		$idIncidencia = $_REQUEST['idIncidencia'];
+		$consultaIncidencia = $incidencia->consultaIncidencia($idIncidencia);
+
+		$consulta = array();		
+		while($row = mysql_fetch_array($consultaIncidencia)){
+			array_push($consulta, $row);
+		}
+
+		$_SESSION["consultaIncidencia"] = $consulta;
+
+		switch ($_SESSION['tipo']) {
+			case 'J':
+				session_write_close();
+				header("location: ../View/incidencias/modificarJefe.php");
+				break;
+			case 'I':
+				header("location: ../View/incidencias/modificarInterno.php");
+				session_write_close();
+				break;
+			case 'E':
+				header("location: ../View/incidencias/modificarExterno.php");
+				session_write_close();
+			default:				
+				break;
+		}
+	}
+
+	function modificado(){
+		session_start();
+		
+		$idIncidencia = $_POST['idIncidencia'];
+		$derivada = $_POST['derivada'];
+		$dniApertura = $_POST['dniApertura'];
+		$dniResponsable = $_POST['dniResponsable'];
+		$fechaApertura = $_POST['fechaApertura'];
+		$fechaCierre = $_POST['fechaCierre'];
+		$estadoIncidencia = $_POST['estadoIncidencia'];
+		$idMaquina = $_POST['idMaquina'];
+		$descripcion = $_POST['descripcion'];
+
+		$incidencia = new Incidencia($idIncidencia, $fechaApertura, $fechaCierre, $dniResponsable, $dniApertura, 
+									$idMaquina, $estadoIncidencia, $derivada, $descripcion);
+		$incidencia->modificacion($idIncidencia);
+
+		header("location: ../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=$idIncidencia");
+	}
+
+	function lista(){
+		session_start();
+
+		$incidencia = new Incidencia();
+		$listaIncidencias = $incidencia->lista();
+
+		$lista = array();		
+		while($row = mysql_fetch_array($listaIncidencias)){
+			array_push($lista, $row);
+		}
+
+		$_SESSION["listaIncidencia"] = $lista;
+
+		switch ($_SESSION['tipo']) {
+			case 'J':
+				session_write_close();
+				header("location: ../View/incidencias/listarJefe.php");
+				break;
+			case 'I':
+				header("location: ../View/incidencias/listarInterno.php");
+				session_write_close();
+				break;
+			case 'E':
+				header("location: ../View/incidencias/listarExterno.php");
+				session_write_close();
+			default:				
+				break;
+		}
+	}
+
+	function pendientes(){
+		session_start();
+
+		$incidencia = new Incidencia();
+		$listaIncidencias = $incidencia->pendientes();
+
+		$lista = array();		
+		while($row = mysql_fetch_array($listaIncidencias)){
+			array_push($lista, $row);
+		}
+
+		$_SESSION["listaIncidencia"] = $lista;
+
+		switch ($_SESSION['tipo']) {
+			case 'J':
+				session_write_close();
+				header("location: ../View/incidencias/pendientesJefe.php");
+				break;
+			case 'I':
+				header("location: ../View/incidencias/pendientesInterno.php");
+				session_write_close();
+				break;
+			case 'E':
+				header("location: ../View/incidencias/pendientesExterno.php");
+				session_write_close();
+			default:				
+				break;
+		}
+	}
+
+	function contarPendientes(){
+		session_start();
+
+		$incidencia = new Incidencia();
+		$numero = $incidencia->contarPendientes();
+		$result = mysql_fetch_array($numero);
+
+		$_SESSION['pendientes'] = $result['num'];
+	
+		session_write_close();
+	}
 ?>

@@ -5,46 +5,52 @@
 
 <h1 id="headerJefe"><a><i>INCIDENCIA $#IDincidencia</i></a></h1>
 <div style='height:525px;width:auto;overflow-y: scroll;'>
-	<form method="POST" action="">
+	<form method="POST" action="../../Controller/incidenciasController.php">
+		<?php $rows = $_SESSION['consultaIncidencia']; ?>
+		<input type="hidden" class="text" name="idIncidencia" value="<?php echo $row['idIncid']; ?>"/>
+		<input type="hidden" class="text" name="derivada" value="<?php echo $row['derivada']; ?>"/>
 		<table class="default">
+			<?php foreach ($rows as $row) { ?>
 			<tr> 
-				<td width="25%">Interno alta: </td> 
-				<td width="25%"><input type="text" class="text" disabled name="iInternoAlta" value="12345678X"/></td> 
+				<td width="25%">Apertura: </td> 
+				<td width="25%"><input type="text" class="text" disabled name="dniApertura" value="<?php echo $row['dniApertura']; ?>"/></td> 
 				<td width="25%">Responsable: </td> 
-				<td width="25%"> <input type="text" class="text" disabled name="iInternoCierre" value="87654321Z"/></td>
+				<td width="25%"><input type="text" class="text" disabled name="dniResponsable" value="<?php echo $row['dniResponsable']; ?>"/></td>
 			</tr>
 			<tr> 
-				<td width="25%">#ID Incidencia: </td> 
-				<td width="25%"><input type="text" class="text" disabled name="iID" value="#08956A"/></td> 
-				<td width="25%">#ID M&aacute;quina: </td> 
-				<td width="25%"> <input type="text" class="text" disabled name="iMaquina" value="AW-23904" /></td>
-			</tr>
-			<tr> 
-				<td width="25%">Fecha alta: </td> 
-				<td width="25%"><input type="text" class="text" disabled name="iFechaAlta" value="23/06/14" /></td> 
+				<td width="25%">Fecha apertura: </td> 
+				<td width="25%"><input type="text" class="text" disabled name="fechaApertura" value="<?php echo $row['fAper']; ?>" /></td> 
 				<td width="25%">Fecha cierre: </td> 
-				<td width="25%"> <input type="text" class="text" disabled name="iFechaCierre" value="27/06/14" /></td>
+				<td width="25%"><input type="text" class="text" disabled name="fechaCierre" value="<?php echo $row['fCier']; ?>" /></td>
 			</tr>
 			<tr> 
-				<td width="25%">Coste: </td> 
-				<td width="25%"><input type="text" class="text" disabled name="iCoste" value="250 €" /></td> 
-				<td width="25%">Derivada: </td> 
-				<td width="25%"> <input type="text" class="text" disabled name="iDerivada" value="No" /></td>
+				<td>Estado:</td>
+				<td>
+					<select name='estadoIncidencia' disabled>
+						<option value='<?php echo $row['estadoIncid']; ?>' selected><?php echo $row['estadoIncid']; ?></option>
+					</select> 		
+				</td>
+				<td>Maquina:</td>
+				<td>
+					<select name='idMaquina' disabled>
+					  	<option value='<?php echo $row['idMaq']; ?>' selected><?php echo $row['idMaq']; ?></option>
+					</select> 		
+				 </td>
 			</tr>
-			<tr><td><br></td></tr>
 			<tr>
 				<td width="25%"><br>Descripci&oacute;n:</td>
 				<td colspan='3' width="75%">
-					<textarea style="resize:none; text-align:left;" style="t" rows="4" name='sDesc' disabled>
-					Mantenimiento completo, coste de piezas no incluido.
+					<textarea style="resize:none; text-align:left;" style="t" rows="4" name='descripcion' disabled>
+					<?php echo $row['descripIncid'];?>
 					</textarea>
 				</td>
 			</tr>
+			<?php } ?>
 		</table>
 	</form>
 	<table class="default">
 		<tr>
-			<td colspan="4"><a href="modificarIncidencia.html"><input type="submit" name="pModificar" value="Modificar"></a></td>
+			<td colspan="4"><a href="../../Controller/incidenciasController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid']; ?>"><input type="submit" name="pModificar" value="Modificar"></a></td>
 		</tr> 
 	</table>
 	<h1 id="headerJefe"><a>- ITERACIONES -</a></h1> <!--SECCIÓN-->
@@ -63,38 +69,6 @@
         	<td width="20%">15/04/2014</td>
             <td width="20%">$operario</td>
             <td width="20%">12.00</td>
-			<td width="10%"><a href="consultarTrabajo.html">Consultar</a></td>
-			<td width="10%"><img src="../../Recursos/images/PDF.png"></td>
-     	</tr>
-     	<tr>
-			<td width="20%">IT002</td>
-        	<td width="20%">18/04/2014</td>
-            <td width="20%">$operario</td>
-			<td width="20%">0.00</td>
-            <td width="10%"><a href="consultarTrabajo.html">Consultar</a></td>
-			<td width="10%"></td>
-     	</tr>
-		<tr>
-			<td width="20%">IT003</td>
-        	<td width="20%">20/04/2014</td>
-            <td width="20%">$operario</td>
-            <td width="20%">0.00</td>
-			<td width="10%"><a href="consultarTrabajo.html">Consultar</a></td>
-			<td width="10%"><img src="../../Recursos/images/PDF.png"></td>
-     	</tr>
-     	<tr>
-			<td width="20%">IT003</td>
-        	<td width="20%">20/04/2014</td>
-            <td width="20%">$operario</td>
-            <td width="20%">0.00</td>
-			<td width="10%"><a href="consultarTrabajo.html">Consultar</a></td>
-			<td width="10%"><img src="../../Recursos/images/PDF.png"></td>
-     	</tr>
-     	<tr>
-			<td width="20%">IT003</td>
-        	<td width="20%">20/04/2014</td>
-            <td width="20%">$operario</td>
-            <td width="20%">0.00</td>
 			<td width="10%"><a href="consultarTrabajo.html">Consultar</a></td>
 			<td width="10%"><img src="../../Recursos/images/PDF.png"></td>
      	</tr>

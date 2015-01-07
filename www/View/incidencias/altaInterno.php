@@ -4,45 +4,58 @@
 ?>
 
 <h1 id="headerInterno"><a><i>NUEVA INCIDENCIA</i></a></h1>
-<form name='FormAltaIncidencia' action='' method='post'>
-	<div style='height:350px;width:auto;overflow-y: scroll;'>
+<form name='FormAltaIncidencia' action='../../Controller/incidenciasController.php' method='POST'>
+	<input type="hidden" class="text" name="idIncidencia" value="id0"/>
+	<input type="hidden" class="text" name="derivada" value="0"/>
+	<input type='hidden' class='text' name="dniApertura" value='<?php echo $_SESSION['dni']; ?>'/>
 		<table class='default'>
-		   <tr>
+		   	<tr>
 				<td>Apertura:</td>
-				<td><input type='text' class='text' name='idOperarioInterno' value='$USUARIO' disabled></td>
-				<td>Fecha Apertura:</td>
-				<td><input type='date' name='fechaApertura' value='$fechaSistema' disabled></td>
+				<td><input type='text' class='text' disabled value='<?php echo $_SESSION['dni']; ?>'/></td>
+				<td>Responsable:</td>
+				<td><input type='text' class='text' name='dniResponsable' value=''/></td>
 			</tr>
 			<tr>
+				<td>Fecha Apertura:</td>
+				<td><input type='date' name='fechaApertura' value=''></td>
+				<td>Fecha Cierre:</td>
+				<td><input type='date' name='fechaCierre' value=''></td>
+			</tr>	
+			<tr>
+				<td>Estado:</td>
+				<td>
+					<select name='estadoIncidencia'>
+						<option value='NULL' selected>-</option>
+						<option value='Abierta'>Abierta</option>
+					  	<option value='Programada'>Programada</option>
+					</select> 		
+				</td>
 				<td>Maquina:</td>
-				<td colspan='3'>
+				<td>
 					<select name='idMaquina'>
-					  <option value='NULL' selected>-</option>
-					  <option value='Maquina1'>Maquina1</option>
-					  <option value='Maquina2'>Maquina2</option>
-					  <option value='Maquina3'>Maquina3</option>
+						  <option value='NULL' selected>-</option>
+						  <option value='maq1'>maq1</option>
+						  <option value='maq2'>maq2</option>
 					</select> 		
 				 </td>
-			</tr>	
-			<tr>
-				<td colspan='5'>Descripcion:</td>
 			</tr>
 			<tr>
-				<td colspan='5'><textarea style="resize:none" class="text" rows="5" name='descripcionApertura' required></textarea></td>
-			</tr>	
+				<td width="25%"><br>Descripci&oacute;n:</td>
+				<td colspan='3' width="75%">
+					<textarea style="resize:none; text-align:left;" style="t" rows="4" name='descripcion'> ... </textarea>
+				</td>
+			</tr>
 		</table>
-	</div>
-	
-	<table>
-		<tr> 
-			<th width="20%">
-			</th>
-			<th width="40%">
-			<input type='submit' name='accion' value='alta'>
-			</th>
-			<th width="20%">
-			</th>
-		</tr>
+		<table>
+			<tr> 
+				<th width="20%">
+				</th>
+				<th width="40%">
+					<input type='submit' name='accion' value='Alta'>
+				</th>
+				<th width="20%">
+				</th>
+			</tr>
 	</table>
 </form>
 

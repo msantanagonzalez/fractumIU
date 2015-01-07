@@ -2,14 +2,14 @@
 </div><!--FIN CONTENIDO-->
 <?php
 require_once('nav.php');
-switch ($userType){
-	case "jefe":
+switch ($_SESSION['tipo']){
+	case "J":
 		navJefe();
 	break;
-	case "interno":
+	case "I":
 		navInterno();
 	break;	
-	case "externo":
+	case "E":
 		navExterno();
 	break;
 }
