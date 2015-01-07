@@ -5,7 +5,7 @@
 	</head>
 	<body>
 	<h1 id="headerJefe"><a><i>Login</i></a></h1>
-		<form method="POST" action="Controller/usuariosController.php">
+		<form method="POST" action="../Controller/usuariosController.php">
 			<table class="default">
 				<tr> 
 					<td width="25%">Usuario: </td> 

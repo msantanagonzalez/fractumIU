@@ -9,7 +9,7 @@ $accion = $_POST['accion'];
 switch ($accion)
 {
 	default:
-		require_once('View/Login.php');
+		header("location:View/Login.php");
 		break;
 }
 ?>

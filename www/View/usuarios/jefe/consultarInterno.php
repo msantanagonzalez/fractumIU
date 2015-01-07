@@ -3,7 +3,8 @@
 	require_once("../../structure/header.php");
 
 	$datosUsuario = $_SESSION["datosUsuario"];
-//var_dump($datosUsuario);
+	$datosInterno = $_SESSION["datosInterno"];
+	
 foreach ($datosUsuario as $usuario){
 ?>
 <h1 id="headerJefe"><a><i>PERFIL <?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></i></a></h1>
@@ -21,12 +22,16 @@ foreach ($datosUsuario as $usuario){
 			<td width="25%">Contraseña: </td> 
 			<td width="25%"> <input type="password" class="text" disabled name="piPass" value="<?php echo $usuario['passUsu']; ?>"/></td> 
 		</tr>
+		<?php
+		foreach ($datosInterno as $interno){
+		?>
 		<tr> 
 			<td width="25%">Tel&eacute;fono: </td> 
-			<td width="25%"><input type="text" class="text" name="piTelf" value="<?php echo $usuario["telefOpeInt"]; ?>"/></td> 
+			<td width="25%"><input type="text" class="text" disabled name="piTelf" value="<?php echo $interno['telefOpeInt']; ?>"/></td> 
 			<td width="25%">Correo: </td> 
-			<td width="25%"> <input type="text" class="text" disabled name="piCorreo" value="jRodeiro@gmail.com" /></td>
+			<td width="25%"> <input type="text" class="text" disabled name="piCorreo" value="<?php echo $interno['mailOpeInt']; ?>"/></td> 
 		</tr>
+		<?php } ?>
 		<tr>
 			<td width="20%" colspan="4"><input type="submit" name="piModificar" value="Modificar"></td>
 		</tr> 

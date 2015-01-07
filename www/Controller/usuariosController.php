@@ -12,6 +12,9 @@ switch ($action) {
 	case 'login':
 		loginUsuario();
 		break;
+	case 'logOut':
+		logOut();
+		break;	
 	case 'gestionUsuarios':
 		gestionUsuarios();
 		break;	
@@ -74,8 +77,16 @@ switch ($action) {
 			}
 		}else{
 			# Implementar mensaje de error
-			require_once "../View/Login.php";
+			header("location:../View/Login.php");
 		}
+	}
+	
+	function logOut()
+	{
+		session_start();
+		session_unset(); 
+		session_destroy(); 
+		header("location:../View/Login.php");
 	}
 	
 	function gestionUsuarios(){
@@ -125,25 +136,33 @@ switch ($action) {
 				while($row = mysql_fetch_array($recurso)){
 						array_push($datosUsuario,$row);
 				}
-
+			$_SESSION["datosUsuario"] = $datosUsuario;
 		foreach ($datosUsuario as $row){
 			switch ($_SESSION['tipo']){
 					case 'J':
 						switch ($row['tipoUsu']){
 							case 'J':
-							header("location:../View/usuarios/jefe/consultarJefe.php");
+								header("location:../View/usuarios/jefe/consultarJefe.php");
 							break;
 							case 'I':
-							$interno = new interno($row['dniUsu'],"","","","");
-							$recurso  = $interno->consultarUsuario();
-							while($row = mysql_fetch_array($recurso)){
-											array_push($datosUsuario,$row);
-							}
-							$_SESSION["datosUsuario"] = $datosUsuario;
-							header("location:../View/usuarios/jefe/consultarInterno.php");
+								$interno = new interno($row['dniUsu'],"","","","");
+								$recurso  = $interno->consultarUsuario();
+								$datosUsuario=array();
+								while($row = mysql_fetch_array($recurso)){
+												array_push($datosUsuario,$row);
+								}
+								$_SESSION["datosInterno"] = $datosUsuario;	
+								header("location:../View/usuarios/jefe/consultarInterno.php");
 							break;
 							case 'E':
-							header("location:../View/usuarios/jefe/consultarExterno.php");
+								$externo = new externo($row['dniUsu'],"","","","");
+								$recurso  = $externo->consultarUsuario();
+								$datosUsuario=array();
+								while($row = mysql_fetch_array($recurso)){
+												array_push($datosUsuario,$row);
+								}
+								$_SESSION["datosExterno"] = $datosUsuario;	
+								header("location:../View/usuarios/jefe/consultarExterno.php");
 							break;
 							default:
 								echo "ERROR";
@@ -151,9 +170,23 @@ switch ($action) {
 						}
 						break;
 					case 'I':
+						$interno = new interno($row['dniUsu'],"","","","");
+						$recurso  = $interno->consultarUsuario();
+						$datosUsuario=array();
+						while($row = mysql_fetch_array($recurso)){
+										array_push($datosUsuario,$row);
+						}
+						$_SESSION["datosInterno"] = $datosUsuario;
 						header("location:../View/usuarios/interno/consultarInterno.php");
-						break;
+					break;
 					case 'E':
+						$externo = new externo($row['dniUsu'],"","","","");
+						$recurso  = $externo->consultarUsuario();
+						$datosUsuario=array();
+						while($row = mysql_fetch_array($recurso)){
+										array_push($datosUsuario,$row);
+						}
+						$_SESSION["datosExterno"] = $datosUsuario;
 						header("location:../View/usuarios/externo/consultarExterno.php");
 						break;
 					default:
