@@ -42,7 +42,7 @@ class interno extends usuario {
 	}
 
 	protected function actualizarUsuarioSql(){
-		$actualizarUsuario = "UPDATE OPINTERNO SET mailOpeInt = '$this->$mailOpeInt', telefOpeInt='$this->telefOpeInt' where dniUsu= '$this->dniUsu'";
+		$actualizarUsuario = "UPDATE OPINTERNO SET mailOpeInt = '$this->mailOpeInt', telefOpeInt='$this->telefOpeInt' where dniUsu= '$this->dniUsu'";
 		$resultado = mysql_query($actualizarUsuario) or die(mysql_error());
 		return $resultado;
 	}
@@ -77,6 +77,16 @@ class interno extends usuario {
 		$resultado = $this->consultarUsuarioSql();
 		if ($resultado) {
 			return $resultado;
+		} else {
+			return false;
+		}
+	}
+	
+	public function modificarUsuario(){
+		$resultado = $this->consultarUsuarioSql();
+		if ($resultado) {
+			$resultado1 = $this->actualizarUsuarioSql();
+			return true;
 		} else {
 			return false;
 		}

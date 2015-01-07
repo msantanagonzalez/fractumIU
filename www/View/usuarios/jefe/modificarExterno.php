@@ -8,26 +8,26 @@
 foreach ($datosUsuario as $usuario){
 ?>
 <h1 id="headerJefe"><a><i>PERFIL <?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></i></a></h1>
-<form method="POST" action="../../../Controller/usuariosController.php">
+<form method="POST" action="../../../Controller/usuariosController.php?dniUsu=<?php echo $usuario['dniUsu']; ?>">
 	<table class="default">
 		<tr> 
 			<td width="25%">#ID: </td> 
-			<td width="25%"><input type="text" class="text" name="peID" value="<?php echo $usuario['dniUsu']; ?>"/></td>
+			<td width="25%"><input type="text" disabled class="text" name="dniUsu" value="<?php echo $usuario['dniUsu']; ?>"/></td> 
 			<td width="25%">Contraseña: </td> 
-			<td width="25%"> <input type="password" class="text" name="pePass" value="<?php echo $usuario['passUsu']; ?>"/></td>
+			<td width="25%"> <input type="password" class="text" name="passUsu" value="<?php echo $usuario['passUsu']; ?>"/></td> 
 		</tr>
 		<tr> 
 			<td width="25%">Nombre: </td> 
-			<td width="25%"><input type="text" class="text" name="peNombre" value="<?php echo $usuario['nomUsu']; ?>"/></td>
+			<td width="25%"><input type="text" class="text" name="nomUsu" value="<?php echo $usuario['nomUsu']; ?>"/></td> 
 			<td width="25%">Apellidos: </td> 
-			<td width="25%"> <input type="text" class="text" name="peApellidos" value="<?php echo $usuario['apellUsu']; ?>"/></td> 
+			<td width="25%"> <input type="text" class="text" name="apellUsu" value="<?php echo $usuario['apellUsu']; ?>"/></td> 
 		</tr>
 		<?php
 		foreach ($datosExterno as $externo){
 		?>
 		<tr> 
 			<td width="25%">Empresa: </td> 
-			<td width="25%"><input type="text" class="text" name="peEmpresa" value="<?php echo $externo['cifEmpr']; ?>"/></td>
+			<td width="25%"><input type="text" class="text" name="cifEmpr" value="<?php echo $externo['cifEmpr']; ?>"/></td>
 			<td></td>
 			<td></td>
 		</tr>

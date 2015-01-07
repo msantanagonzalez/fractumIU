@@ -74,9 +74,13 @@ class usuario {
 	public function getTipoUsu(){
 		return $this->tipoUsu;
 	}
-
-	public function getPassUsu(){
-		return $this->passUsu;
+	
+	public function setNomUsu($nom){
+	$this->nomUsu  = $nom;
+	}
+	
+	public function setApellUsu($apell){
+	$this->apellUsu  = $apell;
 	}
 	
 	public function setPassUsu($pass){
@@ -131,7 +135,7 @@ class usuario {
 			return false;
 		}
 	}
-
+	
 }
 
 ?>

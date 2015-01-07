@@ -13,11 +13,11 @@ class jefe extends usuario {
 	* Usa el mismo constructor que usuario, solamente le damos valor a esos atributos
 	*/
 
-	private function setTelefJefe($telef){
+	public function setTelefJefe($telef){
 		$this->telefJefe = $telef;
 	}
 
-	private function setMailJefe($mail){
+	public function setMailJefe($mail){
 		$this->mailJefe = $mail;
 	}
 
@@ -46,6 +46,25 @@ class jefe extends usuario {
 		$actualizarUsuario = "UPDATE JEFE SET telefJefe='$this->telefJefe', mailJefe='$this->mailJefe' where dniUsu= '$this->dniUsu'";
 		$resultado = mysql_query($actualizarUsuario) or die(mysql_error());
 		return $resultado;
+	}
+	
+	public function consultarUsuario(){
+		$resultado = $this->consultarUsuarioSql();
+		if ($resultado) {
+			return $resultado;
+		} else {
+			return false;
+		}
+	}
+	
+	public function modificarUsuario(){
+		$resultado = $this->consultarUsuarioSql();
+		if ($resultado) {
+			$resultado1 = $this->actualizarUsuarioSql();
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }

@@ -142,6 +142,13 @@ switch ($action) {
 					case 'J':
 						switch ($row['tipoUsu']){
 							case 'J':
+								$jefe = new jefe($row['dniUsu'],"","","","");
+								$recurso  = $jefe->consultarUsuario();
+								$datosUsuario=array();
+								while($row = mysql_fetch_array($recurso)){
+												array_push($datosUsuario,$row);
+								}
+								$_SESSION["datosJefe"] = $datosUsuario;
 								header("location:../View/usuarios/jefe/consultarJefe.php");
 							break;
 							case 'I':
@@ -201,7 +208,103 @@ switch ($action) {
 		session_start();
 		switch ($_SESSION['tipo']){
 			case 'J':
+			
+					$dniUsu = $_GET['dniUsu'];
+					$usuario = new usuario($dniUsu, "", "", "", "" );
+					$recurso = $usuario->consultarUsuario();
 					
+					$datosUsuario=array();
+					while($row = mysql_fetch_array($recurso)){
+						array_push($datosUsuario,$row);
+					}
+					foreach ($datosUsuario as $datos){
+						# Datos de todo tipo de usuarios
+						if (!empty($_POST['nomUsu'])){
+						$nomUsu = $_POST['nomUsu'];
+						}else{$nomUsu = $datos['nomUsu'];}
+						
+						if (!empty($_POST['apellUsu'])){
+						$apellUsu = $_POST['apellUsu'];
+						}else{$apellUsu = $datos['apellUsu'];}
+						
+						if (!empty($_POST['passUsu'])){
+						$passUsu = $_POST['passUsu']; 
+						}else{$passUsu = $datos['passUsu'];}	
+						
+						switch($datos['tipoUsu'])
+						{
+							case 'J':
+								$jefe = new jefe($datos['dniUsu'],"","","","");
+								$recurso  = $jefe->consultarUsuario();
+								
+								$datosJefe=array();
+								while($row = mysql_fetch_array($recurso)){
+									array_push($datosJefe,$row);
+								}
+								foreach ($datosJefe as $jefe){
+									# Datos especificos de operario interno	
+									if (!empty($_POST['correoUsu'])){
+									$correoUsu = $_POST['correoUsu'];
+									}else{$correoUsu = $jefe['mailJefe'];}
+									echo $jefe['mailJefe'];
+									if (!empty($_POST['telUsu'])){
+									$telUsu = $_POST['telUsu'];
+									}else{$telUsu = $jefe['telefJefe'];}
+								}
+								$jefe = new jefe($datos['dniUsu'],"","","","");
+								$jefe->setTelefJefe($telUsu);
+								$jefe->setMailJefe($correoUsu);
+								$jefe->modificarUsuario();
+							break;
+							case 'I':
+								$interno = new interno($datos['dniUsu'],"","","","");
+								$recurso  = $interno->consultarUsuario();
+								
+								$datosInterno=array();
+								while($row = mysql_fetch_array($recurso)){
+									array_push($datosInterno,$row);
+								}
+								foreach ($datosInterno as $interno){
+									# Datos especificos de operario interno	
+									if (!empty($_POST['correoUsu'])){
+									$correoUsu = $_POST['correoUsu'];
+									}else{$correoUsu = $interno['mailOpeInt'];}
+									
+									if (!empty($_POST['telUsu'])){
+									$telUsu = $_POST['telUsu'];
+									}else{$telUsu = $interno['telfOpeInt'];}
+								}
+								$interno = new interno($datos['dniUsu'],"","","","");
+								$interno->setTelefOpeInt($telUsu);
+								$interno->setMailOpeInt($correoUsu);
+								$interno->modificarUsuario();
+							break;
+							case 'E':
+								$externo = new externo($datos['dniUsu'],"","","","");
+								$recurso  = $externo->consultarUsuario();
+								
+								$datosExterno=array();
+								while($row = mysql_fetch_array($recurso)){
+									array_push($datosExterno,$row);
+								}
+								foreach ($datosExterno as $externo){
+									# Datos especificos de operario externo
+									if (!empty($_POST['cifEmpr'])){
+									$cifEmpr = $_POST['cifEmpr']; 
+									}else{$cifEmpr = $externo['cifEmpr'];}
+								}
+								$externo = new externo($datos['dniUsu'],"","","","");
+								$externo->setCifEmpr($cifEmpr);
+								$externo->modificarUsuario();
+							break;
+						}
+						
+						$usuario->setNomUsu($nomUsu);
+						$usuario->setApellUsu($apellUsu);
+						$usuario->setPassUsu($passUsu);
+						$usuario->modificarUsuario();
+						header("location:../View/usuarios/jefe/homeJefe.php");
+					}
 				break;
 			case ($_SESSION['tipo'] == 'I' || $_SESSION['tipo'] == 'E'):
 					$newPass = $_POST['pass'];

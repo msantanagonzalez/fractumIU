@@ -77,5 +77,15 @@ class externo extends usuario {
 		}
 	}
 	
+	public function modificarUsuario(){
+		$resultado = $this->consultarUsuarioSql();
+		if ($resultado) {
+			$resultado1 = $this->actualizarUsuarioSql();
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 }
 ?>
