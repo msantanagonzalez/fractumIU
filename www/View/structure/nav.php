@@ -9,7 +9,7 @@ function navJefe()
           		<ul>
             		<div align="center">
                    		<li class="current">
-                        	<a href="consultarJefe.php">
+                        	<a href="../../../Controller/usuariosController.php?accion=consultar&dniUsu=<?php echo $_SESSION["dni"];?>">
                         		<img src="../../../Resources/images/DefaultAvatar.png"><em><strong><br>"jefeNegocio:" <?php echo $_SESSION["dni"];?></strong></em><strong></strong>
                         	</a>
                      	</li>
@@ -41,7 +41,7 @@ function navInterno()
               		<ul>
                 		<div align='center'>
                        		<li class='current'>
-                            	<a href='consultarInterno.php'>
+                            	<a href="../../../Controller/usuariosController.php?accion=consultar&dniUsu=<?php echo $_SESSION["dni"];?>">
                             		<img src='../../../Resources/images/DefaultAvatar.png'><em><strong><br>"operarioInterno:" <?php echo $_SESSION["dni"];?></strong></em><strong></strong></img>
                             	</a>
                          	</li>
@@ -75,7 +75,7 @@ function navExterno()
               		<ul>
                 		<div align='center'>
                        		<li class='current'>
-                            	<a href='consultarExterno.php'>
+                            	<a href="../../../Controller/usuariosController.php?accion=consultar&dniUsu=<?php echo $_SESSION["dni"];?>">
                             		<img src='../../../Resources/images/DefaultAvatar.png'><em><strong><br>"operarioExterno:" <?php echo $_SESSION["dni"];?></strong></em><strong></strong></img>
                             	</a>
                          	</li>

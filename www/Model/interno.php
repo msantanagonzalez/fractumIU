@@ -72,5 +72,14 @@ class interno extends usuario {
 		$resul1 = mysql_query($sql) or die(mysql_error());
 		return $resul1;
 	}
+	
+	public function consultarUsuario(){
+		$resultado = $this->consultarUsuarioSql();
+		if ($resultado) {
+			return $resultado;
+		} else {
+			return false;
+		}
+	}
 }
 ?>

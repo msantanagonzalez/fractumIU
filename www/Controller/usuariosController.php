@@ -27,7 +27,7 @@ switch ($action) {
 		modificarUsuarioExterno();
 		break;
 	case 'consultar':
-		# code...
+		consultarUsuario();
 		break;
 	case 'eliminar':
 		eliminarUsuario();
@@ -109,6 +109,59 @@ switch ($action) {
 						array_push($listaExternos,$row);
 				}
 		$_SESSION["listaExternos"] = $listaExternos;
+	}
+	
+	function consultarUsuario(){
+	
+	session_start();
+		
+	$dniUsu =$_GET['dniUsu'];
+	$usuario = new usuario($dniUsu, "", "", "", "" );
+	$recurso = $usuario->consultarUsuario();
+	
+	# Create a temporal array to save the data
+				$datosUsuario=array();
+				
+				while($row = mysql_fetch_array($recurso)){
+						array_push($datosUsuario,$row);
+				}
+
+		foreach ($datosUsuario as $row){
+			switch ($_SESSION['tipo']){
+					case 'J':
+						switch ($row['tipoUsu']){
+							case 'J':
+							header("location:../View/usuarios/jefe/consultarJefe.php");
+							break;
+							case 'I':
+							$interno = new interno($row['dniUsu'],"","","","");
+							$recurso  = $interno->consultarUsuario();
+							while($row = mysql_fetch_array($recurso)){
+											array_push($datosUsuario,$row);
+							}
+							$_SESSION["datosUsuario"] = $datosUsuario;
+							header("location:../View/usuarios/jefe/consultarInterno.php");
+							break;
+							case 'E':
+							header("location:../View/usuarios/jefe/consultarExterno.php");
+							break;
+							default:
+								echo "ERROR";
+							break;
+						}
+						break;
+					case 'I':
+						header("location:../View/usuarios/interno/consultarInterno.php");
+						break;
+					case 'E':
+						header("location:../View/usuarios/externo/consultarExterno.php");
+						break;
+					default:
+						echo "ERROR";
+						break;
+				}
+		}		
+	session_write_close();
 	}
 	
 	/**
