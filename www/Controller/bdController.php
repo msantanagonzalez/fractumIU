@@ -1,4 +1,5 @@
 <?php
-include '../Model/DB.php';
-connectBD();
+	include '../Model/DB.php';
+	connectBD();
+	contarPendientes();
 ?>
