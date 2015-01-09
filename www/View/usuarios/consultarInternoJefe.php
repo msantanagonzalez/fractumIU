@@ -1,17 +1,15 @@
 <?php
-	$userType="interno";
-	require_once("../../structure/header.php");
-	
+	$userType="jefe";
+	require_once("../structure/header.php");
+
 	$datosUsuario = $_SESSION["datosUsuario"];
 	$datosInterno = $_SESSION["datosInterno"];
 	
 foreach ($datosUsuario as $usuario){
 ?>
-
-<h1 id="headerInterno"><a><i>PERFIL <?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></i></a></h1>
-<form name='FormPerfil' id='FormPerfil' method='post' onsubmit='' action="modificarInterno.php">
-	<div style='height:350px;width:auto;overflow-y: scroll;'>
-		<table class="default">
+<h1 id="headerJefe"><a><i>PERFIL <?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></i></a></h1>
+<form method="POST" action="modificarInternoJefe.php">
+	<table class="default">
 		<tr> 
 			<td width="25%">Nombre: </td> 
 			<td width="25%"><input type="text" class="text" disabled name="piNombre" value="<?php echo $usuario['nomUsu']; ?>"/></td> 
@@ -19,7 +17,7 @@ foreach ($datosUsuario as $usuario){
 			<td width="25%"> <input type="text" class="text" disabled name="piApellidos" value="<?php echo $usuario['apellUsu']; ?>"/></td> 
 		</tr>
 		<tr> 
-			<td width="25%">#ID: </td> 
+			<td width="25%">#ID Interno: </td> 
 			<td width="25%"><input type="text" class="text" disabled name="piID" value="<?php echo $usuario['dniUsu']; ?>"/></td> 
 			<td width="25%">Contraseña: </td> 
 			<td width="25%"> <input type="password" class="text" disabled name="piPass" value="<?php echo $usuario['passUsu']; ?>"/></td> 
@@ -38,10 +36,9 @@ foreach ($datosUsuario as $usuario){
 			<td width="20%" colspan="4"><input type="submit" name="piModificar" value="Modificar"></td>
 		</tr> 
 	</table>
-	</div>
 </form>
 
 <?php
 }
-	require_once("../../structure/footer.php");
+	require_once("../structure/footer.php");
 ?>

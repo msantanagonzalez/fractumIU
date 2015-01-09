@@ -1,6 +1,6 @@
 <?php
 	$userType="interno";
-	require_once("../../structure/header.php");
+	require_once("../structure/header.php");
 	
 	$datosUsuario = $_SESSION["datosUsuario"];
 	$datosInterno = $_SESSION["datosInterno"];
@@ -9,7 +9,7 @@ foreach ($datosUsuario as $usuario){
 ?>
 
 <h1 id="headerInterno"><a><i>PERFIL <?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></i></a></h1>
-<form name='FormPerfil' id='FormPerfil' method='post' action="../../../Controller/usuariosController.php">
+<form name='FormPerfil' id='FormPerfil' method='post' action="../../Controller/usuariosController.php">
 	<div style='height:350px;width:auto;overflow-y: scroll;'>
 		<table class="default">
 		<tr> 
@@ -43,5 +43,5 @@ foreach ($datosUsuario as $usuario){
 
 <?php
 }
-	require_once("../../structure/footer.php");
+	require_once("../structure/footer.php");
 ?>

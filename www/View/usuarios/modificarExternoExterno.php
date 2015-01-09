@@ -1,6 +1,6 @@
 <?php
 	$userType="externo";
-	require_once("../../structure/header.php");
+	require_once("../structure/header.php");
 	
 	$datosUsuario = $_SESSION["datosUsuario"];
 	$datosExterno = $_SESSION["datosExterno"];
@@ -9,7 +9,7 @@ foreach ($datosUsuario as $usuario){
 ?>
 
 <h1 id="headerExterno"><a><i>PERFIL <?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></i></a></h1>
-<form name='FormPerfil' id='FormPerfil' method='post' action="../../../Controller/usuariosController.php">
+<form name='FormPerfil' id='FormPerfil' method='post' action="../../Controller/usuariosController.php">
 	<table class="default">
 		<tr> 
 			<td width="25%">#ID: </td> 
@@ -40,5 +40,5 @@ foreach ($datosUsuario as $usuario){
 </form>
 <?php
 }
-	require_once("../../structure/footer.php");
+	require_once("../structure/footer.php");
 ?>

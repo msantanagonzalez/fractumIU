@@ -1,6 +1,6 @@
 <?php
     $userType="externo";
-    require_once("../../structure/header.php");
+    require_once("../structure/header.php");
 ?>
 
 <h1 id="headerExterno"><a>- INCIDENCIAS -</a></h1> <!--SECCIÓN-->
@@ -62,5 +62,5 @@
 </div>
              	  
 <?php
-    require_once("../../structure/footer.php");
+    require_once("../structure/footer.php");
 ?>

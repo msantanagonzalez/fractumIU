@@ -60,15 +60,15 @@ switch ($action) {
 		{			
 			switch ($_SESSION['tipo']){
 				case 'J':
-					header("location:../View/usuarios/jefe/homeJefe.php");
+					header("location:../View/usuarios/homeJefeJefe.php");
 					//require_once("../View/usuarios/jefe/homeJefe.php");
 					break;
 				case 'I':
-					header("location:../View/usuarios/interno/homeInterno.php");
+					header("location:../View/usuarios/homeInternoInterno.php");
 					//require_once("../View/usuarios/jefe/homeJefe.php");
 					break;
 				case 'E':
-					header("location:../View/usuarios/externo/homeExterno.php");
+					header("location:../View/usuarios/homeExternoExterno.php");
 					//require_once("../View/usuarios/jefe/homeJefe.php");
 					break;
 				default:
@@ -94,7 +94,7 @@ switch ($action) {
 		listarUsuariosInternos();
 		listarUsuariosExternos();
 		session_write_close();
-		header("location:../View/usuarios/jefe/listarUsuarios.php");
+		header("location:../View/usuarios/listarUsuariosJefe.php");
 	}
 
 	function listarUsuariosInternos(){
@@ -149,7 +149,7 @@ switch ($action) {
 												array_push($datosUsuario,$row);
 								}
 								$_SESSION["datosJefe"] = $datosUsuario;
-								header("location:../View/usuarios/jefe/consultarJefe.php");
+								header("location:../View/usuarios/consultarJefeJefe.php");
 							break;
 							case 'I':
 								$interno = new interno($row['dniUsu'],"","","","");
@@ -159,7 +159,7 @@ switch ($action) {
 												array_push($datosUsuario,$row);
 								}
 								$_SESSION["datosInterno"] = $datosUsuario;	
-								header("location:../View/usuarios/jefe/consultarInterno.php");
+								header("location:../View/usuarios/consultarInternoJefe.php");
 							break;
 							case 'E':
 								$externo = new externo($row['dniUsu'],"","","","");
@@ -169,7 +169,7 @@ switch ($action) {
 												array_push($datosUsuario,$row);
 								}
 								$_SESSION["datosExterno"] = $datosUsuario;	
-								header("location:../View/usuarios/jefe/consultarExterno.php");
+								header("location:../View/usuarios/consultarExternoJefe.php");
 							break;
 							default:
 								echo "ERROR";
@@ -184,7 +184,7 @@ switch ($action) {
 										array_push($datosUsuario,$row);
 						}
 						$_SESSION["datosInterno"] = $datosUsuario;
-						header("location:../View/usuarios/interno/consultarInterno.php");
+						header("location:../View/usuarios/consultarInternoInterno.php");
 					break;
 					case 'E':
 						$externo = new externo($row['dniUsu'],"","","","");
@@ -194,7 +194,7 @@ switch ($action) {
 										array_push($datosUsuario,$row);
 						}
 						$_SESSION["datosExterno"] = $datosUsuario;
-						header("location:../View/usuarios/externo/consultarExterno.php");
+						header("location:../View/usuarios/consultarExternoExterno.php");
 						break;
 					default:
 						echo "ERROR";
@@ -303,7 +303,7 @@ switch ($action) {
 						$usuario->setApellUsu($apellUsu);
 						$usuario->setPassUsu($passUsu);
 						$usuario->modificarUsuario();
-						header("location:../View/usuarios/jefe/homeJefe.php");
+						header("location:../View/usuarios/homeJefeJefe.php");
 					}
 				break;
 			case ($_SESSION['tipo'] == 'I' || $_SESSION['tipo'] == 'E'):
@@ -313,9 +313,9 @@ switch ($action) {
 					$usuario->setPassUsu($newPass);
 					$usuario->modificarPass();
 					if($_SESSION['tipo'] == 'I'){
-						header("location:../View/usuarios/interno/homeInterno.php");
+						header("location:../View/usuarios/homeInternoInterno.php");
 					}else{
-						header("location:../View/usuarios/externo/homeExterno.php");
+						header("location:../View/usuarios/homeExternoExterno.php");
 					}
 				break;
 			default:

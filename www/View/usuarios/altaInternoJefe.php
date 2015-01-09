@@ -1,10 +1,10 @@
 <?php
 	$userType="jefe";
-	require_once("../../structure/header.php");
+	require_once("../structure/header.php");
 ?>
 
 <h1 id="headerJefe"><a><i>ALTA OPERARIO INTERNO</i></a></h1>
-<form method="POST" action="../../../Controller/usuariosController.php">
+<form method="POST" action="../../Controller/usuariosController.php">
 	<table class="default">
 		<tr> 
 			<td width="25%">Nombre: </td> 
@@ -29,5 +29,5 @@
 </form>
 
 <?php
-	require_once("../../structure/footer.php");
+	require_once("../structure/footer.php");
 ?>

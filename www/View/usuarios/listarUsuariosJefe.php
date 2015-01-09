@@ -1,6 +1,6 @@
 <?php
 	$userType="jefe";
-	require_once("../../structure/header.php");
+	require_once("../structure/header.php");
 ?>
             	<h1 id="headerJefe"><a><i>OPERARIOS INTERNOS</i></a></h1>
 
@@ -21,7 +21,7 @@
 							$resul2 = $_SESSION["listaInternos"];
 							foreach ($resul2 as $usuario){
 								?>
-								<form method="POST" action="../../../Controller/usuariosController.php?dniUsu=<?php echo $usuario['dniUsu'];?>">
+								<form method="POST" action="../../Controller/usuariosController.php?dniUsu=<?php echo $usuario['dniUsu'];?>">
 									<tr> 
 										<td width="20%" name = "dni"><?php echo $usuario['dniUsu']; ?> </td> 
 										<td width="20%" name = "nombre"><?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></td> 
@@ -58,7 +58,7 @@
 							$resul2 = $_SESSION["listaExternos"];
 							foreach ($resul2 as $usuario){
 								?>
-								<form method="POST" action="../../../Controller/usuariosController.php?dniUsu=<?php echo $usuario['dniUsu'];?>">
+								<form method="POST" action="../../Controller/usuariosController.php?dniUsu=<?php echo $usuario['dniUsu'];?>">
 									<tr> 
 										<td width="20%" name = "dni"><?php echo $usuario['dniUsu']; ?> </td> 
 										<td width="20%" name = "nombre"><?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></td> 
@@ -82,5 +82,5 @@
 			 	</table>
 				
 <?php
-	require_once("../../structure/footer.php");
+	require_once("../structure/footer.php");
 ?>

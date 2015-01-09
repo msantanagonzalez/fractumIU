@@ -22,11 +22,11 @@
 		<!-- TEMPORAL -->
 		<h1 id="headerJefe"><a><i>TEMPORAL</i></a></h1>
 		<br>
-		<a href="View/usuarios/jefe/homeJefe.php" target="_blank"> <input type="button" value="Jefe"></a>
+		<a href="../View/usuarios/homeJefeJefe.php" target="_blank"> <input type="button" value="Jefe"></a>
 		<br>
-		<a href="View/usuarios/interno/homeInterno.php" target="_blank"> <input type="button" value="Operario Interno"></a>
+		<a href="../View/usuarios/homeInternoInterno.php" target="_blank"> <input type="button" value="Operario Interno"></a>
 		<br>
-		<a href="View/usuarios/externo/homeExterno.php" target="_blank"> <input type="button" value="Operario Externo"></a>
+		<a href="../View/usuarios/homeExternoExterno.php" target="_blank"> <input type="button" value="Operario Externo"></a>
 		<!-- TEMPORAL -->
 		
 	</body>

@@ -1,6 +1,6 @@
 <?php
 	$userType	=	"jefe";
-	require_once("../../structure/header.php");
+	require_once("../structure/header.php");
 ?>
 
 <h1 id="headerJefe"><a><i>INCIDENCIAS</i></a></h1>
@@ -80,5 +80,5 @@
 </form>
 				
 <?php
-	require_once("../../structure/footer.php");
+	require_once("../structure/footer.php");
 ?>

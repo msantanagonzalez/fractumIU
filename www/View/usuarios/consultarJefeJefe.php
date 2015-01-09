@@ -1,6 +1,6 @@
 <?php
 	$userType="jefe";
-	require_once("../../structure/header.php");
+	require_once("../structure/header.php");
 	
 	$datosUsuario = $_SESSION["datosUsuario"];
 	$datosJefe = $_SESSION["datosJefe"];
@@ -8,7 +8,7 @@
 ?>
             	
 <h1 id="headerJefe"><a><i>PERFIL <?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></i></a></h1>
-<form method="POST" action="modificarJefe.php">
+<form method="POST" action="modificarJefeJefe.php">
 	<table class="default">
 		<tr> 
 			<td width="25%">Nombre: </td> 
@@ -40,5 +40,5 @@
 
 <?php
 }
-	require_once("../../structure/footer.php");
+	require_once("../structure/footer.php");
 ?>
