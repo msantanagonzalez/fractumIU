@@ -3,39 +3,42 @@
 	require_once("../structure/header.php");
 ?>
 
-<h1 id='headerInterno'><a>- TRABAJANDO $IDincidencia -</a></h1> <!--SECCIÓN-->
-<!--INICIO TABLA-->
+<h1 id="headerInterno"><a>- NUEVA ITERACION DE EMPLEADO INTERNO -</a></h1>
 <br>
-<form name='' id='FormDetalle_Tarea' onsubmit='return Confirmar_EliminacionTarea()' action='' method='post' enctype="multipart/form-data">
+<form name='FormAltaIteracion' action='../../Controller/iteracionesController.php' method='POST'>
+	<input type="hidden" class="text" name="idIncid" value="indic1">
+	<input type="hidden" class="text" name="nIteracion" value="1"/>
+	<input type='hidden' class='text' name="estadoItera" value="0"/>
 	<div style='height:350px;width:auto;overflow-y: scroll;'>
 		<table class='default'>
 			<tr>
-				<td>Operario Alta:</td>
-				<td><input type='text' disabled value='$idOperario' / name='idOperario'></td>
-				<td>Hora Inicio:</td>
-				<td><input type='text' disabled class='text' value='$horaSistema'/ name='Estado_Tarea' id='Estado_Tarea'></td>
-			</tr>
-			<tr>
 				<td>ID Incidencia:</td>
-				<td><input type='text' disabled value='I001'></td>
-				<td>Nombre Maquina:</td>
-				<td><input type='text' disabled value='$nombreMaquina'></td>
+				<td><input type='text'  value='ID0'></td>
+				<td>Numero Iteracion:</td>
+				<td><input type='text'  value='0'></td>
 			</tr>
+				
 			<tr>
 				<td>Fecha Creacion:</td>
-				<td><input type='date' disabled class='text' value='' / name='Nombre_Tarea'></td>
+				<td><input type='date' name='FechaCreacion' value='<?php echo date('Y/m/d');?>'></td>
+				<td>Hora Inicio:</td> 
+				<td><input type='time' class='text' value='<?php echo  date('h:i:s'); ?>'> </td>
+				<td>Hora Fin:</td> 
+				<td><input type='time' class='text' value='<?php echo date('h:i:s', strtotime('+24 hour')); ?>'> </td>
+			</tr>
+			<tr>
+				<td>Estado Iteracion:</td>
+			    <td><input type='text' value='0'></td>
 				<td>Coste Trabajo:</td>
 			    <td><input type='text' value=''></td>
 			</tr>
 			<tr>
-				<td colspan='4'>Descripcion:</td>
-			</tr>
-			<tr>	
-			    <td colspan='4'>
-					<textarea style="resize:none" rows="5" name='descripcionApertura'>
-					</textarea>
+				<td width="30%"><br>Descripci&oacute;n:</td>
+				<td colspan='3' width="75%">
+				<textarea style="resize:none; text-align:left;" style="t" rows="4" name='descripcion'></textarea>
 				</td>
 			</tr>
+			
 			<tr>
 				<td>Documentacion:</td>
 			</tr>
@@ -46,9 +49,8 @@
 	</div>
 	<table>
 		<tr> 
-			<td width='25%'><input type='button' value='GUARDAR TRABAJO'> </td>
-			<td width='25%'><input type='button' value='CERRAR TRABAJO'> </td>
-			<td width='25%'><a href="consultarIncidencia.html"><input type='button' value='ATRAS'></a></td>
+			<td width='25%'><input type='submit' name='accion' value='GUARDAR TRABAJO'> </td>
+			<td width='45%'><a href="consultarIncidencia.html"><input type='button' value='ATRAS'></a></td>
 		</tr>
 	</table>
 </form>

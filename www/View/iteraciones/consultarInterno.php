@@ -3,68 +3,62 @@
 	require_once("../structure/header.php");
 ?>
 
-<h1 id='headerInterno'><a>- DETALLES $IDincidencia -</a></h1> <!--SECCIÓN-->
-<!--INICIO TABLA-->
-<br>
-<form name='consultarTrabajo' id='consultarTrabajo' onsubmit='' action='' method='post'>
+<h1 id='headerInterno'><a>- DETALLES TRABAJO -</a></h1>
+
+
 	<div style='height:350px;width:auto;overflow-y: scroll;'>
+	<form method="POST" action="../../Controller/iteracionesController.php">
+	<?php $rows = $_SESSION['consultaIteracion']; ?>
 		<table class='default'>
 			<tr>
-				<td>Operario Alta:</td>
-				<td><input type='text' disabled value='$idOperario' / name='idOperario'></td>
-				<td>Operario Cierre:</td>
-				<td><input type='text' disabled value='$idOperario' / name='idOperario'></td>
+				<td>Identificador Incidencia:</td>
+				<td><input type='text' disabled name="numeroIncidencia" value="<?php echo $row['idIncid']; ?>"></td>
+				<td>Numero Iteracion:</td>
+		        <td><input type='text' disabled name="numeroTrabajo" value="<?php echo $row['nIteracion']; ?>"></td>
 			</tr>
-			<tr>
-				<td>ID Incidencia:</td>
-				<td><input type='text' disabled value='I001'></td>
-				<td>Nombre Maquina:</td>
-				<td><input type='text' disabled value='$nombreMaquina'></td>
-			</tr>
-			<tr>
-				<td>Fecha Creacion:</td>
-				<td><input type='date' disabled value='15/04/2014' / name='fechaInicioTrabajo'></td>
-				<td>Coste Trabajo:</td>
-				<td><input type='text' disabled value='0.00'></td>
-			</tr>
-			<tr>
-				<td>Hora inicio:</td>
-				<td><input type='date' disabled value='$horaSistema' / name='fechaFinTrabajo'></td>
-				<td>Hora fin:</td>
-				<td><input type='date' disabled value='$horaSistema' / name='fechaFinTrabajo'></td>
-			</tr>
+
 			<tr>
 				
-				<td>Estado:</td>
-				<td><input type='text' disabled value='Abierta/Cerrada/Derivada'></td>
+		        <td>Coste:</td>
+		        <td><input type='text' disabled name="coste" value="<?php echo $row['costeIter']; ?>"></td>
+		        <td>Fecha Inicio:</td>
+		        <td><input type='date' disabled value="<?php echo $row['fechaIter']; ?>"></td>
+		 
+		    </tr>
+			<br>
+		    <tr>
+		        <td>Hora Inicio:</td>
+		        <td><input type='time' disabled/ value="<?php echo $row['hInicio']; ?>"></td>
+		        <td>Hora Fin:</td>
+		        <td><input type='time' disabled/ value="<?php echo $row['hFin']; ?>"></td>
+				<td>Estado Iteracion</td>
+		        <td><input type='time' disabled/ value="<?php echo $row['estadoItera']; ?>"></td>
+		  </tr>
+		    </tr>
+				<td>Documentacion:</td>
+		        <td colspan='3'><input type='text' disabled class='text' name="documentacion" value='#001-"Nombre archivo"'/ name='Descripcion_Tarea'></td>
+		    </tr>
+		    <tr>
+				<td colspan='5'>Descripcion:</td>
 			</tr>
-			<tr>
-				<td colspan='4'>Descripcion:</td>
 			</tr>
-			<tr>	
-		        <td colspan='4'>
-					<textarea style="resize:none" rows="5" name='descripcionApertura' disabled>
-					BREVE DESCRIPCION DEL TRABAJO REALIZADO
+				<td colspan='5'>
+					<textarea style="resize:none" class="text" rows="5" name='descripcionHistoricoIncidencia' disabled>
+					"<?php echo $row['descripIter']; ?>"
 					</textarea>
 				</td>
 		    </tr>
-			<tr>
-				<td>Documentacion:</td>
-		        <td><img src="../../Recursos/images/PDF.png"></td>
-			</tr>
 		</table>
-	</div>
-	<br>
+ 	
+    <br>
     <table>
-		<tr> 
+		<tr>
 		<td width='25%'><a href="consultarIncidencia.html"><input type='button' value='Atras'></a></td>
-		<td width='25%'><input type='submit' value='Modificar[si abierta]'> </td>
-		<td width='25%'><input type='submit' value='Finalizar[si abierta]'> </td>
-		<td width='25%'></td>
-		</tr>
-    </table>
+		<td colspan="4"><a href="../../Controller/iteracionesController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid']; ?>"><input type="submit" name="pModificar" value="Modificar"></a></td>
+		</tr> 
+	</table>
 </form>
-
+</div>
 <?php
 	require_once("../structure/footer.php");
 ?>

@@ -3,47 +3,56 @@
 	require_once("../structure/header.php");
 ?>
 
-<h1 id='headerExterno'><a>- TRABAJANDO $IDincidencia -</a></h1>
+<h1 id="headerInterno"><a>- NUEVA ITERACION DE EMPLEADO EXTERNO -</a></h1>
 <br>
-<form name='' id='' onsubmit='' action='' method='post'>
+<form name='FormAltaIteracion' action='../../Controller/iteracionesController.php' method='POST'>
+	<input type="hidden" class="text" name="idIncid" value="indic1">
+	<input type="hidden" class="text" name="nIteracion" value="1"/>
+	<input type='hidden' class='text' name="estadoItera" value="0"/>
 	<div style='height:350px;width:auto;overflow-y: scroll;'>
 		<table class='default'>
-	   	<tr>
-			<td>Fecha Inicio:</td>
-			<td><input type='date' disabled class='text' value='' / name='fechaInicio'></td>
-			<td>Fecha Fin:</td>
-			<td><input type='date' disabled class='text' value='' / name='fechaFin' id=''></td>
-		</tr>
-		<tr>
-			<td>Hora Inicio:</td>
-			<td><input type='text' disabled class='text' value=''/ name='horaInicio' id=''></td>
-			<td>Hora Fin:</td>
-			<td><input type='text' disabled class='text' value=''/ name='horaFin'></td>	
-		</tr>
-		<tr>
-	        <td>Coste Trabajo:</td>
-	        <td><input type='text' disabled name="costeTrabajo" value=''></td>
-	    </tr>
-		</tr>
-			<td>Descripcion:</td>
-	        <td colspan='3'><input type='text' disabled class='text' value=''/ name='descripcionIncidencia'></td>
-	    </tr>
-	    <tr>
-			<td>Documentacion:</td>
-		</tr>
-		<tr>
-			<td colspan='4'><input type='file' name='documentacionTrabajo'></td>
-		</tr>
+			<tr>
+				<td>ID Incidencia:</td>
+				<td><input type='text'  value='ID0'></td>
+				<td>Numero Iteracion:</td>
+				<td><input type='text'  value='0'></td>
+			</tr>
+				
+			<tr>
+				<td>Fecha Creacion:</td>
+				<td><input type='date' name='FechaCreacion' value='<?php echo date('Y/m/d');?>'></td>
+				<td>Hora Inicio:</td> 
+				<td><input type='time' class='text' value='<?php echo  date('h:i:s'); ?>'> </td>
+				<td>Hora Fin:</td> 
+				<td><input type='time' class='text' value='<?php echo date('h:i:s', strtotime('+24 hour')); ?>'> </td>
+			</tr>
+			<tr>
+				<td>Estado Iteracion:</td>
+			    <td><input type='text' value='0'></td>
+				<td>Coste Trabajo:</td>
+			    <td><input type='text' value=''></td>
+			</tr>
+			<tr>
+				<td width="30%"><br>Descripci&oacute;n:</td>
+				<td colspan='3' width="75%">
+				<textarea style="resize:none; text-align:left;" style="t" rows="4" name='descripcion'></textarea>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>Documentacion:</td>
+			</tr>
+			<tr>
+				<td colspan='4'><input type='file' name='documentacionTrabajo'></td>
+			</tr>
 		</table>
 	</div>
- 	<br>
-    <table>
+	<table>
 		<tr> 
-			<td width='25%'><input type='button' value='GUARDAR TRABAJO'> </td>
-			<td width='25%'><input type='button' value='CERRAR TRABAJO'> </td>
-			<td width='25%'><a href="consultarIncidencia.html"><input type='button' value='ATRAS'></a></td>
+			<td width='25%'><input type='submit' name='accion' value='GUARDAR TRABAJO'> </td>
+			<td width='45%'><a href="consultarIncidencia.html"><input type='button' value='ATRAS'></a></td>
 		</tr>
-    </table>
+	</table>
 </form>
 
 <?php
