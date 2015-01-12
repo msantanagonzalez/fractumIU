@@ -16,7 +16,7 @@ function navJefe()
 						          <li class="current"><a href="../../Controller/incidenciasController.php?accion=Listar">GESTIONAR INCIDENCIAS</a></li>
                       <li class="current"><a href="../../Controller/usuariosController.php?accion=gestionUsuarios">GESTIONAR USUARIOS</a></li>
                       <li class="current"><a href="#">GESTIONAR MÁQUINAS</a></li>
-						          <li class="current"><a href="#">GESTIONAR SERVCICOS</a></li>
+						          <li class="current"><a href="../../Controller/serviciosController.php?accion=Listar">GESTIONAR SERVCICOS</a></li>
 						          <li class='current'><a href="../../Controller/usuariosController.php?accion=logOut" id='Logout_Usuario'> > Log Out</a></li>
                       <form method="POST" action="#" style="text-align:center">
                         	<section class="box search">

@@ -14,37 +14,27 @@
         <th width="10%">&nbsp;</th>
     </tr>
 </table>
-<form method="POST" action="">
+<form method="POST" action="../../Controller/serviciosController.php">
 	<table class="default">
+		<?php 
+			$rows = $_SESSION['listaServicios'];
+			foreach ($rows as $row) {
+		?>
 		<tr> 
-			<td width="20%">RE-034985</td> 
-			<td width="20%">Mensual</td> 
-			<td width="20%">500 €/Mes</td>
-			<td width="20%">Empresa 1</td> 
-			<td width="10%"><button><a href="consultarServicio.html">Consultar</a></button></td>
+			<td width="20%"><?php echo $row['idMaq'];?></td> 
+			<td width="20%"><?php echo $row['periodicidad'];?></td> 
+			<td width="20%"><?php echo $row['costeSer'];?></td>
+			<td width="20%"><?php echo $row['cifEmpr'];?></td> 
+			<td width="10%"><button><a href="../../Controller/serviciosController.php?accion=Consulta&idServ=<?php echo $row['idServ']; ?>">Consultar</a></button></td>
 			<td width="10%"><button><a onclick="return Eliminar_Elemento()">Eliminar</a></button></td>
 		</tr>
-		<tr> 
-			<td width="20%">RE-034985</td> 
-			<td width="20%">Mensual</td> 
-			<td width="20%">500 €/Mes</td>
-			<td width="20%">Empresa 1</td> 
-			<td width="10%"><button><a href="consultarServicio.html">Consultar</a></button></td>
-			<td width="10%"><button><a onclick="return Eliminar_Elemento()">Eliminar</a></button></td>
-		</tr>
-		<tr> 
-			<td width="20%">RE-034985</td> 
-			<td width="20%">Mensual</td> 
-			<td width="20%">500 €/Mes</td>
-			<td width="20%">Empresa 1</td> 
-			<td width="10%"><button><a href="consultarServicio.html">Consultar</a></button></td>
-			<td width="10%"><button><a onclick="return Eliminar_Elemento()">Eliminar</a></button></td>
-		</tr>
+		<?php } ?>
+		
 	</table>
 </form>
 <table class="default">
 	<tr>
-		<td colspan="4"><a href="altaServicio.html"><input type="button" name="sAlta" value="Alta Servicio"/></a></td>
+		<td colspan="4"><a href="altaJefe.php"><input type="button" name="accion" value="Alta"/></a></td>
 	</tr>
 </table>
 

@@ -4,29 +4,32 @@
 ?>
 
 <h1 id="headerJefe"><a><i>SERVICIO $#IDservicio</i></a></h1>
-<form method="POST" action="modificarServicio.html">
+<form method="POST" action="../../Controller/serviciosController.php">
+<?php $rows = $_SESSION['consultaServicio']; ?>
+
 	<table class="default">
+	<?php foreach ($rows as $row) { ?>
 		<tr> 
 			<td width="25%">CIF Empresa: </td> 
-			<td width="25%"><input type="text" class="text" disabled name="sCIF" value="X12345678"/></td> 
+			<td width="25%"><input type="text" class="text" disabled name="cifEmpr" value="<?php echo $row['cifEmpr']; ?>"/></td> 
 			<td width="25%">Periodicidad: </td> 
-			<td width="25%"> <input type="text" class="text" disabled name="sPerio" value="Cada 2 Meses"/></td>
+			<td width="25%"> <input type="text" class="text" disabled name="periodicidad" value="<?php echo $row['periodicidad']; ?>"/></td>
 		</tr>
 		<tr> 
 			<td width="25%">#ID Servicio: </td> 
-			<td width="25%"><input type="text" class="text" disabled name="sID" value="#1234"/></td> 
+			<td width="25%"><input type="text" class="text" disabled name="idServ" value="<?php echo $row['idServ']; ?>"/></td> 
 			<td width="25%">#ID M&aacute;quina: </td> 
-			<td width="25%"> <input type="text" class="text" disabled name="sMaquina" value="#708936" /></td>
+			<td width="25%"> <input type="text" class="text" disabled name="idMaq" value="<?php echo $row['idMaq']; ?>" /></td>
 		</tr>
 		<tr> 
 			<td width="25%">Fecha inicio: </td> 
-			<td width="25%"><input type="text" class="text" disabled name="sFechaInicio" value="12/03/2005" /></td> 
+			<td width="25%"><input type="text" class="text" disabled name="fInicioSer" value="<?php echo $row['fInicioSer']; ?>" /></td> 
 			<td width="25%">Fecha fin: </td> 
-			<td width="25%"> <input type="text" class="text" disabled name="sFechaFin" value="12/03/2015" /></td>
+			<td width="25%"> <input type="text" class="text" disabled name="fFinSer" value="<?php echo $row['fFinSer']; ?>" /></td>
 		</tr>
 		<tr> 
 			<td width="25%">Coste: </td> 
-			<td width="25%"><input type="text" class="text" disabled name="sCoste" value="120'00 €/Mes" /></td> 
+			<td width="25%"><input type="text" class="text" disabled name="costeSer" value="<?php echo $row['costeSer']; ?>" /></td> 
 			<td width="25%">&nbsp;</td>
 			<td width="25%">&nbsp;</td>
 		</tr>
@@ -34,13 +37,14 @@
 		<tr>
 			<td width="25%"><br>Descripci&oacute;n:</td>
 			<td colspan='3'width="75%">
-				<textarea style="resize:none; text-align:left;" style="t" rows="4" name='sDesc' disabled>
-				Mantenimiento completo, coste de piezas no incluido.
+				<textarea style="resize:none; text-align:left;" style="t" rows="4" name='descripSer' disabled>
+				<?php echo $row['descripSer']; ?>
 				</textarea>
 			</td>
 		</tr>
+		<?php } ?>
 		<tr>
-			<td colspan="4"><input type="submit" name="sModificar" value="Modificar"></td>
+			<td colspan="4"><a href="../../Controller/serviciosController.php?accion=Modificar&idServ=<?php echo $row['idServ']; ?>"><input type="button" name="accion" value="Modificar"></td>
 		</tr> 
 	</table>
 </form>
