@@ -1,12 +1,11 @@
 <?php
 	$userType="jefe";
 	require_once("../structure/header.php");
+	$rows = $_SESSION['consultaServicio'];
+	foreach ($rows as $row) { 
 ?>
-
-<h1 id="headerJefe"><a><i>SERVICIO </i></a></h1>
+<h1 id="headerJefe"><a><i>SERVICIO <?php echo $row['idServ']; ?></i></a></h1>
 <form method="POST" action="../../Controller/serviciosController.php">
-<?php $rows = $_SESSION['consultaServicio']; ?>
-<?php foreach ($rows as $row) { ?>
 		<input type="hidden" class="text" name="idServ" value="<?php echo $row['idServ']; ?>"/>
 		<input type="hidden" class="text" name="dniUsu" value="<?php echo $row['dniUsu']; ?>"/>
 		<input type="hidden" class="text" name="idMaq" value="<?php echo $row['cifEmpr']; ?>"/>

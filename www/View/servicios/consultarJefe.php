@@ -1,14 +1,13 @@
 <?php
 	$userType="jefe";
 	require_once("../structure/header.php");
+	$rows = $_SESSION['consultaServicio'];
+	foreach ($rows as $row) { 
 ?>
 
-<h1 id="headerJefe"><a><i>SERVICIO $#IDservicio</i></a></h1>
+<h1 id="headerJefe"><a><i>SERVICIO <?php echo $row['idServ']; ?></i></a></h1>
 <form method="POST" action="../../Controller/serviciosController.php">
-<?php $rows = $_SESSION['consultaServicio']; ?>
-
 	<table class="default">
-	<?php foreach ($rows as $row) { ?>
 		<tr> 
 			<td width="25%">CIF Empresa: </td> 
 			<td width="25%"><input type="text" class="text" disabled name="cifEmpr" value="<?php echo $row['cifEmpr']; ?>"/></td> 
