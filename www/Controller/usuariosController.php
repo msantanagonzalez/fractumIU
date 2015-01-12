@@ -393,7 +393,7 @@ switch ($action) {
 						$externo->bajaUsuario();
 						break;
 						case 'J':
-						# ELIMINAMOS JEFE?
+						# ELIMINAMOS JEFE? NO
 						break;
 					}
 				}

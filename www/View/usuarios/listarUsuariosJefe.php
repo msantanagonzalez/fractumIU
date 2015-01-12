@@ -76,8 +76,8 @@
 
 				<table class="default">
 			 		<tr>
-						<td colspan="2"><a href="altaExterno.php"><input type="button" name="piAlta" value="Alta Externo"/></a></td>
-						<td colspan="2"><a href="altaInterno.php"><input type="button" name="piAlta" value="Alta Interno"/></a></td>
+						<td colspan="2"><a href="altaExternoJefe.php"><input type="button" name="piAlta" value="Alta Externo"/></a></td>
+						<td colspan="2"><a href="altaInternoJefe.php"><input type="button" name="piAlta" value="Alta Interno"/></a></td>
 					</tr>
 			 	</table>
 				
