@@ -43,7 +43,7 @@
 
 		public function modificar($idServ){
 				
-			$sql = mysql_query("UPDATE SERVICIO SET dniUsu = '$this->dniUsu', periodicidad = '$this->periodicidad', 
+			$sql = mysql_query("UPDATE SERVICIO SET dniUsu = '$this->dniUsu', periodicidad = '$this->periodicidad', fInicioSer = '$this->fInicioSer',
 						fFinSer = '$this->fFinSer', costeSer = '$this->costeSer', descripSer = '$this->descripSer'
 						WHERE idServ = '$idServ'") or die(mysql_error());
 			

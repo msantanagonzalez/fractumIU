@@ -15,6 +15,7 @@ function navJefe()
                      	<li class='current'><a href="../../Controller/incidenciasController.php?accion=Pendientes">Pendientes: <span class="badge"><?php echo $_SESSION['pendientes']; ?></span></a></li>
 						          <li class="current"><a href="../../Controller/incidenciasController.php?accion=Listar">GESTIONAR INCIDENCIAS</a></li>
                       <li class="current"><a href="../../Controller/usuariosController.php?accion=gestionUsuarios">GESTIONAR USUARIOS</a></li>
+                      <li class="current"><a href="../../Controller/empresasController.php?accion=Listar">GESTIONAR EMPRESAS</a></li>
                       <li class="current"><a href="#">GESTIONAR MÁQUINAS</a></li>
 						          <li class="current"><a href="../../Controller/serviciosController.php?accion=Listar">GESTIONAR SERVCICOS</a></li>
 						          <li class='current'><a href="../../Controller/usuariosController.php?accion=logOut" id='Logout_Usuario'> > Log Out</a></li>

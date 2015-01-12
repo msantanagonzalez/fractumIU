@@ -6,7 +6,7 @@
 ?>
 
 <h1 id="headerJefe"><a><i>MODIFICAR EMPRESA </i></a></h1>
-<form name='FormEmpresa' id='FormEmpresa' method='post' action="../../../Controller/empresasController.php">
+<form name='FormEmpresa' id='FormEmpresa' method='post' action="../../Controller/empresasController.php">
 	<?php foreach ($datosEmpresa as $empresa) { ?>
 		<input type="hidden" class="text" name="cifEmpr" value="<?php echo $empresa['cifEmpr']; ?>"/>
 		<table class="default">
