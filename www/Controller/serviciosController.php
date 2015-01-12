@@ -25,6 +25,9 @@ switch ($action) {
 	case 'Guardar':
 		modificado();
 		break;
+	case 'Eliminar':
+		eliminar();
+		break;
 }
 
 	function alta(){
@@ -126,6 +129,17 @@ switch ($action) {
 		$servicio->modificar($idServ);
 
 		listar();
+	}
+	
+	function eliminar(){
+		session_start();
+		$idServ = $_GET['idServ'];
+		$servicio = new Servicio($idServ, "", "", "", "", "", "", "", "");
+		$resultado  = $servicio->consultaServicio($idServ);
+		if ($resultado){
+			$servicio->baja();
+		}
+		header("location: serviciosController.php?accion=Listar");
 	}
 
 ?>

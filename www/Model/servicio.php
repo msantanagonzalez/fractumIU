@@ -58,6 +58,13 @@
 			return $sql;
 			
 		}
+		
+		public function baja(){
+		$eliminar = "DELETE FROM SERVICIO WHERE idServ = '$this->idServ'";
+		$resultado = mysql_query($eliminar) or die(mysql_error());
+
+		return $resultado;
+	}
 
 	}
 ?>

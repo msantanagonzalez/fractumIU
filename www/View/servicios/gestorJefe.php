@@ -26,7 +26,7 @@
 			<td width="20%"><?php echo $row['costeSer'];?></td>
 			<td width="20%"><?php echo $row['cifEmpr'];?></td> 
 			<td width="10%"><button><a href="../../Controller/serviciosController.php?accion=Consulta&idServ=<?php echo $row['idServ']; ?>">Consultar</a></button></td>
-			<td width="10%"><button><a onclick="return Eliminar_Elemento()">Eliminar</a></button></td>
+			<td width="10%"><button><a href="../../Controller/serviciosController.php?accion=Eliminar&idServ=<?php echo $row['idServ']; ?>">Eliminar</a></button></td>
 		</tr>
 		<?php } ?>
 		
