@@ -20,7 +20,7 @@
 			<tr>
 				
 		        <td>Coste:</td>
-		        <td><input type='text' disabled name="coste" value="<?php echo $row['costeIter']; ?>"></td>
+		        <td><input type='text'  name="coste" value="<?php echo $row['costeIter']; ?>"></td>
 		        <td>Fecha Inicio:</td>
 		        <td><input type='date' disabled value="<?php echo $row['fechaIter']; ?>"></td>
 		 
@@ -28,11 +28,11 @@
 			<br>
 		    <tr>
 		        <td>Hora Inicio:</td>
-		        <td><input type='time' disabled/ value="<?php echo $row['hInicio']; ?>"></td>
+		        <td><input type='time' disabled value="<?php echo $row['hInicio']; ?>"></td>
 		        <td>Hora Fin:</td>
-		        <td><input type='time' disabled/ value="<?php echo $row['hFin']; ?>"></td>
+		        <td><input type='time'  value="<?php echo $row['hFin']; ?>"></td>
 				<td>Estado Iteracion</td>
-		        <td><input type='time' disabled/ value="<?php echo $row['estadoItera']; ?>"></td>
+		        <td><input type='time'  value="<?php echo $row['estadoItera']; ?>"></td>
 		  </tr>
 		    </tr>
 				<td>Documentacion:</td>

@@ -21,7 +21,7 @@
 		<tr> 
 			<td width="30%"><?php echo $row['idIncid'];?></td>  
 			<td width="40%"><?php echo $row['nIteracion']; ?></td>
-			<td width="10%"><button><a href="../../Controller/iteracionesController.php?accion=Consulta&idIncid&nIteracion=<?php echo $row['idIncid']; echo $row['nIteracion'] ?>">Consultar</a></button></td>
+			<td width="10%"><button><a href="../../Controller/iteracionesController.php?accion=Consulta&idIncid=<?php echo $row['idIncid'] ?>">Consultar</a></button></td> <!--Se necesita nIteracion -->
 		</tr>
 		<?php } ?>
 	</table>

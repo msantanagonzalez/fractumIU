@@ -20,18 +20,19 @@
 			<tr>
 				
 		        <td>Coste:</td>
-		        <td><input type='text' disabled name="coste" value="<?php echo $row['costeIter']; ?>"></td>
-		        <td>Fecha Creacion:</td>
+		        <td><input type='text'  name="coste" value="<?php echo $row['costeIter']; ?>"></td>
+		        <td>Fecha Inicio:</td>
 		        <td><input type='date' disabled value="<?php echo $row['fechaIter']; ?>"></td>
+		 
 		    </tr>
 			<br>
 		    <tr>
 		        <td>Hora Inicio:</td>
-		        <td><input type='time' disabled/ value="<?php echo $row['hInicio']; ?>"></td>
+		        <td><input type='time' disabled value="<?php echo $row['hInicio']; ?>"></td>
 		        <td>Hora Fin:</td>
-		        <td><input type='time' disabled/ value="<?php echo $row['hFin']; ?>"></td>
+		        <td><input type='time'  value="<?php echo $row['hFin']; ?>"></td>
 				<td>Estado Iteracion</td>
-		        <td><input type='time' disabled/ value="<?php echo $row['estadoItera']; ?>"></td>
+		        <td><input type='time'  value="<?php echo $row['estadoItera']; ?>"></td>
 		  </tr>
 		    </tr>
 				<td>Documentacion:</td>
@@ -49,8 +50,8 @@
 		    </tr>
 		</table>
  	
-    <<br>
-     <table>
+    <br>
+    <table>
 		<tr>
 		<td width='25%'><a href="consultarIncidencia.html"><input type='button' value='Atras'></a></td>
 		<td colspan="4"><a href="../../Controller/iteracionesController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid']; ?>"><input type="submit" name="pModificar" value="Modificar"></a></td>
