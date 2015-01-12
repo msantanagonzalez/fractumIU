@@ -6,10 +6,11 @@
 <h1 id="headerJefe"><a><i>SERVICIOS</i></a></h1>
 <table class="default">
     <tr>
-    	<th width="20%">#ID M&aacute;q.</th>
-    	<th width="20%">Periodicidad</th>
-       	<th width="20%">Coste</th>
-       	<th width="20%">Empresa</th>
+		<th width="10%">#ID Servicio.</th>
+    	<th width="10%">#ID M&aacute;q.</th>
+    	<th width="10%">Periodicidad</th>
+       	<th width="10%">Coste</th>
+       	<th width="10%">Empresa</th>
         <th width="10%">&nbsp;</th>
         <th width="10%">&nbsp;</th>
     </tr>
@@ -20,11 +21,12 @@
 			$rows = $_SESSION['listaServicios'];
 			foreach ($rows as $row) {
 		?>
-		<tr> 
-			<td width="20%"><?php echo $row['idMaq'];?></td> 
-			<td width="20%"><?php echo $row['periodicidad'];?></td> 
-			<td width="20%"><?php echo $row['costeSer'];?></td>
-			<td width="20%"><?php echo $row['cifEmpr'];?></td> 
+		<tr>
+			<td width="10%"><?php echo $row['idServ'];?></td>
+			<td width="10%"><?php echo $row['idMaq'];?></td> 
+			<td width="10%"><?php echo $row['periodicidad'];?></td> 
+			<td width="10%"><?php echo $row['costeSer'];?></td>
+			<td width="10%"><?php echo $row['cifEmpr'];?></td> 
 			<td width="10%"><button><a href="../../Controller/serviciosController.php?accion=Consulta&idServ=<?php echo $row['idServ']; ?>">Consultar</a></button></td>
 			<td width="10%"><button><a href="../../Controller/serviciosController.php?accion=Eliminar&idServ=<?php echo $row['idServ']; ?>">Eliminar</a></button></td>
 		</tr>
