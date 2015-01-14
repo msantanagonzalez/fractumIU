@@ -3,45 +3,45 @@
 	require_once("../structure/header.php");
 	require '../crearMensaje.php';
 ?>
-
 <h1 id="headerJefe"><a><i>INCIDENCIAS</i></a></h1>
 <table class="default">
     <tr>
     	<th width="17%">#ID Inc.</th>
-    	<th width="17%">T&iacute;tulo</th>
        	<th width="17%">&Uacute;lt. operario</th>
         <th width="17%">&Uacute;lt. iteración</th>
+    	<th width="17%">T&iacute;tulo</th>
         <th width="17%">Estado</th>
         <th width="17%">&nbsp;</th>
     </tr>
 </table>
-<form method="POST" action="">
+<form method="POST" action="../../Controller/incidenciasController.php">
 	<table class="default">
-		<tr> 
-			<td width="17%">#233232</td> 
-			<td width="17%">Avería alternador</td> 
-			<td width="17%"><a href="consultarPerfil.html">Fulanito</a></td> 
-			<td width="17%">12/03/2014</td>
-			<td width="17%">Derivada</td>
-			<td width="17%"><button><a href="consultarIncidencia.html">Consultar</a></button></td>
-		</tr>
-		<tr> 
-			<td width="17%">#20642</td> 
-			<td width="17%">Avería alternador</td> 
-			<td width="17%"><a href="consultarPerfil.html">Fulanito</a></td> 
-			<td width="17%">12/03/2014</td>
-			<td width="17%">En curso</td>
-			<td width="17%"><button><a href="consultarIncidencia.html">Consultar</a></button></td>
-		</tr>
-		<tr> 
-			<td width="17%">#23342</td> 
-			<td width="17%">Avería alternador</td> 
-			<td width="17%"><a href="consultarPerfil.html">Fulanito</a></td> 
-			<td width="17%">12/03/2014</td>
-			<td width="17%">Pendiente de derivar</td>
-			<td width="17%"><button><a href="consultarIncidencia.html">Consultar</a></button></td>
-		</tr>
-		</table>
+		<?php 
+			if(isset($_SESSION['listaIncidencia']))
+			$rows = $_SESSION['listaIncidencia'];
+			if (empty($rows)) {
+			?>
+				<div class="alert alert-warning" role="alert">
+				| INFO |- No hay incidencias para listar 
+				</div>
+			<?php
+			}
+			else{
+				foreach ($rows as $row) {
+			?>
+			<tr> 
+				<td width="17%"><?php echo $row['idIncid'];?></td> 
+				<td width="17%">Avería alternador</td> 
+				<td width="17%">Fulanito</a></td> <!-- Falta linkar al perfil del usuario. -->
+				<td width="17%"><?php echo $row['fAper']; ?></td>
+				<td width="17%"><?php echo $row['estadoIncid']; ?></td>
+				<td width="17%"><button><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>">Consultar</a></button></td>
+			</tr>
+			<?php 
+			} 
+		}
+		?>
+	</table>
 </form>
 <br>
 <h1 id="headerJefe"><a><i>M&Aacute;QUINAS</i></a></h1>
@@ -54,30 +54,33 @@
         <th width="10%">&nbsp;</th>
     </tr>
 </table>
-<form method="POST" action="">
 	<table class="default">
-		<tr> 
-			<td width="20%">#344089</td> 
-			<td width="20%">Sí</td> 
-			<td width="20%">13/09/2014</td> 
-			<td width="10%"><button><a href="consultarMaquina.html">Consultar</a></button></td>
-			<td width="10%"><button><a onclick="return Eliminar_Elemento()">Eliminar</a></button></td>
-		</tr>
-		<tr> 
-			<td width="20%">#344089</td> 
-			<td width="20%">Sí</td> 
-			<td width="20%">13/09/2014</td> 
-			<td width="10%"><button><a href="consultarMaquina.html">Consultar</a></button></td></td>
-			<td width="10%"><button><a onclick="return Eliminar_Elemento()">Eliminar</a></button></td>
-		</tr>
-		<tr> 
-			<td width="20%">#344089</td> 
-			<td width="20%">Sí</td> 
-			<td width="20%">13/09/2014</td> 
-			<td width="10%"><button><a href="consultarMaquina.html">Consultar</a></button></td></td>
-			<td width="10%"><button><a onclick="return Eliminar_Elemento()">Eliminar</a></button></td>
-		</tr>
-		</table>			 		
+		<?php 
+			if(isset($_SESSION['listaMaquina']))
+			$rows = $_SESSION['listaMaquina'];
+			if (empty($rows)) {
+			?>
+				<div class="alert alert-warning" role="alert">
+				| INFO |- No hay maquinas para listar 
+				</div>
+			<?php
+			}
+			else{
+				foreach ($rows as $row) {
+				?>
+				<form method="POST" action="../../Controller/maquinasController.php">
+				<tr> 
+					<td width="20%"  name = "idMaq"><?php echo $row['idMaq']; ?></td> 
+					<td width="20%">Sí</td> 
+					<td width="20%">13/09/2014</td> 
+					<td width="10%"><button><a href="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>">Consultar</a></button></td>
+					<td width="10%"><button><a href="../../Controller/maquinasController.php?accion=Eliminar&idMaq=<?php echo $row['idMaq'];?>">Eliminar</a></button></td>
+				</tr>
+				<?php 
+				} 
+			}
+		?>
+	</table>
 </form>
 				
 <?php
