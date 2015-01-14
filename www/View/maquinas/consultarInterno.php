@@ -56,4 +56,3 @@
 <?php
 	require_once("../structure/footer.php");
 ?>
-

@@ -20,7 +20,7 @@
 			$rows = $_SESSION['listaMaquina'];
 			foreach ($rows as $row) {
 		?>
-		<form method="POST" action="../../Controller/maquinasController.php">
+		<form method="POST" action="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>">
 
 		<tr>
 			<td width="10%"><?php echo $row['idMaq']; ?></th>

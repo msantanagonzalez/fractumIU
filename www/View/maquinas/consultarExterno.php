@@ -6,7 +6,7 @@
 ?>
 
 <h1 id="headerExterno"><a><i>M&Aacute;QUINA <?php echo $row['nomMaq']; ?></i></a></h1>
-<form method='POST' action='../../Controller/maquinasController.php'>
+<form method='POST' action='../../Controller/maquinasController.php?idMaq=<?php echo $row['idMaq'];?>'>
 	
 	<div style='height:350px;width:auto;overflow-y: scroll;'>
 		<table class='default'>

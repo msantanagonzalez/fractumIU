@@ -4,7 +4,9 @@
 
 	if(isset($_GET['accion'])){	$accion = $_GET['accion']; }
 	if(isset($_POST['accion'])){ $accion = $_POST['accion']; }
-
+	
+	
+//var_dump($_SESSION["dni"]); die();
 	
 	switch ($accion) {
 		case 'Alta':
@@ -120,15 +122,37 @@
 
 		switch ($_SESSION['tipo']) {
 			case 'J':
+			$listaMaquinas = $maquina->lista();
+		$lista = array();
+		
+		while($row = mysql_fetch_array($listaMaquinas)){
+			array_push($lista, $row);
+		}
+		$_SESSION["listaMaquina"] = $lista;
 				session_write_close();
 				header("location: ../View/maquinas/listarJefe.php");
 				break;
 			case 'I':
+			$listaMaquinas = $maquina->lista();
+		$lista = array();
+		
+		while($row = mysql_fetch_array($listaMaquinas)){
+			array_push($lista, $row);
+		}
+		$_SESSION["listaMaquina"] = $lista;
 				header("location: ../View/maquinas/listarInterno.php");
 				session_write_close();
 				break;
 			case 'E':
 				
+				
+				$listaMaquinas = $maquina->listaMaquinasOpE();
+		$lista = array();
+		
+		while($row = mysql_fetch_array($listaMaquinas)){
+			array_push($lista, $row);
+		}
+		$_SESSION["listaMaquina"] = $lista;
 				header("location: ../View/maquinas/listarExterno.php");
 				session_write_close();
 			default:				

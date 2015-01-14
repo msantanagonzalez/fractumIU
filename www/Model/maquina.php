@@ -61,6 +61,16 @@ class Maquina {
 
 			return $sql;
 	}
+	public function listaMaquinasOpE(){
+	
+
+	$sql = mysql_query("SELECT M.* FROM REALIZA R LEFT JOIN SERVICIO S ON R.idServ = S.idServ 
+		LEFT JOIN MAQUINA M ON S.idMaq = M.idMaq
+		WHERE R.dniUsu =  '".$_SESSION['dni']."'");
+	
+	return $sql;
+	
+	}
 	
 	public function borrar(){
 		$borrarMaquina = "DELETE FROM MAQUINA WHERE idMaq = '$this->idMaquina'";
