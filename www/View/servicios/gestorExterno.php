@@ -1,10 +1,10 @@
 <?php
-	$userType="jefe";
+	$userType="externo";
 	require_once("../structure/header.php");
 	require '../crearMensaje.php';
 ?>
 
-<h1 id="headerJefe"><a><i>SERVICIOS</i></a></h1>
+<h1 id="headerExterno"><a><i>SERVICIOS</i></a></h1>
 <table class="default">
     <tr>
 		<th width="10%">#ID Servicio.</th>
@@ -39,7 +39,6 @@
 					<td width="10%"><?php echo $row['costeSer'];?></td>
 					<td width="10%"><?php echo $row['cifEmpr'];?></td> 
 					<td width="10%"><button><a href="../../Controller/serviciosController.php?accion=Consulta&idServ=<?php echo $row['idServ']; ?>">Consultar</a></button></td>
-					<td width="10%"><button><a href="../../Controller/serviciosController.php?accion=Eliminar&idServ=<?php echo $row['idServ']; ?>">Eliminar</a></button></td>
 				</tr>
 			</form>
 			<?php 
@@ -50,11 +49,7 @@
 	</table>
 </div>
 
-<table class="default">
-	<tr>
-		<td colspan="4"><a href="altaJefe.php"><input type="button" name="accion" value="Alta"/></a></td>
-	</tr>
-</table>
+
 
 <?php
 	require_once("../structure/footer.php");

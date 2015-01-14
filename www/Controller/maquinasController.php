@@ -44,23 +44,16 @@
 	function consulta(){
 		session_start();
 
-		$idMaquina = $_REQUEST['idMaq'];
-		
 		$maquina = new Maquina();
 
+		$idMaquina = $_REQUEST['idMaq'];
 		$consultaMaquina = $maquina->consultaMaquina($idMaquina);
 		$consulta = array();		
 		while($row = mysql_fetch_array($consultaMaquina)){
 			array_push($consulta, $row);
 		}
-		$_SESSION["consultaMaquina"] = $consulta;
 
-		$consultaIncidencia = $maquina->listarIncidenciasAsociadas($idMaquina);
-		$consulta2 = array();
-		while($row = mysql_fetch_array($consultaIncidencia)){
-			array_push($consulta2, $row);
-		}
-		$_SESSION["consultaIncidenciaMaquina"] = $consulta2;
+		$_SESSION["consultaMaquina"] = $consulta;
 	
 		switch ($_SESSION['tipo']) {
 			case 'J':
@@ -68,12 +61,13 @@
 				header("location: ../View/maquinas/consultarJefe.php");
 				break;
 			case 'I':
-				header("location: ../View/maquinas/consultarInterno.php");
 				session_write_close();
+				header("location: ../View/maquinas/consultarInterno.php");
 				break;
 			case 'E':
-				header("location: ../View/maquinas/consultarExterno.php");
 				session_write_close();
+				header("location: ../View/maquinas/consultarExterno.php");
+				
 			default:				
 				break;
 		}
@@ -119,13 +113,9 @@
 		session_start();
 
 		$maquina = new Maquina();
-		$listaMaquinas = $maquina->lista();
-		$lista = array();
 		
-		while($row = mysql_fetch_array($listaMaquinas)){
-			array_push($lista, $row);
-		}
-		$_SESSION["listaMaquina"] = $lista;
+		
+		
 
 		switch ($_SESSION['tipo']) {
 			case 'J':
@@ -153,13 +143,26 @@
 			case 'E':
 				
 				
-				$listaMaquinas = $maquina->listaMaquinasOpE();
-		$lista = array();
+				$listaMaquinas1 = $maquina->listaMaquinasOpEservicio();
+				
+				$lista1 = array();
 		
-		while($row = mysql_fetch_array($listaMaquinas)){
-			array_push($lista, $row);
-		}
-		$_SESSION["listaMaquina"] = $lista;
+				while($row = mysql_fetch_array($listaMaquinas1)){
+					array_push($lista1, $row);
+				}
+				$_SESSION["listaMaquina1"] = $lista1;
+				
+				
+				
+				$listaMaquinas2 = $maquina->listaMaquinasOpEIncidencia();
+				
+				$lista2 = array();
+		
+				while($row = mysql_fetch_array($listaMaquinas2)){
+					array_push($lista2, $row);
+				}
+				$_SESSION["listaMaquina2"] = $lista2;
+				
 				header("location: ../View/maquinas/listarExterno.php");
 				session_write_close();
 			default:				
@@ -178,15 +181,10 @@
 			$maquina->borrar();
 		}
 		header("location: maquinasController.php?accion=Listar");
+		
+			
+		
+		
+	
 	}
-
-	//----------
-	function listarIncidencias(){
-		session_start();
-			$idMaquina = $_GET['idMaq'];
-
-			$maquina = new Maquina();
-
-			$resultado = $maquina->listarIncidencias($idMaquina);
-	}
-?>	
+	

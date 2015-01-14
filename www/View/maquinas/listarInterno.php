@@ -20,14 +20,13 @@
 			$rows = $_SESSION['listaMaquina'];
 			foreach ($rows as $row) {
 		?>
-		<form method="POST" action="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>">
 
 		<tr> 
 			<td width="20%"><?php echo $row['idMaq']; ?></td> 
 			<td width="20%"><?php echo $row['nomMaq']; ?></td> 
 			<td width="20%"><a href="#">FULL COVER</a></td> 
 			<td width="20%"><a href="../../Controller/incidenciasController.php?accion=consulta&idIncidencia">I001</a></td> 
-			<td width="20%"><button href="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>">Consultar</button></td>
+			<td width="20%"><a href="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>"><button >Consultar</button></a></td>
 		</tr>
 		<?php } ?>
 	</table>

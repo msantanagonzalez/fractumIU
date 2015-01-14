@@ -24,19 +24,19 @@
 			<td width="25%">#ID M&aacute;quina: </td> 
 			<td width="25%"><input type="text" class="text" disabled name="idMaq" value="<?php echo $row['idMaq']; ?>"/></td> 
 			<td width="25%">#N&uacute;m. serie: </td> 
-			<td width="25%"> <input type="text" class="text" disabled name="nSerie" value="<?php echo $row['nSerie']; ?>"/></td>
+			<td width="25%"> <input type="text" class="text"  name="nSerie" value="<?php echo $row['nSerie']; ?>"/></td>
 		</tr>
 		<tr> 
 			<td width="25%">Nombre: </td> 
 			<td width="25%"><input type="text" class="text" name="nomMaq" value="<?php echo $row['nomMaq']; ?>"/></td> 
 			<td width="25%">Coste: </td> 
-			<td width="25%"><input type="text" class="text" disabled name="costeMaq" value="<?php echo $row['costeMaq']; ?>"/></td> 
+			<td width="25%"><input type="text" class="text"  name="costeMaq" value="<?php echo $row['costeMaq']; ?>"/></td> 
 			<td width="25%"></td>
 		</tr>
 		<tr>
 			<td width="25%"><br>Descripci&oacute;n:</td>
 			<td colspan='3' width="75%">
-				<textarea style="resize:none; text-align:left;" style="t" rows="4" disabled name="descripMaq" >
+				<textarea style="resize:none; text-align:left;" style="t" rows="4"  name="descripMaq" >
 				<?php echo $row['descripMaq']; ?>
 				</textarea>
 			</td>

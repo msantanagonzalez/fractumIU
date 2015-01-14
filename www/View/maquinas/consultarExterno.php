@@ -36,29 +36,16 @@
 	</div>
 </form>
 <h1 id="headerExterno"><a><i>INCIDENCIAS RELATIVAS</i></a></h1>
-<table class="default">
-    <tr>
-    	<th width="20%">#ID Inc.</th>
-    	<th width="20%">Responsable</th>
-       	<th width="20%">Operario</th>
-        <th width="20%">Estado</th>
-        <th width="20%">&nbsp;</th>
-    </tr>
-</table>
-<form method="POST" action="../../Controller/maquinasController.php?idMaq=<?php echo $row['idMaq'];?>">
+<form method="POST" action="../../Controller/maquinasController.php">
 	<table class="default">
-		<?php
-			$rows2 = $_SESSION['consultaIncidenciaMaquina'];
-	 		foreach ($rows2 as $row2) { 
-		?>
 		<tr> 
-			<td width="20%"><?php echo $row2['idIncid']; ?></td> 
-			<td width="20%"><?php echo $row2['dniResponsable']; ?></td> 
-			<td width="20%"><?php echo $row2['dniApertura']; ?></td>
-			<td width="20%"><?php echo $row2['estadoIncid']; ?></td>
-			<td width="20%"><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncid=<?php echo $row2['idIncid'];?>">Consultar</a></td>
+			<td width="20%">ID001</td> 
+			<td width="20%"><a href="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>" ></a></td> 
+			<td width="20%">Usuario3</td> 
+			<td width="20%">Abierta</td>
+			<td width="15%"><a href="../../Controller/maquinasController.php?accion=Consulta&idMaq&idIncid=<?php echo $row['idIncid']; echo $row['idMaq']?>"></a></td>
+			<td width="5%"><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncid=<?php echo $row['idIncid'];?>">Consultar</a></td>
 		</tr>
-		<?php } ?>
 	</table>
 </form>
 

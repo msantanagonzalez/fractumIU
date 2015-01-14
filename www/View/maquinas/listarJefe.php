@@ -1,13 +1,13 @@
 <?php
 	$userType="jefe";
 	require_once("../structure/header.php");
-	require '../crearMensaje.php';
 ?>
 
 <h1 id="headerJefe"><a><i>M&Aacute;QUINAS</i></a></h1>
 <table class="default">
     <tr>
     	<th width="20%">#ID M&aacute;q.</th>
+		<th width="20%">Nombre </th>
     	<th width="20%">Servicio</th>
        	<th width="20%">&Uacute;lt. incidencia</th>
         <th width="10%">&nbsp;</th>
@@ -19,10 +19,11 @@
 			$rows = $_SESSION['listaMaquina'];
 			foreach ($rows as $row) {
 		?>
-		<form method="POST" action="../../Controller/maquinasController.php">
+		<form method="POST" action="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>">
 
 		<tr> 
 			<td width="20%"  name = "idMaq"><?php echo $row['idMaq']; ?></td> 
+			<td width="20%" name = "nomMaq"><?php echo $row['nomMaq']; ?></td> 
 			<td width="20%">Sí</td> 
 			<td width="20%">13/09/2014</td> 
 			<td width="10%"><button><a href="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>">Consultar</a></button></td>

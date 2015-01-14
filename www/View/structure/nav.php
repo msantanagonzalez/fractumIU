@@ -17,7 +17,7 @@ function navJefe()
                       <li class="current"><a href="../../Controller/usuariosController.php?accion=gestionUsuarios">GESTIONAR USUARIOS</a></li>
                       <li class="current"><a href="../../Controller/empresasController.php?accion=Listar">GESTIONAR EMPRESAS</a></li>
                       <li class="current"><a href="../../Controller/maquinasController.php?accion=Listar">GESTIONAR MÁQUINAS</a></li>
-						          <li class="current"><a href="../../Controller/serviciosController.php?accion=Listar">GESTIONAR SERVICIOS</a></li>
+						          <li class="current"><a href="../../Controller/serviciosController.php?accion=Listar">GESTIONAR SERVCICOS</a></li>
 						          <li class='current'><a href="../../Controller/usuariosController.php?accion=logOut" id='Logout_Usuario'> > Log Out</a></li>
                       <form method="POST" action="#" style="text-align:center">
                         	<section class="box search">
@@ -84,7 +84,8 @@ function navExterno()
 							<!-- FIN NOTIFICACIONES-->
 							<li class='current'><strong><a href="../../Controller/incidenciasController.php?accion=Listar">Listar Incidencias</a></strong></li>
 							<li class='current'><a href="../../Controller/maquinasController.php?accion=Listar">Listar maquinas</a></li>
-                            <li class='current'><a href="#">Contacto jefe</a></li>
+                            <li class='current'><strong><a href="../../Controller/serviciosController.php?accion=Listar">Listar Servicios</a></strong></li>
+							<li class='current'><a href="#">Contacto jefe</a></li>
 							<li class='current'><a href="../../Controller/usuariosController.php?accion=logOut" id='Logout_Usuario'> > Log Out</a></li>
                             <form method='POST' action="#" style='text-align:center'>
                         	<section class='box search'>

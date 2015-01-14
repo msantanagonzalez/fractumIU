@@ -3,6 +3,7 @@
 include_once '../Model/servicio.php';
 include_once 'bdController.php';
 
+
 if(isset($_GET['accion'])){	$accion = $_GET['accion']; }
 if(isset($_POST['accion'])){ $accion = $_POST['accion']; }
 
@@ -28,6 +29,9 @@ switch ($action) {
 	case 'Eliminar':
 		eliminar();
 		break;
+	case 'Trabajar':
+		trabajar();
+		break;
 }
 
 	function alta(){
@@ -36,6 +40,7 @@ switch ($action) {
 		$servicio = new servicio($_POST["idServ"], $_SESSION["dni"], $_POST["cifEmpr"],$_POST["idMaq"], $_POST["periodicidad"],$_POST["fInicioSer"], $_POST["fFinSer"],  $_POST["costeSer"], $_POST["descripSer"]);
 		$servicio->alta();
 		$tempServicio = $_POST["idServ"];
+		
 		listar();
 	
 	}
@@ -58,11 +63,16 @@ switch ($action) {
 		
 		$_SESSION["consultaServicio"] = $consulta;
 		
-		if ($_SESSION['tipo'] == 'J') {
-			
+		switch($_SESSION['tipo']){
+		
+			case 'J':
 				session_write_close();
 				header("location: ../View/servicios/consultarJefe.php");
-		
+				break;
+			case 'E':
+				session_write_close();
+				header("location: ../View/servicios/consultarExterno.php");
+				break;
 		}
 	}
 	
@@ -81,11 +91,16 @@ switch ($action) {
 
 		$_SESSION["listaServicios"] = $lista;
 		
-		if ($_SESSION['tipo'] == 'J') {
-			
+		switch($_SESSION['tipo']){
+		
+			case 'J':
 				session_write_close();
 				header("location: ../View/servicios/gestorJefe.php");
-		
+				break;
+			case 'E':
+				session_write_close();
+				header("location: ../View/servicios/gestorExterno.php");
+				break;
 		}
 	}
 	function modificar(){
@@ -127,8 +142,21 @@ switch ($action) {
 
 		$servicio = new servicio($idServ, $dniUsu, $cifEmpr, $idMaquina, $periodicidad,$fInicioSer, $fFinSer, $costSer, $descripSer);
 		$servicio->modificar($idServ);
-
+		
 		listar();
+	}
+	
+	function trabajar(){
+		
+		session_start();
+		$idServ = $_POST['idServ'];
+		$dniUsu = $_SESSION['dni'];
+		$fecha=date('Y-m-d');
+		$trabajo = new servicio($idServ, "", "", "", "", "", "", "", "");
+		$trabajo->trabajar( $dniUsu,$fecha);
+		
+		listar();
+		
 	}
 	
 	function eliminar(){
@@ -141,5 +169,8 @@ switch ($action) {
 		}
 		header("location: serviciosController.php?accion=Listar");
 	}
+	
+	
+	
 
 ?>

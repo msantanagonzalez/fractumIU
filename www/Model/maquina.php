@@ -13,6 +13,7 @@ class Maquina {
 	private $costeMaquina;
 	
 	
+	
 /**
 	*	Constructor de maquina.
 	*/
@@ -50,7 +51,7 @@ class Maquina {
 	
 	public function modificacion($idMaquina){
 				
-				mysql_query("UPDATE MAQUINA SET nomMaq = '$this->nombreMaquina'
+				mysql_query("UPDATE MAQUINA SET nomMaq = '$this->nombreMaquina', costeMaq = '$this->costeMaquina',descripMaq = '$this->descripcionMaquina',nSerie = '$this->numeroSerie'
 					WHERE idMaq = '$idMaquina'") or die(mysql_error());
 	}
 	
@@ -61,14 +62,24 @@ class Maquina {
 
 			return $sql;
 	}
-	public function listaMaquinasOpE(){
+	public function listaMaquinasOpEservicio(){
 	
-
-	$sql = mysql_query("SELECT M.* FROM REALIZA R LEFT JOIN SERVICIO S ON R.idServ = S.idServ 
-		LEFT JOIN MAQUINA M ON S.idMaq = M.idMaq
-		WHERE R.dniUsu =  '".$_SESSION['dni']."'");
+		$sql = mysql_query("SELECT M.* 
+			FROM  OPEXTERNO O RIGHT JOIN  SERVICIO S ON O.cifEmpr = S.cifEmpr LEFT JOIN MAQUINA M ON S.idMaq = M.idMaq
+			WHERE O.dniUsu = '".$_SESSION['dni']."'");
+		
+		return $sql;
 	
-	return $sql;
+	}
+	
+	public function listaMaquinasOpEIncidencia(){
+	
+		$sql = mysql_query("SELECT M.*
+							FROM OPEXTERNO O LEFT JOIN INCIDENCIA I ON O.cifEmpr = I.cifEmpr 
+							LEFT JOIN MAQUINA M ON I.idMaq = M.idMaq
+							WHERE O.dniUsu = '".$_SESSION['dni']."'");
+		
+		return $sql;
 	
 	}
 	
@@ -79,11 +90,7 @@ class Maquina {
 	
 	}
 
-	public function listarIncidenciasAsociadas($idMaquina){
-		$resultado = mysql_query("SELECT idIncid, dniResponsable, dniApertura, estadoIncid FROM INCIDENCIA i WHERE idMaq = '$idMaquina'") or die(mysql_error());
-
-		return $resultado;
-	}
+	
 }
 		
 ?>

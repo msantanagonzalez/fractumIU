@@ -65,6 +65,14 @@
 
 		return $resultado;
 	}
+	
+		public function trabajar($dniUsu,$fechaRealizacion){
+			
+			$trabajar = "INSERT INTO REALIZA (dniUsu,idServ ,fechaRealizacion) 
+			VALUES ('$dniUsu','".$this->idServ."','$fechaRealizacion')";
+			$resultado = mysql_query($trabajar) or die(mysql_error());
+			
+		}
 
 	}
 ?>
