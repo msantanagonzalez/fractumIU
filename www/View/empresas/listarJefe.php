@@ -1,6 +1,7 @@
 <?php
 	$userType="jefe";
 	require_once("../structure/header.php");
+	require '../crearMensaje.php';
 ?>
 
 <h1 id="headerJefe"><a><i>EMPRESAS</i></a></h1>
@@ -17,15 +18,25 @@
 		<!--<td width="10%"><button><a onclick="return Eliminar_Elemento()">Eliminar</a></button></td> -->
 		<?php 
 			$rows = $_SESSION['listaEmpresas'];
+			if (empty($rows)) {
+			?>
+				<div class="alert alert-warning" role="alert">
+				| INFO |- No hay empresas para listar 
+				</div>
+			<?php
+			}else{
 			foreach ($rows as $row) {
+				?>
+				<tr> 
+					<td width="30%"><?php echo $row['cifEmpr'];?></td>  
+					<td width="40%"><?php echo $row['nomEmpr']; ?></td>
+					<td width="10%"><button><a href="../../Controller/empresasController.php?accion=Consulta&cifEmpr=<?php echo $row['cifEmpr']; ?>">Consultar</a></button></td>
+					<td width="10%"><button><a href="../../Controller/empresasController.php?accion=Eliminar&cifEmpr=<?php echo $row['cifEmpr']; ?>">Eliminar</a></button></td>
+				</tr>
+				<?php 
+				}
+		}
 		?>
-		<tr> 
-			<td width="30%"><?php echo $row['cifEmpr'];?></td>  
-			<td width="40%"><?php echo $row['nomEmpr']; ?></td>
-			<td width="10%"><button><a href="../../Controller/empresasController.php?accion=Consulta&cifEmpr=<?php echo $row['cifEmpr']; ?>">Consultar</a></button></td>
-			<td width="10%"><button><a href="../../Controller/empresasController.php?accion=Eliminar&cifEmpr=<?php echo $row['cifEmpr']; ?>">Eliminar</a></button></td>
-		</tr>
-		<?php } ?>
 	</table>
 </form>
 <table class="default">

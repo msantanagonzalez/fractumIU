@@ -81,7 +81,7 @@
 											<td width="20%" name = "dni"><?php echo $usuario['dniUsu']; ?> </td> 
 											<td width="20%" name = "nombre"><?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></td> 
 											<td width="20%" name = "telefono"><?php echo $usuario['telefEmpr']; ?> </td> 
-											<td width="20%" name = "telefono"><?php echo $usuario['nomEmpr']; ?> </td> 
+											<td width="20%" name = "empresa"><?php echo $usuario['nomEmpr']; ?> </td> 
 											<td width="10%"><input type="submit" value="consultar" name="accion"></td>
 											<td width="10%"><input type="submit" value="eliminar" name="accion"></td>
 										</tr>
@@ -95,7 +95,7 @@
 
 				<table class="default">
 			 		<tr>
-						<td colspan="2"><a href="altaExternoJefe.php"><input type="button" name="piAlta" value="Alta Externo"/></a></td>
+						<td colspan="2"><a href="../../Controller/usuariosController.php?accion=accesoAltaExterno"><input type="button" name="piAlta" value="Alta Externo"/></a></td>
 						<td colspan="2"><a href="altaInternoJefe.php"><input type="button" name="piAlta" value="Alta Interno"/></a></td>
 					</tr>
 			 	</table>

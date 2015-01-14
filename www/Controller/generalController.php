@@ -1,13 +1,15 @@
 <?php
-switch ($accion)
-{
-	case "acceso":
-		anadirMensaje("|ERROR| Ejemplo de mensaje TIPO:success","success");
-		anadirMensaje("|ERROR| Ejemplo de mensaje TIPO:info","info");
-		anadirMensaje("|ERROR| Ejemplo de mensaje TIPO:warning","warning");
-		anadirMensaje("|ERROR| Ejemplo de mensaje TIPO:danger","danger");
-		header("location:View/usuarios/Login.php");
-	break;
+if(isset($acceso)){
+	switch ($acceso)
+	{
+		case "ON":
+			anadirMensaje("|ERROR| Ejemplo de mensaje TIPO:success","success");
+			anadirMensaje("|ERROR| Ejemplo de mensaje TIPO:info","info");
+			anadirMensaje("|ERROR| Ejemplo de mensaje TIPO:warning","warning");
+			anadirMensaje("|ERROR| Ejemplo de mensaje TIPO:danger","danger");
+			header("location:View/usuarios/Login.php");
+		break;
+	}
 }
 
 function anadirMensaje($mensaje, $alerta){

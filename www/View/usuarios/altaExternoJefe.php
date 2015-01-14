@@ -10,7 +10,19 @@
 			<td width="25%">DNI Operario Externo: </td> 
 			<td width="25%"><input type="text" class="text" name="dni"/></td> 
 			<td width="25%">Empresa: </td>
-			<td width="25%"><input type="text" class="text" name="cif"/></td>
+			<td width="25%">
+			<select name="cif">
+			  <option value="NULL">----</option>
+				<?php
+				$resul2 = $_SESSION["listaEmpresas"];
+					foreach ($resul2 as $empresa){
+				?>		
+					  <option value="<?php echo $empresa['cifEmpr'];?>"><?php echo $empresa['cifEmpr']."-".$empresa['nomEmpr'];?></option>
+				<?php
+					}
+				?>	
+			</select>
+			</td>
 		</tr>
 		<tr> 
 			<td width="25%">Nombre: </td> 
@@ -23,12 +35,12 @@
 		</tr> 
 	</table>
 </form>
-</table>
+
+<table>
 	<tr>
 		<td colspan="4"><input type="button" value="Imprimir" onclick='window.print(); return false;'></td>
 	</tr> 
 </table>
-
 <?php
 	require_once("../structure/footer.php");
 ?>

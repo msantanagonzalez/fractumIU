@@ -1,4 +1,4 @@
 <?php
-$accion = "acceso";
+$acceso = "ON";
 require_once('Controller/generalController.php');
 ?>

@@ -1,6 +1,7 @@
 <?php
 	require_once("../Model/empresa.php");
 	include_once 'bdController.php';
+	include_once 'generalController.php';
 
 	if(isset($_GET['accion'])){	$accion = $_GET['accion']; }
 	if(isset($_POST['accion'])){ $accion = $_POST['accion']; }
@@ -32,6 +33,8 @@
 		$empresa = new Empresa($_POST["cifEmpr"], $_POST["nomEmpr"], $_POST["telefEmpr"], $_POST["mailEmpr"]);
 		$empresa->altaEmpresa();
 		$tempEmpresa = $_POST["cifEmpr"];
+		
+		anadirMensaje("| SUCCESS | Empresa: ".$_POST["cifEmpr"]." creada","success");
 		header("location: empresasController.php?accion=Listar");
 	}
 
@@ -93,7 +96,8 @@
 
 		$empresa = new Empresa($cifEmpr, $nomEmpr, $telefEmpr, $mailEmpr);
 		$empresa->modificarEmpresa($cifEmpr);
-
+		
+		anadirMensaje("| SUCCESS | Empresa: ".$cifEmpr." modificada","success");
 		header("location: empresasController.php?accion=Listar");
 	}
 
@@ -129,6 +133,8 @@
 		if ($resultado){
 			$empresa->bajaEmpresa();
 		}
+		
+		anadirMensaje("| SUCCESS | Empresa: ".$cifEmpr." eliminada","success");
 		header("location: empresasController.php?accion=Listar");
 	}
 

@@ -5,6 +5,7 @@ include_once 'generalController.php';
 include_once '../Model/jefe.php';
 include_once '../Model/externo.php';
 include_once '../Model/interno.php';
+include_once '../Model/empresa.php';
 
 # NOTA: CAMBIAR LOS REQUEST POR POST O GETS..... 
 $action =$_REQUEST['accion'];
@@ -36,6 +37,10 @@ switch ($action) {
 		break;
 	case 'Guardar':
 		guardarModificacion();
+		break;
+	case 'accesoAltaExterno':
+		listarEmpresas();
+		accesoAltaExterno();
 		break;
 	default:
 		echo "Revisa la accion del form, por aqui paso!";
@@ -404,4 +409,27 @@ switch ($action) {
 				}
 		$recurso  = $usuario->bajaUsuario();		
 	 }
+
+	function listarEmpresas(){
+		session_start();
+		$empresa = new Empresa();
+		$listaEmpresas = $empresa->listarEmpresas();
+		
+		$lista = array();		
+		while($row = mysql_fetch_array($listaEmpresas)){
+			array_push($lista, $row);
+		}
+
+		$_SESSION["listaEmpresas"] = $lista;
+	}
+	
+	function accesoAltaExterno(){
+		session_start();
+		if(empty($_SESSION["listaEmpresas"])){
+			anadirMensaje("| ERROR | No hay empresas en el sistema","danger");
+			gestionUsuarios();
+		}else{
+			header("location:../View/usuarios/altaExternoJefe.php");
+		}
+	}
 ?>
