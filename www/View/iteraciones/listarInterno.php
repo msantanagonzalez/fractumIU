@@ -28,7 +28,7 @@
 </form>
 <table class="default">
 	<tr>
-		<td colspan="4"><a href="altaExterno.php"><input type="button" name="sAlta" value="Alta Iteracion"/></a></td>
+		<td colspan="4"><a href="altaInterno.php"><input type="button" name="sAlta" value="Alta Iteracion"/></a></td>
 	</tr>
 </table>
 

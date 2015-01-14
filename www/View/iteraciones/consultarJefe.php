@@ -54,7 +54,7 @@
     <table>
 		<tr>
 		<td width='25%'><a href="consultarIncidencia.html"><input type='button' value='Atras'></a></td>
-		<td colspan="4"><a href="../../Controller/iteracionesController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid']; ?>"><input type="submit" name="pModificar" value="Modificar"></a></td>
+		<td colspan="4"><a href="../../Controller/iteracionesController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid']; ?>&nInteracion=<?echo $row['nIteracion'];?> "><input type="submit" name="pModificar" value="Modificar"></a></td>
 		</tr> 
 	</table>
 </form>
