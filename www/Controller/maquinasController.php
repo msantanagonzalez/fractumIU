@@ -44,16 +44,23 @@
 	function consulta(){
 		session_start();
 
+		$idMaquina = $_REQUEST['idMaq'];
+		
 		$maquina = new Maquina();
 
-		$idMaquina = $_REQUEST['idMaq'];
 		$consultaMaquina = $maquina->consultaMaquina($idMaquina);
 		$consulta = array();		
 		while($row = mysql_fetch_array($consultaMaquina)){
 			array_push($consulta, $row);
 		}
-
 		$_SESSION["consultaMaquina"] = $consulta;
+
+		$consultaIncidencia = $maquina->listarIncidenciasAsociadas($idMaquina);
+		$consulta2 = array();
+		while($row = mysql_fetch_array($consultaIncidencia)){
+			array_push($consulta2, $row);
+		}
+		$_SESSION["consultaIncidenciaMaquina"] = $consulta2;
 	
 		switch ($_SESSION['tipo']) {
 			case 'J':
@@ -171,10 +178,15 @@
 			$maquina->borrar();
 		}
 		header("location: maquinasController.php?accion=Listar");
-		
-			
-		
-		
-	
 	}
-	
+
+	//----------
+	function listarIncidencias(){
+		session_start();
+			$idMaquina = $_GET['idMaq'];
+
+			$maquina = new Maquina();
+
+			$resultado = $maquina->listarIncidencias($idMaquina);
+	}
+?>	
