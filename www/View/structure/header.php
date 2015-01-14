@@ -14,6 +14,9 @@
 		break;
 }
 
+require_once("../messages/messages_ga.php");
+require_once("../../Model/I18n.php");
+
 function headerJefe(){
 ?>
 <!DOCTYPE HTML>
