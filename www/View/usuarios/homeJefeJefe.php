@@ -1,6 +1,7 @@
 <?php
 	$userType	=	"jefe";
 	require_once("../structure/header.php");
+	require '../crearMensaje.php';
 ?>
 
 <h1 id="headerJefe"><a><i>INCIDENCIAS</i></a></h1>

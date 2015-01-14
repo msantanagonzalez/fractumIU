@@ -1,5 +1,6 @@
 <?php
 include_once 'bdController.php';
+include_once 'generalController.php';
 
 include_once '../Model/jefe.php';
 include_once '../Model/externo.php';
@@ -26,9 +27,6 @@ switch ($action) {
 		nuevoUsuarioExterno();
 		gestionUsuarios();
 		break;
-	case 'Guardar Externo':
-		modificarUsuarioExterno();
-		break;
 	case 'consultar':
 		consultarUsuario();
 		break;
@@ -39,10 +37,6 @@ switch ($action) {
 	case 'Guardar':
 		guardarModificacion();
 		break;
-	case 'alta':
-		# code...
-		break;
-	
 	default:
 		echo "Revisa la accion del form, por aqui paso!";
 		break;
@@ -71,13 +65,10 @@ switch ($action) {
 					header("location:../View/usuarios/homeExternoExterno.php");
 					//require_once("../View/usuarios/jefe/homeJefe.php");
 					break;
-				default:
-					echo "Usuario y contrase;a bien, tipo usuario mal.";
-					break;
 			}
 		}else{
-			# Implementar mensaje de error
-			header("location:../View/Login.php");
+			anadirMensaje("|ERROR| Usuario o Pass Incorrecto","danger");
+			header("location:../View/usuarios/Login.php");
 		}
 	}
 	
@@ -85,8 +76,9 @@ switch ($action) {
 	{
 		session_start();
 		session_unset(); 
-		session_destroy(); 
-		header("location:../View/Login.php");
+		session_destroy();
+		anadirMensaje("|Success| Sesión cerrada correctamente","success");		
+		header("location:../View/usuarios/Login.php");
 	}
 	
 	function gestionUsuarios(){
@@ -106,8 +98,8 @@ switch ($action) {
 				while($row = mysql_fetch_array($recurso)){
 						array_push($listaInternos,$row);
 				}
-
-		$_SESSION["listaInternos"] = $listaInternos;
+				
+			$_SESSION["listaInternos"] = $listaInternos;
 	}
 	
 	function listarUsuariosExternos(){
@@ -119,7 +111,8 @@ switch ($action) {
 				while($row = mysql_fetch_array($recurso)){
 						array_push($listaExternos,$row);
 				}
-		$_SESSION["listaExternos"] = $listaExternos;
+				
+			$_SESSION["listaExternos"] = $listaExternos;
 	}
 	
 	function consultarUsuario(){
@@ -255,6 +248,8 @@ switch ($action) {
 								$jefe->setTelefJefe($telUsu);
 								$jefe->setMailJefe($correoUsu);
 								$jefe->modificarUsuario();
+								
+								anadirMensaje("| SUCCESS | Usuario: ".$datos['dniUsu']." modificado","success");
 							break;
 							case 'I':
 								$interno = new interno($datos['dniUsu'],"","","","");
@@ -278,6 +273,8 @@ switch ($action) {
 								$interno->setTelefOpeInt($telUsu);
 								$interno->setMailOpeInt($correoUsu);
 								$interno->modificarUsuario();
+								
+								anadirMensaje("| SUCCESS | Usuario interno: ".$datos['dniUsu']." modificado","success");
 							break;
 							case 'E':
 								$externo = new externo($datos['dniUsu'],"","","","");
@@ -296,6 +293,8 @@ switch ($action) {
 								$externo = new externo($datos['dniUsu'],"","","","");
 								$externo->setCifEmpr($cifEmpr);
 								$externo->modificarUsuario();
+								
+								anadirMensaje("| SUCCESS | Usuario externo: ".$datos['dniUsu']." modificado","success");
 							break;
 						}
 						
@@ -312,6 +311,7 @@ switch ($action) {
 					$usuario = new usuario($dniUsu, "", "", "", "" );
 					$usuario->setPassUsu($newPass);
 					$usuario->modificarPass();
+					anadirMensaje("| SUCCESS | Password modificado","success");
 					if($_SESSION['tipo'] == 'I'){
 						header("location:../View/usuarios/homeInternoInterno.php");
 					}else{
@@ -344,6 +344,8 @@ switch ($action) {
 		$interno->setTelefOpeInt($telefono);
 		$interno->setMailOpeInt($email);
 		$interno->altaUsuario();
+		
+		anadirMensaje("| SUCCESS | Usuario Interno: ".$dniUsu." creado","success");
 	}
 
 	function nuevoUsuarioExterno(){
@@ -362,6 +364,8 @@ switch ($action) {
 		$externo = new externo($dniUsu, $nombre, $apellidos, $dniUsu, 'E' );
 		$externo->setCifEmpr($cifEmpr);
 		$externo->altaUsuario();
+		
+		anadirMensaje("| SUCCESS | Usuario Externo: ".$dniUsu." creado","success");
 	}
 
 	/**
@@ -387,39 +391,17 @@ switch ($action) {
 						case 'I':
 						$interno = new interno ($dniUsu, "", "", "", "");
 						$interno->bajaUsuario();
+						
+						anadirMensaje("| SUCCESS | Usuario Interno: ".$dniUsu." eliminado","success");
 						break;
 						case 'E':
 						$externo = new externo ($dniUsu, "", "", "", "");
 						$externo->bajaUsuario();
-						break;
-						case 'J':
-						# ELIMINAMOS JEFE? NO
+						
+						anadirMensaje("| SUCCESS | Usuario Externo: ".$dniUsu." eliminado","success");
 						break;
 					}
 				}
 		$recurso  = $usuario->bajaUsuario();		
 	 }
-	 
-	/**
-	 * Inicio de modificacion de usuarios
-	 */
-	function modificarUsuarioExterno(){
-		$dniUsu    = $_REQUEST['peDNI'];
-		$nombre    = $_REQUEST['peNombre'];
-		$apellidos = $_REQUEST['peApellidos'];
-		$pass      = $_REQUEST['pePass'];
-
-		$usuario = new usuario ($dniUsu, $nombre, $apellidos, $pass, 'E');
-		$result  = $usuario->consultarUsuario();
-		if($result){
-			$usuario->modificarUsuario();
-		} else {
-			false;
-		}
-	}
-
-	/**
-	 * Fin de modificacion de usuarios
-	 */
-
 ?>

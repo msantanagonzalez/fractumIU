@@ -1,15 +1,23 @@
 <?php
-//Recibimos el valor de la variable "accion" enviada mediante un post
-if (!isset($_POST['accion'])) {
-      $_POST['accion'] = NULL; 
-    }
-$accion = $_POST['accion'];
-
-//Validamos el valor de la variable "accion" 
 switch ($accion)
 {
-	default:
-		header("location:View/Login.php");
-		break;
+	case "acceso":
+		anadirMensaje("|ERROR| Ejemplo de mensaje TIPO:success","success");
+		anadirMensaje("|ERROR| Ejemplo de mensaje TIPO:info","info");
+		anadirMensaje("|ERROR| Ejemplo de mensaje TIPO:warning","warning");
+		anadirMensaje("|ERROR| Ejemplo de mensaje TIPO:danger","danger");
+		header("location:View/usuarios/Login.php");
+	break;
 }
+
+function anadirMensaje($mensaje, $alerta){
+		session_start();
+		if(!isset($_SESSION['notificaciones']))
+		{
+			$_SESSION['notificaciones']=array();
+		array_push($_SESSION['notificaciones'],array('alerta' => $alerta, 'mensaje' => $mensaje));	
+		}else{
+		array_push($_SESSION['notificaciones'],array('alerta' => $alerta, 'mensaje' => $mensaje));	
+		}
+}	
 ?>

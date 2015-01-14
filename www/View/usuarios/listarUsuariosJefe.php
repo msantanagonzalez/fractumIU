@@ -1,6 +1,7 @@
 <?php
 	$userType="jefe";
 	require_once("../structure/header.php");
+	require '../crearMensaje.php';
 ?>
             	<h1 id="headerJefe"><a><i>OPERARIOS INTERNOS</i></a></h1>
 
@@ -19,19 +20,28 @@
 						<table class="default">
 							<?php
 							$resul2 = $_SESSION["listaInternos"];
-							foreach ($resul2 as $usuario){
-								?>
-								<form method="POST" action="../../Controller/usuariosController.php?dniUsu=<?php echo $usuario['dniUsu'];?>">
-									<tr> 
-										<td width="20%" name = "dni"><?php echo $usuario['dniUsu']; ?> </td> 
-										<td width="20%" name = "nombre"><?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></td> 
-										<td width="20%" name = "telefono"><?php echo $usuario['telefOpeInt']; ?> </td> 
-										<td width="20%"><input type="submit" value="consultar" name="accion"></td>
-										<td width="20%"><input type="submit" value="eliminar" name="accion"></td>
-									</tr>
-								</form>
-							<?php 
+							if (empty($resul2)) {
+							?>
+								<div class="alert alert-warning" role="alert">
+								| INFO |- No hay usuarios internos para listar 
+								</div>
+							<?php
 							}
+							else{
+								foreach ($resul2 as $usuario){
+									?>
+									<form method="POST" action="../../Controller/usuariosController.php?dniUsu=<?php echo $usuario['dniUsu'];?>">
+										<tr> 
+											<td width="20%" name = "dni"><?php echo $usuario['dniUsu']; ?> </td> 
+											<td width="20%" name = "nombre"><?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></td> 
+											<td width="20%" name = "telefono"><?php echo $usuario['telefOpeInt']; ?> </td> 
+											<td width="20%"><input type="submit" value="consultar" name="accion"></td>
+											<td width="20%"><input type="submit" value="eliminar" name="accion"></td>
+										</tr>
+									</form>
+								<?php 
+								}
+							}	
 							?>
 			 			</table>
 			 		</div>
@@ -56,20 +66,29 @@
 						<table class="default">
 							<?php
 							$resul2 = $_SESSION["listaExternos"];
-							foreach ($resul2 as $usuario){
-								?>
-								<form method="POST" action="../../Controller/usuariosController.php?dniUsu=<?php echo $usuario['dniUsu'];?>">
-									<tr> 
-										<td width="20%" name = "dni"><?php echo $usuario['dniUsu']; ?> </td> 
-										<td width="20%" name = "nombre"><?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></td> 
-										<td width="20%" name = "telefono"><?php echo $usuario['telefEmpr']; ?> </td> 
-										<td width="20%" name = "telefono"><?php echo $usuario['nomEmpr']; ?> </td> 
-										<td width="10%"><input type="submit" value="consultar" name="accion"></td>
-										<td width="10%"><input type="submit" value="eliminar" name="accion"></td>
-									</tr>
-								</form>
-							<?php 
+							if (empty($resul2)) {
+							?>
+								<div class="alert alert-warning" role="alert">
+								| INFO |- No hay usuarios externos para listar 
+								</div>
+							<?php
 							}
+							else{
+								foreach ($resul2 as $usuario){
+									?>
+									<form method="POST" action="../../Controller/usuariosController.php?dniUsu=<?php echo $usuario['dniUsu'];?>">
+										<tr> 
+											<td width="20%" name = "dni"><?php echo $usuario['dniUsu']; ?> </td> 
+											<td width="20%" name = "nombre"><?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></td> 
+											<td width="20%" name = "telefono"><?php echo $usuario['telefEmpr']; ?> </td> 
+											<td width="20%" name = "telefono"><?php echo $usuario['nomEmpr']; ?> </td> 
+											<td width="10%"><input type="submit" value="consultar" name="accion"></td>
+											<td width="10%"><input type="submit" value="eliminar" name="accion"></td>
+										</tr>
+									</form>
+								<?php 
+								}
+							}	
 							?>
 			 			</table>
 			 		</div>
