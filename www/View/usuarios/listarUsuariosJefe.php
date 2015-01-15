@@ -3,13 +3,13 @@
 	require_once("../structure/header.php");
 	require '../crearMensaje.php';
 ?>
-            	<h1 id="headerJefe"><a><i>OPERARIOS INTERNOS</i></a></h1>
+            	<h1 id="headerJefe"><a><i><?= i18n("OPERARIOS INTERNOS") ?></i></a></h1>
 
             	<table class="default">
                     <tr>
-                    	<th width="20%">#ID Int.</th>
-                    	<th width="20%">Nombre/Apellidos</th>
-                       	<th width="20%">Tel&eacute;fono</th>
+                    	<th width="20%">#ID <?= i18n("Int.") ?></th>
+                    	<th width="20%"><?= i18n("Nome/Apelidos") ?></th>
+                       	<th width="20%"><?= i18n("Teléfono:") ?></th>
                         <th width="20%">&nbsp;</th>
                         <th width="20%">&nbsp;</th>
 
@@ -23,7 +23,7 @@
 							if (empty($resul2)) {
 							?>
 								<div class="alert alert-warning" role="alert">
-								| INFO |- No hay usuarios internos para listar 
+								<?= i18n("| INFO |- No hay usuarios internos para listar") ?> 
 								</div>
 							<?php
 							}
@@ -48,13 +48,13 @@
 				<!--FIN SECCIÓN-->
 				<br>
 				<!--IINICIO SECCIÓN-->
-            	<h1 id="headerJefe"><a><i>OPERARIOS EXTERNOS</i></a></h1>
+            	<h1 id="headerJefe"><a><i><?= i18n("OPERARIOS EXTERNOS") ?></i></a></h1>
 
             	<table class="default">
                     <tr>
-                    	<th width="20%">#ID Ext.</th>
-                    	<th width="20%">Nombre/Apellidos</th>
-                       	<th width="20%">Tel&eacute;fono</th>
+                    	<th width="20%">#ID <?= i18n("Int.") ?>Ext.</th>
+                    	<th width="20%"><?= i18n("Nome/Apelidos") ?></th>
+                       	<th width="20%"><?= i18n("Teléfono:") ?></th>
                         <th width="20%">Empresa</th>
                         <th width="10%">&nbsp;</th>
                         <th width="10%">&nbsp;</th>
@@ -69,7 +69,7 @@
 							if (empty($resul2)) {
 							?>
 								<div class="alert alert-warning" role="alert">
-								| INFO |- No hay usuarios externos para listar 
+								<?= i18n("| INFO |- No hay usuarios externos para listar ") ?> 
 								</div>
 							<?php
 							}

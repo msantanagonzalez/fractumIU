@@ -172,6 +172,17 @@
 	"Ensamblador"=>"Ensamblador",
 	"Avería alternador"=>"",
 	
+	//""/listarUsuariosJefe
+	"OPERARIOS INTERNOS"=>"OPERARIOS INTERNOS",
+	"Int."=>"Int.",
+	"Nombre/Apellidos"=>"Nome/Apelidos",
+	"| INFO |- No hay usuarios internos para listar"=>"| INFO |- Non hai usuarios internos para listar",
+	"OPERARIOS EXTERNOS"=>"OPERARIOS EXTERNOS",
+	"| INFO |- No hay usuarios externos para listar "=>"| INFO |- Non hai usuarios externos para listar ",
+	""=>"",
+	""=>"",
+	""=>"",
+	""=>"",
 	
 	
   )
