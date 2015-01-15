@@ -1,6 +1,7 @@
 <?php
 	$userType="jefe";
 	require_once("../structure/header.php");
+	require '../crearMensaje.php';
 	
 	$rows = $_SESSION['consultaMaquina']; 
 	 foreach ($rows as $row) { 
@@ -32,15 +33,41 @@
 				</textarea>
 			</td>
 		</tr>
-		<tr>
-			<td>Documentacion:</td>
-        	<td><img src="../../Recursos/images/PDF.png"></td>
-        	<td colspan="2"><input type="file" disabled name="accion" value="Subir"></td>
-		</tr>
-		<tr>
+		<?php 
+		$rows = $_SESSION['documentoMaquina']; 
+		if (empty($rows)) {
+			?>
+			<tr>
+				<td colspan="4">Documentacion:
+				<div class="alert alert-info" role="alert">
+				| INFO |- Maquina sin documento 
+				</div>
+				</td>
+			</tr>	
+			<tr>
 			<td colspan="4"><input  type="submit" name="accion" value="Modificar"></td>
-		</tr>
-		<?php } ?>
+			</tr>
+			<?php
+			}else{
+				foreach ($rows as $documento) {
+				?>
+				<tr>
+					<td colspan="2">Documentacion:</td>
+					<td colspan="2">
+					<a href="../<?php echo $documento['urlDocMaq'];?>" target="_blank">
+					<img src="../../Resources/images/PDF.png">
+					<br>
+					<?php echo $documento['nDocMaq'];?>
+					</a>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4"><input  type="submit" name="accion" value="Modificar"></td>
+				</tr>
+				<?php 
+				}
+			}
+		} ?>
 		</table>
 </form>
 <h1 id="headerJefe"><a><i>INCIDENCIAS RELATIVAS</i></a></h1>

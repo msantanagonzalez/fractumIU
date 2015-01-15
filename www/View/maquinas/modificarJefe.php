@@ -9,7 +9,7 @@
 
 <h1 id="headerJefe"><a><i>M&Aacute;QUINA <?php echo $row['idMaq']; ?></i></a></h1>
 
-<form method="POST" action="../../Controller/maquinasController.php">
+<form method="POST" action="../../Controller/maquinasController.php" enctype="multipart/form-data">
 	
 	
 		<input type="hidden" class="text"  name="idMaq" value="<?php echo $row['idMaq']; ?>"/>
@@ -41,16 +41,42 @@
 				</textarea>
 			</td>
 		</tr>
-		<tr>
-			<td>Documentacion:</td>
-        	<td><img src="../../Recursos/images/PDF.png"></td>
-        	<td colspan="2"><input type="file" name="accion" value="Subir"></td>
-		</tr>
-		<tr>
-			<td colspan="4"><input type="submit" name="accion" value="Guardar"></td>
-		</tr> 
-		<?php } ?>
-	</table>
+		<?php 
+		$rows = $_SESSION['documentoMaquina']; 
+		if (empty($rows)) {
+			?>
+			<tr>
+				<td>Documentacion:</td>
+				<td><img src="../../Resources/images/PDF.png"></td>
+				<td colspan="2"><input type="file" name="docMaquina" id="docMaquina"></td>
+			</tr>			
+			<tr>
+			<td colspan="4"><input  type="submit" name="accion" value="Guardar"></td>
+			</tr>
+			<?php
+			}else{
+				foreach ($rows as $documento) {
+				?>
+				<tr>
+					<td colspan="2">Documentacion:</td>
+					<td colspan="2">
+					<a href="../<?php echo $documento['urlDocMaq'];?>" target="_blank">
+					<img src="../../Resources/images/PDF.png">
+					</a>
+					<br>
+					<a href="../../Controller/maquinasController.php?accion=eliminarDocumento&idMaq=<?php echo $documento['idMaq'];?>&path=<?php echo $documento['urlDocMaq'];?>">
+					<?php echo "Eliminar";?>
+					</a>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4"><input  type="submit" name="accion" value="Guardar"></td>
+				</tr>
+				<?php 
+				}
+			}
+		} ?>
+		</table>
 </form>
 
 <?php

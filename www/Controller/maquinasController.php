@@ -31,6 +31,9 @@
 		case 'Eliminar':
 			eliminar();
 			break;
+		case 'eliminarDocumento':
+			eliminarDocumento();
+			break;	
 	}
 
 	function alta(){
@@ -44,7 +47,13 @@
 		if(empty($_FILES['docMaquina'])){
 			anadirMensaje("|WARNING| Maquina: ".$_POST["idMaq"]." creada sin documentacion","warning");
 		}else{
-			subirArchivo($_POST["idMaq"],"","","maquina");
+			list($guardado,$path,$nombreArchivo) = subirArchivo($_POST["idMaq"],"","","maquina");
+			if($guardado==1){
+				$maquina->setPathImage($_POST["idMaq"],$path,$nombreArchivo);
+				anadirMensaje("|SUCCESS| Maquina: ".$idMaquina." creada con documentacion","success");
+			}else{
+			anadirMensaje("|WARNING| Maquina: ".$idMaquina." creada sin documentacion","warning");
+			}
 		}
 		
 		//header("location: maquinasController.php?accion=Consulta&idMaq=$tempMaquina");
@@ -62,9 +71,17 @@
 		while($row = mysql_fetch_array($consultaMaquina)){
 			array_push($consulta, $row);
 		}
-
+		
 		$_SESSION["consultaMaquina"] = $consulta;
 	
+		$documentoMaquina = $maquina->getPathImage($idMaquina);
+		$consulta = array();		
+		while($row = mysql_fetch_array($documentoMaquina)){
+			array_push($consulta, $row);
+		}
+		
+		$_SESSION["documentoMaquina"] = $consulta;
+		
 		switch ($_SESSION['tipo']) {
 			case 'J':
 				session_write_close();
@@ -96,7 +113,14 @@
 		}
 
 		$_SESSION["consultaMaquina"] = $consulta;
-
+		
+		$documentoMaquina = $maquina->getPathImage($idMaquina);
+		$consulta = array();		
+		while($row = mysql_fetch_array($documentoMaquina)){
+			array_push($consulta, $row);
+		}
+		
+		$_SESSION["documentoMaquina"] = $consulta;
 
 		if($_SESSION['tipo'] == 'J') {
 				session_write_close();
@@ -115,6 +139,14 @@
 			
 		$maquina = new Maquina($idMaq, $nSerie, $descripMaq, $nomMaq, $costeMaq);
 		$maquina->modificacion($idMaq);
+		
+		# Subida de archivo
+		if(!empty($_FILES['docMaquina'])){
+			list($guardado,$path,$nombreArchivo) = subirArchivo($idMaq,"","","maquina");
+			if($guardado==1){
+				$maquina->setPathImage($idMaq,$path,$nombreArchivo);
+			}
+		}
 		
 		anadirMensaje("|SUCCESS| Maquina: ".$idMaq." modificada","success");
 		//header("location: ../Controller/maquinasController.php?accion=Consulta&idMaq=$idMaq");
@@ -186,9 +218,22 @@
 			$dir= "../Resources/documents/".$idMaq."/";
 			eliminarDir($dir);
 			$maquina->borrar();
+			$maquina->delPathImage($idMaq);
 		}
 		anadirMensaje("|SUCCESS| Maquina: ".$idMaq." eliminada","success");
 		//header("location: maquinasController.php?accion=Listar");
 		lista();
+	}
+	
+	function eliminarDocumento(){
+		$idMaq    = $_GET['idMaq'];
+		$path    = $_GET['path'];
+		$maquina = new Maquina ($idMaq,"","","","");
+		$maquina->getPathImage($idMaq);
+		$maquina->delPathImage($idMaq);
+		
+		unlink($path);
+		anadirMensaje("|SUCCESS| Documento de Maquina: ".$idMaq." eliminado","success");
+		consulta();
 	}
 ?>	

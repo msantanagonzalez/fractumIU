@@ -29,7 +29,8 @@ function subirArchivo($idMaquina,$idIncidencia,$idIteracion,$tipo){
 	$limite = 5000 * 1024;
 	switch($tipo){
 		case "maquina":
-			subirMaquina($idMaquina,$ext_permitidas,$limite);
+			list($guardado,$path,$nombreArchivo) = subirMaquina($idMaquina,$ext_permitidas,$limite);
+			return array($guardado,$path,$nombreArchivo);
 		break;
 		case "iteracion":
 			//$dir= "../Resources/documents/".$idMaquina."/".$idIncidencia."/".$idIteracion."/";
@@ -51,16 +52,14 @@ function subirMaquina($idMaquina,$ext_permitidas,$limite){
 				
 		if($ext_correcta && $tamano <= $limite ){
 			  if(file_exists($dir.$nombre)){
-				echo '<br/>El archivo ya existe: ' . $nombre;
+				anadirMensaje("|ERROR| Ya hay un archivo con ese nombre: ".$nombre."|".$tipo."|".$tamano."Mb" ,"danger");
 			  }else{
 				move_uploaded_file($nombre_tmp,$path);
-				echo "<br/>Guardado en: ".$path;
-				anadirMensaje("|SUCCESS| Maquina: ".$idMaquina." creada con documentacion","success");
 				anadirMensaje("|INFO| Archivo: ".$nombre."|".$tipo."|".$tamano."Mb - Guardado" ,"info");
+				return array(1,$path,$nombre);
 			  }
 		}else{
 			anadirMensaje("|ERROR|Error al subir archivo: ".$nombre."|".$tipo."|".$tamano."Mb" ,"danger");
-			anadirMensaje("|WARNING| Maquina: ".$idMaquina." creada sin documentacion","warning");
 		}
 	}
 	

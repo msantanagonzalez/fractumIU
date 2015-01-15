@@ -50,8 +50,7 @@ class Maquina {
 		}
 	
 	
-	public function modificacion($idMaquina){
-				
+	public function modificacion($idMaquina){			
 				mysql_query("UPDATE MAQUINA SET nomMaq = '$this->nombreMaquina', costeMaq = '$this->costeMaquina',descripMaq = '$this->descripcionMaquina',nSerie = '$this->numeroSerie'
 					WHERE idMaq = '$idMaquina'") or die(mysql_error());
 	}
@@ -88,15 +87,28 @@ class Maquina {
 		$borrarMaquina = "DELETE FROM MAQUINA WHERE idMaq = '$this->idMaquina'";
 		$resultado = mysql_query($borrarMaquina) or die(mysql_error());
 		return $resultado;
-	
 	}
 	
 	public function listaMaquinaSinServicio(){
-	
 			$sql = mysql_query("SELECT idMaq,nomMaq FROM MAQUINA t1 WHERE NOT EXISTS(SELECT idMaq FROM SERVICIO t2 WHERE t1.idMaq = t2.idMaq)");
 			return $sql;
 	}
-
+	
+	public function setPathImage($idMaq,$path,$nombreArchivo){	
+		$sql = "INSERT INTO DOCMAQUINA(idMaq,urlDocMaq,nDocMaq)VALUES('$idMaq','$path','$nombreArchivo')";
+		mysql_query($sql) or die(mysql_error());
+	}
+	
+	public function delPathImage($idMaq){	
+		$sql = "DELETE FROM DOCMAQUINA WHERE idMaq = '$idMaq'";
+		mysql_query($sql) or die(mysql_error());
+	}
+	
+	public function getPathImage($idMaq){	
+		$sql = "SELECT * FROM DOCMAQUINA WHERE idMaq = '$idMaq'";
+		$resultado = mysql_query($sql) or die(mysql_error());
+		return $resultado;
+	}
 	
 }
 		
