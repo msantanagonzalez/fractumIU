@@ -9,7 +9,7 @@
     	<th width="17%">#ID <?= i18n("Inc.") ?></th>
        	<th width="17%"><?= i18n("Últ. operario") ?></th>
         <th width="17%"><?= i18n("Últ. iteración") ?></th>
-    	<th width="17%"><?= i18n("Título") ?></th>
+    	<th width="17%"><?= i18n("Apertura:") ?></th>
         <th width="17%"><?= i18n("Estado:") ?></th>
         <th width="17%">&nbsp;</th>
     </tr>

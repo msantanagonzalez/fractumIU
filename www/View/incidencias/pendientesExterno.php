@@ -8,7 +8,7 @@
     	<th width="17%">#ID Inc.</th>
        	<th width="17%">&Uacute;lt. operario</th>
         <th width="17%">&Uacute;lt. iteración</th>
-    	<th width="17%">T&iacute;tulo</th>
+    	<th width="17%">Apertura:</th>
         <th width="17%">Estado</th>
         <th width="17%">&nbsp;</th>
     </tr>
