@@ -5,7 +5,7 @@
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
 <h1 id="headerJefe"><a><i><?= i18n("ITERACIÓN") ?> $#IDincidencia</i></a></h1>
 <div>
-	<form method="POST" action="../../Controller/iteracionesController.php">
+	<form method="POST" onsubmit="return modificarIteracion()" action="../../Controller/iteracionesController.php">
 
 		<?php $rows = $_SESSION['consultaIteracion'];
 		 foreach ($rows as $row) { ?>
