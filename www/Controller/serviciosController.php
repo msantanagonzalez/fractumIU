@@ -2,6 +2,10 @@
 
 include_once '../Model/servicio.php';
 include_once 'bdController.php';
+include_once 'generalController.php';
+
+include_once '../Model/maquina.php';
+include_once '../Model/empresa.php';
 
 
 if(isset($_GET['accion'])){	$accion = $_GET['accion']; }
@@ -21,6 +25,7 @@ switch ($action) {
 		Modificar();
 		break;	
 	case 'Listar':
+	
 		listar();
 		break;
 	case 'Guardar':
@@ -32,6 +37,11 @@ switch ($action) {
 	case 'Trabajar':
 		trabajar();
 		break;
+	case 'accesoAltaServicio':
+	listarMaquinaSinServicio();
+	listarEmpresas();
+	accesoAltaServicio();
+	break;
 }
 
 	function alta(){
@@ -40,9 +50,8 @@ switch ($action) {
 		$servicio = new servicio($_POST["idServ"], $_SESSION["dni"], $_POST["cifEmpr"],$_POST["idMaq"], $_POST["periodicidad"],$_POST["fInicioSer"], $_POST["fFinSer"],  $_POST["costeSer"], $_POST["descripSer"]);
 		$servicio->alta();
 		$tempServicio = $_POST["idServ"];
-		
+		anadirMensaje("|SUCCESS| Servicio: ".$_POST["idServ"]." creado","success");
 		listar();
-	
 	}
 
 	
@@ -142,7 +151,7 @@ switch ($action) {
 
 		$servicio = new servicio($idServ, $dniUsu, $cifEmpr, $idMaquina, $periodicidad,$fInicioSer, $fFinSer, $costSer, $descripSer);
 		$servicio->modificar($idServ);
-		
+		anadirMensaje("|SUCCESS| Servicio: ".$idServ." modificado","success");
 		listar();
 	}
 	
@@ -167,9 +176,45 @@ switch ($action) {
 		if ($resultado){
 			$servicio->baja();
 		}
-		header("location: serviciosController.php?accion=Listar");
+		anadirMensaje("|SUCCESS| Servicio: ".$idServ." eliminado","success");
+		//header("location: serviciosController.php?accion=Listar");
+		listar();
 	}
 	
+	function listarMaquinaSinServicio(){
+				session_start();
+				$maquina = new Maquina();
+				$listaMaquinas = $maquina->listaMaquinaSinServicio();
+				$lista = array();
+				
+				while($row = mysql_fetch_array($listaMaquinas)){
+					array_push($lista, $row);
+				}
+				$_SESSION["maquinaSinServicio"] = $lista;
+				session_write_close();
+	}
+	
+	function listarEmpresas(){
+		session_start();
+		$empresa = new Empresa();
+		$listaEmpresas = $empresa->listarEmpresas();
+		
+		$lista = array();		
+		while($row = mysql_fetch_array($listaEmpresas)){
+			array_push($lista, $row);
+		}
+
+		$_SESSION["listaEmpresas"] = $lista;
+	}
+	
+	function accesoAltaServicio(){
+		if(empty($_SESSION["maquinaSinServicio"])){
+			anadirMensaje("| ERROR | Todas las maquinas tienen un servicio asociado","danger");
+			listar();
+		}else{
+			header("location:../View/servicios/altaJefe.php");
+		}
+	}
 	
 	
 

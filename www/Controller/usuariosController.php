@@ -2,10 +2,14 @@
 include_once 'bdController.php';
 include_once 'generalController.php';
 
+
+
 include_once '../Model/jefe.php';
 include_once '../Model/externo.php';
 include_once '../Model/interno.php';
 include_once '../Model/empresa.php';
+include_once '../Model/maquina.php';
+include_once '../Model/incidencia.php';
 
 # NOTA: CAMBIAR LOS REQUEST POR POST O GETS..... 
 $action =$_REQUEST['accion'];
@@ -59,10 +63,14 @@ switch ($action) {
 		{			
 			switch ($_SESSION['tipo']){
 				case 'J':
+					listaMaquinaJefeAndInterno();
+					listaIncidenciaJefeAndInterno();
 					header("location:../View/usuarios/homeJefeJefe.php");
 					//require_once("../View/usuarios/jefe/homeJefe.php");
 					break;
 				case 'I':
+					listaMaquinaJefeAndInterno();
+					listaIncidenciaJefeAndInterno();
 					header("location:../View/usuarios/homeInternoInterno.php");
 					//require_once("../View/usuarios/jefe/homeJefe.php");
 					break;
@@ -421,6 +429,29 @@ switch ($action) {
 		}
 
 		$_SESSION["listaEmpresas"] = $lista;
+	}
+	
+	function listaMaquinaJefeAndInterno(){
+				$maquina = new Maquina();
+				$listaMaquinas = $maquina->lista();
+				$lista = array();
+				
+				while($row = mysql_fetch_array($listaMaquinas)){
+					array_push($lista, $row);
+				}
+				$_SESSION["listaMaquina"] = $lista;
+	}
+	
+	function listaIncidenciaJefeAndInterno(){
+				$incidencia = new Incidencia();
+				$listaIncidencias = $incidencia->lista();
+
+				$lista = array();		
+				while($row = mysql_fetch_array($listaIncidencias)){
+					array_push($lista, $row);
+				}
+
+				$_SESSION["listaIncidencia"] = $lista;
 	}
 	
 	function accesoAltaExterno(){

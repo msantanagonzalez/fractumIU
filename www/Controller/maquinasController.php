@@ -1,6 +1,7 @@
 <?php
 	require_once("../Model/maquina.php");
 	include_once 'bdController.php';
+	include_once 'generalController.php';
 
 	if(isset($_GET['accion'])){	$accion = $_GET['accion']; }
 	if(isset($_POST['accion'])){ $accion = $_POST['accion']; }
@@ -38,7 +39,9 @@
 		$maquina = new Maquina($_POST["idMaq"], $_POST["nSerie"], $_POST["descripMaq"],$_POST["nomMaq"], $_POST["costeMaq"]);
 		$maquina->alta();
 		$tempMaquina = $_POST["idMaq"];
-		header("location: maquinasController.php?accion=Consulta&idMaq=$tempMaquina");
+		anadirMensaje("|SUCCESS| Maquina: ".$_POST["idMaq"]." creada","success");
+		//header("location: maquinasController.php?accion=Consulta&idMaq=$tempMaquina");
+		lista();
 	}
 
 	function consulta(){
@@ -106,7 +109,9 @@
 		$maquina = new Maquina($idMaq, $nSerie, $descripMaq, $nomMaq, $costeMaq);
 		$maquina->modificacion($idMaq);
 		
-		header("location: ../Controller/maquinasController.php?accion=Consulta&idMaq=$idMaq");
+		anadirMensaje("|SUCCESS| Maquina: ".$idMaq." modificada","success");
+		//header("location: ../Controller/maquinasController.php?accion=Consulta&idMaq=$idMaq");
+		lista();
 	}
 	
 	function lista(){
@@ -114,35 +119,30 @@
 
 		$maquina = new Maquina();
 		
-		
-		
-
 		switch ($_SESSION['tipo']) {
 			case 'J':
-			$listaMaquinas = $maquina->lista();
-		$lista = array();
-		
-		while($row = mysql_fetch_array($listaMaquinas)){
-			array_push($lista, $row);
-		}
-		$_SESSION["listaMaquina"] = $lista;
+				$listaMaquinas = $maquina->lista();
+				$lista = array();
+				
+				while($row = mysql_fetch_array($listaMaquinas)){
+					array_push($lista, $row);
+				}
+				$_SESSION["listaMaquina"] = $lista;
 				session_write_close();
 				header("location: ../View/maquinas/listarJefe.php");
 				break;
 			case 'I':
-			$listaMaquinas = $maquina->lista();
-		$lista = array();
-		
-		while($row = mysql_fetch_array($listaMaquinas)){
-			array_push($lista, $row);
-		}
-		$_SESSION["listaMaquina"] = $lista;
+				$listaMaquinas = $maquina->lista();
+				$lista = array();
+				
+				while($row = mysql_fetch_array($listaMaquinas)){
+					array_push($lista, $row);
+				}
+				$_SESSION["listaMaquina"] = $lista;
 				header("location: ../View/maquinas/listarInterno.php");
 				session_write_close();
 				break;
 			case 'E':
-				
-				
 				$listaMaquinas1 = $maquina->listaMaquinasOpEservicio();
 				
 				$lista1 = array();
@@ -151,8 +151,6 @@
 					array_push($lista1, $row);
 				}
 				$_SESSION["listaMaquina1"] = $lista1;
-				
-				
 				
 				$listaMaquinas2 = $maquina->listaMaquinasOpEIncidencia();
 				
@@ -180,11 +178,8 @@
 		if ($resultado){
 			$maquina->borrar();
 		}
-		header("location: maquinasController.php?accion=Listar");
-		
-			
-		
-		
-	
+		anadirMensaje("|SUCCESS| Maquina: ".$idMaq." eliminada","success");
+		//header("location: maquinasController.php?accion=Listar");
+		lista();
 	}
-	
+?>	

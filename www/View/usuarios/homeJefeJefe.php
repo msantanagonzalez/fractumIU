@@ -54,6 +54,7 @@
         <th width="10%">&nbsp;</th>
     </tr>
 </table>
+<form method="POST" action="../../Controller/maquinasController.php">
 	<table class="default">
 		<?php 
 			if(isset($_SESSION['listaMaquina']))
@@ -68,7 +69,6 @@
 			else{
 				foreach ($rows as $row) {
 				?>
-				<form method="POST" action="../../Controller/maquinasController.php">
 				<tr> 
 					<td width="20%"  name = "idMaq"><?php echo $row['idMaq']; ?></td> 
 					<td width="20%">Sí</td> 
@@ -80,7 +80,7 @@
 				} 
 			}
 		?>
-	</table>
+</table>
 </form>
 				
 <?php
