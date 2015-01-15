@@ -160,9 +160,17 @@
 	
 	//""/consultarInternoJefe
 	"#ID Interno: "=>"#ID Interno: ",
-	""=>"",
-	""=>"",
-	""=>"",
+	"- INCIDENCIAS -"=>"- INCIDENCIAS -",
+	"- MÁQUINAS -"=>"- MÁQUINAS -",
+	"Centrifugadora Verduras"=>"Centrifugadora Verduras",
+	"Cortadora Tomates"=>"Cortadora Tomates",
+	"Si"=>"Se",
+	"No"=>"Non",
+	"Centrifugadora de lechuga"=>"Centrifugadora de leituga",
+	"Impresor 3D"=>"Impresor 3D",
+	"Pendiente de cierre"=>"Pendente de peche",
+	"Ensamblador"=>"Ensamblador",
+	"Avería alternador"=>"",
 	
 	
 	

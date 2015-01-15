@@ -3,14 +3,14 @@
 	require_once("../structure/header.php");
 	require '../crearMensaje.php';
 ?>
-<h1 id="headerJefe"><a><i>INCIDENCIAS</i></a></h1>
+<h1 id="headerJefe"><a><i><?= i18n("INCIDENCIAS") ?></i></a></h1>
 <table class="default">
     <tr>
-    	<th width="17%">#ID Inc.</th>
-       	<th width="17%">&Uacute;lt. operario</th>
-        <th width="17%">&Uacute;lt. iteración</th>
-    	<th width="17%">T&iacute;tulo</th>
-        <th width="17%">Estado</th>
+    	<th width="17%">#ID <?= i18n("Inc.") ?></th>
+       	<th width="17%"><?= i18n("Últ. operario") ?></th>
+        <th width="17%"><?= i18n("Últ. iteración") ?> </th>
+    	<th width="17%"><?= i18n("Título") ?></th>
+        <th width="17%"><?= i18n("Estado:") ?></th>
         <th width="17%">&nbsp;</th>
     </tr>
 </table>
@@ -22,7 +22,7 @@
 			if (empty($rows)) {
 			?>
 				<div class="alert alert-warning" role="alert">
-				| INFO |- No hay incidencias para listar 
+				<?= i18n("| INFO |- No hay incidencias para listar") ?> 
 				</div>
 			<?php
 			}
@@ -44,12 +44,12 @@
 	</table>
 </form>
 <br>
-<h1 id="headerJefe"><a><i>M&Aacute;QUINAS</i></a></h1>
+<h1 id="headerJefe"><a><i><?= i18n("- MÁQUINAS -") ?></i></a></h1>
 <table class="default">
     <tr>
-    	<th width="20%">#ID M&aacute;q.</th>
-    	<th width="20%">Servicio</th>
-       	<th width="20%">&Uacute;lt. incidencia</th>
+    	<th width="20%">#ID <?= i18n("Máquina:") ?></th>
+    	<th width="20%"><?= i18n("Servicio:") ?></th>
+       	<th width="20%"><?= i18n("Últ. Incidencia") ?></th>
         <th width="10%">&nbsp;</th>
         <th width="10%">&nbsp;</th>
     </tr>
@@ -62,7 +62,7 @@
 			if (empty($rows)) {
 			?>
 				<div class="alert alert-warning" role="alert">
-				| INFO |- No hay maquinas para listar 
+				<?= i18n("| INFO |- No hay maquinas para listar") ?> 
 				</div>
 			<?php
 			}
@@ -71,7 +71,7 @@
 				?>
 				<tr> 
 					<td width="20%"  name = "idMaq"><?php echo $row['idMaq']; ?></td> 
-					<td width="20%">Sí</td> 
+					<td width="20%"><?= i18n("Si") ?></td> 
 					<td width="20%">13/09/2014</td> 
 					<td width="10%"><button><a href="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>">Consultar</a></button></td>
 					<td width="10%"><button><a href="../../Controller/maquinasController.php?accion=Eliminar&idMaq=<?php echo $row['idMaq'];?>">Eliminar</a></button></td>
