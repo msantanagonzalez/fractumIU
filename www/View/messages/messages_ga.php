@@ -23,7 +23,7 @@
 	"Listar Servicios" => "Listar Servizos",
 	"operarioExterno:"=>"operarioExterno:",
 	 
-  
+
 	//View/empresas/altaEmpresa
 	
 	"EMPRESA" => "NEGOCIO",
@@ -138,11 +138,12 @@
 	"CIF Empresa:"=>"CIF Empresa:",
 	"SERVICIO"=>"SERVIZO",
 	
+	//""/gestorExterno
+	"SERVICIOS"=>"SERVIZOS",
 	
 	
-	
-	""=>"",
-	""=>"",
+	"Empresa:"=>"Empresa:",
+	"| INFO |- No hay servicios para listar"=>"| INFO |- Non hai servizos para listar",
 	""=>"",
 	""=>"",
 	""=>"",

@@ -4,14 +4,14 @@
 	require '../crearMensaje.php';
 ?>
 
-<h1 id="headerExterno"><a><i>SERVICIOS</i></a></h1>
+<h1 id="headerExterno"><a><i><?= i18n("SERVICIOS") ?></i></a></h1>
 <table class="default">
     <tr>
-		<th width="10%">#ID Servicio.</th>
-    	<th width="10%">#ID M&aacute;q.</th>
-    	<th width="10%">Periodicidad</th>
-       	<th width="10%">Coste</th>
-       	<th width="10%">Empresa</th>
+		<th width="10%">#ID <?= i18n("Servicio:") ?></th>
+    	<th width="10%">#ID <?= i18n("Máquina:") ?></th>
+    	<th width="10%"><?= i18n("Periodicidad:") ?></th>
+       	<th width="10%"><?= i18n("Coste:") ?></th>
+       	<th width="10%"><?= i18n("Empresa:") ?></th>
         <th width="10%">&nbsp;</th>
         <th width="10%">&nbsp;</th>
     </tr>
@@ -24,7 +24,8 @@
 		if (empty($resul2)) {
 		?>
 			<div class="alert alert-warning" role="alert">
-			| INFO |- No hay servicios para listar 
+			<?= i18n("| INFO |- No hay servicios para listar") ?>
+			 
 			</div>
 		<?php
 		}
