@@ -4,11 +4,11 @@
 	require '../crearMensaje.php';
 ?>
 
-<h1 id="headerJefe"><a><i>EMPRESAS</i></a></h1>
+<h1 id="headerJefe"><a><i><?= i18n("EMPRESA") ?></i></a></h1>
 <table class="default">
     <tr>
-    	<th width="28%">#CIF</th>
-    	<th width="40%">Nombre</th>
+    	<th width="28%"><?= i18n("#CIF:") ?></th>
+    	<th width="40%"><?= i18n("Nombre:") ?></th>
         <th width="10%">&nbsp;</th>
         <th width="10%">&nbsp;</th>
     </tr>
@@ -21,7 +21,8 @@
 			if (empty($rows)) {
 			?>
 				<div class="alert alert-warning" role="alert">
-				| INFO |- No hay empresas para listar 
+				<?= i18n("| INFO |- No hay empresas para listar ") ?>
+				
 				</div>
 			<?php
 			}else{
