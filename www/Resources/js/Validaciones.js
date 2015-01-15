@@ -609,36 +609,17 @@ function comprobarModificarEmpresa() {
 
 function comprobarAltaIncidenciaInterno(){ 
 
-		 var responsable = document.getElementById("dniResponsable").value;
+		
 		 var fechaApertura = document.getElementById("fechaApertura").value;
          var fechaBaja = document.getElementById("fechaCierre").value;
 		 var description = document.getElementById("des").value;
-        
-         /*variable para comprobar que la letra introducida en el campo dni es la correspondiente con el numero al realizar una operación matemática*/
-        
-         var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+       
         
          /*variables para el dateparse*/
 	     var patron=new RegExp("^([0-9]{1,2})([/])([0-9]{1,2})([/])(19|20)+([0-9]{2})$");
          var dayI,dayF,monthI,monthF,yearI,yearF;
-          
-        if( responsable == null || responsable.length == 0 || /^\s+$/.test(responsable) || responsable.match(/^\d{8}[a-zA-Z]$/) == null) {
-            alert("Es obligatorio introducir un dni de operario correcto en un formato adecuado [ocho caracteres y un digito].");  
-            return false;
-			
-            }else if( responsable.charAt(8) != letras[(responsable.substring(0, 8))%23] ){
-            alert("La letra del dni no es correcta");
-            return false;
-			
-            }else if(responsable == null || responsable.length == 0 || /^\s+$/.test(responsable) || responsable.match(/^\d{8}[a-zA-Z]$/) == null){
-             alert("Es obligatorio introducir un id correcto en un formato adecuado [ocho caracteres y un digito].");  	
-            return false;
-			
-            }else if( responsable.charAt(8) != letras[(responsable.substring(0, 8))%23] ){
-            alert("La letra del dni no es correcta");
-            return false;
-			
-            }if(fechaApertura == null || fechaApertura.length==0 || fechaApertura.match(/\d{1,2}\/\d{1,2}\/\d{2,4}$/) == null){
+       
+			if(fechaApertura == null || fechaApertura.length==0 || fechaApertura.match(/\d{1,2}\/\d{1,2}\/\d{2,4}$/) == null){
             alert("Es obligatorio introducir una fecha de alta");
             return false;
 			}else{
