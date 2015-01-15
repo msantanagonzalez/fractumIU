@@ -2,9 +2,9 @@
 	$userType="jefe";
 	require_once("../structure/header.php");
 ?>
-
+<script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
 <h1 id="headerJefe"><a><i>NUEVA INCIDENCIA</i></a></h1>
-<form name='FormAltaIncidencia' action='../../Controller/incidenciasController.php' method='POST'>
+<form name='FormAltaIncidencia' onsubmit="return comprobarAltaIncidenciaJefe()" action='../../Controller/incidenciasController.php' method='POST'>
 	<input type="hidden" class="text" name="idIncidencia" value="id0"/>
 	<input type="hidden" class="text" name="derivada" value="0"/>
 	<input type='hidden' class='text' name="dniApertura" value='<?php echo $_SESSION['dni']; ?>'/>
@@ -13,13 +13,13 @@
 				<td>Apertura:</td>
 				<td><input type='text' class='text' disabled value='<?php echo $_SESSION['dni']; ?>'/></td>
 				<td>Responsable:</td>
-				<td><input type='text' class='text' name='dniResponsable' value=''/></td>
+				<td><input id="dniResponsable" type='text' class='text' name='dniResponsable' value=''/></td>
 			</tr>
 			<tr>
 				<td>Fecha Apertura:</td>
-				<td><input type='date' name='fechaApertura' value=''></td>
+				<td><input id="fechaApertura" type='date' name='fechaApertura' value=''></td>
 				<td>Fecha Cierre:</td>
-				<td><input type='date' name='fechaCierre' value=''></td>
+				<td><input id="fechaCierre" type='date' name='fechaCierre' value=''></td>
 			</tr>	
 			<tr>
 				<td>Estado:</td>
@@ -42,7 +42,7 @@
 			<tr>
 				<td width="25%"><br>Descripci&oacute;n:</td>
 				<td colspan='3' width="75%">
-					<textarea style="resize:none; text-align:left;" style="t" rows="4" name='descripcion'> ... </textarea>
+					<textarea id="des" style="resize:none; text-align:left;" style="t" rows="4" name='descripcion'></textarea>
 				</td>
 			</tr>
 		</table>

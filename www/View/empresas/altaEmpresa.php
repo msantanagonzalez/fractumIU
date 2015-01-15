@@ -4,9 +4,9 @@
 	require_once("../messages/messages_ga.php");
 	
 ?>
-
+<script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
 <h1 id="headerJefe"><a><i><?= i18n("EMPRESA") ?></i></a></h1>
-<form method="POST" onsubmit="return comprobarAlta()" action="../../Controller/empresasController.php" enctype="multipart/form-data">
+<form method="POST" onsubmit="return comprobarEmpresa()" action="../../Controller/empresasController.php" enctype="multipart/form-data">
 	<table class="default">
 		<tr> 
 			<td width="25%"><?= i18n("#CIF:") ?></td> 

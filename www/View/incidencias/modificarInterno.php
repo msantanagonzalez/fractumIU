@@ -1,10 +1,10 @@
 <?php
 	require_once("../structure/header.php");
 ?>
-
+<script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
 <h1 id="headerInterno"><a><i>INCIDENCIA $#IDincidencia</i></a></h1>
 <div>
-	<form method="POST" action="../../Controller/incidenciasController.php">
+	<form name="formModificarIncidencia" method="POST" onsubmit="return comprobarModificarIncidencia()" action="../../Controller/incidenciasController.php">
 
 		<?php $rows = $_SESSION['consultaIncidencia']; ?>
 	<?php foreach ($rows as $row) { ?>
@@ -23,9 +23,9 @@
 			</tr>
 			<tr> 
 				<td width="25%">Fecha apertura: </td> 
-				<td width="25%"><input type="text" class="text" name="fechaApertura" value="<?php echo $row['fAper']; ?>" /></td> 
+				<td width="25%"><input id="fechaApertura" type="text" class="text" name="fechaApertura" value="<?php echo $row['fAper']; ?>" /></td> 
 				<td width="25%">Fecha cierre: </td> 
-				<td width="25%"><input type="text" class="text" name="fechaCierre" value="<?php echo $row['fCier']; ?>" /></td>
+				<td width="25%"><input id="fechaCierre" type="text" class="text" name="fechaCierre" value="<?php echo $row['fCier']; ?>" /></td>
 			</tr>
 			<tr> 
 				<td>Estado:</td>
@@ -44,7 +44,7 @@
 			<tr>
 				<td width="25%"><br>Descripci&oacute;n:</td>
 				<td colspan='3' width="75%">
-					<textarea style="resize:none; text-align:left;" style="t" rows="4" disabled>
+					<textarea id="des" style="resize:none; text-align:left;" style="t" rows="4" disabled>
 					<?php echo $row['descripIncid'];?>
 					</textarea>
 				</td>
