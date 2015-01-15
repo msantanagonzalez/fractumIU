@@ -54,15 +54,16 @@
 		switch ($_SESSION['tipo']) {
 			case 'J':
 				session_write_close();
-				header("location: ../View/incidencias/consultarJefe.php");
+				header("location: iteracionesController.php?accion=Listar&idIncid=$idIncidencia");
 				break;
 			case 'I':
-				header("location: ../View/incidencias/consultarInterno.php");
 				session_write_close();
+				header("location: iteracionesController.php?accion=Listar&idIncid=$idIncidencia");
 				break;
 			case 'E':
-				header("location: ../View/incidencias/consultarExterno.php");
 				session_write_close();
+				header("location: iteracionesController.php?accion=Listar&idIncid=$idIncidencia");
+				break;
 			default:				
 				break;
 		}
@@ -117,7 +118,7 @@
 									$idMaquina, $estadoIncidencia, $derivada, $descripcion);
 		$incidencia->modificacion($idIncidencia);
 
-		header("location: ../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=$idIncidencia");
+		header("location: incidenciasController.php?accion=Consulta&idIncidencia=$idIncidencia");
 	}
 
 	function lista(){
@@ -145,6 +146,7 @@
 			case 'E':
 				header("location: ../View/incidencias/listarExterno.php");
 				session_write_close();
+				break;
 			default:				
 				break;
 		}

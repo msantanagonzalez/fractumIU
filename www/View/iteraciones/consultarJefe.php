@@ -8,7 +8,8 @@
 
 	<div style='height:350px;width:auto;overflow-y: scroll;'>
 	<form method="POST" action="../../Controller/iteracionesController.php">
-	<?php $rows = $_SESSION['consultaIteracion']; ?>
+	<?php $rows = $_SESSION['consultaIteracion']; 
+	 foreach ($rows as $row) { ?>
 		<table class='default'>
 			<tr>
 				<td>Identificador Incidencia:</td>
@@ -20,7 +21,7 @@
 			<tr>
 				
 		        <td>Coste:</td>
-		        <td><input type='text'  name="coste" value="<?php echo $row['costeIter']; ?>"></td>
+		        <td><input type='text' disabled name="coste" value="<?php echo $row['costeIter']; ?>"></td>
 		        <td>Fecha Inicio:</td>
 		        <td><input type='date' disabled value="<?php echo $row['fechaIter']; ?>"></td>
 		 
@@ -30,13 +31,11 @@
 		        <td>Hora Inicio:</td>
 		        <td><input type='time' disabled value="<?php echo $row['hInicio']; ?>"></td>
 		        <td>Hora Fin:</td>
-		        <td><input type='time'  value="<?php echo $row['hFin']; ?>"></td>
-				<td>Estado Iteracion</td>
-		        <td><input type='time'  value="<?php echo $row['estadoItera']; ?>"></td>
-		  </tr>
+		        <td><input type='time' disabled value="<?php echo $row['hFin']; ?>"></td>
+			</tr>
 		    </tr>
 				<td>Documentacion:</td>
-		        <td colspan='3'><input type='text' disabled class='text' name="documentacion" value='#001-"Nombre archivo"'/ name='Descripcion_Tarea'></td>
+		        <td colspan='3'><input type='text' disabled class='text' name="documentacion" value='#001-"Nombre archivo"'/></td>
 		    </tr>
 		    <tr>
 				<td colspan='5'>Descripcion:</td>
@@ -53,10 +52,10 @@
     <br>
     <table>
 		<tr>
-		<td width='25%'><a href="consultarIncidencia.html"><input type='button' value='Atras'></a></td>
-		<td colspan="4"><a href="../../Controller/iteracionesController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid']; ?>&nInteracion=<?echo $row['nIteracion'];?> "><input type="submit" name="pModificar" value="Modificar"></a></td>
+			<td colspan="4"><a href="../../Controller/iteracionesController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid']; ?>&nIteracion=<? echo $row['nIteracion'];?>"><input type="button" name="Modificar" value="Modificar"></a></td>
 		</tr> 
 	</table>
+	<?php } ?>
 </form>
 </div>
 <?php

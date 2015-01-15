@@ -29,18 +29,18 @@
 		}
 
 		public function consulta(){
-			$sql = mysql_query("SELECT * FROM ITERACION WHERE idIncid = '$this->$idIncid' AND nIteracion = '$this->$nIteracion'") or die(mysql_error());
+			$sql = mysql_query("SELECT * FROM ITERACION WHERE idIncid = '$this->idIncid' AND nIteracion = '$this->nIteracion'") or die(mysql_error());
 
 			return $sql;
 		}
 
-		public function modificacion($idIncidencia, $nIteracion){
-			mysql_query("UPDATE INCIDENCIA SET hFin = '$this->hFin', estadoItera = '$this->estadoItera', descripIter = '$this->descripIter', 
-				costeIter = '$this->costeIter' WHERE idIncid = '$idIncidencia' AND nIteracion='$nIteracion'") or die(mysql_error());
+		public function modificacion(){
+			mysql_query("UPDATE ITERACION SET hFin = '$this->hFin', descripIter = '$this->descripIter', 
+				costeIter = '$this->costeIter' WHERE idIncid = '$this->idIncid' AND nIteracion = '$this->nIteracion'") or die(mysql_error());
 		}
 
 		public function lista(){
-			$sql = mysql_query("SELECT * FROM ITERACION");
+			$sql = mysql_query("SELECT * FROM ITERACION WHERE idIncid = '$this->idIncid'");
 
 			return $sql;
 		}
