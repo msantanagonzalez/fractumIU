@@ -89,6 +89,12 @@ class Maquina {
 		return $resultado;
 	
 	}
+	
+	public function listaMaquinaSinServicio(){
+	
+			$sql = mysql_query("SELECT idMaq,nomMaq FROM MAQUINA t1 WHERE NOT EXISTS(SELECT idMaq FROM SERVICIO t2 WHERE t1.idMaq = t2.idMaq)");
+			return $sql;
+	}
 
 	
 }

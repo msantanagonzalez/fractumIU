@@ -42,34 +42,43 @@
     </table>
 </div> 
 <br>
-<h1 id="headerInterno"><a>- MAQUINAS -</a></h1> <!--SECCIÓN-->
-<table class="default"><!--TABLA-->
+<h1 id="headerInterno"><a><i>M&Aacute;QUINAS</i></a></h1>
+<table class="default">
     <tr>
-        <th width="20%">ID</th>
-        <th width="20%">Nombre</th>
-        <th width="20%">Servicio</th>
-        <th width="20%">Ult.Incidencia</th>
-        <th width="20%"> </th>
+    	<th width="20%">#ID M&aacute;q.</th>
+    	<th width="20%">Servicio</th>
+       	<th width="20%">&Uacute;lt. incidencia</th>
+        <th width="10%">&nbsp;</th>
+        <th width="10%">&nbsp;</th>
     </tr>
 </table>
-<div style="height:107px;width:auto;overflow-y: scroll;"><!--ESTO DA LUGAR AL SCROLL-->
-    <table class="default"><!--TABLA-->
-        <tr>
-            <td width="20%">CL01</td>
-            <td width="20%"><a href="consultarMaquina.html">Centrifugadora de lechuga</a></td>
-            <td width="20%">FULL COVER</td>
-            <td width="20%"><a href="consultarIncidencia.html">I0001</a></td>
-            <td width="20%"><button onclick="window.location.href='consultarMaquina.html'">Consultar</button></td>
-        </tr>
-        <tr>
-            <td width="20%">SI01</td>
-            <td width="20%"><a href="consultarMaquina.html">Secadora industrial</a></td>
-            <td width="20%">-----</td>
-            <td width="20%">-----</td>
-            <td width="20%"><button onclick="window.location.href='consultarMaquina.html'">Consultar</button></td>
-        </tr>
-    </table>
-</div>
+<form method="POST" action="../../Controller/maquinasController.php">
+	<table class="default">
+		<?php 
+			if(isset($_SESSION['listaMaquina']))
+			$rows = $_SESSION['listaMaquina'];
+			if (empty($rows)) {
+			?>
+				<div class="alert alert-warning" role="alert">
+				| INFO |- No hay maquinas para listar 
+				</div>
+			<?php
+			}
+			else{
+				foreach ($rows as $row) {
+				?>
+				<tr> 
+					<td width="20%"  name = "idMaq"><?php echo $row['idMaq']; ?></td> 
+					<td width="20%">Sí</td> 
+					<td width="20%">13/09/2014</td> 
+					<td width="10%"><button><a href="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>">Consultar</a></button></td>
+				</tr>
+				<?php 
+				} 
+			}
+		?>
+	</table>
+</form>
                     
 <?php
     require_once("../structure/footer.php");

@@ -52,7 +52,7 @@
 
 <table class="default">
 	<tr>
-		<td colspan="4"><a href="altaJefe.php"><input type="button" name="accion" value="Alta"/></a></td>
+		<td colspan="4"><a href="../../Controller/serviciosController.php?accion=accesoAltaServicio"><input type="button" name="accion" value="Alta"/></a></td>
 	</tr>
 </table>
 

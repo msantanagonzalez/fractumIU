@@ -1,6 +1,7 @@
 <?php
 	$userType="jefe";
 	require_once("../structure/header.php");
+	require '../crearMensaje.php';
 ?>
 
 <h1 id="headerJefe"><a><i>M&Aacute;QUINAS</i></a></h1>
@@ -17,19 +18,30 @@
 	<table class="default">
 		<?php 
 			$rows = $_SESSION['listaMaquina'];
-			foreach ($rows as $row) {
-		?>
-		<form method="POST" action="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>">
+			if (empty($rows)) {
+			?>
+				<div class="alert alert-warning" role="alert">
+				| INFO |- No hay maquinas para listar 
+				</div>
+			<?php
+			}
+			else{
+				foreach ($rows as $row) {
+			?>
+			<form method="POST" action="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>">
 
-		<tr> 
-			<td width="20%"  name = "idMaq"><?php echo $row['idMaq']; ?></td> 
-			<td width="20%" name = "nomMaq"><?php echo $row['nomMaq']; ?></td> 
-			<td width="20%">Sí</td> 
-			<td width="20%">13/09/2014</td> 
-			<td width="10%"><button><a href="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>">Consultar</a></button></td>
-			<td width="10%"><button><a href="../../Controller/maquinasController.php?accion=Eliminar&idMaq=<?php echo $row['idMaq'];?>">Eliminar</a></button></td>
-		</tr>
-		<?php } ?>
+			<tr> 
+				<td width="20%"  name = "idMaq"><?php echo $row['idMaq']; ?></td> 
+				<td width="20%" name = "nomMaq"><?php echo $row['nomMaq']; ?></td> 
+				<td width="20%">Sí</td> 
+				<td width="20%">13/09/2014</td> 
+				<td width="10%"><button><a href="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>">Consultar</a></button></td>
+				<td width="10%"><button><a href="../../Controller/maquinasController.php?accion=Eliminar&idMaq=<?php echo $row['idMaq'];?>">Eliminar</a></button></td>
+			</tr>
+			<?php
+			} 
+		}
+		?>
 	</table>
 </form>
 <table class="default">
