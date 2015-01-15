@@ -3,7 +3,7 @@
 	require_once("../structure/header.php");
 ?>
 
-<h1 id="headerInterno"><a>- NUEVA ITERACION DE EMPLEADO EXTERNO -</a></h1>
+<h1 id="headerExterno"><a>- NUEVA ITERACION DE EMPLEADO EXTERNO -</a></h1>
 <br>
 <form name='FormAltaIteracion' action='../../Controller/iteracionesController.php' method='POST'>
 	<input type="hidden" class="text" name="idIncid" value="indic1">
@@ -50,7 +50,7 @@
 	<table>
 		<tr> 
 			<td width='25%'><input type='submit' name='accion' value='GUARDAR TRABAJO'> </td>
-			<td width='45%'><a href="consultarIncidencia.html"><input type='button' value='ATRAS'></a></td>
+			<td width='75%'><input type='submit' name='accion' value='FINALIZAR TRABAJO'></a></td>
 		</tr>
 	</table>
 </form>
