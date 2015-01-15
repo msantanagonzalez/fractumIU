@@ -51,7 +51,7 @@
 	<table class="default"><!--TABLA-->
        	<tr>
 			<th width="20%"><?= i18n("ID") ?></th>
-        	<th width="20%"><?= i18n("Iteracion") ?></th>
+        	<th width="20%"><?= i18n("Iteración") ?></th>
             <th width="20%"><?= i18n("Operario") ?></th>
             <th width="20%"><?= i18n("Coste") ?></th>
 			<th width="20%"> </th>

@@ -6,9 +6,9 @@
 <table class="default">
     <tr>
     	<th width="17%">#ID <?= i18n("Inc.") ?></th>
-       	<th width="17%"><?= i18n("Resposable") ?></th>
+       	<th width="17%"><?= i18n("Responsable:") ?></th>
     	<th width="17%"><?= i18n("Apertura:") ?></th>
-        <th width="17%"><?= i18n("Estado:") ?></th>
+        <th width="17%"><?= i18n("Estado:") ?></th>Responsable
         <th width="17%"><?= i18n("Derivada") ?></th>
         <th width="17%">&nbsp;</th>
     </tr>

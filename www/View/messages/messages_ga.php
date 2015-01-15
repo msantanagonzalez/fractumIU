@@ -63,6 +63,7 @@
 	"FechaInicio"=>"DataInicio",
 	"Operario"=>"Operario",
 	"Coste"=>"Custo",
+	"Iteración"=>"Iteración",
 	
 	//View/incidencias/consultarJefe
 	
@@ -75,10 +76,14 @@
 	"Últ. iteración"=>"Últ. iteración",
 	"Título"=>"Título",
 	"Avería alternador"=>"Avaría alternador",
+	"ID Máquina"=>"ID Máquina",
+	"ABIERTA"=>"ABERTA",
+	"CERRADA"=>"PECHADA",
 	
 	//View/incidencias/listarInterno
 	//""/listarJefe
 	"| INFO |- No hay incidencias para listar"=>"| INFO |- Non hai incidencias para listar",
+	"Derivada"=>"Derivada",
 	 
 	
 	//View/iteraciones/altaExterno
@@ -132,8 +137,10 @@
 	"Periodicidad:"=>"Periodicidade:",
 	"CIF Empresa:"=>"CIF Empresa:",
 	"SERVICIO"=>"SERVIZO",
-	""=>"",
-	""=>"",
+	
+	
+	
+	
 	""=>"",
 	""=>"",
 	""=>"",
