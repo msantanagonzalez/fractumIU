@@ -2,14 +2,14 @@
 	require_once("../structure/header.php");
 ?>
 
-<h1 id="headerExterno"><a><i>INCIDENCIAS</i></a></h1>
+<h1 id="headerExterno"><a><i><?= i18n("INCIDENCIAS") ?></i></a></h1>
 <table class="default">
     <tr>
-    	<th width="17%">#ID Inc.</th>
-       	<th width="17%">&Uacute;lt. operario</th>
-        <th width="17%">&Uacute;lt. iteración</th>
-    	<th width="17%">Apertura:</th>
-        <th width="17%">Estado</th>
+    	<th width="17%">#ID <?= i18n("Inc.") ?></th>
+       	<th width="17%"><?= i18n("Últ. operario") ?></th>
+        <th width="17%"><?= i18n("Últ. iteración") ?></th>
+    	<th width="17%"><?= i18n("Apertura:") ?></th>
+        <th width="17%"><?= i18n("Estado:") ?></th>
         <th width="17%">&nbsp;</th>
     </tr>
 </table>
@@ -21,7 +21,7 @@
 		?>
 		<tr> 
 			<td width="17%"><?php echo $row['idIncid'];?></td> 
-			<td width="17%">Avería alternador</td> 
+			<td width="17%"><?= i18n("Avería alternador") ?></td> 
 			<td width="17%">Fulanito</a></td> <!-- Falta linkar al perfil del usuario. -->
 			<td width="17%"><?php echo $row['fAper']; ?></td>
 			<td width="17%"><?php echo $row['estadoIncid']; ?></td>

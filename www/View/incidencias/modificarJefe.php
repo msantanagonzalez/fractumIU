@@ -3,7 +3,7 @@
 	require_once("../structure/header.php");
 ?>
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
-<h1 id="headerJefe"><a><i>INCIDENCIA $#IDincidencia</i></a></h1>
+<h1 id="headerJefe"><a><i><?= i18n("INCIDENCIA") ?> $#IDincidencia</i></a></h1>
 <div>
 	<form name="formModificarIncidencia" onsubmit="return comprobarModificarIncidenciaJefe()" method="POST" action="../../Controller/incidenciasController.php">
 
@@ -16,25 +16,25 @@
 		<input type="hidden" class="text" name='descripcion' value="<?php echo $row['descripIncid'];?>"/>
 		<table class="default">
 			<tr> 
-				<td width="25%">Apertura: </td> 
+				<td width="25%"><?= i18n("Apertura:") ?> </td> 
 				<td width="25%"><input type="text" class="text" disabled value="<?php echo $row['dniApertura']; ?>"/></td> 
-				<td width="25%">Responsable: </td> 
+				<td width="25%"><?= i18n("Responsable:") ?></td> 
 				<td width="25%"><input id="dniResponsable" type="text" class="text" name="dniResponsable" value="<?php echo $row['dniResponsable']; ?>"/></td>
 			</tr>
 			<tr> 
-				<td width="25%">Fecha apertura: </td> 
+				<td width="25%"><?= i18n("Fecha Apertura:") ?></td> 
 				<td width="25%"><input id="fechaApertura" type="text" class="text" name="fechaApertura" value="<?php echo $row['fAper']; ?>" /></td> 
-				<td width="25%">Fecha cierre: </td> 
+				<td width="25%"><?= i18n("Fecha Cierre:") ?></td> 
 				<td width="25%"><input id="fechaCierre" type="text" class="text" name="fechaCierre" value="<?php echo $row['fCier']; ?>" /></td>
 			</tr>
 			<tr> 
-				<td>Estado:</td>
+				<td><?= i18n("Estado:") ?></td>
 				<td>
 					<select name='estadoIncidencia'>
 						<option value='<?php echo $row['estadoIncid']; ?>' selected><?php echo $row['estadoIncid']; ?></option>
 					</select> 		
 				</td>
-				<td>Maquina:</td>
+				<td><?= i18n("Máquina:") ?></td>
 				<td>
 					<select disabled>
 					  	<option value='<?php echo $row['idMaq']; ?>' selected><?php echo $row['idMaq']; ?></option>
@@ -42,7 +42,7 @@
 				 </td>
 			</tr>
 			<tr>
-				<td width="25%"><br>Descripci&oacute;n:</td>
+				<td width="25%"><br><?= i18n("Descripción:") ?></td>
 				<td colspan='3' width="75%">
 					<textarea  style="resize:none; text-align:left;" style="t" rows="4" disabled>
 					<?php echo $row['descripIncid'];?>
