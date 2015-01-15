@@ -98,9 +98,14 @@
 	//""/consultarExterno
 	"Identificador Incidencia:"=>"Identificador Incidencia:",
 	"- DETALLES TRABAJO -"=>"- DETALLES TRABALLO -",
-	""=>"",
-	""=>"",
-	""=>"",
+	
+	//""/listarExterno
+	
+	
+	//""/modificarExterno
+	"ITERACIÓN"=>"ITERACIÓN",
+	"Número Iteración:"=>"Número Iteración:",
+	"Coste:"=>"Custo:",
 	""=>"",
 	
 	

@@ -3,7 +3,7 @@
 	require_once("../structure/header.php");
 ?>
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
-<h1 id="headerJefe"><a><i>ITERACION $#IDincidencia</i></a></h1>
+<h1 id="headerJefe"><a><i><?= i18n("ITERACIÓN") ?> $#IDincidencia</i></a></h1>
 <div>
 	<form method="POST" action="../../Controller/iteracionesController.php">
 
@@ -15,34 +15,34 @@
 		<input type="hidden" class="text" name="hInicio" value="<?php echo $row['hInicio']; ?>"/>
 		<table class="default">
 			<tr> 
-				<td width="25%">Identificador Incidencia: </td> 
+				<td width="25%"><?= i18n("Identificador Incidencia:") ?> </td> 
 				<td width="25%"><input type="text" class="text" disabled value="<?php echo $row['idIncid']; ?>"/></td> 
-				<td width="25%">Numero Iteracion: </td> 
+				<td width="25%"><?= i18n("Número Iteración:") ?> </td> 
 				<td width="25%"><input type="text" class="text" disabled value="<?php echo $row['nIteracion']; ?>"/></td>
-				<td width="25%">Coste: </td> 
+				<td width="25%"><?= i18n("Coste:") ?> </td> 
 				<td width="25%"><input id="coste" type="text" class="text"  value="<?php echo $row['costeIter']; ?>"/></td>
 			</tr>
 			<tr> 
-				<td width="25%">Fecha Creacion </td> 
+				<td width="25%"><?= i18n("Fecha Apertura:") ?> </td> 
 				<td width="25%"><input type="date" class="text" name="fechaCreacion" disabled value="<?php echo $row['fechaIter']; ?>" /></td> 
-				<td width="25%">Hora Inicio: </td> 
+				<td width="25%"><?= i18n("Hora Inicio:") ?> </td> 
 				<td width="25%"><input type="time" class="text" name="horaInicio" disabled value="<?php echo $row['hInicio']; ?>" /></td>
-				<td width="25%">Hora Fin: </td> 
+				<td width="25%"><?= i18n("Hora Fin:") ?></td> 
 				<td width="25%"><input id="horaFin" type="time" class="text" name="horaFin" value="<?php echo $row['hFin']; ?>" /></td>
 			</tr>
 			<tr> 
-				<td>Estado Iteracion:</td>
+				<td><?= i18n("Estado Iteración:") ?></td>
 				<td width="25%"><input id="estadoItera" type="date" class="text" name="estadoIteracion" value="<?php echo $row['estadoItera']; ?>" /></td> 	
 			</tr>
 			<tr>
-				<td width="25%"><br>Descripci&oacute;n:</td>
+				<td width="25%"><br><?= i18n("Descripción:") ?></td>
 				<td colspan='3' width="75%">
 					<textarea id="des" style="resize:none; text-align:left;" style="t" rows="4">
 					<?php echo $row['descripIter'];?>
 					</textarea>
 				</td>
 			</tr>
-			<?php } ?>
+			<?php ?>
 		</table>
 	
 	<table class="default">
