@@ -140,10 +140,20 @@
 	
 	//""/gestorExterno
 	"SERVICIOS"=>"SERVIZOS",
-	
-	
 	"Empresa:"=>"Empresa:",
 	"| INFO |- No hay servicios para listar"=>"| INFO |- Non hai servizos para listar",
+	
+	//View/usuarios/altaExternoJefe
+	
+	"ALTA OPERARIO EXTERNO"=>"ALTA OPERARIO EXTERNO",
+	"DNI Operario Externo:"=>"DNI Operario Externo:",
+	"Apellidos:"=>"Apelidos",
+	
+	//""/altaInternoJefe
+	"ALTA OPERARIO INTERNO"=>"ALTA OPERARIO INTERNO",
+	"Interno:"=>"Interno:",
+	""=>"",
+	""=>"",
 	""=>"",
 	""=>"",
 	""=>"",
