@@ -2,7 +2,7 @@
 	$userType="jefe";
 	require_once("../structure/header.php");
 ?>
-
+<script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
 <h1 id="headerJefe"><a><i>ITERACION $#IDincidencia</i></a></h1>
 <div>
 	<form method="POST" action="../../Controller/iteracionesController.php">
@@ -16,26 +16,33 @@
 		<table class="default">
 			<tr> 
 				<td width="25%">Identificador Incidencia: </td> 
-				<td width="25%"><input type="text" class="text" name="idIncid" disabled value="<?php echo $row['idIncid']; ?>"/></td> 
+				<td width="25%"><input type="text" class="text" disabled value="<?php echo $row['idIncid']; ?>"/></td> 
 				<td width="25%">Numero Iteracion: </td> 
-				<td width="25%"><input type="text" class="text" name="nIteracion" disabled value="<?php echo $row['nIteracion']; ?>"/></td>
+				<td width="25%"><input type="text" class="text" disabled value="<?php echo $row['nIteracion']; ?>"/></td>
 				<td width="25%">Coste: </td> 
-				<td width="25%"><input type="text" class="text" name="costeIter" value="<?php echo $row['costeIter']; ?>"/></td>
+				<td width="25%"><input id="coste" type="text" class="text"  value="<?php echo $row['costeIter']; ?>"/></td>
 			</tr>
 			<tr> 
 				<td width="25%">Fecha Creacion </td> 
-				<td width="25%"><input type="date" class="text" name="fechaIter" disabled value="<?php echo $row['fechaIter']; ?>" /></td> 
+				<td width="25%"><input type="date" class="text" name="fechaCreacion" disabled value="<?php echo $row['fechaIter']; ?>" /></td> 
 				<td width="25%">Hora Inicio: </td> 
-				<td width="25%"><input type="time" class="text" name="hInicio" disabled value="<?php echo $row['hInicio']; ?>" /></td>
+				<td width="25%"><input type="time" class="text" name="horaInicio" disabled value="<?php echo $row['hInicio']; ?>" /></td>
 				<td width="25%">Hora Fin: </td> 
-				<td width="25%"><input type="time" class="text" name="hFin" value="<?php echo $row['hFin']; ?>" /></td>
+				<td width="25%"><input id="horaFin" type="time" class="text" name="horaFin" value="<?php echo $row['hFin']; ?>" /></td>
+			</tr>
+			<tr> 
+				<td>Estado Iteracion:</td>
+				<td width="25%"><input id="estadoItera" type="date" class="text" name="estadoIteracion" value="<?php echo $row['estadoItera']; ?>" /></td> 	
 			</tr>
 			<tr>
 				<td width="25%"><br>Descripci&oacute;n:</td>
 				<td colspan='3' width="75%">
-					<textarea style="resize:none; text-align:left;" style="t" rows="4" name="descripIter"><?php echo $row['descripIter']; ?></textarea>
+					<textarea id="des" style="resize:none; text-align:left;" style="t" rows="4">
+					<?php echo $row['descripIter'];?>
+					</textarea>
 				</td>
 			</tr>
+			<?php } ?>
 		</table>
 	
 	<table class="default">

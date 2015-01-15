@@ -7,29 +7,30 @@
 	
 foreach ($datosUsuario as $usuario){
 ?>
+  <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>   
 <h1 id="headerJefe"><a><i>PERFIL <?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></i></a></h1>
-<form method="POST" action="../../Controller/usuariosController.php?dniUsu=<?php echo $usuario['dniUsu']; ?>">
+<form onsubmit="return modificarJefe()" method="POST" action="../../Controller/usuariosController.php?dniUsu=<?php echo $usuario['dniUsu']; ?>">
 	<table class="default">
 		<tr> 
 			<td width="25%">Nombre: </td> 
-			<td width="25%"><input type="text" class="text" name="nomUsu" value="<?php echo $usuario['nomUsu']; ?>"/></td> 
+			<td width="25%"><input id="nombre" type="text" class="text" name="nomUsu" value="<?php echo $usuario['nomUsu']; ?>"/></td> 
 			<td width="25%">Apellidos: </td> 
-			<td width="25%"> <input type="text" class="text" name="apellUsu" value="<?php echo $usuario['apellUsu']; ?>"/></td> 
+			<td width="25%"> <input id="apellidos" type="text" class="text" name="apellUsu" value="<?php echo $usuario['apellUsu']; ?>"/></td> 
 		</tr>
 		<tr> 
 			<td width="25%">#ID: </td> 
 			<td width="25%"><input type="text" disabled class="text" name="dniUsu" value="<?php echo $usuario['dniUsu']; ?>"/></td> 
 			<td width="25%">Contraseña: </td> 
-			<td width="25%"> <input type="password" class="text" name="passUsu" value="<?php echo $usuario['passUsu']; ?>"/></td> 
+			<td width="25%"> <input id="contraseña" type="password" class="text" name="passUsu" value="<?php echo $usuario['passUsu']; ?>"/></td> 
 		</tr>
 		<?php
 		foreach ($datosInterno as $interno){
 		?>
 		<tr> 
 			<td width="25%">Tel&eacute;fono: </td> 
-			<td width="25%"><input type="text" class="text" name="telUsu" value="<?php echo $interno['telefOpeInt']; ?>"/></td> 
+			<td width="25%"><input id="telefono" type="text" class="text" name="telUsu" value="<?php echo $interno['telefOpeInt']; ?>"/></td> 
 			<td width="25%">Correo: </td> 
-			<td width="25%"> <input type="text" class="text" name="correoUsu" value="<?php echo $interno['mailOpeInt']; ?>"/></td> 
+			<td width="25%"> <input id="mail" type="text" class="text" name="correoUsu" value="<?php echo $interno['mailOpeInt']; ?>"/></td> 
 		</tr>
 		<?php } ?>
 		<tr>

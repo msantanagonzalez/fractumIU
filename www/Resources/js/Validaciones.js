@@ -551,3 +551,938 @@ function bit_rol(num, cnt)
 {
   return (num << cnt) | (num >>> (32 - cnt));
 }
+
+/*empresa/altaempresa*/
+function comprobarEmpresa() { 
+        var cifEmpr = document.getElementById("cifEmpr").value;
+        var nomEmpr = document.getElementById("nomEmpr").value;
+        var telefEmpr = document.getElementById("telefEmpr").value;
+        var mailEmpr = document.getElementById("mailEmpr").value;
+		 
+         if( cifEmpr == null || cifEmpr.length == 0 || /^\s+$/.test(cifEmpr) || cifEmpr.match(/^\[a-zA-Z]d{8}$/)!=null) {
+            alert("Error: Error de registro de cif de Empresa");
+            return false; 
+			
+         }else  if( nomEmpr == null || nomEmpr.length == 0 || /^\s+$/.test(nomEmpr) || nomEmpr.match(/[A-Za-z0-9]/)==null ) {
+            alert("Error: Nombre de empresa no valido");
+            return false;          
+         }
+     
+         else  if( telefEmpr == null || telefEmpr.length == 0 || /^\s+$/.test(telefEmpr) || telefEmpr.match(/^[9|6|7]{1}([\d]{2}[-]*){3}[\d]{2}$/)==null ) {
+            alert("Error: Numero de telefono no  valido");
+            return false;          
+         }
+        else  if( mailEmpr == null || mailEmpr.length == 0 || /^\s+$/.test(mailEmpr) || mailEmpr.match(/[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/)==null) {
+            alert("Error: Introduzca una direccion de correo valida");
+            return false;          
+         }
+		else {
+			return true;
+		 }
+}
+
+/*empresa/modificarjefe*/
+function comprobarModificarEmpresa() { 
+      
+         nomEmpr = document.getElementById("nomEmpr").value;
+         telefEmpr = document.getElementById("telefEmpr").value;
+         mailEmpr = document.getElementById("mailEmpr").value;
+		 
+        if( nomEmpr == null || nomEmpr.length == 0 || /^\s+$/.test(nomEmpr) || nomEmpr.match(/[A-Za-z0-9]/)==null ) {
+            alert("Error: Nombre de empresa no valido");
+            return false;          
+         }
+     
+         else  if( telefEmpr == null || telefEmpr.length == 0 || /^\s+$/.test(telefEmpr) || telefEmpr.match(/^[9|6|7]{1}([\d]{2}[-]*){3}[\d]{2}$/)==null ) {
+            alert("Error: Numero de telefono no valido");
+            return false;          
+         }
+        else  if( mailEmpr == null || mailEmpr.length == 0 || /^\s+$/.test(mailEmpr) || mailEmpr.match(/[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/)==null) {
+            alert("Error: Introduzca una direccion de correo valida");
+            return false;          
+         }
+		else {
+			return true;
+		 }
+}
+
+
+function comprobarAltaIncidenciaInterno(){ 
+
+		 var responsable = document.getElementById("dniResponsable").value;
+		 var fechaApertura = document.getElementById("fechaApertura").value;
+         var fechaBaja = document.getElementById("fechaCierre").value;
+		 var description = document.getElementById("des").value;
+        
+         /*variable para comprobar que la letra introducida en el campo dni es la correspondiente con el numero al realizar una operación matemática*/
+        
+         var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+        
+         /*variables para el dateparse*/
+	     var patron=new RegExp("^([0-9]{1,2})([/])([0-9]{1,2})([/])(19|20)+([0-9]{2})$");
+         var dayI,dayF,monthI,monthF,yearI,yearF;
+          
+        if( responsable == null || responsable.length == 0 || /^\s+$/.test(responsable) || responsable.match(/^\d{8}[a-zA-Z]$/) == null) {
+            alert("Es obligatorio introducir un dni de operario correcto en un formato adecuado [ocho caracteres y un digito].");  
+            return false;
+			
+            }else if( responsable.charAt(8) != letras[(responsable.substring(0, 8))%23] ){
+            alert("La letra del dni no es correcta");
+            return false;
+			
+            }else if(responsable == null || responsable.length == 0 || /^\s+$/.test(responsable) || responsable.match(/^\d{8}[a-zA-Z]$/) == null){
+             alert("Es obligatorio introducir un id correcto en un formato adecuado [ocho caracteres y un digito].");  	
+            return false;
+			
+            }else if( responsable.charAt(8) != letras[(responsable.substring(0, 8))%23] ){
+            alert("La letra del dni no es correcta");
+            return false;
+			
+            }if(fechaApertura == null || fechaApertura.length==0 || fechaApertura.match(/\d{1,2}\/\d{1,2}\/\d{2,4}$/) == null){
+            alert("Es obligatorio introducir una fecha de alta");
+            return false;
+			}else{
+			
+				values=document.forms["FormAltaIncidencia"].elements["fechaApertura"].value.split("/");
+						
+						dayI=values[0];
+						monthI=values[1];
+						yearI=values[2];					
+												if(isValidDate(values[0],values[1],values[2])==true)
+											{
+												document.forms["FormAltaIncidencia"].elements["fechaApertura"].value = values[2]+values[1]+values[0];    
+											}else{      
+													alert("La fecha de inicio no es correcta.");  
+													document.forms["FormAltaIncidencia"].elements["fechaApertura"].value = "";
+													return false;
+												}
+			}
+				if (fechaBaja == null ||fechaBaja.length == 0 || fechaBaja.match(/\d{1,2}\/\d{1,2}\/\d{2,4}$/) == null) {
+				alert("Es obligatorio introducir una fecha final.");  
+				return false;
+			}else{
+
+					values=document.forms["FormAltaIncidencia"].elements["fechaCierre"].value.split("/");
+
+						dayF=values[0];
+						monthF=values[1];
+						yearF=values[2];
+					
+					
+												if(isValidDate(values[0],values[1],values[2])==true)
+											{
+												document.forms["FormAltaIncidencia"].elements["fechaCierre"].value = values[2]+values[1]+values[0];    
+											}else{      
+													alert("La fecha de fin no es correcta.");  
+													return false;
+												}
+			}
+        
+				//comprobar fecha fin mayor o igual fecha inicio
+				
+				if(finMayorInicio(dayI,monthI,yearI,dayF,monthF,yearF)==false){alert("La fecha de inicio no puede ser posterior a la fecha de fin.");}else{}
+		
+		
+        if( description == null || description.length == 0 ||/^\s+$/.test(description) || description.match(/[A-Za-z0-9]/) == null) {
+            alert("Error: Debe completar el campo de Descripcion.");  
+            return false;
+        
+
+    }
+}
+    
+function comprobarAltaIncidenciaJefe(){ 
+
+		 var responsable = document.getElementById("dniResponsable").value;
+		 var fechaApertura = document.getElementById("fechaApertura").value;
+         var fechaBaja = document.getElementById("fechaCierre").value;
+		 var description = document.getElementById("des").value;
+        
+         /*variable para comprobar que la letra introducida en el campo dni es la correspondiente con el numero al realizar una operación matemática*/
+        
+         var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+        
+         /*variables para el dateparse*/
+	     var patron=new RegExp("^([0-9]{1,2})([/])([0-9]{1,2})([/])(19|20)+([0-9]{2})$");
+         var dayI,dayF,monthI,monthF,yearI,yearF;
+          
+        if( responsable == null || responsable.length == 0 || /^\s+$/.test(responsable) || responsable.match(/^\d{8}[a-zA-Z]$/) == null) {
+            alert("Es obligatorio introducir un dni de operario correcto en un formato adecuado [ocho caracteres y un digito].");  
+            return false;
+			
+            }else if( responsable.charAt(8) != letras[(responsable.substring(0, 8))%23] ){
+            alert("La letra del dni no es correcta");
+            return false;
+			
+            }else if(responsable == null || responsable.length == 0 || /^\s+$/.test(responsable) || responsable.match(/^\d{8}[a-zA-Z]$/) == null){
+             alert("Es obligatorio introducir un id correcto en un formato adecuado [ocho caracteres y un digito].");  	
+            return false;
+			
+            }else if( responsable.charAt(8) != letras[(responsable.substring(0, 8))%23] ){
+            alert("La letra del dni no es correcta");
+            return false;
+			
+            }if(fechaApertura == null || fechaApertura.length==0 || fechaApertura.match(/\d{1,2}\/\d{1,2}\/\d{2,4}$/) == null){
+            alert("Es obligatorio introducir una fecha de alta");
+            return false;
+			}else{
+			
+				values=document.forms["FormAltaIncidencia"].elements["fechaApertura"].value.split("/");
+						
+						dayI=values[0];
+						monthI=values[1];
+						yearI=values[2];					
+												if(isValidDate(values[0],values[1],values[2])==true)
+											{
+												document.forms["FormAltaIncidencia"].elements["fechaApertura"].value = values[2]+values[1]+values[0];    
+											}else{      
+													alert("La fecha de inicio no es correcta.");  
+													document.forms["FormAltaIncidencia"].elements["fechaApertura"].value = "";
+													return false;
+												}
+			}
+				if (fechaBaja == null ||fechaBaja.length == 0 || fechaBaja.match(/\d{1,2}\/\d{1,2}\/\d{2,4}$/) == null) {
+				alert("Es obligatorio introducir una fecha final.");  
+				return false;
+			}else{
+
+					values=document.forms["FormAltaIncidencia"].elements["fechaCierre"].value.split("/");
+
+						dayF=values[0];
+						monthF=values[1];
+						yearF=values[2];
+					
+					
+												if(isValidDate(values[0],values[1],values[2])==true)
+											{
+												document.forms["FormAltaIncidencia"].elements["fechaCierre"].value = values[2]+values[1]+values[0];    
+											}else{      
+													alert("La fecha de fin no es correcta.");  
+													return false;
+												}
+			}
+        
+				//comprobar fecha fin mayor o igual fecha inicio
+				
+				if(finMayorInicio(dayI,monthI,yearI,dayF,monthF,yearF)==false){alert("La fecha de inicio no puede ser posterior a la fecha de fin.");}else{}
+		
+		
+        if( description == null || description.length == 0 ||/^\s+$/.test(description) || description.match(/[A-Za-z0-9]/) == null) {
+            alert("Error: Debe completar el campo de Descripcion.");  
+            return false;
+        
+
+    }
+}
+ 
+ 
+  function isValidDate(day,month,year){
+        if((day>0 && day<32) && (month>0&&month<13) &&(year>1990&&year<2090) )
+		{
+			return true;
+		}else{
+			return false;
+			}
+    	
+	
+	}
+ 
+ function finMayorInicio(dayI,monthI,yearI,dayF,monthF,yearF){
+			if(yearF>=yearI){
+			
+					if(yearF>yearI){
+									return true;
+								}else{
+								
+									if(monthF<monthI){return false;}else{
+										
+										if(monthF>monthI){return true;
+											}else{
+														
+														if(dayI>dayF){return false;
+																}else{return true;
+																}
+														
+														
+													}
+									
+									}
+								
+								}
+			
+			}else{
+					return false;
+				 }
+
+
+}
+ 
+
+function comprobarModificarIncidencia(){ 
+
+		
+		 var fechaApertura = document.getElementById("fechaApertura").value;
+         var fechaBaja = document.getElementById("fechaCierre").value;
+		 var description = document.getElementById("des").value;
+        
+         /*variable para comprobar que la letra introducida en el campo dni es la correspondiente con el numero al realizar una operación matemática*/
+        
+         var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+        
+         /*variables para el dateparse*/
+	     var patron=new RegExp("^([0-9]{1,2})([/])([0-9]{1,2})([/])(19|20)+([0-9]{2})$");
+         var dayI,dayF,monthI,monthF,yearI,yearF;
+          
+      if(fechaApertura == null || fechaApertura.length==0 || fechaApertura.match(/\d{1,2}\/\d{1,2}\/\d{2,4}$/) == null){
+            alert("Es obligatorio introducir una fecha de alta");
+            return false;
+			}else{
+			
+				values=document.forms["formModificarIncidencia"].elements["fechaApertura"].value.split("/");
+						
+						dayI=values[0];
+						monthI=values[1];
+						yearI=values[2];					
+												if(isValidDate(values[0],values[1],values[2])==true)
+											{
+												document.forms["formModificarIncidencia"].elements["fechaApertura"].value = values[2]+values[1]+values[0];    
+											}else{      
+													alert("La fecha de inicio no es correcta.");  
+													document.forms["formModificarIncidencia"].elements["fechaApertura"].value = "";
+													return false;
+												}
+			}
+				if (fechaBaja == null ||fechaBaja.length == 0 || fechaBaja.match(/\d{1,2}\/\d{1,2}\/\d{2,4}$/) == null) {
+				alert("Es obligatorio introducir una fecha final.");  
+				return false;
+			}else{
+
+					values=document.forms["formModificarIncidencia"].elements["fechaCierre"].value.split("/");
+
+						dayF=values[0];
+						monthF=values[1];
+						yearF=values[2];
+					
+					
+												if(isValidDate(values[0],values[1],values[2])==true)
+											{
+												document.forms["formModificarIncidencia"].elements["fechaCierre"].value = values[2]+values[1]+values[0];    
+											}else{      
+													alert("La fecha de fin no es correcta.");  
+													return false;
+												}
+			}
+        
+				//comprobar fecha fin mayor o igual fecha inicio
+				
+				if(finMayorInicio(dayI,monthI,yearI,dayF,monthF,yearF)==false){alert("La fecha de inicio no puede ser posterior a la fecha de fin.");}else{}
+		
+		
+        if( description == null || description.length == 0 ||/^\s+$/.test(description) || description.match(/[A-Za-z0-9]/) == null) {
+            alert("Error: Debe completar el campo de Descripcion.");  
+            return false;
+        
+
+    }
+}
+
+
+function comprobarModificarIncidenciaJefe(){ 
+
+		 var responsable = document.getElementById("dniResponsable").value;
+		 var fechaApertura = document.getElementById("fechaApertura").value;
+         var fechaBaja = document.getElementById("fechaCierre").value;
+		 
+         /*variable para comprobar que la letra introducida en el campo dni sea correspondiente con el numero del dni*/
+        
+         var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+        
+         /*variables para el dateparse*/
+	     var patron=new RegExp("^([0-9]{1,2})([/])([0-9]{1,2})([/])(19|20)+([0-9]{2})$");
+         var dayI,dayF,monthI,monthF,yearI,yearF;
+		   
+        if( responsable == null || responsable.length == 0 || /^\s+$/.test(responsable) || responsable.match(/^\d{8}[a-zA-Z]$/) == null) {
+            alert("Es obligatorio introducir un dni de operario correcto en un formato adecuado [ocho caracteres y un digito].");  
+            return false;
+			
+            }else if( responsable.charAt(8) != letras[(responsable.substring(0, 8))%23] ){
+            alert("La letra del dni no es correcta");
+            return false;
+			
+            }else if(responsable == null || responsable.length == 0 || /^\s+$/.test(responsable) || responsable.match(/^\d{8}[a-zA-Z]$/) == null){
+             alert("Es obligatorio introducir un id correcto en un formato adecuado [ocho caracteres y un digito].");  	
+            return false;
+			
+            }else if( responsable.charAt(8) != letras[(responsable.substring(0, 8))%23] ){
+            alert("La letra del dni no es correcta");
+            return false;
+			
+            }if(fechaApertura == null || fechaApertura.length==0 || fechaApertura.match(/\d{1,2}\/\d{1,2}\/\d{2,4}$/) == null){
+            alert("Es obligatorio introducir una fecha de alta");
+            return false;
+			}else{
+			
+				values=document.forms["formModificarIncidencia"].elements["fechaApertura"].value.split("/");
+						
+						dayI=values[0];
+						monthI=values[1];
+						yearI=values[2];					
+												if(isValidDate(values[0],values[1],values[2])==true)
+											{
+												document.forms["formModificarIncidencia"].elements["fechaApertura"].value = values[2]+values[1]+values[0];    
+											}else{      
+													alert("La fecha de inicio no es correcta.");  
+													document.forms["formModificarIncidencia"].elements["fechaApertura"].value = "";
+													return false;
+												}
+			}
+				if (fechaBaja == null ||fechaBaja.length == 0 || fechaBaja.match(/\d{1,2}\/\d{1,2}\/\d{2,4}$/) == null) {
+				alert("Es obligatorio introducir una fecha final.");  
+				return false;
+			}else{
+
+					values=document.forms["formModificarIncidencia"].elements["fechaCierre"].value.split("/");
+
+						dayF=values[0];
+						monthF=values[1];
+						yearF=values[2];
+					
+					
+												if(isValidDate(values[0],values[1],values[2])==true)
+											{
+												document.forms["formModificarIncidencia"].elements["fechaCierre"].value = values[2]+values[1]+values[0];    
+											}else{      
+													alert("La fecha de fin no es correcta.");  
+													return false;
+												}
+			}
+        
+				//comprobar fecha fin mayor o igual fecha inicio
+				
+				if(finMayorInicio(dayI,monthI,yearI,dayF,monthF,yearF)==false){alert("La fecha de inicio no puede ser posterior a la fecha de fin.");}else{}
+		
+	
+}
+
+
+function comprobarAltaIteracion(){
+
+		 var idIncid = document.getElementById("idIncid").value;
+		 var nIteracion = document.getElementById("nIteracion").value;
+         var fechaCreacion = document.getElementById("fechaCreacion").value;
+		 var horaInicio = document.getElementById("horaInicio").value;
+		 var horaFin = document.getElementById("horaFin").value;
+		 var estadoItera = document.getElementById("estadoItera").value;
+		 var coste = document.getElementById("coste").value;
+		 var description = document.getElementById("des").value;
+        
+        
+	     var patron=new RegExp("^([0-9]{1,2})([/])([0-9]{1,2})([/])(19|20)+([0-9]{2})$");
+         var dayI,dayF,monthI,monthF,yearI,yearF;
+		   
+        if( idIncid == null || idIncid.length == 0 || /^\s+$/.test(idIncid) || idIncid.match(/^\d{8}[a-zA-Z]$/) == null) {
+            alert("Es obligatorio introducir una identificacion de incidencia adecuada [ocho caracteres y un digito].");  
+            return false;
+			}else if (nIteracion == null || nIteracion.length == 0 || /^\s+$/.test(nIteracion) || nIteracion.match( /^\d*$/) == null){
+			 alert("Introduzca el numero de iteracion como un numero entero positivo.");  
+			return false;
+			
+            }else if(fechaCreacion == null || fechaCreacion.length==0 || fechaCreacion.match(/\d{1,2}\/\d{1,2}\/\d{2,4}$/) == null){
+            alert("Es obligatorio introducir una fecha de creacion");
+            return false;
+				}else{
+			
+					values=document.forms["FormAltaIteracion"].elements["fechaCreacion"].value.split("/");
+							
+							dayI=values[0];
+							monthI=values[1];
+							yearI=values[2];					
+												if(isValidDate(values[0],values[1],values[2])==true){
+													
+													document.forms["FormAltaIteracion"].elements["fechaCreacion"].value = values[2]+values[1]+values[0];    
+												
+												}else{      
+													alert("La fecha de inicio no es correcta.");  
+													document.forms["FormAltaIteracion"].elements["fechaCreacion"].value = "";
+													return false;
+													}
+				} if(horaInicio == null || horaInicio.length == 0 ||/^\s+$/.test(horaInicio)){
+					
+					if (horaInicio.length>8) {
+					alert("Introdujo una cadena mayor a 8 caracteres");
+					return false;
+					}else if (horaInicio.length!=8) {
+					alert("Introducir HH:MM:SS para la hora de inicio");
+					return false;
+					}else{
+						a=horaInicio.charAt(0) //<=2
+						b=horaInicio.charAt(1) //<4
+						c=horaInicio.charAt(2) //:
+						d=horaInicio.charAt(3) //<=5
+						e=horaInicio.charAt(5) //:
+						f=horaInicio.charAt(6) //<=5
+							if ((a==2 && b>3) || (a>2)) {
+							alert("El valor que introdujo en la horaInicio no corresponde, introduzca un digito entre 00 y 23");
+							return false;
+							} else if (d>5) {
+								alert("El valor que introdujo en los minutos no corresponde, introduzca un digito entre 00 y 59");
+								return false;
+								} else if (f>5) {
+									alert("El valor que introdujo en los segundos no corresponde");
+									return false;}
+										else if (c!=':' || e!=':') {
+											alert("Introduzca el caracter ':' para separar la horaInicio, los minutos y los segundos");
+											return false;}
+					}
+				
+				}else if(horaFin == null || horaFin.length == 0 ||/^\s+$/.test(horaFin)){
+							if (horaFin.length>8) {
+					alert("Introdujo una cadena mayor a 8 caracteres");
+					return false;
+					}else if (horaFin.length!=8) {
+					alert("Introducir HH:MM:SS para la hora de finalizacion");
+					return false;
+					}else{
+						a=horaFin.charAt(0) //<=2
+						b=horaFin.charAt(1) //<4
+						c=horaFin.charAt(2) //:
+						d=horaFin.charAt(3) //<=5
+						e=horaFin.charAt(5) //:
+						f=horaFin.charAt(6) //<=5
+							if ((a==2 && b>3) || (a>2)) {
+							alert("El valor que introdujo en la horaFin no corresponde, introduzca un digito entre 00 y 23");
+							return false;
+							} else if (d>5) {
+								alert("El valor que introdujo en los minutos no corresponde, introduzca un digito entre 00 y 59");
+								return false;
+								} else if (f>5) {
+									alert("El valor que introdujo en los segundos no corresponde");
+									return false;}
+										else if (c!=':' || e!=':') {
+											alert("Introduzca el caracter ':' para separar la horaFin, los minutos y los segundos");
+											return false;}
+					}
+				
+				}else if(estadoItera == null || estadoItera.length == 0 ||/^\s+$/.test(estadoItera) || estadoItera.match(/[0-1]/)==null){
+					alert("Error: Debe indicar un estado de la Iteracion actual [0-> iteracion incompleta /// 1-> iteracion completa ]")
+					return false;
+					}else if(coste == null || coste.length == 0 ||/^\s+$/.test(coste) || coste.match(/^\d*$/)==null){
+					alert("Error: Debe indicar un coste para la iteracion actual mediante un numero positivo")
+					return false;
+					}else if( description == null || description.length == 0 ||/^\s+$/.test(description) || description.match(/[A-Za-z0-9]/) == null) {
+					alert("Error: Debe completar el campo de Descripcion.");  
+					return false;
+					}
+
+}
+
+
+
+function modificarIteracion(){
+
+		
+		 var horaFin = document.getElementById("horaFin").value;
+		 var estadoItera = document.getElementById("estadoItera").value;
+		 var coste = document.getElementById("coste").value;
+		 var description = document.getElementById("des").value;
+        
+ 
+					if(horaFin == null || horaFin.length == 0 ||/^\s+$/.test(horaFin)){
+							if (horaFin.length>8) {
+					alert("Introdujo una cadena mayor a 8 caracteres");
+					return false;
+					}else if (horaFin.length!=8) {
+					alert("Introducir HH:MM:SS para la hora de finalizacion");
+					return false;
+					}else{
+						a=horaFin.charAt(0) //<=2
+						b=horaFin.charAt(1) //<4
+						c=horaFin.charAt(2) //:
+						d=horaFin.charAt(3) //<=5
+						e=horaFin.charAt(5) //:
+						f=horaFin.charAt(6) //<=5
+							if ((a==2 && b>3) || (a>2)) {
+							alert("El valor que introdujo en la horaFin no corresponde, introduzca un digito entre 00 y 23");
+							return false;
+							} else if (d>5) {
+								alert("El valor que introdujo en los minutos no corresponde, introduzca un digito entre 00 y 59");
+								return false;
+								} else if (f>5) {
+									alert("El valor que introdujo en los segundos no corresponde");
+									return false;}
+										else if (c!=':' || e!=':') {
+											alert("Introduzca el caracter ':' para separar la horaFin, los minutos y los segundos");
+											return false;}
+					}
+				
+				}else if(estadoItera == null || estadoItera.length == 0 ||/^\s+$/.test(estadoItera) || estadoItera.match(/[0-1]/)==null){
+					alert("Error: Debe indicar un estado de la Iteracion actual [0-> iteracion incompleta /// 1-> iteracion completa ]")
+					return false;
+					}else if(coste == null || coste.length == 0 ||/^\s+$/.test(coste) || coste.match(/^\d*$/)==null){
+					alert("Error: Debe indicar un coste para la iteracion actual mediante un numero positivo")
+					return false;
+					}else if( description == null || description.length == 0 ||/^\s+$/.test(description) || description.match(/[A-Za-z0-9]/) == null) {
+					alert("Error: Debe completar el campo de Descripcion.");  
+					return false;
+					}
+
+}
+
+		 
+		 
+		function altaMaquina() { 
+        var idMaq = document.getElementById("idMaq").value;
+        var numSerie = document.getElementById("numSerie").value;
+        var nomMaq = document.getElementById("nomMaq").value;
+        var coste = document.getElementById("coste").value;
+		var des = document.getElementById("des").value;
+		 
+         if( idMaq == null || idMaq.length == 0 || /^\s+$/.test(idMaq) || idMaq.match(/^\[a-zA-Z]d{8}$/)!=null) {
+            alert("Error: Error de registro del ID de la maquina, debe ser 1 letra y 8 digitos");
+            return false; 
+			
+         }else  if( numSerie == null || numSerie.length == 0 || /^\s+$/.test(numSerie) || numSerie.match(/^\d*$/)==null ) {
+            alert("Error: Numero de serie no valido");
+            return false;          
+         }
+     
+         else  if( nomMaq == null || nomMaq.length == 0 || /^\s+$/.test(nomMaq) || nomMaq.match(/[A-Za-z0-9]/)==null ) {
+            alert("Error: Nombre de maquina no valido");
+            return false;          
+         }
+        else  if( coste == null || coste.length == 0 || /^\s+$/.test(coste) || coste.match(/^\d*$/)==null) {
+            alert("Error: Introduzca coste de mantenimiento en forma de numero entero positivo");
+            return false;          
+         }
+		  else  if( des == null || des.length == 0 || /^\s+$/.test(des) || des.match(/[A-Za-z0-9]/)==null) {
+            alert("Error: Introduzca una breve descripcion de la maquina");
+            return false;          
+         }
+		else {
+			return true;
+		 }
+}
+		
+function modificarMaquina(){
+ 
+        var numSerie = document.getElementById("numSerie").value;
+        var nomMaq = document.getElementById("nomMaq").value;
+        var coste = document.getElementById("coste").value;
+		var des = document.getElementById("des").value;
+		 
+         if( numSerie == null || numSerie.length == 0 || /^\s+$/.test(numSerie) || numSerie.match(/^\d*$/)==null ) {
+            alert("Error: Numero de serie no valido");
+            return false;          
+         }
+     
+         else  if( nomMaq == null || nomMaq.length == 0 || /^\s+$/.test(nomMaq) || nomMaq.match(/[A-Za-z0-9]/)==null ) {
+            alert("Error: Nombre de maquina no valido");
+            return false;          
+         }
+        else  if( coste == null || coste.length == 0 || /^\s+$/.test(coste) || coste.match(/^\d*$/)==null) {
+            alert("Error: Introduzca coste de mantenimiento en forma de numero entero positivo");
+            return false;          
+         }
+		  else  if( des == null || des.length == 0 || /^\s+$/.test(des) || des.match(/[A-Za-z0-9]/)==null) {
+            alert("Error: Introduzca una breve descripcion de la maquina");
+            return false;          
+         }
+		else {
+			return true;
+		 }
+}
+
+function altaUnServicioJefe(){ 
+
+		
+		 var idServ = document.getElementById("idServ").value;
+         var idMaq = document.getElementById("idMaq").value;
+		 var periodicidad = document.getElementById("periodicidad").value;
+		 var fechaInicio = document.getElementById("fechaInicio").value;
+         var fechaFin = document.getElementById("fechaFin").value;
+		 var coste = document.getElementById("coste").value;
+		 var description = document.getElementById("des").value;
+       
+        
+         /*variables para el dateparse*/
+	     var patron=new RegExp("^([0-9]{1,2})([/])([0-9]{1,2})([/])(19|20)+([0-9]{2})$");
+         var dayI,dayF,monthI,monthF,yearI,yearF;
+          
+       if(idServ == null || idServ.length == 0 || /^\s+$/.test(idServ) || idServ.match(/^\[a-zA-Z]d{8}$/)!=null ){
+			  alert("Es obligatorio introducir id de idServ correcto en un formato adecuado [un caracter y ocho digitos].");  
+			return false;
+			
+			}else if(idMaq == null || idMaq.length == 0 || /^\s+$/.test(idMaq) ){
+			alert("Es obligatorio introducir id de maquina correcto en un formato adecuado [un caracter y ocho digitos].");  
+			return false;
+			
+			}else if(periodicidad == null || periodicidad.length == 0 || /^\s+$/.test(periodicidad) || periodicidad.match(/[A-Za-z0-9]/)==null ){
+			alert("Es obligatorio introducir una periodicidad.");  
+			return false;
+			
+			}else if(fechaInicio == null || fechaInicio.length==0 || fechaInicio.match(/\d{1,2}\/\d{1,2}\/\d{2,4}$/) == null){
+            alert("Es obligatorio introducir una fecha de alta");
+            return false;
+			}else{
+			
+				values=document.forms["FormAltaServicio"].elements["fechaInicio"].value.split("/");
+						
+						dayI=values[0];
+						monthI=values[1];
+						yearI=values[2];					
+												if(isValidDate(values[0],values[1],values[2])==true)
+											{
+												document.forms["FormAltaServicio"].elements["fechaInicio"].value = values[2]+values[1]+values[0];    
+											}else{      
+													alert("La fecha de alta no es correcta.");  
+													document.forms["FormAltaServicio"].elements["fechaInicio"].value = "";
+													return false;
+												}
+			}
+				if (fechaFin == null ||fechaFin.length == 0 || fechaFin.match(/\d{1,2}\/\d{1,2}\/\d{2,4}$/) == null) {
+				alert("Es obligatorio introducir una fecha de baja.");  
+				return false;
+			}else{
+
+					values=document.forms["FormAltaServicio"].elements["fechaFin"].value.split("/");
+
+						dayF=values[0];
+						monthF=values[1];
+						yearF=values[2];
+					
+					
+												if(isValidDate(values[0],values[1],values[2])==true)
+											{
+												document.forms["FormAltaServicio"].elements["fechaFin"].value = values[2]+values[1]+values[0];    
+											}else{      
+													alert("La fecha de baja no es correcta.");  
+													return false;
+												}
+			}
+        
+				//comprobar fecha fin mayor o igual fecha inicio
+				
+				if(finMayorInicio(dayI,monthI,yearI,dayF,monthF,yearF)==false){alert("La fecha de alta no puede ser posterior a la fecha de baja del servicio.");}else{}
+		
+		if(coste == null || coste.length == 0 ||/^\s+$/.test(coste) || coste.match(/^\d*$/) == null){
+		   alert("Error: Debe completar el campo de coste.");  
+            return false;
+       }else if( description == null || description.length == 0 ||/^\s+$/.test(description) || description.match(/[A-Za-z0-9]/) == null) {
+            alert("Error: Debe completar el campo de Descripcion.");  
+            return false;
+        
+
+    }
+}
+
+
+
+function modificarServicio(){ 
+		
+		 var periodicidad = document.getElementById("periodicidad").value;
+		 var fechaInicio = document.getElementById("fechaInicio").value;
+         var fechaFin = document.getElementById("fechaFin").value;
+		 var coste = document.getElementById("coste").value;
+		 var description = document.getElementById("des").value;
+       
+        
+         /*variables para el dateparse*/
+	     var patron=new RegExp("^([0-9]{1,2})([/])([0-9]{1,2})([/])(19|20)+([0-9]{2})$");
+         var dayI,dayF,monthI,monthF,yearI,yearF;
+        
+			if(periodicidad == null || periodicidad.length == 0 || /^\s+$/.test(periodicidad) || periodicidad.match(/[A-Za-z0-9]/)==null ){
+			alert("Es obligatorio introducir una periodicidad.");  
+			return false;
+			
+			}else if(fechaInicio == null || fechaInicio.length==0 || fechaInicio.match(/\d{1,2}\/\d{1,2}\/\d{2,4}$/) == null){
+            alert("Es obligatorio introducir una fecha de alta");
+            return false;
+			}else{
+			
+				values=document.forms["FormModServicio"].elements["fechaInicio"].value.split("/");
+						
+						dayI=values[0];
+						monthI=values[1];
+						yearI=values[2];					
+												if(isValidDate(values[0],values[1],values[2])==true)
+											{
+												document.forms["FormModServicio"].elements["fechaInicio"].value = values[2]+values[1]+values[0];    
+											}else{      
+													alert("La fecha de alta no es correcta.");  
+													document.forms["FormModServicio"].elements["fechaInicio"].value = "";
+													return false;
+												}
+			}
+				if (fechaFin == null ||fechaFin.length == 0 || fechaFin.match(/\d{1,2}\/\d{1,2}\/\d{2,4}$/) == null) {
+				alert("Es obligatorio introducir una fecha de baja.");  
+				return false;
+			}else{
+
+					values=document.forms["FormModServicio"].elements["fechaFin"].value.split("/");
+
+						dayF=values[0];
+						monthF=values[1];
+						yearF=values[2];
+					
+					
+												if(isValidDate(values[0],values[1],values[2])==true)
+											{
+												document.forms["FormModServicio"].elements["fechaFin"].value = values[2]+values[1]+values[0];    
+											}else{      
+													alert("La fecha de baja no es correcta.");  
+													return false;
+												}
+			}
+        
+				//comprobar fecha fin mayor o igual fecha inicio
+				
+				if(finMayorInicio(dayI,monthI,yearI,dayF,monthF,yearF)==false){alert("La fecha de alta no puede ser posterior a la fecha de baja del servicio.");}else{}
+		
+		if(coste == null || coste.length == 0 ||/^\s+$/.test(coste) || coste.match(/^\d*$/) == null){
+		   alert("Error: Debe completar el campo de coste.");  
+            return false;
+       }else if( description == null || description.length == 0 ||/^\s+$/.test(description) || description.match(/[A-Za-z0-9]/) == null) {
+            alert("Error: Debe completar el campo de Descripcion.");  
+            return false;
+        
+
+    }
+}		
+
+
+
+function altaOperarioExterno(){ 
+
+		 var responsable = document.getElementById("dni").value;
+		 var nombre = document.getElementById("nombre").value;
+         var apellidos = document.getElementById("apellidos").value;
+		
+        
+         /*variable para comprobar que la letra introducida en el campo dni es la correspondiente con el numero al realizar una operación matemática*/
+        
+         var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+        
+         /*variables para el dateparse*/
+	     var patron=new RegExp("^([0-9]{1,2})([/])([0-9]{1,2})([/])(19|20)+([0-9]{2})$");
+         var dayI,dayF,monthI,monthF,yearI,yearF;
+          
+        if( responsable == null || responsable.length == 0 || /^\s+$/.test(responsable) || responsable.match(/^\d{8}[a-zA-Z]$/) == null) {
+            alert("Es obligatorio introducir un dni de operario correcto en un formato adecuado [ocho caracteres y un digito].");  
+            return false;
+			
+            }else if( responsable.charAt(8) != letras[(responsable.substring(0, 8))%23] ){
+            alert("La letra del dni no es correcta");
+            return false;
+			
+            }else if(responsable == null || responsable.length == 0 || /^\s+$/.test(responsable) || responsable.match(/^\d{8}[a-zA-Z]$/) == null){
+             alert("Es obligatorio introducir un id correcto en un formato adecuado [ocho caracteres y un digito].");  	
+            return false;
+			
+            }else if( responsable.charAt(8) != letras[(responsable.substring(0, 8))%23] ){
+            alert("La letra del dni no es correcta");
+            return false;
+			
+            }if( nombre == null || nombre.length == 0 || /^\s+$/.test(nombre) || nombre.match(/[A-Za-z0-9]/)==null ) {
+            alert("Error: Nombre no valido");
+            return false;          
+         }else if(apellidos == null || apellidos.length == 0 || /^\s+$/.test(apellidos) || apellidos.match(/[A-Za-z0-9]/)==null ){
+		 alert("Error: apellidos no validos");
+            return false;  
+		 }
+}
+
+function altaOperarioInterno(){ 
+
+		 var responsable = document.getElementById("dni").value;
+		 var nombre = document.getElementById("nombre").value;
+         var apellidos = document.getElementById("apellidos").value;
+		  var telefEmpr = document.getElementById("telefono").value;
+         var mailEmpr = document.getElementById("mail").value;
+		
+        
+         /*variable para comprobar que la letra introducida en el campo dni es la correspondiente con el numero al realizar una operación matemática*/
+        
+         var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+        
+       
+        if( responsable == null || responsable.length == 0 || /^\s+$/.test(responsable) || responsable.match(/^\d{8}[a-zA-Z]$/) == null) {
+            alert("Es obligatorio introducir un dni de operario correcto en un formato adecuado [ocho caracteres y un digito].");  
+            return false;
+			
+            }else if( responsable.charAt(8) != letras[(responsable.substring(0, 8))%23] ){
+            alert("La letra del dni no es correcta");
+            return false;
+			
+            }else if(responsable == null || responsable.length == 0 || /^\s+$/.test(responsable) || responsable.match(/^\d{8}[a-zA-Z]$/) == null){
+             alert("Es obligatorio introducir un id correcto en un formato adecuado [ocho caracteres y un digito].");  	
+            return false;
+			
+            }else if( responsable.charAt(8) != letras[(responsable.substring(0, 8))%23] ){
+            alert("La letra del dni no es correcta");
+            return false;
+			
+            }if( nombre == null || nombre.length == 0 || /^\s+$/.test(nombre) || nombre.match(/[A-Za-z0-9]/)==null ) {
+            alert("Error: Nombre no valido");
+            return false;          
+         }else if(apellidos == null || apellidos.length == 0 || /^\s+$/.test(apellidos) || apellidos.match(/[A-Za-z0-9]/)==null ){
+			alert("Error: apellidos no validos");
+            return false;  
+		 } else  if( telefEmpr == null || telefEmpr.length == 0 || /^\s+$/.test(telefEmpr) || telefEmpr.match(/^[9|6|7]{1}([\d]{2}[-]*){3}[\d]{2}$/)==null ) {
+            alert("Error: Numero de telefono no  valido");
+            return false;          
+         }
+        else  if( mailEmpr == null || mailEmpr.length == 0 || /^\s+$/.test(mailEmpr) || mailEmpr.match(/[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/)==null) {
+            alert("Error: Introduzca una direccion de correo valida");
+            return false;          
+         }
+}
+
+function modificarJefe(){ 
+
+		
+		 var nombre = document.getElementById("nombre").value;
+         var apellidos = document.getElementById("apellidos").value;
+		  var telefEmpr = document.getElementById("telefono").value;
+         var mailEmpr = document.getElementById("mail").value;
+		
+        
+         /*variable para comprobar que la letra introducida en el campo dni es la correspondiente con el numero al realizar una operación matemática*/
+        
+      
+       if( nombre == null || nombre.length == 0 || /^\s+$/.test(nombre) || nombre.match(/[A-Za-z0-9]/)==null ) {
+            alert("Error: Nombre no valido");
+            return false;          
+         }else if(apellidos == null || apellidos.length == 0 || /^\s+$/.test(apellidos) || apellidos.match(/[A-Za-z0-9]/)==null ){
+			alert("Error: apellidos no validos");
+            return false;  
+		 } else  if( telefEmpr == null || telefEmpr.length == 0 || /^\s+$/.test(telefEmpr) || telefEmpr.match(/^[9|6|7]{1}([\d]{2}[-]*){3}[\d]{2}$/)==null ) {
+            alert("Error: Numero de telefono no  valido");
+            return false;          
+         }
+        else  if( mailEmpr == null || mailEmpr.length == 0 || /^\s+$/.test(mailEmpr) || mailEmpr.match(/[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/)==null) {
+            alert("Error: Introduzca una direccion de correo valida");
+            return false;          
+         }
+}
+
+function modificarExternoJefe(){ 
+
+		
+		 var nombre = document.getElementById("nombre").value;
+         var apellidos = document.getElementById("apellidos").value;
+		 var empresa = document.getElementById("empresa").value;
+    
+        
+      
+       if( nombre == null || nombre.length == 0 || /^\s+$/.test(nombre) || nombre.match(/[A-Za-z0-9]/)==null ) {
+            alert("Error: Nombre no valido");
+            return false;          
+         }else if(apellidos == null || apellidos.length == 0 || /^\s+$/.test(apellidos) || apellidos.match(/[A-Za-z0-9]/)==null ){
+			alert("Error: apellidos no validos");
+            return false;  
+		 } else  if( empresa == null || empresa.length == 0 || /^\s+$/.test(empresa) || empresa.match(/[A-Za-z0-9]/)==null ) {
+            alert("Error: nombre de empresa	no valido");
+            return false;          
+         }
+      
+}

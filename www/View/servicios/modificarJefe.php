@@ -4,8 +4,9 @@
 	$rows = $_SESSION['consultaServicio'];
 	foreach ($rows as $row) { 
 ?>
+<script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
 <h1 id="headerJefe"><a><i>SERVICIO <?php echo $row['idServ']; ?></i></a></h1>
-<form method="POST" action="../../Controller/serviciosController.php">
+<form name="FormModServicio" method="POST" onsubmit="return modificarServicio()" action="../../Controller/serviciosController.php">
 		<input type="hidden" class="text" name="idServ" value="<?php echo $row['idServ']; ?>"/>
 		<input type="hidden" class="text" name="dniUsu" value="<?php echo $row['dniUsu']; ?>"/>
 		<input type="hidden" class="text" name="idMaq" value="<?php echo $row['cifEmpr']; ?>"/>
@@ -20,7 +21,7 @@
 			<td width="25%">CIF Empresa: </td> 
 			<td width="25%"><input type="text" class="text" disabled name="cifEmpr" value="<?php echo $row['cifEmpr']; ?>"/></td> 
 			<td width="25%">Periodicidad: </td> 
-			<td width="25%"> <input type="text" class="text" name="periodicidad" value="<?php echo $row['periodicidad']; ?>"/></td>
+			<td width="25%"> <input id="periodicidad" type="text" class="text" name="periodicidad" value="<?php echo $row['periodicidad']; ?>"/></td>
 		</tr>
 		<tr> 
 			<td width="25%">#ID Servicio: </td> 
@@ -30,13 +31,13 @@
 		</tr>
 		<tr> 
 			<td width="25%">Fecha inicio: </td> 
-			<td width="25%"><input type="text" class="text" name="fInicioSer" value="<?php echo $row['fInicioSer']; ?>" /></td> 
+			<td width="25%"><input id="fechaInicio" type="text" class="text" name="fInicioSer" value="<?php echo $row['fInicioSer']; ?>" /></td> 
 			<td width="25%">Fecha fin: </td> 
-			<td width="25%"> <input type="text" class="text" name="fFinSer" value="<?php echo $row['fFinSer']; ?>" /></td>
+			<td width="25%"> <input id="fechaFin" type="text" class="text" name="fFinSer" value="<?php echo $row['fFinSer']; ?>" /></td>
 		</tr>
 		<tr> 
 			<td width="25%">Coste: </td> 
-			<td width="25%"><input type="text" class="text" name="costeSer" value="<?php echo $row['costeSer']; ?>" /></td> 
+			<td width="25%"><input id="coste" type="text" class="text" name="costeSer" value="<?php echo $row['costeSer']; ?>" /></td> 
 			<td width="25%">&nbsp;</td>
 			<td width="25%">&nbsp;</td>
 		</tr>
@@ -44,7 +45,7 @@
 		<tr>
 			<td width="25%"><br>Descripci&oacute;n:</td>
 			<td colspan='3'width="75%">
-				<textarea style="resize:none; text-align:left;" style="t" rows="4" name='descripSer'>
+				<textarea  id="des"style="resize:none; text-align:left;" style="t" rows="4" name='descripSer'>
 				<?php echo $row['descripSer']; ?>
 				</textarea>
 			</td>

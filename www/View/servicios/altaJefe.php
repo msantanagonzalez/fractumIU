@@ -2,9 +2,9 @@
 	$userType="jefe";
 	require_once("../structure/header.php");
 ?>
-
+<script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
 <h1 id="headerJefe"><a><i>ALTA SERVICIO</i></a></h1>
-<form name='FormAltaServicio' method="POST" action="../../Controller/serviciosController.php">
+<form name='FormAltaServicio' onsubmit="return altaUnServicioJefe()" method="POST" action="../../Controller/serviciosController.php">
 	<table class="default">
 		<tr> 
 			<td width="25%">CIF Empresa: </td> 
@@ -22,35 +22,23 @@
 			</select>
 			</td> 
 			<td width="25%">Periodicidad: </td> 
-			<td width="25%"> <input type="text" class="text" name="periodicidad" value=""/></td>
+			<td width="25%"> <input  id="periodicidad" type="text" class="text" name="periodicidad" value=""/></td>
 		</tr>
 		<tr> 
 			<td width="25%">#ID Servicio: </td> 
-			<td width="25%"><input type="text" class="text" name="idServ" value=""/></td> 
+			<td width="25%"><input id="idServ" type="text" class="text" name="idServ" value=""/></td> 
 			<td width="25%">#ID M&aacute;quina: </td> 
-			<td width="25%">
-			<select name="idMaq">
-			  <option value="NULL">----</option>
-				<?php
-				$resul2 = $_SESSION["maquinaSinServicio"];
-					foreach ($resul2 as $maquina){
-				?>		
-				<option value="<?php echo $maquina['idMaq'];?>"><?php echo $maquina['idMaq']."-".$maquina['nomMaq'];?></option>
-				<?php
-					}
-				?>	
-			</select>
-			</td>
+			<td width="25%"> <input  id="idMaq" type="text" class="text" name="idMaq" value="" /></td>
 		</tr>
 		<tr> 
 			<td width="25%">Fecha inicio: </td> 
-			<td width="25%"><input type="text" class="text" name="fInicioSer" value="" /></td> 
+			<td width="25%"><input  id="fechaInicio" type="text" class="text" name="fInicioSer" value="" /></td> 
 			<td width="25%">Fecha fin: </td> 
-			<td width="25%"> <input type="text" class="text" name="fFinSer" value="" /></td>
+			<td width="25%"> <input id="fechaFin" type="text" class="text" name="fFinSer" value="" /></td>
 		</tr>
 		<tr> 
 			<td width="25%">Coste: </td> 
-			<td width="25%"><input type="text" class="text" name="costeSer" placeholder="€/Mes" /></td> 
+			<td width="25%"><input id="coste" type="text" class="text" name="costeSer" placeholder="€/Mes" /></td> 
 			<td width="25%">&nbsp;</td>
 			<td width="25%">&nbsp;</td>
 		</tr>
@@ -58,7 +46,7 @@
 		<tr>
 			<td width="25%"><br>Descripci&oacute;n:</td>
 			<td colspan='3'width="75%">
-				<textarea style="resize:none; text-align:left;" style="t" rows="4" name='descripSer'>Mantenimiento completo, coste de piezas no incluido.
+				<textarea  id="des" style="resize:none; text-align:left;" style="t" rows="4" name='descripSer'>Mantenimiento completo, coste de piezas no incluido.
 				</textarea>
 			</td>
 		</tr>

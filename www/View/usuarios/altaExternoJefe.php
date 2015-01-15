@@ -2,13 +2,13 @@
 	$userType="jefe";
 	require_once("../structure/header.php");
 ?>
-
+<script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
 <h1 id="headerJefe"><a><i>ALTA OPERARIO EXTERNO</i></a></h1>
-<form method="POST" action="../../Controller/usuariosController.php">
+<form  onsubmit="return altaOperarioExterno()" method="POST" action="../../Controller/usuariosController.php">
 	<table class="default">
 		<tr> 
 			<td width="25%">DNI Operario Externo: </td> 
-			<td width="25%"><input type="text" class="text" name="dni"/></td> 
+			<td width="25%"><input id="dni" type="text" class="text" name="dni"/></td> 
 			<td width="25%">Empresa: </td>
 			<td width="25%">
 			<select name="cif">
@@ -26,9 +26,9 @@
 		</tr>
 		<tr> 
 			<td width="25%">Nombre: </td> 
-			<td width="25%"><input type="text" class="text" name="nombre"/></td> 
+			<td width="25%"><input id="nombre" type="text" class="text" name="nombre"/></td> 
 			<td width="25%">Apellidos: </td> 
-			<td width="25%"> <input type="text" class="text" name="apellidos"/></td>
+			<td width="25%"> <input id="apellidos" type="text" class="text" name="apellidos"/></td>
 		</tr>
 		<tr>
 			<td colspan="4"><input type="submit" name="accion" value="altaExterno"></td>
