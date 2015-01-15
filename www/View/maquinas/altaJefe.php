@@ -4,7 +4,7 @@
 ?>
 
 <h1 id="headerJefe"><a><i>M&Aacute;QUINA </i></a></h1>
-<form name='FromAltaMaquina' action='../../Controller/maquinasController.php' method='POST'>
+<form name='FromAltaMaquina' action='../../Controller/maquinasController.php' method='POST' enctype="multipart/form-data">
 	<table class="default">
 		<tr> 
 			<td width="25%">#ID M&aacute;quina: </td> 
@@ -28,8 +28,8 @@
 		</tr>
 		<tr>
 			<td>Documentacion:</td>
-        	<td><img src="../../Recursos/images/PDF.png"></td>
-        	<td colspan="2"><input type="file"  name="documentacionMaquina" value="Subir"></td>
+        	<td><img src="../../Resources/images/PDF.png"></td>
+        	<td colspan="2"><input type="file" name="docMaquina" id="docMaquina"></td>
 		</tr>
 		<tr>
 			<td colspan="4"><input type="submit" name="accion" value="Alta"></td>

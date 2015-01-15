@@ -32,12 +32,13 @@ class Maquina {
 	 */
 	
 	public function alta(){
-	
-			mysql_query("INSERT INTO MAQUINA(idMaq, nSerie, descripMaq, nomMaq, costeMaq) 
+			if(!mkdir("../Resources/documents/".$this->idMaquina)){
+						die('Fallo al crear las carpetas...');
+					}else{
+					mysql_query("INSERT INTO MAQUINA(idMaq, nSerie, descripMaq, nomMaq, costeMaq) 
 						VALUES ('$this->idMaquina','$this->numeroSerie','$this->descripcionMaquina','$this->nombreMaquina',
 						'$this->costeMaquina')") or die(mysql_error());
-		
-		
+					}					
 	}
 	
 	public function consultaMaquina($maquina){
