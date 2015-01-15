@@ -33,7 +33,7 @@
 				<td width="17%">Avería alternador</td> 
 				<td width="17%">Fulanito</a></td> <!-- Falta linkar al perfil del usuario. -->
 				<td width="17%"><?php echo $row['fAper']; ?></td>
-				<td width="17%"><?php echo $row['derivada']; ?></td>
+				<td width="17%"><?php echo $row['estadoIncid']; ?></td>
 				<td width="17%"><button><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>">Consultar</a></button></td>
 			</tr>
 			<?php

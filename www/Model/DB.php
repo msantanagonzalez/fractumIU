@@ -7,8 +7,10 @@
 	function contarPendientes(){
 		require_once("incidencia.php");
 		session_start();
+			$tipo = $_SESSION['tipo'];
+
 			$incidencia = new Incidencia();
-			$numero = $incidencia->contarPendientes();
+			$numero = $incidencia->contarPendientes($tipo);
 			$result = mysql_fetch_array($numero);
 
 			$_SESSION['pendientes'] = $result['num'];

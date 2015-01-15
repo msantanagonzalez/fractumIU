@@ -47,16 +47,40 @@
 			return $sql;
 		}
 
-		public function pendientes(){
-			$sql = mysql_query("SELECT * FROM INCIDENCIA WHERE estadoIncid = '$this->estadoIncidencia' ORDER BY estadoIncid") or die(mysql_error());
-
-			return $sql;
+		public function contarPendientes($tipo){
+			switch ($tipo) {
+				case 'J':
+					$sql = mysql_query("SELECT count(*) AS num FROM INCIDENCIA WHERE estadoIncid='Pendiente Derivar' OR estadoIncid='Programada'");
+					return $sql;
+					break;
+				case 'I':
+					$sql = mysql_query("SELECT count(distinct(i.idIncid)) AS num, i.estadoIncid, i.fAper FROM INCIDENCIA i, USUARIO u
+										WHERE i.estadoIncid = 'Abierta' OR (i.estadoIncid='Pendiente Cierre' AND i.dniResponsable=u.dniUsu)");
+					return $sql;
+					break;
+				case 'E':
+					$sql = mysql_query("SELECT count(*) AS num FROM INCIDENCIA WHERE estadoIncid='Derivada'");
+					return $sql;
+					break;
+			}
 		}
-
-		public function contarPendientes(){
-			$sql = mysql_query("SELECT count(*) as num FROM INCIDENCIA WHERE estadoIncid = 'Abierta'") or die(mysql_error());
-
-			return $sql;
+		
+		public function pendientes($tipo){
+			switch ($tipo) {
+				case 'J':
+					$sql = mysql_query("SELECT * FROM INCIDENCIA WHERE estadoIncid='Pendiente Derivar' OR estadoIncid='Programada'");
+					return $sql;
+					break;
+				case 'I':
+					$sql = mysql_query("SELECT distinct(i.idIncid), i.estadoIncid, i.fAper FROM INCIDENCIA i, USUARIO u
+										WHERE i.estadoIncid = 'Abierta' OR (i.estadoIncid='Pendiente Cierre' AND i.dniResponsable=u.dniUsu)");
+					return $sql;
+					break;
+				case 'E':
+					$sql = mysql_query("SELECT * FROM INCIDENCIA WHERE estadoIncid='Derivada'");
+					return $sql;
+					break;
+			}
 		}
 	}
 ?>

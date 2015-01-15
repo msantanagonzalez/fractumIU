@@ -155,8 +155,10 @@
 	function pendientes(){
 		session_start();
 
+		$tipo = $_SESSION['tipo'];
+
 		$incidencia = new Incidencia();
-		$listaIncidencias = $incidencia->pendientes();
+		$listaIncidencias = $incidencia->pendientes($tipo);
 
 		$lista = array();		
 		while($row = mysql_fetch_array($listaIncidencias)){

@@ -48,8 +48,8 @@ function navInterno()
 							<!--NOTIFICACIONES-->		
 							<li class='current'><a href="../../Controller/incidenciasController.php?accion=Pendientes"><?= i18n("Pendientes:") ?><span class="badge"><?php echo $_SESSION['pendientes']; ?></span></a></li>
 							<!-- FIN NOTIFICACIONES-->
+              <li class='current'><a href="../../View/incidencias/altaInterno.php"><?= i18n("Alta incidencia") ?></a></li>
 							<li class='current'><strong><a href="../../Controller/incidenciasController.php?accion=Listar"><?= i18n("Listar Incidencias") ?></a></strong></li>
-							<li class='current'><a href="../../View/incidencias/altaInterno.php"><?= i18n("Alta incidencia") ?></a></li>
 							<li class='current'><a href="../../Controller/maquinasController.php?accion=Listar"><?= i18n("Listar máquinas") ?></a></li>
                             <li class='current'><a href='mailto:jefe@fractum.com?cc=administracion@fractum.es'><?= i18n("Contacto jefe") ?></a></li>
 							<li class='current'><a href="../../Controller/usuariosController.php?accion=logOut" id='Logout_Usuario'> <?= i18n("> Log Out") ?></a></li>

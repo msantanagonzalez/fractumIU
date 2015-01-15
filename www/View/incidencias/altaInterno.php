@@ -1,5 +1,4 @@
 <?php
-	$userType="interno";
 	require_once("../structure/header.php");
 ?>
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
@@ -8,12 +7,13 @@
 	<input type="hidden" class="text" name="idIncidencia" value="id0"/>
 	<input type="hidden" class="text" name="derivada" value="0"/>
 	<input type='hidden' class='text' name="dniApertura" value='<?php echo $_SESSION['dni']; ?>'/>
+	<input id="dniResponsable" type='hidden' class='text' name='dniResponsable' value='<?php echo $_SESSION['dni']; ?>'/>
 		<table class='default'>
 		   	<tr>
 				<td><?= i18n("Apertura:") ?></td>
 				<td><input type='text' class='text' disabled value='<?php echo $_SESSION['dni']; ?>'/></td>
 				<td><?= i18n("Responsable:") ?></td>
-				<td><input id="dniResponsable" type='text' class='text' name='dniResponsable' value=''/></td>
+				<td><input id="dniResponsable" type='text' disabled class='text' value='<?php echo $_SESSION['dni']; ?>'/></td>
 			</tr>
 			<tr>
 				<td><?= i18n("Fecha Apertura:") ?></td>

@@ -41,7 +41,13 @@
 			?>
 	</table>
 </form>
-
+<table>
+	<tr>
+		<th width="20%"></th>
+		<th width="40%"><a href="altaInterno.php"><input type="button" name="alta" value="Alta"></a></th>
+		<th width="20%"></th>
+	</tr>
+</table>
 <?php
 	require_once("../structure/footer.php");
 ?>
