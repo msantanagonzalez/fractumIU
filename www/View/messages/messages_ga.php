@@ -55,7 +55,19 @@
 	"Máquina:"=>"Máquina:",
 	"Descripción:"=>"Descrición:",
 	
-	//View/incidencias/
+	//View/incidencias/consultarExterno
+	//""/consultarInterno
+	"INCIDENCIA"=>"INCIDENCIA",
+	"- ITERACIONES -"=>"- ITERACIÓNS -",
+	"ID"=>"ID",
+	"FechaInicio"=>"DataInicio",
+	"Operario"=>"Operario",
+	"Coste"=>"Custo",
+	
+	//View/incidencias/consultarJefe
+	
+	"Número Iteración"=>"Número Iteración",
+	""=>"",
 	""=>"",
 	
 	
