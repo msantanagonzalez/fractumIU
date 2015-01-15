@@ -8,7 +8,7 @@
 	
 	"jefeNegocio:"=>"Xefe de Negocio",
 	"Pendientes:" => "Pendentes:",
-	"GESTIONAR INCIDENCIAS" => "XESTIONAR INCIDENTES",
+	"GESTIONAR INCIDENCIAS" => "XESTIONAR INCIDENCIAS",
 	"GESTIONAR USUARIOS" => "XESTIONAR USUARIOS",
 	"GESTIONAR EMPRESAS" => "XESTIÓN DE NEGOCIOS",
 	"GESTIONAR MÁQUINAS" => "XESTIONAR MÁQUINAS",
@@ -39,7 +39,26 @@
 	"| INFO |- No hay empresas para listar"=>"| Novas | - Ningunha empresa á listar",
 	
 	//View/empresas/modificarJefe
-	"MODIFICAR EMPRESA"=>"MODIFICAR EMPRESA",
+	"MODIFICAR EMPRESA"=>"MODIFICAR NEGOCIO",
+	
+	//View/incidencias/altaInterno
+	//""/altaJefe
+	
+	"NUEVA INCIDENCIA"=>"NOVA INCIDENCIA",
+	"Apertura:"=>"Apertura:",
+	"Responsable:"=>"Responsable:",
+	"Fecha Apertura:"=>"Data Apertura:",
+	"Fecha Cierre:"=>"Data Peche:",
+	"Estado:"=>"Estado:",
+	"Abierta"=>"Aberta",
+	"Programada"=>"Programada",
+	"Máquina:"=>"Máquina:",
+	"Descripción:"=>"Descrición:",
+	
+	//View/incidencias/
+	""=>"",
+	
+	
 	
   
 	
