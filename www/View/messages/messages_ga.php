@@ -106,7 +106,24 @@
 	"ITERACIÓN"=>"ITERACIÓN",
 	"Número Iteración:"=>"Número Iteración:",
 	"Coste:"=>"Custo:",
+	
+	//View/maquinas/altaJefe
+	
+	"MÁQUINAS"=>"MÁQUINAS",
+	"serie:"=>"serie:",
+	
+	//""/consultarJefe
+	"MÁQUINA "=>"MÁQUINA ",
+	"| INFO |- Maquina sin documento"=>"| INFO |- Maquina sen documento",
+	"INCIDENCIAS RELATIVAS"=>"INCIDENCIAS RELATIVAS",
+	"Operario:"=>"Operario:",
+	"- MAQUINA:"=>"- MAQUINA:",
 	""=>"",
+	""=>"",
+	""=>"",
+	""=>"",
+	""=>"",
+	
 	
 	
 	

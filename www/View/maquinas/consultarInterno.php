@@ -6,7 +6,7 @@
 	foreach ($rows as $row) { 
 ?>
 
-<h1 id='headerInterno'><a>- MAQUINA: <?php echo $row['nomMaq']; ?></a></h1> <!--SECCIÓN-->
+<h1 id='headerInterno'><a><?= i18n("MÁQUINA ") ?><?php echo $row['nomMaq']; ?></a></h1> <!--SECCIÓN-->
 <!--INICIO TABLA-->
 <br>
 <form method='post' action='../../Controller/maquinasController.php?idMaq=<?php echo $row['idMaq'];?>' >
@@ -15,13 +15,13 @@
 		<table class='default'>
 		
 			<tr>
-				<td>ID Maquina:</td>
+				<td>#ID <?= i18n("Máquina:") ?></td>
 				<td><input type='text' class="text"  disabled  name='idMaq' value='<?php echo $row['idMaq']; ?>' /></td>
-				<td>Numero de serie:</td>
+				<td>#N&uacute;m. <?= i18n("serie:") ?></td>
 				<td><input type='text' class="text"  disabled  name='nSerie' value='<?php echo $row['nSerie']; ?>' /></td>
 			</tr>
 			<tr>
-				<td colspan='4'>Descripcion:</td>
+				<td colspan='4'><?= i18n("Descripción:") ?></td>
 			</tr>
 			<tr>	
 		        <td colspan='4'>
@@ -31,7 +31,7 @@
 				</td>
 		    </tr>
 			<tr>
-				<td>Documentacion:</td>
+				<td><?= i18n("Documentación:") ?></td>
 		        <td><img src="../../Recursos/images/PDF.png"></td>
 		        <td colspan="2"><a href='altaIncidencia.html'><input type='button' value='Alta Incidencia'></a></td>
 			</tr>
@@ -40,13 +40,13 @@
  	</div>
 	<br>
 </form>
-<h1 id="headerInterno"><a><i>INCIDENCIAS RELATIVAS</i></a></h1>
+<h1 id="headerInterno"><a><i><?= i18n("INCIDENCIAS RELATIVAS") ?></i></a></h1>
 <table class="default">
     <tr>
-    	<th width="20%">#ID Inc.</th>
-    	<th width="20%">Responsable</th>
-       	<th width="20%">Operario</th>
-        <th width="20%">Estado</th>
+    	<th width="20%">#ID <?= i18n("Inc.") ?></th>
+    	<th width="20%"><?= i18n("Responsable:") ?></th>
+       	<th width="20%"><?= i18n("Operario:") ?></th>
+        <th width="20%"><?= i18n("Estado:") ?></th>
         <th width="20%">&nbsp;</th>
     </tr>
 </table>

@@ -7,26 +7,26 @@
 	 foreach ($rows as $row) { 
 ?>
 
-<h1 id="headerJefe"><a><i>M&Aacute;QUINA <?php echo $row['idMaq']; ?></i></a></h1>
+<h1 id="headerJefe"><a><i><?= i18n("MÁQUINA ") ?><?php echo $row['idMaq']; ?></i></a></h1>
 	
 	<form method="POST" action="../../Controller/maquinasController.php?idMaq=<?php echo $row['idMaq'];?>">
 	<table class="default">
 	
 		<tr> 			
-			<td width="25%">#ID M&aacute;quina: </td> 
+			<td width="25%">#ID <?= i18n("Máquina:") ?> </td> 
 			<td width="25%"><input type="text" class="text" disabled name="idMaq"  value="<?php echo $row['idMaq']; ?>"/></td> 
-			<td width="25%">#N&uacute;m. serie: </td> 
+			<td width="25%">#N&uacute;m. <?= i18n("serie:") ?></td> 
 			<td width="25%"> <input type="text" class="text" disabled name="nSerie"  value="<?php echo $row['nSerie']; ?>"/></td>
 		</tr>
 		<tr> 
-			<td width="25%">Nombre: </td> 
+			<td width="25%"><?= i18n("Nombre:") ?> </td> 
 			<td width="25%"><input type="text" class="text" disabled name="nomMaq"  value="<?php echo $row['nomMaq']; ?>"/></td> 
-			<td width="25%">Coste:</td> 
+			<td width="25%"><?= i18n("Coste:") ?></td> 
 			<td width="25%"><input type="text" class="text" disabled name="costeMaq"  value="<?php echo $row['costeMaq']; ?>"/></td> 
 			
 		</tr>
 		<tr>
-			<td width="25%"><br>Descripci&oacute;n:</td>
+			<td width="25%"><br><?= i18n("Descripción:") ?></td>
 			<td colspan='3' width="75%">
 				<textarea style="resize:none; text-align:left;" style="t" rows="4" name='descripMaq' disabled>
 				<?php echo $row['descripMaq']; ?>
@@ -38,9 +38,9 @@
 		if (empty($rows)) {
 			?>
 			<tr>
-				<td colspan="4">Documentacion:
+				<td colspan="4"><?= i18n("Documentación:") ?>
 				<div class="alert alert-info" role="alert">
-				| INFO |- Maquina sin documento 
+				<?= i18n("| INFO |- Maquina sin documento") ?> 
 				</div>
 				</td>
 			</tr>	
@@ -52,7 +52,7 @@
 				foreach ($rows as $documento) {
 				?>
 				<tr>
-					<td colspan="2">Documentacion:</td>
+					<td colspan="2"><?= i18n("Documentación:") ?></td>
 					<td colspan="2">
 					<a href="../<?php echo $documento['urlDocMaq'];?>" target="_blank">
 					<img src="../../Resources/images/PDF.png">
@@ -70,13 +70,13 @@
 		} ?>
 		</table>
 </form>
-<h1 id="headerJefe"><a><i>INCIDENCIAS RELATIVAS</i></a></h1>
+<h1 id="headerJefe"><a><i><?= i18n("INCIDENCIAS RELATIVAS") ?></i></a></h1>
 <table class="default">
     <tr>
-    	<th width="20%">#ID Inc.</th>
-    	<th width="20%">Responsable</th>
-       	<th width="20%">Operario</th>
-        <th width="20%">Estado</th>
+    	<th width="20%">#ID <?= i18n("Inc.") ?></th>
+    	<th width="20%"><?= i18n("Responsable:") ?></th>
+       	<th width="20%"><?= i18n("Operario:") ?></th>
+        <th width="20%"><?= i18n("Estado:") ?></th>
         <th width="20%">&nbsp;</th>
     </tr>
 </table>
