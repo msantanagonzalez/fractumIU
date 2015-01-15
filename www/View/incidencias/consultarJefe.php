@@ -53,26 +53,29 @@
 			<td colspan="4"><a href="../../Controller/incidenciasController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid']; ?>"><input type="submit" name="pModificar" value="Modificar"></a></td>
 		</tr> 
 	</table>
-	<h1 id="headerJefe"><a>- ITERACIONES -</a></h1> <!--SECCIÓN-->
-	<table class="default"><!--TABLA-->
-       	<tr>
-			<th width="20%">ID</th>
-        	<th width="20%">FechaInicio</th>
-            <th width="20%">Operario</th>
-            <th width="20%">Coste</th>
-			<th width="20%"> </th>
-     	</tr>
-    </table>
-   	<table class="default"><!--TABLA-->
-		<tr>
-			<td width="20%">IT001</td>
-        	<td width="20%">15/04/2014</td>
-            <td width="20%">$operario</td>
-            <td width="20%">12.00</td>
-			<td width="10%"><a href="consultarTrabajo.html">Consultar</a></td>
-			<td width="10%"><img src="../../Recursos/images/PDF.png"></td>
-     	</tr>
-   	</table>
+	<h1 id="headerJefe"><a><i>ITERACIONES</i></a></h1>
+	<table class="default">
+	    <tr>
+	    	<th width="28%">#idIncidencia</th>
+	    	<th width="40%">Numero Iteracion</th>
+	        <th width="10%">&nbsp;</th>
+	        <th width="10%">&nbsp;</th>
+	    </tr>
+	</table>
+	<form method="POST" action="../../Controller/iteracionesController.php">
+		<table class="default">
+			<?php 
+				$rows2 = $_SESSION['listaIteraciones'];
+				foreach ($rows2 as $row2) {
+			?>
+			<tr> 
+				<td width="30%"><?php echo $row2['idIncid'];?></td>  
+				<td width="40%"><?php echo $row2['nIteracion']; ?></td>
+				<td width="10%"><button><a href="../../Controller/iteracionesController.php?accion=Consulta&idIncid=<?php echo $row2['idIncid'] ?>&nIteracion=<?php echo $row2['nIteracion'] ?>">Consultar</a></button></td>
+			</tr>
+			<?php } ?>
+		</table>
+	</form>
 </div>
 
 <?php

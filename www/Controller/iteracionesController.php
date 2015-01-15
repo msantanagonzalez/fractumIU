@@ -15,6 +15,9 @@
 		case 'Modificado':
 			modificado();
 			break;
+		case 'Modificar':
+			modificar();
+			break;
 		case 'Listar':
 			lista();
 			break;
@@ -45,10 +48,10 @@
 		$nIteracion = $_REQUEST['nIteracion'];
 
 		$iteracion = new Iteracion($idIncid, $nIteracion);
-		$consultaIncidencia = $incidencia->consultaIncidencia();
+		$consultaIteracion = $iteracion->consulta();
 
 		$consulta = array();		
-		while($row = mysql_fetch_array($consultaIncidencia)){
+		while($row = mysql_fetch_array($consultaIteracion)){
 			array_push($consulta, $row);
 		}
 
@@ -75,11 +78,11 @@
 		session_start();
 
 
-		$idIteracion = $_REQUEST['idIncid'];
+		$idIteracion = $_REQUEST['idIncidencia'];
 		$nIteracion = $_REQUEST['nIteracion'];
 		
-		$iteracion = new Iteracion($idIncidencia, $nIteracion);
-		$consultaIteracion = $iteracion->consultaIteracion();
+		$iteracion = new Iteracion($idIteracion, $nIteracion);
+		$consultaIteracion = $iteracion->consulta();
 
 		$consulta = array();		
 		while($row = mysql_fetch_array($consultaIteracion)){
@@ -113,21 +116,20 @@
 		$fechaIter = $_POST['fechaIter'];
 		$hInicio = $_POST['hInicio'];
 		$hFin = $_POST['hFin'];
-		$estadoItera = $_POST['estadoItera'];
 		$descripIter = $_POST['descripIter'];
 		$costeIter = $_POST['costeIter'];
 		
 
-		$iteracion = new Iteracion($idIncid, $nIteracion, $fechaIter, $hInicio, $hFin, $estadoItera, $descripIter, $costeIter);
-		$iteracion->modificacion($idIncid, $nIteracion);
+		$iteracion = new Iteracion($idIncid, $nIteracion, $fechaIter, $hInicio, $hFin, '', $descripIter, $costeIter);
+		$iteracion->modificacion();
 
-		header("location: ../Controller/iteracionesController.php?accion=Consulta&idIncidencia=$idIncidencian&nIteracion=$nIteracion"); /*otra vz aqui*/
+		header("location: iteracionesController.php?accion=Consulta&idIncid=$idIncid&nIteracion=$nIteracion");
 	}
 
 	function lista(){
 		session_start();
-
-		$iteracion = new Iteracion();
+		$idIncid =$_REQUEST['idIncid'];
+		$iteracion = new Iteracion($idIncid);
 		$listaIteraciones = $iteracion->lista();
 
 		$lista = array();		
@@ -140,16 +142,17 @@
 		switch ($_SESSION['tipo']) {
 			case 'J':
 				session_write_close();
-				header("location: ../View/iteraciones/listarJefe.php");
+				header("location: ../View/incidencias/consultarJefe.php");
 				break;
 			case 'I':
+				header("location: ../View/incidencias/listarInterno.php");
 				session_write_close();
-				header("location: ../View/iteraciones/listarInterno.php");
 				break;
 			case 'E':
+				header("location: ../View/incidencias/listarExterno.php");
 				session_write_close();
-				header("location: ../View/iteraciones/listarExterno.php");
-			default:				
+				break;
+			default:					
 				break;
 		}
 	}
