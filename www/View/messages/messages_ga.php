@@ -127,6 +127,20 @@
 	"Servicio:"=>"Servizo:",
 	"| INFO |- No hay máquinas para listar"=>"| INFO |- Non hai máquinas para listar",
 	
+	//View/servicios/altaJefe
+	"ALTA SERVICIO"=>"ALTA SERVIZO",
+	"Periodicidad:"=>"Periodicidade:",
+	"CIF Empresa:"=>"CIF Empresa:",
+	"SERVICIO"=>"SERVIZO",
+	""=>"",
+	""=>"",
+	""=>"",
+	""=>"",
+	""=>"",
+	""=>"",
+	""=>"",
+	""=>"",
+	""=>"",
 	
 	
 	
