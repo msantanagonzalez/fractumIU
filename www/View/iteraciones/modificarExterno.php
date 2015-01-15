@@ -2,7 +2,7 @@
 	require_once("../structure/header.php");
 ?>
 
-<h1 id="headerInterno"><a><i>ITERACION $#IDincidencia</i></a></h1>
+<h1 id="headerExterno"><a><i>ITERACION $#IDincidencia</i></a></h1>
 <div>
 	<form method="POST" action="../../Controller/iteracionesController.php">
 

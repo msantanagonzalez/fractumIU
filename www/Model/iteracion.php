@@ -28,8 +28,8 @@
 							'$this->descripIter','$this->costeIter')") or die(mysql_error());
 		}
 
-		public function consulta($idIncid, $nIteracion){
-			$sql = mysql_query("SELECT * FROM ITERACION WHERE idIncid = '$incidencia' AND nIteracion = '$nIteracion'") or die(mysql_error());
+		public function consulta(){
+			$sql = mysql_query("SELECT * FROM ITERACION WHERE idIncid = '$this->$idIncid' AND nIteracion = '$this->$nIteracion'") or die(mysql_error());
 
 			return $sql;
 		}
@@ -43,6 +43,24 @@
 			$sql = mysql_query("SELECT * FROM ITERACION");
 
 			return $sql;
+		}
+
+		/**
+		 * Devuelve true con la iteracion cerrada, y false con la iteracion abierta
+		 */
+		public function estadoIteracion(){
+			$sql = mysql_query("SELECT estadoItera FROM ITERACION WHERE idIncid = '$this->idIncid' AND nIteracion='$this->nIteracion'") or die(mysql_error());
+			$estado = mysql_fetch_array($sql);
+			if($estado == 0){
+				return false;
+			} else {
+				return true;
+			}
+
+		}
+
+		public function cerrarIteracion(){
+			mysql_query("UPDATE INCIDENCIA SET  estadoItera = '1' WHERE idIncid = '$this->idIncidencia' AND nIteracion='$this->nIteracion'") or die(mysql_error());
 		}
 
 	}

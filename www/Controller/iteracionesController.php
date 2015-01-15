@@ -12,11 +12,18 @@
 		case 'Consulta':
 			consulta();
 			break;
-		case 'Modificar':
-			modificar();
+		case 'Modificado':
+			modificado();
 			break;
 		case 'Listar':
 			lista();
+			break;
+		case 'GUARDAR TRABAJO':
+			guardarTrabajo();
+			break;
+		case 'FINALIZAR TRABAJO':
+			guardarTrabajo();
+			cerrarIteracion();
 			break;
 	}
 
@@ -27,17 +34,18 @@
 										$_POST["estadoItera"],  $_POST["descripIter"], $_POST["costeIter"]);
 		$iteracion->alta();
 		$tempIteracion = $_POST["idIncid"];
-		header("location: iteracionesController.php?accion=Consulta&idIncidencia=$tempITERACION");/*Hay un problema aqui que no se resolver, y es que en las iteraciones tenemos que tener en cuenta no solo el idIncid sino tambien el nIteracion y no se como incluirlo*/
+		$nIteracion = $_POST['nIteracion'];
+		header("location: iteracionesController.php?accion=Consulta&idIncidencia=$tempITERACION&nIteracion=$nIteracion");
 	}
 
 	function consulta(){
 		session_start();
 
-		$iteracion = new Iteracion();
-
 		$idIncid = $_REQUEST['idIncid'];
 		$nIteracion = $_REQUEST['nIteracion'];
-		$consultaIncidencia = $incidencia->consultaIncidencia($idIncid, $nIteracion);
+
+		$iteracion = new Iteracion($idIncid, $nIteracion);
+		$consultaIncidencia = $incidencia->consultaIncidencia();
 
 		$consulta = array();		
 		while($row = mysql_fetch_array($consultaIncidencia)){
@@ -66,12 +74,12 @@
 	function modificar(){
 		session_start();
 
-		$iteracion = new Iteracion();
 
 		$idIteracion = $_REQUEST['idIncid'];
 		$nIteracion = $_REQUEST['nIteracion'];
 		
-		$consultaIteracion = $iteracion->consultaIteracion($idIncidencia, $nIteracion);
+		$iteracion = new Iteracion($idIncidencia, $nIteracion);
+		$consultaIteracion = $iteracion->consultaIteracion();
 
 		$consulta = array();		
 		while($row = mysql_fetch_array($consultaIteracion)){
@@ -110,11 +118,10 @@
 		$costeIter = $_POST['costeIter'];
 		
 
-		$iteracion = new Iteracion($idIncid, $nIteracion, $fechaIter, $hInicio, $hFin, 
-									$estadoItera, $descripIter, $costeIter);
+		$iteracion = new Iteracion($idIncid, $nIteracion, $fechaIter, $hInicio, $hFin, $estadoItera, $descripIter, $costeIter);
 		$iteracion->modificacion($idIncid, $nIteracion);
 
-		header("location: ../../Controller/iteracionesController.php?accion=Consulta&idIncidencia=$idIncidencia"); /*otra vz aqui*/
+		header("location: ../Controller/iteracionesController.php?accion=Consulta&idIncidencia=$idIncidencian&nIteracion=$nIteracion"); /*otra vz aqui*/
 	}
 
 	function lista(){
@@ -136,15 +143,40 @@
 				header("location: ../View/iteraciones/listarJefe.php");
 				break;
 			case 'I':
-				header("location: ../View/iteraciones/listarInterno.php");
 				session_write_close();
+				header("location: ../View/iteraciones/listarInterno.php");
 				break;
 			case 'E':
-				header("location: ../View/iteraciones/listarExterno.php");
 				session_write_close();
+				header("location: ../View/iteraciones/listarExterno.php");
 			default:				
 				break;
 		}
+	}
+
+	function guardarTrabajo(){
+		session_start();
+
+		$idIncid = $_POST['idIncid'];
+		$nIteracion = $_POST['nIteracion'];
+
+		$iteracion = new Iteracion($idIncid, $nIteracion);
+		$consultaIteracion = $iteracion->cerrarIteracion();
+		session_write_close();
+		lista();
+	}
+
+	function cerrarIteracion(){
+		session_start();
+
+		$idIncid = $_POST['idIncid'];
+		$nIteracion = $_POST['nIteracion'];
+
+		$iteracion = new Iteracion($idIncid, $nIteracion);
+		$consultaIteracion = $iteracion->cerrarIteracion();
+		session_write_close();
+		lista();
+
 	}
 
 ?>
