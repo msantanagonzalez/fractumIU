@@ -73,6 +73,13 @@
 		}
 		
 		$_SESSION["consultaMaquina"] = $consulta;
+
+		$consultaIncidencia = $maquina->listarIncidenciasAsociadas($idMaquina);
+		$consulta2 = array();
+		while($row = mysql_fetch_array($consultaIncidencia)){
+			array_push($consulta2, $row);
+		}
+		$_SESSION["consultaIncidenciaMaquina"] = $consulta2;
 	
 		$documentoMaquina = $maquina->getPathImage($idMaquina);
 		$consulta = array();		
@@ -235,5 +242,14 @@
 		unlink($path);
 		anadirMensaje("|SUCCESS| Documento de Maquina: ".$idMaq." eliminado","success");
 		consulta();
+	}
+
+	function listarIncidencias(){
+		session_start();
+			$idMaquina = $_GET['idMaq'];
+
+			$maquina = new Maquina();
+
+			$resultado = $maquina->listarIncidencias($idMaquina);
 	}
 ?>	
