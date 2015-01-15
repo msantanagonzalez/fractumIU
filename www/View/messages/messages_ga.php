@@ -147,15 +147,19 @@
 	
 	"ALTA OPERARIO EXTERNO"=>"ALTA OPERARIO EXTERNO",
 	"DNI Operario Externo:"=>"DNI Operario Externo:",
-	"Apellidos:"=>"Apelidos",
+	"Apellidos:"=>"Apelidos:",
 	
 	//""/altaInternoJefe
 	"ALTA OPERARIO INTERNO"=>"ALTA OPERARIO INTERNO",
 	"Interno:"=>"Interno:",
-	""=>"",
-	""=>"",
-	""=>"",
-	""=>"",
+	
+	//""/consultarExternoExterno
+	"PERFIL"=>"PERFIL",
+	"#ID:"=>"#ID:",
+	"Contraseña:"=>"Contrasinal:",
+	
+	//""/consultarInternoJefe
+	"#ID Interno: "=>"#ID Interno: ",
 	""=>"",
 	""=>"",
 	""=>"",
