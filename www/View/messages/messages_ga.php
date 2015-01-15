@@ -16,7 +16,7 @@
 	"> Log Out" => "> Log Out",
 	
 	"operarioInterno:"=>"operarioInterno:",
-	"Listar Incidencias" => "lista de Problemas",
+	"Listar Incidencias" => "Listar Incidencias",
 	"Alta incidencia" => "Alta incidencia",
 	"Listar máquinas" => "Listar máquinas",
 	"Contacto jefe" => "Consulta xefe",
@@ -67,12 +67,19 @@
 	//View/incidencias/consultarJefe
 	
 	"Número Iteración"=>"Número Iteración",
-	""=>"",
-	""=>"",
 	
+	//View/incidencias/listarExterno
+	"INCIDENCIAS"=>"INCIDENCIAS",
+	"Inc."=>"Inc.",
+	"Últ. operario"=>"Últ. operario",
+	"Últ. iteración"=>"Últ. iteración",
+	"Título"=>"Título",
+	"Avería alternador"=>"Avaría alternador",
 	
-	
-  
+	//View/incidencias/listarInterno
+	//""/listarJefe
+	"| INFO |- No hay incidencias para listar"=>"| INFO |- Non hai incidencias para listar",
+	 
 	
 	
   )
