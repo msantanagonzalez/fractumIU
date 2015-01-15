@@ -6,10 +6,10 @@
 <table class="default">
     <tr>
     	<th width="17%">#ID <?= i18n("Inc.") ?></th>
-       	<th width="17%"><?= i18n("Últ. operario") ?></th>
-        <th width="17%"><?= i18n("Últ. iteración") ?></th>
+       	<th width="17%"><?= i18n("Resposable") ?></th>
     	<th width="17%"><?= i18n("Apertura:") ?></th>
         <th width="17%"><?= i18n("Estado:") ?></th>
+        <th width="17%"><?= i18n("Derivada") ?></th>
         <th width="17%">&nbsp;</th>
     </tr>
 </table>
@@ -30,10 +30,14 @@
 			?>
 			<tr> 
 				<td width="17%"><?php echo $row['idIncid'];?></td> 
-				<td width="17%"><?= i18n("Avería alternador") ?></td> 
-				<td width="17%">Fulanito</a></td> <!-- Falta linkar al perfil del usuario. -->
+				<td width="17%"><?php echo $row['dniResponsable'];?></td> 
 				<td width="17%"><?php echo $row['fAper']; ?></td>
-				<td width="17%"><?php echo $row['derivada']; ?></td>
+				<td width="17%"><?php echo $row['estadoIncid']; ?></td>
+				<?php if ($row['derivada'] == 0) {?>
+				<td width="17%"><?php echo $row['cifEmpr']; ?></td> 
+				<?php } else { ?>
+				<td width="17%">NO</td> 
+				<?php }?>
 				<td width="17%"><button><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>">Consultar</a></button></td>
 			</tr>
 			<?php } 

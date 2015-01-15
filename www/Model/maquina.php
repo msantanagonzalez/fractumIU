@@ -76,7 +76,7 @@ class Maquina {
 	
 		$sql = mysql_query("SELECT M.*
 							FROM OPEXTERNO O LEFT JOIN INCIDENCIA I ON O.cifEmpr = I.cifEmpr 
-							LEFT JOIN MAQUINA M ON I.idMaq = M.idMaq
+							RIGHT JOIN MAQUINA M ON I.idMaq = M.idMaq
 							WHERE O.dniUsu = '".$_SESSION['dni']."'");
 		
 		return $sql;

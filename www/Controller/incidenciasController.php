@@ -123,29 +123,38 @@
 
 	function lista(){
 		session_start();
-
 		$incidencia = new Incidencia();
-		$listaIncidencias = $incidencia->lista();
-
-		$lista = array();		
-		while($row = mysql_fetch_array($listaIncidencias)){
-			array_push($lista, $row);
-		}
-
-		$_SESSION["listaIncidencia"] = $lista;
-
+		
 		switch ($_SESSION['tipo']) {
 			case 'J':
-				session_write_close();
+				$listaIncidencias = $incidencia->lista();
+				$lista = array();		
+				while($row = mysql_fetch_array($listaIncidencias)){
+					array_push($lista, $row);
+				}
+
+				$_SESSION["listaIncidencia"] = $lista;
 				header("location: ../View/incidencias/listarJefe.php");
 				break;
 			case 'I':
+				$listaIncidencias = $incidencia->lista();
+				$lista = array();		
+				while($row = mysql_fetch_array($listaIncidencias)){
+					array_push($lista, $row);
+				}
+
+				$_SESSION["listaIncidencia"] = $lista;
 				header("location: ../View/incidencias/listarInterno.php");
-				session_write_close();
 				break;
 			case 'E':
+				$listaIncidencia1 = $incidencia->listaIncidenciasOpE();
+				$lista1 = array();
+		
+				while($row = mysql_fetch_array($listaIncidencia1)){
+					array_push($lista1, $row);
+				}
+				$_SESSION["listaIncidencia1"] = $lista1;
 				header("location: ../View/incidencias/listarExterno.php");
-				session_write_close();
 				break;
 			default:				
 				break;

@@ -56,7 +56,7 @@
 	<table class="default"><!--TABLA-->
        	<tr>
 			<th width="20%"><?= i18n("ID") ?></th>
-        	<th width="20%"><?= i18n("FechaInicio") ?></th>
+        	<th width="20%"><?= i18n("Iteracion") ?></th>
             <th width="20%"><?= i18n("Operario") ?></th>
             <th width="20%"><?= i18n("Coste") ?></th>
 			<th width="20%"> </th>
@@ -64,13 +64,13 @@
     </table>
    	<table class="default"><!--TABLA-->
 		<tr>
-			<td width="20%">IT001</td>
-        	<td width="20%">15/04/2014</td>
-            <td width="20%">$operario</td>
-            <td width="20%">12.00</td>
-			<td width="10%"><a href="consultarTrabajo.html">Consultar</a></td>
+			<td width="20%"><?php echo $row2['idIncid'];?></td>  
+			<td width="20%"><?php echo $row2['nIteracion']; ?></td>
+			<td width="20%"><?php echo $row2['dniUsu']; ?></td>
+			<td width="20%"><?php echo $row2['costeIter']; ?></td>
 			<td width="10%"><img src="../../Recursos/images/PDF.png"></td>
-     	</tr>
+			<td width="10%"><button><a href="../../Controller/iteracionesController.php?accion=Consulta&idIncid=<?php echo $row2['idIncid'] ?>&nIteracion=<?php echo $row2['nIteracion'] ?>">Consultar</a></button></td>
+		</tr>
    	</table>
 </div>
 

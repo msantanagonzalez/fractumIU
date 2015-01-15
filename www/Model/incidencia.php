@@ -10,9 +10,11 @@
 		private $idMaquina;
 		private $estadoIncidencia;
 		private $derivada;
+		private $cifEmpr;
 
 		public function __construct($idIncidencia = NULL, $fechaApertura = NULL, $fechaCierre = NULL, $dniResponsable = NULL, $dniApertura = NULL, 
-									$idMaquina = NULL, $estadoIncidencia = NULL, $derivada = NULL, $descripcion = NULL){
+									$idMaquina = NULL, $estadoIncidencia = NULL, $derivada = NULL, $descripcion = NULL,
+									$cifEmpr = NULL){
 			$this->idIncidencia = $idIncidencia;
 			$this->fechaApertura = $fechaApertura;
 			$this->fechaCierre = $fechaCierre;
@@ -22,12 +24,13 @@
 			$this->estadoIncidencia = $estadoIncidencia;
 			$this->derivada = $derivada;
 			$this->descripcion = $descripcion;
+			$this->cifEmpr = $cifEmpr;
 		}
 
 		public function alta(){
-			mysql_query("INSERT INTO INCIDENCIA(idIncid, fAper, fCier, dniResponsable, dniApertura, idMaq, estadoIncid, derivada, descripIncid) 
+			mysql_query("INSERT INTO INCIDENCIA(idIncid, fAper, fCier, dniResponsable, dniApertura, idMaq, estadoIncid, derivada, descripIncid, cifEmpr) 
 						VALUES ('$this->idIncidencia','$this->fechaApertura','$this->fechaCierre','$this->dniResponsable','$this->dniApertura','$this->idMaquina',
-							'$this->estadoIncidencia','$this->derivada', '$this->descripcion')") or die(mysql_error());
+							'$this->estadoIncidencia','$this->derivada', '$this->descripcion', '$this->cifEmpr')") or die(mysql_error());
 		}
 
 		public function consultaIncidencia($incidencia){
@@ -46,6 +49,14 @@
 
 			return $sql;
 		}
+
+		public function listaIncidenciasOpE(){
+			session_start();
+			$sql = mysql_query("SELECT * FROM OPEXTERNO O RIGHT JOIN INCIDENCIA I ON O.cifEmpr = I.cifEmpr WHERE O.dniUsu = '".$_SESSION['dni']."'");
+			return $sql;
+		}
+
+
 
 		public function contarPendientes($tipo){
 			switch ($tipo) {

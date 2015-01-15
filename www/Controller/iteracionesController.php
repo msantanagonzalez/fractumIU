@@ -34,7 +34,7 @@
 		session_start();
 
 		$iteracion = new Iteracion($_POST["idIncid"], $_POST["nIteracion"], $_POST["fechaIter"], $_POST["hInicio"], $_POST["hFin"],
-										$_POST["estadoItera"],  $_POST["descripIter"], $_POST["costeIter"]);
+										$_POST["estadoItera"],  $_POST["descripIter"], $_POST["costeIter"], $_SESSION['dni']);
 		$iteracion->alta();
 		$tempIteracion = $_POST["idIncid"];
 		$nIteracion = $_POST['nIteracion'];
@@ -97,12 +97,12 @@
 				header("location: ../View/iteraciones/modificarJefe.php");
 				break;
 			case 'I':
-				header("location: ../View/iteraciones/modificarInterno.php");
 				session_write_close();
+				header("location: ../View/iteraciones/modificarInterno.php");
 				break;
 			case 'E':
-				header("location: ../View/iteraciones/modificarExterno.php");
 				session_write_close();
+				header("location: ../View/iteraciones/modificarExterno.php");
 			default:				
 				break;
 		}
@@ -145,11 +145,11 @@
 				header("location: ../View/incidencias/consultarJefe.php");
 				break;
 			case 'I':
-				header("location: ../View/incidencias/listarInterno.php");
+				header("location: ../View/incidencias/consultarInterno.php");
 				session_write_close();
 				break;
 			case 'E':
-				header("location: ../View/incidencias/listarExterno.php");
+				header("location: ../View/incidencias/consultarExterno.php");
 				session_write_close();
 				break;
 			default:					

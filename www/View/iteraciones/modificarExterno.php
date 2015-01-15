@@ -1,57 +1,52 @@
 <?php
+	$userType="externo";
 	require_once("../structure/header.php");
 ?>
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
-<h1 id="headerInterno"><a><i><?= i18n("ITERACIÓN") ?> $#IDincidencia</i></a></h1>
+<h1 id="headerExterno"><a><i><?= i18n("ITERACIÓN") ?> $#IDincidencia</i></a></h1>
 <div>
-	<form method="POST" onsubmit="return modificarIteracion()" action="../../Controller/iteracionesController.php">
+	<form method="POST" action="../../Controller/iteracionesController.php">
 
-		<?php $rows = $_SESSION['consultaIncidencia']; ?>
-	<?php foreach ($rows as $row) { ?>
-		<input type="hidden" class="text" name="idIncidencia" value="<?php echo $row['idIncid']; ?>"/>
-		<input type="hidden" class="text" name="nIteracion" value="<?php echo $row['nIteracion']; ?>"/>
-		<input type="hidden" class="text" name="fechaIteracion" value="<?php echo $row['fechaIter']; ?>"/>
-		<input type="hidden" class="text" name="horaInicio" value="<?php echo $row['hInicio']; ?>"/>
-		<input type="hidden" class="text" name="horaFin" value="<?php echo $row['hFin'];?>"/>
-		<input type="hidden" class="text" name="estadoIteracion" value="<?php echo $row['estadoItera'];?>"/>
-		<input type="hidden" class="text" name="descripcionIteracion" value="<?php echo $row['descripIter']; ?>"/>
-		<input type="hidden" class="text" name="costeIteracion" value="<?php echo $row['costeIter']; ?>"/>
+		<?php $rows = $_SESSION['consultaIteracion'];
+		 foreach ($rows as $row) { ?>
+		 <input type="hidden" class="text" name="idIncid" value="<?php echo $row['idIncid']; ?>"/>
+		 <input type="hidden" class="text" name="nIteracion" value="<?php echo $row['nIteracion']; ?>"/>
+		 <input type="hidden" class="text" name="fechaIter" value="<?php echo $row['fechaIter']; ?>"/>
+		 <input type="hidden" class="text" name="hInicio" value="<?php echo $row['hInicio']; ?>"/>
 		<table class="default">
 			<tr> 
 				<td width="25%"><?= i18n("Identificador Incidencia:") ?> </td> 
 				<td width="25%"><input type="text" class="text" disabled value="<?php echo $row['idIncid']; ?>"/></td> 
 				<td width="25%"><?= i18n("Número Iteración:") ?> </td> 
 				<td width="25%"><input type="text" class="text" disabled value="<?php echo $row['nIteracion']; ?>"/></td>
-				<td width="25%"><?= i18n("Coste:") ?></td> 
-				<td width="25%"><input id="coste" type="text" class="text"  value="<?php echo $row['costeIter']; ?>"/></td>
+				<td width="25%"><?= i18n("Coste:") ?> </td> 
+				<td width="25%"><input id="coste" type="text" class="text" name="costeIter" value="<?php echo $row['costeIter']; ?>"/></td>
 			</tr>
 			<tr> 
-				<td width="25%"><?= i18n("Fecha Apertura:") ?></td> 
+				<td width="25%"><?= i18n("Fecha Apertura:") ?> </td> 
 				<td width="25%"><input type="date" class="text" name="fechaCreacion" disabled value="<?php echo $row['fechaIter']; ?>" /></td> 
-				<td width="25%"><?= i18n("Hora Inicio:") ?></td> 
+				<td width="25%"><?= i18n("Hora Inicio:") ?> </td> 
 				<td width="25%"><input type="time" class="text" name="horaInicio" disabled value="<?php echo $row['hInicio']; ?>" /></td>
 				<td width="25%"><?= i18n("Hora Fin:") ?></td> 
-				<td width="25%"><input id="horaFin" type="time" class="text" name="horaFin" value="<?php echo $row['hFin']; ?>" /></td>
+				<td width="25%"><input id="horaFin" type="time" class="text" name="hFin" value="<?php echo $row['hFin']; ?>" /></td>
 			</tr>
 			<tr> 
 				<td><?= i18n("Estado Iteración:") ?></td>
-				<td width="25%"><input id="estadoItera" type="date" class="text" name="estadoIteracion" value="<?php echo $row['estadoItera']; ?>" /></td> 	
+				<td width="25%"><input id="estadoItera" type="date" class="text" name="estadoItera" value="<?php echo $row['estadoItera']; ?>" /></td> 	
 			</tr>
 			<tr>
 				<td width="25%"><br><?= i18n("Descripción:") ?></td>
 				<td colspan='3' width="75%">
-					<textarea id="des" style="resize:none; text-align:left;" style="t" rows="4">
-					<?php echo $row['descripIter'];?>
-					</textarea>
+					<textarea id="des" style="resize:none; text-align:left;" style="t" rows="4" name="descripIter" ><?php echo $row['descripIter'];?></textarea>
 				</td>
 			</tr>
-			<?php } ?>
 		</table>
 	
 	<table class="default">
 		<tr>
 			<td colspan="4"><input type="submit" name="accion" value="Modificado"></td>
 		</tr> 
+			<?php } ?>
 	</table>
 	</form>
 </div>

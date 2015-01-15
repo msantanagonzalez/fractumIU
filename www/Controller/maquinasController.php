@@ -209,6 +209,7 @@
 				
 				header("location: ../View/maquinas/listarExterno.php");
 				session_write_close();
+				break;
 			default:				
 				break;
 		}

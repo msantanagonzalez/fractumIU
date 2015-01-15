@@ -9,9 +9,10 @@
 		private $estadoItera;
 		private $descripIter;
 		private $costeIter;
+		private $dniUsu;
 
 		public function __construct($idIncid = NULL, $nIteracion = NULL, $fechaIter = NULL, $hInicio = NULL, $hFin = NULL, 
-									$estadoItera = NULL, $descripIter = NULL, $costeIter = NULL){
+									$estadoItera = NULL, $descripIter = NULL, $costeIter = NULL, $dniUsu = NULL){
 			$this->idIncid = $idIncid;
 			$this->nIteracion = $nIteracion;
 			$this->fechaIter = $fechaIter;
@@ -20,12 +21,13 @@
 			$this->estadoItera = $estadoItera;
 			$this->descripIter = $descripIter;
 			$this->costeIter = $costeIter;
+			$this->dniUsu = $dniUsu;
 		}
 
 		public function alta(){
-			mysql_query("INSERT INTO ITERACION(idIncid, nIteracion, fechaIter, hInicio, hFin, estadoItera, descripIter, costeIter) 
+			mysql_query("INSERT INTO ITERACION(idIncid, nIteracion, fechaIter, hInicio, hFin, estadoItera, descripIter, costeIter, dniUsu) 
 						VALUES ('$this->idInciD','$this->nIteracion','$this->fechaIter','$this->hInicio','$this->hFin','$this->estadoItera',
-							'$this->descripIter','$this->costeIter')") or die(mysql_error());
+							'$this->descripIter','$this->costeIter','$this->dniUsu')") or die(mysql_error());
 		}
 
 		public function consulta(){
