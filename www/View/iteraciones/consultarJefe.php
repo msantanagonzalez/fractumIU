@@ -3,7 +3,7 @@
 	require_once("../structure/header.php");
 ?>
 
-<h1 id='headerJefe'><a>- DETALLES TRABAJO -</a></h1>
+<h1 id='headerJefe'><a><?= i18n("- DETALLES TRABAJO -") ?></a></h1>
 
 
 	<div style='height:350px;width:auto;overflow-y: scroll;'>
@@ -12,33 +12,33 @@
 	 foreach ($rows as $row) { ?>
 		<table class='default'>
 			<tr>
-				<td>Identificador Incidencia:</td>
+				<td><?= i18n("Identificador Incidencia:") ?></td>
 				<td><input type='text' disabled name="numeroIncidencia" value="<?php echo $row['idIncid']; ?>"></td>
-				<td>Numero Iteracion:</td>
+				<td><?= i18n("Número Iteración") ?></td>
 		        <td><input type='text' disabled name="numeroTrabajo" value="<?php echo $row['nIteracion']; ?>"></td>
 			</tr>
 
 			<tr>
 				
-		        <td>Coste:</td>
+		        <td><?= i18n("Coste") ?></td>
 		        <td><input type='text' disabled name="coste" value="<?php echo $row['costeIter']; ?>"></td>
-		        <td>Fecha Inicio:</td>
+		        <td><?= i18n("Fecha Apertura:") ?></td>
 		        <td><input type='date' disabled value="<?php echo $row['fechaIter']; ?>"></td>
 		 
 		    </tr>
 			<br>
 		    <tr>
-		        <td>Hora Inicio:</td>
+		        <td><?= i18n("Hora Inicio:") ?></td>
 		        <td><input type='time' disabled value="<?php echo $row['hInicio']; ?>"></td>
-		        <td>Hora Fin:</td>
+		        <td><?= i18n("Hora Fin:") ?></td>
 		        <td><input type='time' disabled value="<?php echo $row['hFin']; ?>"></td>
 			</tr>
 		    </tr>
-				<td>Documentacion:</td>
+				<td><?= i18n("Documentación:") ?></td>
 		        <td colspan='3'><input type='text' disabled class='text' name="documentacion" value='#001-"Nombre archivo"'/></td>
 		    </tr>
 		    <tr>
-				<td colspan='5'>Descripcion:</td>
+				<td colspan='5'><?= i18n("Descripción:") ?></td>
 			</tr>
 			</tr>
 				<td colspan='5'>

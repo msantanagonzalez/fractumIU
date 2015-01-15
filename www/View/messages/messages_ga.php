@@ -81,6 +81,29 @@
 	"| INFO |- No hay incidencias para listar"=>"| INFO |- Non hai incidencias para listar",
 	 
 	
+	//View/iteraciones/altaExterno
+	
+	"- NUEVA ITERACION DE EMPLEADO EXTERNO -"=>"- NOVA ITERACIÓN DE EMPREGADO EXTERNO -",
+	"ID Incidencia:"=>"ID Incidencia:",
+	"Hora Inicio:"=>"Hora Inicio:",
+	"Hora Fin:"=>"Hora Fin:",
+	"Estado Iteración:"=>"Estado Iteración:",
+	"Coste Trabajo:"=>"Custo Traballo:",
+	"Documentación:"=>"Documentación:",
+		
+	//View/iteraciones/altaInterno
+	
+	"- NUEVA ITERACION DE EMPLEADO INTERNO -"=>"- NOVA ITERACIÓN DE EMPREGADO INTERNO -",
+	
+	//""/consultarExterno
+	"Identificador Incidencia:"=>"Identificador Incidencia:",
+	"- DETALLES TRABAJO -"=>"- DETALLES TRABALLO -",
+	""=>"",
+	""=>"",
+	""=>"",
+	""=>"",
+	
+	
 	
   )
 ?>
