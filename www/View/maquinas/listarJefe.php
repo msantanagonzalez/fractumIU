@@ -4,13 +4,13 @@
 	require '../crearMensaje.php';
 ?>
 
-<h1 id="headerJefe"><a><i>M&Aacute;QUINAS</i></a></h1>
+<h1 id="headerJefe"><a><i><?= i18n("- MÁQUINAS SERVICIOS -") ?></i></a></h1>
 <table class="default">
     <tr>
-    	<th width="20%">#ID M&aacute;q.</th>
-		<th width="20%">Nombre </th>
-    	<th width="20%">Servicio</th>
-       	<th width="20%">&Uacute;lt. incidencia</th>
+    	<th width="20%"><?= i18n("ID") ?></th>
+		<th width="20%"><?= i18n("Nombre:") ?></th>
+    	<th width="20%"><?= i18n("Servicio:") ?></th>
+       	<th width="20%"><?= i18n("Últ. Incidencia") ?></th>
         <th width="10%">&nbsp;</th>
         <th width="10%">&nbsp;</th>
     </tr>
@@ -21,7 +21,8 @@
 			if (empty($rows)) {
 			?>
 				<div class="alert alert-warning" role="alert">
-				| INFO |- No hay maquinas para listar 
+				<?= i18n("| INFO |- No hay máquinas para listar") ?>
+				
 				</div>
 			<?php
 			}

@@ -3,13 +3,13 @@
 	require_once("../structure/header.php");
 ?>
 
-<h1 id="headerInterno"><a><i>MAQUINAS</i></a></h1>
+<h1 id="headerInterno"><a><i><?= i18n("- MÁQUINAS SERVICIOS -") ?></i></a></h1>
 <table class="default">
     <tr>
-    	<th width="20%">ID</th>
-    	<th width="20%">Nombre</th>
-       	<th width="20%">Servicio</th>
-		<th width="20%">Ult.Incidencia</th>
+    	<th width="20%"><?= i18n("ID") ?></th>
+    	<th width="20%"><?= i18n("Nombre:") ?></th>
+       	<th width="20%"><?= i18n("Servicio:") ?></th>
+		<th width="20%"><?= i18n("Últ. Incidencia") ?></th>
         <th width="20%"></th>
     </tr>
 </table>

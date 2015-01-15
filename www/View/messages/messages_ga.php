@@ -118,11 +118,14 @@
 	"INCIDENCIAS RELATIVAS"=>"INCIDENCIAS RELATIVAS",
 	"Operario:"=>"Operario:",
 	"- MAQUINA:"=>"- MAQUINA:",
-	""=>"",
-	""=>"",
-	""=>"",
-	""=>"",
-	""=>"",
+	
+	//""/listarExterno
+	"- MÁQUINAS SERVICIOS -"=>"- MÁQUINAS SERVIZOS -",
+	"Mantenimiento"=>"Mantemento",
+	"Últ. Incidencia"=>"Últ. Incidencia",
+	"- MÁQUINAS INCIDENCIAS-"=>"- MÁQUINAS INCIDENCIAS-",
+	"Servicio:"=>"Servizo:",
+	"| INFO |- No hay máquinas para listar"=>"| INFO |- Non hai máquinas para listar",
 	
 	
 	

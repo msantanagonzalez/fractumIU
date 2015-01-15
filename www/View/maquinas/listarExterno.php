@@ -3,13 +3,13 @@
 	require_once("../structure/header.php");
 ?>
 
-<h1 id="headerExterno"><a>- MAQUINAS SERVICIOS -</a></h1> <!--SECCIÓN-->
+<h1 id="headerExterno"><a><?= i18n("- MÁQUINAS SERVICIOS -") ?></a></h1> <!--SECCIÓN-->
 <table class="default"><!--TABLA-->
 	<tr>
-		<th width="10%">ID</th>
-		<th width="25%">Nombre</th>
-	    <th width="25%">Mantenimiento</th>
-	    <th width="25%">Ult. Incidencia</th>
+		<th width="10%"><?= i18n("ID") ?></th>
+		<th width="25%"><?= i18n("Nombre:") ?></th>
+	    <th width="25%"><?= i18n("Mantenimiento") ?></th>
+	    <th width="25%"><?= i18n("Últ. Incidencia") ?></th>
 		<th width="15%"> </th>
 	</tr>
 </table>
@@ -33,13 +33,13 @@
 	</table>
 </div>
 
-<h1 id="headerExterno"><a>- MAQUINAS INCIDENCIAS-</a></h1> <!--SECCIÓN-->
+<h1 id="headerExterno"><a><?= i18n("- MÁQUINAS INCIDENCIAS-") ?></a></h1> <!--SECCIÓN-->
 <table class="default"><!--TABLA-->
 	<tr>
-		<th width="10%">ID</th>
-		<th width="25%">Nombre</th>
-	    <th width="25%">Mantenimiento</th>
-	    <th width="25%">Ult. Incidencia</th>
+		<th width="10%"><?= i18n("ID") ?></th>
+		<th width="25%"><?= i18n("Nombre:") ?></th>
+	    <th width="25%"><?= i18n("Mantenimiento") ?></th>
+	    <th width="25%"><?= i18n("Últ. Incidencia") ?></th>
 		<th width="15%"> </th>
 	</tr>
 </table>
