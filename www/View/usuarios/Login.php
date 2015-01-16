@@ -1,5 +1,7 @@
 <?php
 session_start();
+require_once("../messages/messages_ga.php");
+require_once("../../Model/I18n.php");
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -22,13 +24,13 @@ session_start();
 </head>
 <body class="left-sidebar">
 <div style="width:50%; height:50%; margin:auto auto">
-	<h1 id="headerJefe"><a><i>Login</i></a></h1>
+	<h1 id="headerJefe"><a><i><?= i18n("Login") ?></i></a></h1>
 		<form method="POST" action="../../Controller/usuariosController.php">
 			<table class="default">
 				<tr> 
-					<td width="25%">Usuario: </td> 
+					<td width="25%"><?= i18n("Usuario:") ?> </td> 
 					<td width="25%"><input type="text" class="text" name="dniUsu" placeholder="DNI:"/></td> 
-					<td width="25%">Contraseña: </td> 
+					<td width="25%"><?= i18n("Contraseña:") ?> </td> 
 					<td width="25%"> <input type="password" class="text" name="passUsu" placeholder="Contraseña:" /></td>
 				</tr>
 				<tr>

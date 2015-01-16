@@ -8,7 +8,7 @@
 	
 	"jefeNegocio:"=>"Xefe de Negocio",
 	"Pendientes:" => "Pendentes:",
-	"GESTIONAR INCIDENCIAS" => "XESTIONAR INCIDENCIAS",
+	"GEST. INCIDENCIAS" => "XEST. INCIDENCIAS",
 	"GESTIONAR USUARIOS" => "XESTIONAR USUARIOS",
 	"GESTIONAR EMPRESAS" => "XESTIÓN DE NEGOCIOS",
 	"GESTIONAR MÁQUINAS" => "XESTIONAR MÁQUINAS",
@@ -179,11 +179,10 @@
 	"| INFO |- No hay usuarios internos para listar"=>"| INFO |- Non hai usuarios internos para listar",
 	"OPERARIOS EXTERNOS"=>"OPERARIOS EXTERNOS",
 	"| INFO |- No hay usuarios externos para listar "=>"| INFO |- Non hai usuarios externos para listar ",
-	""=>"",
-	""=>"",
-	""=>"",
-	""=>"",
 	
+	//View/usuarios/login
+	"Login"=>"Login",
+	"Usuario:"=>"Usuario:",
 	
   )
 ?>
