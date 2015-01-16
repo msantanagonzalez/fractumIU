@@ -65,15 +65,22 @@
 			<th width="20%"> </th>
      	</tr>
     </table>
-   	<table class="default"><!--TABLA-->
+     	   <table class="default"><!--TABLA-->
 		<tr>
-			<td width="20%"><?php echo $row2['idIncid'];?></td>  
-			<td width="20%"><?php echo $row2['nIteracion']; ?></td>
-			<td width="20%"><?php echo $row2['dniUsu']; ?></td>
-			<td width="20%"><?php echo $row2['costeIter']; ?></td>
-			<td width="10%"><img src="../../Recursos/images/PDF.png"></td>
-			<td width="10%"><button><a href="../../Controller/iteracionesController.php?accion=Consulta&idIncid=<?php echo $row2['idIncid'] ?>&nIteracion=<?php echo $row2['nIteracion'] ?>">Consultar</a></button></td>
-		</tr>
+			<?php 
+				$rows2 = $_SESSION['listaIteraciones'];
+				foreach ($rows2 as $row2) {
+			?>
+			<tr> 
+				<td width="20%"><?php echo $row2['idIncid'];?></td>  
+				<td width="20%"><?php echo $row2['nIteracion']; ?></td>
+				<td width="20%"><?php echo $row2['dniUsu']; ?></td>
+				<td width="20%"><?php echo $row2['costeIter']; ?></td>
+				<td width="10%"><img src="../../Recursos/images/PDF.png"></td>
+				<td width="10%"><button><a href="../../Controller/iteracionesController.php?accion=Consulta&idIncid=<?php echo $row2['idIncid'] ?>&nIteracion=<?php echo $row2['nIteracion'] ?>">Consultar</a></button></td>
+			</tr>
+			<?php } ?>
+     	</tr>
    	</table>
 </div>
 
