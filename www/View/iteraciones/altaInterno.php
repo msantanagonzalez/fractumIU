@@ -1,9 +1,11 @@
 <?php
 	$userType="interno";
 	require_once("../structure/header.php");
+	$idIncid=$_REQUEST['idIncidencia'];
 ?>
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
 <h1 id="headerInterno"><a><?= i18n("- NUEVA ITERACION DE EMPLEADO INTERNO -") ?></a></h1>
+<br>
 <form name='FormAltaIteracion' onsubmit="" action='../../Controller/iteracionesController.php' method='POST'>
 	<input type="hidden" class="text" name="idIncid" value="indic1">
 	<input type="hidden" class="text" name="nIteracion" value="1"/>
