@@ -3,10 +3,7 @@ if(isset($acceso)){
 	switch ($acceso)
 	{
 		case "ON":
-			anadirMensaje("|ERROR| Ejemplo de mensaje TIPO:success","success");
-			anadirMensaje("|ERROR| Ejemplo de mensaje TIPO:info","info");
-			anadirMensaje("|ERROR| Ejemplo de mensaje TIPO:warning","warning");
-			anadirMensaje("|ERROR| Ejemplo de mensaje TIPO:danger","danger");
+			anadirMensaje("|INFO| Acceso jefe: Usuario=12345678E Pass=1234","info");
 			header("location:View/usuarios/Login.php");
 		break;
 	}

@@ -25,10 +25,10 @@ class LanguageController {
 		session_start();
       }
       I18n::getInstance()->setLanguage($_GET["lang"]);
-      
       //header("Location: ../View/usuarios/Login.php");
 	  require_once("../View/usuarios/Login.php");
 	  echo "estoy aquí";
       die();
     }
 }
+header("Location: ../View/usuarios/Login.php");

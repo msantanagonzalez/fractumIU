@@ -41,8 +41,7 @@ class I18n {
    * param String $ idioma El idioma que se establece . Por ejemplo : "en"
    * return Void
    */
-  public function setLanguage($language) {
- 
+  public function setLanguage($language){
     include(__DIR__."/../View/messages/messages_$language.php");
     $this->messages = $i18n_messages;
           
