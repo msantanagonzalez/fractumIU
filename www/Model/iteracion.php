@@ -26,7 +26,7 @@
 
 		public function alta(){
 			mysql_query("INSERT INTO ITERACION(idIncid, nIteracion, fechaIter, hInicio, hFin, estadoItera, descripIter, costeIter, dniUsu) 
-						VALUES ('$this->idInciD','$this->nIteracion','$this->fechaIter','$this->hInicio','$this->hFin','$this->estadoItera',
+						VALUES ('$this->idIncid','$this->nIteracion','$this->fechaIter','$this->hInicio','$this->hFin','$this->estadoItera',
 							'$this->descripIter','$this->costeIter','$this->dniUsu')") or die(mysql_error());
 		}
 
@@ -63,6 +63,16 @@
 
 		public function cerrarIteracion(){
 			mysql_query("UPDATE ITERACION SET estadoItera = '1' WHERE idIncid = '$this->idIncidencia' AND nIteracion='$this->nIteracion'") or die(mysql_error());
+		}
+
+		public function nextId(){
+			$sql = mysql_query("SELECT MAX(nIteracion) FROM ITERACION") or die(mysql_error());
+			if(!$sql){
+				return 1;
+			} else {
+				return $sql;
+			}
+
 		}
 
 	}

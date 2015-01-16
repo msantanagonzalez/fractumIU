@@ -1,11 +1,12 @@
 <?php
 	$userType="externo";
 	require_once("../structure/header.php");
+	$idIncid=$_REQUEST['idIncidencia'];
 ?>
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
-<h1 id="headerInterno"><a><?= i18n("- NUEVA ITERACION DE EMPLEADO EXTERNO -") ?></a></h1>
+<h1 id="headerExterno"><a><?= i18n("- NUEVA ITERACION DE EMPLEADO EXTERNO -") ?></a></h1>
 <br>
-<form name='FormAltaIteracion' onsubmit="return comprobarAltaIteracion()" action='../../Controller/iteracionesController.php' method='POST'>
+<form name='FormAltaIteracion' onsubmit="" action='../../Controller/iteracionesController.php' method='POST'>
 	<input type="hidden" class="text" name="idIncid" value="indic1">
 	<input type="hidden" class="text" name="nIteracion" value="1"/>
 	<input type='hidden' class='text' name="estadoItera" value="0"/>
@@ -13,7 +14,7 @@
 		<table class='default'>
 			<tr>
 				<td><?= i18n("ID Incidencia:") ?></td>
-				<td><input id="idIncid" type='text'  value='ID0'></td>
+				<td><input id="idIncid" type='text'  value='<?php echo $idIncid; ?>' disabled ></td>
 				<td><?= i18n("Número Iteración:") ?></td>
 				<td><input id="nIteracion" type='text'  value='0'></td>
 			</tr>
@@ -49,8 +50,9 @@
 	</div>
 	<table>
 		<tr> 
-			<td width='25%'><input type='submit' name='accion' value='GUARDAR TRABAJO'> </td>
-			<td width='45%'><a href="consultarIncidencia.html"><input type='button' value='ATRAS'></a></td>
+			<td width='25%'><a href="../../Controller/iteracionesController.php?accion='GUARDAR TRABAJO'"><input type='submit' name='accion' value='GUARDAR TRABAJO'></a> </td>
+			<td width='25%'><a href="../../Controller/iteracionesController.php?accion='FINALIZAR TRABAJO'"><input type='submit' name='accion' value='CERRAR'></a></td>
+			<td width='25%'><a href="../../Controller/iteracionesController.php?accion='Alta'"><input type='submit' name='accion' value='Alta'></a></td>
 		</tr>
 	</table>
 </form>

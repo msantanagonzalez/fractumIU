@@ -33,12 +33,15 @@
 	function alta(){
 		session_start();
 
-		$iteracion = new Iteracion($_POST["idIncid"], $_POST["nIteracion"], $_POST["fechaIter"], $_POST["hInicio"], $_POST["hFin"],
+		$iteracion2 = new Iteracion();
+		$id = $iteracion2->nextId();
+		$idI = $_POST["idIncid"];
+
+		$iteracion = new Iteracion($idI, $id, $_POST["fechaIter"], $_POST["hInicio"], $_POST["hFin"],
 										$_POST["estadoItera"],  $_POST["descripIter"], $_POST["costeIter"], $_SESSION['dni']);
 		$iteracion->alta();
-		$tempIteracion = $_POST["idIncid"];
-		$nIteracion = $_POST['nIteracion'];
-		header("location: iteracionesController.php?accion=Consulta&idIncidencia=$tempITERACION&nIteracion=$nIteracion");
+		
+		header("location: iteracionesController.php?accion=Consulta&idIncid=$idI&nIteracion=$id");
 	}
 
 	function consulta(){
