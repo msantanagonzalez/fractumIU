@@ -62,7 +62,7 @@
 		}
 
 		public function cerrarIteracion(){
-			mysql_query("UPDATE INCIDENCIA SET  estadoItera = '1' WHERE idIncid = '$this->idIncidencia' AND nIteracion='$this->nIteracion'") or die(mysql_error());
+			mysql_query("UPDATE ITERACION SET estadoItera = '1' WHERE idIncid = '$this->idIncidencia' AND nIteracion='$this->nIteracion'") or die(mysql_error());
 		}
 
 	}
