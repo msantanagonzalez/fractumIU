@@ -84,7 +84,7 @@
    	</table>
 <table class="default">
 	<tr>
-		<td colspan="4"><a href="altaInterno?idIncidencia=<?php echo $row['idIncid']; ?>.php"><input type="submit" name="Alta" value="Alta M&aacute;quina"/></a></td>
+		<td colspan="4"><a href="altaInterno?idIncidencia=<?php echo $row['idIncid']; ?>.php"><input type="submit" name="Alta" value="NUEVA ITERACION"/></a></td>
 	</tr>
 </table>
 
