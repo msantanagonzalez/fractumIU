@@ -1,4 +1,5 @@
 <?php
+
 	$userType	=	"jefe";
 	require_once("../structure/header.php");
 	require '../crearMensaje.php';
@@ -14,35 +15,37 @@
         <th width="17%">&nbsp;</th>
     </tr>
 </table>
-<form method="POST" action="../../Controller/incidenciasController.php">
-	<table class="default">
-		<?php 
-			if(isset($_SESSION['listaIncidencia']))
-			$rows = $_SESSION['listaIncidencia'];
-			if (empty($rows)) {
-			?>
-				<div class="alert alert-warning" role="alert">
-				<?= i18n("| INFO |- No hay incidencias para listar") ?> 
-				</div>
-			<?php
-			}
-			else{
-				foreach ($rows as $row) {
-			?>
-			<tr> 
-				<td width="17%"><?php echo $row['idIncid'];?></td> 
-				<td width="17%">Avería alternador</td> 
-				<td width="17%">Fulanito</a></td> <!-- Falta linkar al perfil del usuario. -->
-				<td width="17%"><?php echo $row['fAper']; ?></td>
-				<td width="17%"><?php echo $row['estadoIncid']; ?></td>
-				<td width="17%"><button><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>">Consultar</a></button></td>
-			</tr>
+<div style="height:107px;width:auto;overflow-y: scroll;"><!--ESTO DA LUGAR AL SCROLL-->
+	<form method="POST" action="../../Controller/incidenciasController.php">
+		<table class="default">
 			<?php 
-			} 
-		}
-		?>
-	</table>
-</form>
+				if(isset($_SESSION['listaIncidencia']))
+				$rows = $_SESSION['listaIncidencia'];
+				if (empty($rows)) {
+				?>
+					<div class="alert alert-warning" role="alert">
+					<?= i18n("| INFO |- No hay incidencias para listar") ?> 
+					</div>
+				<?php
+				}
+				else{
+					foreach ($rows as $row) {
+				?>
+				<tr> 
+					<td width="17%"><?php echo $row['idIncid'];?></td> 
+					<td width="17%">Avería alternador</td> 
+					<td width="17%">Fulanito</a></td> <!-- Falta linkar al perfil del usuario. -->
+					<td width="17%"><?php echo $row['fAper']; ?></td>
+					<td width="17%"><?php echo $row['estadoIncid']; ?></td>
+					<td width="17%"><button><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>">Consultar</a></button></td>
+				</tr>
+				<?php 
+				} 
+			}
+			?>
+		</table>
+	</form>
+</div>
 <br>
 <h1 id="headerJefe"><a><i><?= i18n("- MÁQUINAS -") ?></i></a></h1>
 <table class="default">

@@ -1,5 +1,4 @@
 <?php
-	$userType="jefe";
 	require_once("../structure/header.php");
 ?>
 
@@ -51,7 +50,7 @@
 	<table class="default">
 		<tr>
 			<td colspan="4"><a href="../../Controller/incidenciasController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid']; ?>"><input type="submit" name="pModificar" value="Modificar"></a></td>
-		</tr> 
+		</tr>
 	</table>
 	<h1 id="headerJefe"><a><i><?= i18n("- ITERACIONES -") ?></i></a></h1>
 	<table class="default">

@@ -49,7 +49,10 @@
 	</form>
 	<table class="default">
 		<tr>
-			<td colspan="4"><a href="../../Controller/incidenciasController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid']; ?>"><input type="submit" name="pModificar" value="Modificar"></a></td>
+			<td colspan="4"><a href="../../Controller/incidenciasController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid']; ?>"><input type="button" name="pModificar" value="Modificar"></a></td>
+		</tr>
+		<tr>
+			<td colspan="4"><a href="../../View/iteraciones/altaInterno.php?idIncidencia=<?php echo $row['idIncid']; ?>"><input type="button" value="Alta"></a></td>
 		</tr> 
 	</table>
 	<h1 id="headerInterno"><a><?= i18n("- ITERACIONES -") ?></a></h1> <!--SECCIÓN-->

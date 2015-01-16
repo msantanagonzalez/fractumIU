@@ -31,7 +31,9 @@
 				<td><?= i18n("Estado:") ?></td>
 				<td>
 					<select name='estadoIncidencia'>
-						<option value='<?php echo $row['estadoIncid']; ?>' selected><?php echo $row['estadoIncid']; ?></option>
+						<option value='<?php echo $row['estadoIncid']; ?>' hidden selected><?php echo $row['estadoIncid']; ?></option>
+						<option value='Derivada'>Derivada</option>
+						<option value='Cerrada'>Cerrada</option>
 					</select> 		
 				</td>
 				<td><?= i18n("Máquina:") ?></td>

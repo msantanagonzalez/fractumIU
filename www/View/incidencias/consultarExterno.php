@@ -47,6 +47,11 @@
 			<?php } ?>
 		</table>
 	</form>
+	<table>
+		<tr>
+			<td colspan="4"><a href="../../View/iteraciones/altaExterno.php?idIncidencia=<?php echo $row['idIncid']; ?>"><input type="button" value="Alta"></a></td>
+		</tr> 
+	</table>
 	<h1 id="headerExterno"><a><?= i18n("- ITERACIONES -") ?></a></h1> <!--SECCIÓN-->
 	<table class="default"><!--TABLA-->
        	<tr>

@@ -3,43 +3,46 @@
     require_once("../structure/header.php");
 ?>
 <h1 id="headerInterno"><a><?= i18n("- INCIDENCIAS -") ?></a></h1> <!--SECCIÓN-->
-<table class="default"><!--TABLA-->
+<table class="default">
     <tr>
-        <th width="20%">#ID <?= i18n("Inc.") ?></th>
-        <th width="20%"><?= i18n("Máquina:") ?></th>
-        <th width="20%"><?= i18n("Apertura:") ?></th>
-        <th width="20%"><?= i18n("Estado:") ?></th>
-        <th width="10%"> </th>
-        <th width="10%"> </th>
+        <th width="17%">#ID <?= i18n("Inc.") ?></th>
+        <th width="17%"><?= i18n("Últ. operario") ?></th>
+        <th width="17%"><?= i18n("Últ. iteración") ?> </th>
+        <th width="17%"><?= i18n("Título") ?></th>
+        <th width="17%"><?= i18n("Estado:") ?></th>
+        <th width="17%">&nbsp;</th>
     </tr>
 </table>
 <div style="height:107px;width:auto;overflow-y: scroll;"><!--ESTO DA LUGAR AL SCROLL-->
-    <table class="default"><!--TABLA-->
-        <tr>
-            <td width="20%">ID001</td>
-            <td width="20%"><a href="consultarMaquina.html"><?= i18n("Centrifugadora de lechuga") ?></a></td>
-            <td width="20%">Marco Santana</td>
-            <td width="20%"><?= i18n("Abierta") ?></td>
-            <td width="10%"><button onclick="window.location.href='consultarIncidencia.html'">Consultar</button></td>
-            <td width="10%"><button>Derivar</button></td>
-        </tr>
-        <tr>
-            <td width="20%">ID002</td>
-            <td width="20%"><a href="consultarMaquina.html"><?= i18n("Impresor 3D") ?></a></td>
-            <td width="20%">Antonio Gonz&aacute;lez</td>
-            <td width="20%"><?= i18n("Pendiente de cierre") ?></td>
-            <td width="10%"><button onclick="window.location.href='consultarIncidencia.html'">Consultar</button></td>
-            <td width="10%"><button>Cerrar</button></td>
-        </tr>
-        <tr>
-            <td width="20%">ID003</td>
-            <td width="20%"><a href="consultarMaquina.html"><?= i18n("Ensamblador") ?></a></td>
-            <td width="20%">Antonio Gonz&aacute;lez</td>
-            <td width="20%"><?= i18n("Derivada") ?></td>
-            <td width="10%"><button onclick="window.location.href='consultarIncidencia.html'">Consultar</button></td>
-            <td width="10%"><button>Cerrar</button></td>
-        </tr>
-    </table>
+    <form method="POST" action="../../Controller/incidenciasController.php">
+        <table class="default">
+            <?php 
+                if(isset($_SESSION['listaIncidencia']))
+                $rows = $_SESSION['listaIncidencia'];
+                if (empty($rows)) {
+                ?>
+                    <div class="alert alert-warning" role="alert">
+                    <?= i18n("| INFO |- No hay incidencias para listar") ?> 
+                    </div>
+                <?php
+                }
+                else{
+                    foreach ($rows as $row) {
+                ?>
+                <tr> 
+                    <td width="17%"><?php echo $row['idIncid'];?></td> 
+                    <td width="17%">Avería alternador</td> 
+                    <td width="17%">Fulanito</a></td> <!-- Falta linkar al perfil del usuario. -->
+                    <td width="17%"><?php echo $row['fAper']; ?></td>
+                    <td width="17%"><?php echo $row['estadoIncid']; ?></td>
+                    <td width="17%"><button><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>">Consultar</a></button></td>
+                </tr>
+                <?php 
+                } 
+            }
+            ?>
+        </table>
+    </form>
 </div> 
 <br>
 <h1 id="headerInterno"><a><i><?= i18n("- MÁQUINAS -") ?></i></a></h1>
