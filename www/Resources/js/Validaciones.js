@@ -1173,7 +1173,7 @@ function modificarMaquina(){
 		 }
 }
 
-function altaUnServicioJefe(){ 
+function altaServicioJefe(){ 
 
 		
 		 var idServ = document.getElementById("idServ").value;

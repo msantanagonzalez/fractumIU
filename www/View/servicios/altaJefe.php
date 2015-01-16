@@ -4,7 +4,7 @@
 ?>
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
 <h1 id="headerJefe"><a><i><?= i18n("ALTA SERVICIO") ?></i></a></h1>
-<form name='FormAltaServicio' onsubmit="return altaUnServicioJefe()" method="POST" action="../../Controller/serviciosController.php">
+<form name='FormAltaServicio' onsubmit="return altaServicioJefe()" method="POST" action="../../Controller/serviciosController.php">
 	<table class="default">
 		<tr> 
 			<td width="25%"><?= i18n("CIF Empresa:") ?></td> 
