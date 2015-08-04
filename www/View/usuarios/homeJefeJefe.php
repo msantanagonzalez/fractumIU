@@ -8,10 +8,10 @@
 <table class="default">
     <tr>
     	<th width="17%">#ID <?= i18n("Inc.") ?></th>
-       	<th width="17%"><?= i18n("Últ. operario") ?></th>
-        <th width="17%"><?= i18n("Últ. iteración") ?> </th>
-    	<th width="17%"><?= i18n("Título") ?></th>
-        <th width="17%"><?= i18n("Estado:") ?></th>
+       	<th width="17%"><?= i18n("Problema") ?></th>
+        <th width="17%"><?= i18n("Últ. operario") ?> </th>
+    	<th width="17%"><?= i18n("Fecha") ?></th>
+        <th width="17%"><?= i18n("Estado") ?></th>
         <th width="17%">&nbsp;</th>
     </tr>
 </table>
@@ -20,7 +20,7 @@
 		<table class="default">
 			<?php 
 				if(isset($_SESSION['listaIncidencia']))
-				$rows = $_SESSION['listaIncidencia'];
+				$rows = $_SESSION['listaIncidencia']; 
 				if (empty($rows)) {
 				?>
 					<div class="alert alert-warning" role="alert">
@@ -37,7 +37,9 @@
 					<td width="17%">Fulanito</a></td> <!-- Falta linkar al perfil del usuario. -->
 					<td width="17%"><?php echo $row['fAper']; ?></td>
 					<td width="17%"><?php echo $row['estadoIncid']; ?></td>
-					<td width="17%"><button><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>">Consultar</a></button></td>
+					<td width="17%">
+						<input type="button" value="Consulta" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>'"/>
+					</td>
 				</tr>
 				<?php 
 				} 
@@ -47,11 +49,11 @@
 	</form>
 </div>
 <br>
-<h1 id="headerJefe"><a><i><?= i18n("- MÁQUINAS -") ?></i></a></h1>
+<h1 id="headerJefe"><a><i><?= i18n("MÁQUINAS") ?></i></a></h1>
 <table class="default">
     <tr>
-    	<th width="20%">#ID <?= i18n("Máquina:") ?></th>
-    	<th width="20%"><?= i18n("Servicio:") ?></th>
+    	<th width="20%">#ID <?= i18n("Máquina") ?></th>
+    	<th width="20%"><?= i18n("Servicio") ?></th>
        	<th width="20%"><?= i18n("Últ. Incidencia") ?></th>
         <th width="10%">&nbsp;</th>
         <th width="10%">&nbsp;</th>
@@ -76,8 +78,12 @@
 					<td width="20%"  name = "idMaq"><?php echo $row['idMaq']; ?></td> 
 					<td width="20%"><?= i18n("Si") ?></td> 
 					<td width="20%">13/09/2014</td> 
-					<td width="10%"><button><a href="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>">Consultar</a></button></td>
-					<td width="10%"><button><a href="../../Controller/maquinasController.php?accion=Eliminar&idMaq=<?php echo $row['idMaq'];?>">Eliminar</a></button></td>
+					<td width="10%">
+						<input type="button"  value="Consulta" onclick="window.location.href='../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>'"/>
+					</td>
+					<td width="10%">
+						<input type="button" value="Eliminar" onclick="window.location.href='../../Controller/maquinasController.php?accion=Eliminar&idMaq=<?php echo $row['idMaq'];?>'">
+					</td>
 				</tr>
 				<?php 
 				} 

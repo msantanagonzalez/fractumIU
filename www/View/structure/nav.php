@@ -9,20 +9,19 @@ function navJefe()
             		<div align="center">
                    		<li class="current">
                         	<a href="../../Controller/usuariosController.php?accion=consultar&dniUsu=<?php echo $_SESSION["dni"];?>">
-                        		<img src="../../Resources/images/DefaultAvatar.png"><em><strong><br><?= i18n("jefeNegocio:") ?><?php echo $_SESSION["dni"];?></strong></em><strong></strong>
+                        		<img src="../../Resources/images/DefaultAvatar.png"><em><strong><br><?= i18n("jefeNegocio:") ?> <?php echo $_SESSION["dni"];?></strong></em><strong></strong>
                         	</a>
                      	</li>
-                     	<li class='current'><a href="../../Controller/incidenciasController.php?accion=Pendientes"><?= i18n("Pendientes:") ?><span class="badge"><?php echo $_SESSION['pendientes']; ?></span></a></li>
-						          <li class="current"><a href="../../Controller/incidenciasController.php?accion=Listar"><?= i18n("GEST. INCIDENCIAS") ?></a></li>
-                      <li class="current"><a href="../../Controller/usuariosController.php?accion=gestionUsuarios"><?= i18n("GESTIONAR USUARIOS") ?></a></li>
-                      <li class="current"><a href="../../Controller/empresasController.php?accion=Listar"><?= i18n("GESTIONAR EMPRESAS") ?></a></li>
-                      <li class="current"><a href="../../Controller/maquinasController.php?accion=Listar"><?= i18n("GESTIONAR MÁQUINAS") ?></a></li>
-						          <li class="current"><a href="../../Controller/serviciosController.php?accion=Listar"><?= i18n("GESTIONAR SERVICIOS") ?></a></li>
-						          <li class='current'><a href="../../Controller/usuariosController.php?accion=logOut" id='Logout_Usuario'><?= i18n("> Log Out") ?> </a></li>
-                      <form method="POST" action="#" style="text-align:center">
-                        	<section class="box search">
-    							           <input type="text" name="busqueda" placeholder="Buscar..." value=""/>
-                      		</section>
+                     	<li class='current'> <a href="../../Controller/incidenciasController.php?accion=Pendientes"><?= i18n("Pendientes:") ?>
+                        <span class="badge"> <?php echo $_SESSION['pendientes']; ?> </span> </a> </li>
+						          <li class="current"><a href="../../Controller/incidenciasController.php?accion=Listar"><?= i18n("Gestionar Incidencias") ?></a></li>
+                      <li class="current"><a href="../../Controller/usuariosController.php?accion=gestionUsuarios"><?= i18n("Gestionar Usuarios") ?></a></li>
+                      <li class="current"><a href="../../Controller/empresasController.php?accion=Listar"><?= i18n("Gestionar Empresas") ?></a></li>
+                      <li class="current"><a href="../../Controller/maquinasController.php?accion=Listar"><?= i18n("Gestionar Máquinas") ?></a></li>
+						          <li class="current"><a href="../../Controller/serviciosController.php?accion=Listar"><?= i18n("Gestionar Servicios") ?></a></li>
+						          <li class='current'><a href="../../Controller/usuariosController.php?accion=logOut" id='Logout_Usuario'><?= i18n("> Log Out") ?></a></li>
+                      <form method="POST" style="text-align:center">
+                        	<section class="box search"><input type="text" name="busqueda" placeholder="Buscar..." value=""/></section>
 							           <div hidden><input type="submit" name="buscar"/></div>
                       </form>
                 </div>

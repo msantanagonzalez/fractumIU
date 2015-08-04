@@ -5,7 +5,7 @@
 	foreach ($rows as $row) { 
 ?>
 
-<h1 id="headerJefe"><a><i><?= i18n("SERVICIO") ?><?php echo $row['idServ']; ?></i></a></h1>
+<h1 id="headerJefe"><a><i><?= i18n("SERVICIO") ?> <?php echo $row['idServ']; ?></i></a></h1>
 <form method="POST" action="../../Controller/serviciosController.php">
 	<table class="default">
 		<tr> 
@@ -42,11 +42,13 @@
 			</td>
 		</tr>
 		<?php } ?>
-		<tr>
-			<td colspan="4"><a href="../../Controller/serviciosController.php?accion=Modificar&idServ=<?php echo $row['idServ']; ?>"><input type="button" name="accion" value="Modificar"></td>
-		</tr> 
 	</table>
 </form>
+<table class="default">
+	<tr>
+		<td colspan="4"><input type="submit" value="Modificar" onclick="window.location.href='../../Controller/serviciosController.php?accion=Modificar&idServ=<?php echo $row['idServ']; ?>'"></td>
+	</tr> 
+</table>
 
 <?php
 	require_once("../structure/footer.php");

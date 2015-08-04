@@ -30,15 +30,13 @@
 							else{
 								foreach ($resul2 as $usuario){
 									?>
-									<form method="POST" action="../../Controller/usuariosController.php?dniUsu=<?php echo $usuario['dniUsu'];?>">
 										<tr> 
 											<td width="20%" name = "dni"><?php echo $usuario['dniUsu']; ?> </td> 
 											<td width="20%" name = "nombre"><?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></td> 
 											<td width="20%" name = "telefono"><?php echo $usuario['telefOpeInt']; ?> </td> 
-											<td width="20%"><input type="submit" value="consultar" name="accion"></td>
-											<td width="20%"><input type="submit" value="eliminar" name="accion"></td>
+											<td width="20%"><input type="button" value="Consulta" onclick="window.location.href='../../Controller/usuariosController.php?accion=consultar&dniUsu=<?php echo $usuario['dniUsu'];?>'"></td>
+											<td width="20%"><input type="button" value="Eliminar" onclick="window.location.href='../../Controller/usuariosController.php?accion=eliminar&dniUsu=<?php echo $usuario['dniUsu'];?>'"></td>
 										</tr>
-									</form>
 								<?php 
 								}
 							}	
@@ -76,16 +74,14 @@
 							else{
 								foreach ($resul2 as $usuario){
 									?>
-									<form method="POST" action="../../Controller/usuariosController.php?dniUsu=<?php echo $usuario['dniUsu'];?>">
 										<tr> 
 											<td width="20%" name = "dni"><?php echo $usuario['dniUsu']; ?> </td> 
 											<td width="20%" name = "nombre"><?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></td> 
 											<td width="20%" name = "telefono"><?php echo $usuario['telefEmpr']; ?> </td> 
-											<td width="20%" name = "empresa"><?php echo $usuario['nomEmpr']; ?> </td> 
-											<td width="10%"><input type="submit" value="consultar" name="accion"></td>
-											<td width="10%"><input type="submit" value="eliminar" name="accion"></td>
+											<td width="17%" name = "empresa"><?php echo $usuario['nomEmpr']; ?> </td>
+											<td width="7%"><input type="button" value="Consulta" onclick="window.location.href='../../Controller/usuariosController.php?accion=consultar&dniUsu=<?php echo $usuario['dniUsu'];?>'"></td> 
+											<td width="7%"><input type="button" value="Eliminar" onclick="window.location.href='../../Controller/usuariosController.php?accion=eliminar&dniUsu=<?php echo $usuario['dniUsu'];?>'"></td> 
 										</tr>
-									</form>
 								<?php 
 								}
 							}	
@@ -95,8 +91,8 @@
 
 				<table class="default">
 			 		<tr>
-						<td colspan="2"><a href="../../Controller/usuariosController.php?accion=accesoAltaExterno"><input type="button" name="piAlta" value="Alta Externo"/></a></td>
-						<td colspan="2"><a href="altaInternoJefe.php"><input type="button" name="piAlta" value="Alta Interno"/></a></td>
+						<td colspan="2"><a href="../../Controller/usuariosController.php?accion=accesoAltaExterno"><input type="submit" name="piAlta" value="Alta Externo"/></a></td>
+						<td colspan="2"><a href="altaInternoJefe.php"><input type="submit" name="piAlta" value="Alta Interno"/></a></td>
 					</tr>
 			 	</table>
 				

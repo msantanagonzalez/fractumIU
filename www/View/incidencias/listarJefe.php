@@ -38,7 +38,9 @@
 				<?php } else { ?>
 				<td width="17%">NO</td> 
 				<?php }?>
-				<td width="17%"><button><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>">Consultar</a></button></td>
+				<td width="17%">
+				<input type="button" value="Consulta" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>'"/>
+				</td>
 			</tr>
 			<?php 
 			} 
@@ -49,7 +51,7 @@
 <table>
 	<tr>
 		<th width="20%"></th>
-		<th width="40%"><a href="altaJefe.php"><input type="button" name="alta" value="Alta"></a></th>
+		<th width="40%"><a href="altaJefe.php"><input type="submit" name="alta" value="Alta"></a></th>
 		<th width="20%"></th>
 	</tr>
 </table>

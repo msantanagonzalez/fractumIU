@@ -31,8 +31,8 @@
 				<tr> 
 					<td width="30%"><?php echo $row['cifEmpr'];?></td>  
 					<td width="40%"><?php echo $row['nomEmpr']; ?></td>
-					<td width="10%"><button><a href="../../Controller/empresasController.php?accion=Consulta&cifEmpr=<?php echo $row['cifEmpr']; ?>">Consultar</a></button></td>
-					<td width="10%"><button><a href="../../Controller/empresasController.php?accion=Eliminar&cifEmpr=<?php echo $row['cifEmpr']; ?>">Eliminar</a></button></td>
+					<td width="10%"><input type="button" value="Consulta" onclick="window.location.href='../../Controller/empresasController.php?accion=Consulta&cifEmpr=<?php echo $row['cifEmpr']; ?>'"/></td>
+					<td width="10%"><input type="button" value="Eliminar" onclick="window.location.href='../../Controller/empresasController.php?accion=Eliminar&cifEmpr=<?php echo $row['cifEmpr']; ?>'"></td>
 				</tr>
 				<?php 
 				}
@@ -42,7 +42,7 @@
 </form>
 <table class="default">
 	<tr>
-		<td colspan="4"><a href="altaEmpresa.php"><input type="button" name="sAlta" value="Alta Empresa"/></a></td>
+		<td colspan="4"><a href="altaEmpresa.php"><input type="submit" name="sAlta" value="Alta Empresa"/></a></td>
 	</tr>
 </table>
 

@@ -14,9 +14,7 @@ class Maquina {
 	
 	
 	
-/**
-	*	Constructor de maquina.
-	*/
+	/*Constructor de maquina.*/
 
 	function __construct($idMaquina = NULL, $numeroSerie = NULL, $descripcionMaquina = NULL, $nombreMaquina = NULL, $costeMaquina = NULL){
 		$this->idMaquina     	   = $idMaquina;
@@ -24,63 +22,53 @@ class Maquina {
 		$this->descripcionMaquina  = $descripcionMaquina;
 		$this->nombreMaquina       = $nombreMaquina;
 		$this->costeMaquina  	   = $costeMaquina;
-	
 	}
 
-	/**
-	 * Inicio de las funciones SQL
-	 */
-	
+	/*Inicio de las funciones SQL*/
+
 	public function alta(){
-			if(!mkdir("../Resources/documents/".$this->idMaquina)){
-						die('Fallo al crear las carpetas...');
-					}else{
-					mysql_query("INSERT INTO MAQUINA(idMaq, nSerie, descripMaq, nomMaq, costeMaq) 
-						VALUES ('$this->idMaquina','$this->numeroSerie','$this->descripcionMaquina','$this->nombreMaquina',
-						'$this->costeMaquina')") or die(mysql_error());
-					}					
+		if(!mkdir("../Resources/documents/".$this->idMaquina)){ die('Fallo al crear las carpetas...'); }
+		mysql_query(
+			"INSERT INTO MAQUINA(idMaq, nSerie, descripMaq, nomMaq, costeMaq) 
+			VALUES ('$this->idMaquina','$this->numeroSerie','$this->descripcionMaquina','$this->nombreMaquina','$this->costeMaquina')")
+			or die(mysql_error());					
 	}
 	
 	public function consultaMaquina($maquina){
-	
 			$sql = mysql_query( "SELECT * FROM MAQUINA WHERE idMaq = '$maquina'") or die(mysql_error());
-
 			return $sql;
-		
 		}
 	
 	
 	public function modificacion($idMaquina){			
-				mysql_query("UPDATE MAQUINA SET nomMaq = '$this->nombreMaquina', costeMaq = '$this->costeMaquina',descripMaq = '$this->descripcionMaquina',nSerie = '$this->numeroSerie'
-					WHERE idMaq = '$idMaquina'") or die(mysql_error());
+		mysql_query(
+			"UPDATE MAQUINA SET nomMaq = '$this->nombreMaquina', costeMaq = '$this->costeMaquina',descripMaq = '$this->descripcionMaquina',nSerie = '$this->numeroSerie'
+			WHERE idMaq = '$idMaquina'")
+		or die(mysql_error());
 	}
 	
 	
 	public function lista(){
-	
-			$sql = mysql_query("SELECT * FROM MAQUINA");
-
-			return $sql;
-	}
-	public function listaMaquinasOpEservicio(){
-	
-		$sql = mysql_query("SELECT M.* 
-			FROM  OPEXTERNO O RIGHT JOIN  SERVICIO S ON O.cifEmpr = S.cifEmpr LEFT JOIN MAQUINA M ON S.idMaq = M.idMaq
-			WHERE O.dniUsu = '".$_SESSION['dni']."'");
-		
+		$sql = mysql_query("SELECT * FROM MAQUINA");
 		return $sql;
-	
+	}
+
+	public function listaMaquinasOpEservicio(){
+		$sql = mysql_query("SELECT M.* 
+			FROM  OPEXTERNO O RIGHT JOIN  SERVICIO S
+			ON O.cifEmpr = S.cifEmpr LEFT JOIN MAQUINA M
+			ON S.idMaq = M.idMaq WHERE O.dniUsu = '".$_SESSION['dni']."'");
+		return $sql;
 	}
 	
 	public function listaMaquinasOpEIncidencia(){
-	
-		$sql = mysql_query("SELECT M.*
-							FROM OPEXTERNO O LEFT JOIN INCIDENCIA I ON O.cifEmpr = I.cifEmpr 
-							RIGHT JOIN MAQUINA M ON I.idMaq = M.idMaq
-							WHERE O.dniUsu = '".$_SESSION['dni']."'");
+		$sql = mysql_query(
+			"SELECT M.*
+			FROM OPEXTERNO O LEFT JOIN INCIDENCIA I
+			ON O.cifEmpr = I.cifEmpr RIGHT JOIN MAQUINA M
+			ON I.idMaq = M.idMaq WHERE O.dniUsu = '".$_SESSION['dni']."'");
 		
 		return $sql;
-	
 	}
 	
 	public function borrar(){
@@ -90,8 +78,8 @@ class Maquina {
 	}
 	
 	public function listaMaquinaSinServicio(){
-			$sql = mysql_query("SELECT idMaq,nomMaq FROM MAQUINA t1 WHERE NOT EXISTS(SELECT idMaq FROM SERVICIO t2 WHERE t1.idMaq = t2.idMaq)");
-			return $sql;
+		$sql = mysql_query("SELECT idMaq,nomMaq FROM MAQUINA t1 WHERE NOT EXISTS(SELECT idMaq FROM SERVICIO t2 WHERE t1.idMaq = t2.idMaq)");
+		return $sql;
 	}
 	
 	public function setPathImage($idMaq,$path,$nombreArchivo){	
@@ -112,7 +100,6 @@ class Maquina {
 
 	public function listarIncidenciasAsociadas($idMaquina){
 		$resultado = mysql_query("SELECT idIncid, dniResponsable, dniApertura, estadoIncid FROM INCIDENCIA i WHERE idMaq = '$idMaquina'") or die(mysql_error());
-
 		return $resultado;
 	}
 }

@@ -1,15 +1,14 @@
-<?php
-	require_once("../structure/header.php");
-?>
-
-<h1 id="headerJefe"><a><i><?= i18n("INCIDENCIA") ?> $#IDincidencia</i></a></h1>
+<?php require_once("../structure/header.php"); ?>
+<?php $rows = $_SESSION['consultaIncidencia']; ?>
+<?php foreach ($rows as $row) { ?>
+<h1 id="headerJefe"><a><i><?= i18n("INCIDENCIA") ?> <?php echo $row['idIncid']; ?></i></a></h1>
 <div style='height:525px;width:auto;overflow-y: scroll;'>
 	<form method="POST" action="../../Controller/incidenciasController.php">
-		<?php $rows = $_SESSION['consultaIncidencia']; ?>
+		
 		<input type="hidden" class="text" name="idIncidencia" value="<?php echo $row['idIncid']; ?>"/>
 		<input type="hidden" class="text" name="derivada" value="<?php echo $row['derivada']; ?>"/>
 		<table class="default">
-			<?php foreach ($rows as $row) { ?>
+			
 			<tr> 
 				<td width="25%"><?= i18n("Apertura:") ?> </td> 
 				<td width="25%"><input type="text" class="text" disabled name="dniApertura" value="<?php echo $row['dniApertura']; ?>"/></td> 

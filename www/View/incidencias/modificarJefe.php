@@ -3,17 +3,16 @@
 	require_once("../structure/header.php");
 ?>
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
-<h1 id="headerJefe"><a><i><?= i18n("INCIDENCIA") ?> $#IDincidencia</i></a></h1>
+<?php $rows = $_SESSION['consultaIncidencia']; ?>
+<?php foreach ($rows as $row) { ?>
+<h1 id="headerJefe"><a><i><?= i18n("INCIDENCIA") ?> <?php echo $row['idIncid']; ?> </i></a></h1>
 <div>
 	<form name="formModificarIncidencia" onsubmit="return comprobarModificarIncidenciaJefe()" method="POST" action="../../Controller/incidenciasController.php">
-
-		<?php $rows = $_SESSION['consultaIncidencia']; ?>
-	<?php foreach ($rows as $row) { ?>
-		<input type="hidden" class="text" name="idIncidencia" value="<?php echo $row['idIncid']; ?>"/>
-		<input type="hidden" class="text" name="derivada" value="<?php echo $row['derivada']; ?>"/>
-		<input type="hidden" class="text" name="dniApertura" value="<?php echo $row['dniApertura']; ?>"/>
-		<input type="hidden" class="text" name="idMaquina" value="<?php echo $row['idMaq']; ?>"/>
-		<input type="hidden" class="text" name='descripcion' value="<?php echo $row['descripIncid'];?>"/>
+			<input type="hidden" class="text" name="idIncidencia" value="<?php echo $row['idIncid']; ?>"/>
+			<input type="hidden" class="text" name="derivada" value="<?php echo $row['derivada']; ?>"/>
+			<input type="hidden" class="text" name="dniApertura" value="<?php echo $row['dniApertura']; ?>"/>
+			<input type="hidden" class="text" name="idMaquina" value="<?php echo $row['idMaq']; ?>"/>
+			<input type="hidden" class="text" name='descripcion' value="<?php echo $row['descripIncid'];?>"/>
 		<table class="default">
 			<tr> 
 				<td width="25%"><?= i18n("Apertura:") ?> </td> 

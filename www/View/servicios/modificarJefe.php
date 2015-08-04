@@ -21,7 +21,15 @@
 			<td width="25%"><?= i18n("CIF Empresa:") ?></td> 
 			<td width="25%"><input type="text" class="text" disabled name="cifEmpr" value="<?php echo $row['cifEmpr']; ?>"/></td> 
 			<td width="25%"><?= i18n("Periodicidad:") ?> </td> 
-			<td width="25%"> <input id="periodicidad" type="text" class="text" name="periodicidad" value="<?php echo $row['periodicidad']; ?>"/></td>
+			<td width="25%">
+				<select id="periodicidad" name="periodicidad">
+					<option value="NULL" selected>-</option>
+					<option value="1 mes">1 mes</option>
+					<option value="3 meses">3 meses</option>
+					<option value="6 meses">6 meses</option>
+					<option value="12 meses">12 meses</option>
+				</select>
+			</td>
 		</tr>
 		<tr> 
 			<td width="25%">#ID <?= i18n("Servicio:") ?> </td> 
