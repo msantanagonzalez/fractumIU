@@ -93,5 +93,11 @@
 					break;
 			}
 		}
+
+		public function ultimaIncidMaq($idMaq){
+			$sql = mysql_query("SELECT idIncid FROM incidencia WHERE idMaq = '$idMaq' ORDER BY fAper DESC");
+
+			return $sql;
+		}
 	}
 ?>

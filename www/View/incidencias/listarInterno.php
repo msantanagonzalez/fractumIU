@@ -38,7 +38,7 @@
 				<?php } else { ?>
 				<td width="17%">NO</td> 
 				<?php }?>
-				<td width="17%"><button><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>">Consultar</a></button></td>
+				<td width="17%"><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>"><input type="button" name="accion" value="Consulta"></input></a></td>
 			</tr>
 			<?php } 
 			}

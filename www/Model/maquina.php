@@ -102,6 +102,8 @@ class Maquina {
 		$resultado = mysql_query("SELECT idIncid, dniResponsable, dniApertura, estadoIncid FROM INCIDENCIA i WHERE idMaq = '$idMaquina'") or die(mysql_error());
 		return $resultado;
 	}
+
+	
 }
 		
 ?>

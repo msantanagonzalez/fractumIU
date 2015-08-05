@@ -33,7 +33,7 @@
 			<tr>
 				<td><?= i18n("Documentación:") ?></td>
 		        <td><img src="../../Recursos/images/PDF.png"></td>
-		        <td colspan="2"><a href='altaIncidencia.html'><input type='button' value='Alta Incidencia'></a></td>
+		        <td colspan="2"><a href="../incidencias/altaInterno.php?maq=<?php echo $row['nomMaq']; ?>"><input type='button' value='Alta Incidencia'></a></td>
 			</tr>
 			<?php } ?>
 		</table>

@@ -47,6 +47,18 @@
 			return $sql;
 		}
 
+		public function listaItHomeI($idIncid){
+			$sql = mysql_query("SELECT dniUsu FROM ITERACION WHERE idIncid = '$idIncid' ORDER BY fechaIter DESC");
+
+			return $sql;
+		}
+
+		public function listaIteracionesHomeI($idIncid){
+			$sql = mysql_query("SELECT fechaIter FROM iteracion WHERE idIncid = '$idIncid' ORDER BY fechaIter DESC");
+
+			return $sql;
+		}
+
 		/**
 		 * Devuelve true con la iteracion cerrada, y false con la iteracion abierta
 		 */

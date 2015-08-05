@@ -10,6 +10,8 @@ include_once '../Model/interno.php';
 include_once '../Model/empresa.php';
 include_once '../Model/maquina.php';
 include_once '../Model/incidencia.php';
+require_once("../Model/iteracion.php");
+require_once("../Model/servicio.php");
 
 # NOTA: CAMBIAR LOS REQUEST POR POST O GETS..... 
 $action =$_REQUEST['accion'];
@@ -440,6 +442,29 @@ switch ($action) {
 					array_push($lista, $row);
 				}
 				$_SESSION["listaMaquina"] = $lista;
+
+				$servicio = new servicio();
+				$servicios = array();
+				$incidencia = new Incidencia();
+				$incidencias = array();
+
+				foreach ($lista as $maquina) {
+					$serviciosMaq = array();
+					$incidenciasMaq = array();
+					$idMaquina = $maquina['idMaq'];
+					$aux3 = $servicio->tieneServicio($idMaquina);
+					$aux4 = $incidencia->ultimaIncidMaq($idMaquina);
+
+					while($row2 = mysql_fetch_array($aux4)){
+						array_push($incidenciasMaq, $row2);
+					}
+
+					array_push($servicios, $aux3);
+					array_push($incidencias, $incidenciasMaq);
+				}
+
+				$_SESSION['listaServicios'] = $servicios;
+				$_SESSION['listaIncidMaquina'] = $incidencias;
 	}
 	
 	function listaIncidenciaJefeAndInterno(){
@@ -452,6 +477,35 @@ switch ($action) {
 				}
 
 				$_SESSION["listaIncidencia"] = $lista;
+
+				// Listar iteraciones (se necesita para ult. operario y ult. iteración)
+				$iteracion = new Iteracion();
+
+				$incidencias = array();
+				foreach ($lista as $incidencia){
+					$iteraciones = array();
+					$idIncid = $incidencia['idIncid'];
+					$aux = $iteracion->listaItHomeI($idIncid);
+					while($row2 = mysql_fetch_array($aux)){
+						array_push($iteraciones, $row2);
+					}
+					array_push($incidencias, $iteraciones);
+				}
+
+				$_SESSION['listaOp'] = $incidencias;
+
+				$ultIt = array();
+				foreach($lista as $incidencia){
+					$fechasIt = array();
+					$idIncid = $incidencia['idIncid'];
+					$aux2 = $iteracion->listaIteracionesHomeI($idIncid);
+					while($row3 = mysql_fetch_array($aux2)){
+						array_push($fechasIt, $row3);
+					}
+					array_push($ultIt, $fechasIt);
+				}
+
+				$_SESSION['listaIt'] = $ultIt;
 	}
 	
 	function accesoAltaExterno(){

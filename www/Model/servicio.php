@@ -58,13 +58,22 @@
 			return $sql;
 			
 		}
-		
-		public function baja(){
-		$eliminar = "DELETE FROM SERVICIO WHERE idServ = '$this->idServ'";
-		$resultado = mysql_query($eliminar) or die(mysql_error());
 
-		return $resultado;
-	}
+		public function tieneServicio($idMaquina){
+
+			$sql = mysql_query("SELECT idMaq FROM SERVICIO WHERE idMaq = '$idMaquina'");
+			$cont = mysql_num_rows($sql);
+
+			if($cont > 0) return "Si";
+			else return "No";
+		}
+
+		public function baja(){
+			$eliminar = "DELETE FROM SERVICIO WHERE idServ = '$this->idServ'";
+			$resultado = mysql_query($eliminar) or die(mysql_error());
+
+			return $resultado;
+		}
 	
 		public function trabajar($dniUsu,$fechaRealizacion){
 			
