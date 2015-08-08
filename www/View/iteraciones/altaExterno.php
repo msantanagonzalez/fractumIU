@@ -1,22 +1,21 @@
 <?php
 	$userType="externo";
 	require_once("../structure/header.php");
-	$idIncid=$_REQUEST['idIncidencia'];
+	$idIncid=$_SESSION["idIncid"];
+	$nIteracion=$_SESSION["nIteracion"];
+
 ?>
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
 <h1 id="headerExterno"><a><?= i18n("- NUEVA ITERACION DE EMPLEADO EXTERNO -") ?></a></h1>
 <br>
 <form name='FormAltaIteracion' onsubmit="" action='../../Controller/iteracionesController.php' method='POST'>
-	<input type="hidden" class="text" name="idIncid" value="indic1">
-	<input type="hidden" class="text" name="nIteracion" value="1"/>
-	<input type='hidden' class='text' name="estadoItera" value="0"/>
 	<div style='height:350px;width:auto;overflow-y: scroll;'>
 		<table class='default'>
 			<tr>
 				<td><?= i18n("ID Incidencia:") ?></td>
-				<td><input id="idIncid" type='text'  value='<?php echo $idIncid; ?>' disabled ></td>
+				<td><input id="idIncid" type='text'  value='<?php echo $idIncid; ?>' disabled > </td>
 				<td><?= i18n("Número Iteración:") ?></td>
-				<td><input id="nIteracion" type='text'  value='0'></td>
+				<td><input id="nIteracion" type='text' value='<?php echo $nIteracion; ?>' disabled ></td>
 			</tr>
 				
 			<tr>
@@ -29,9 +28,9 @@
 			</tr>
 			<tr>
 				<td><?= i18n("Estado Iteración:") ?></td>
-			    <td><input id="estadoItera" type='text' value='0'></td>
+			    <td><input id="estadoItera" type='text' ></td>
 				<td><?= i18n("Coste Trabajo:") ?></td>
-			    <td><input id="coste" type='text' value=''></td>
+			    <td><input id="coste" type='text' ></td>
 			</tr>
 			<tr>
 				<td width="30%"><br><?= i18n("Descripción:") ?></td>

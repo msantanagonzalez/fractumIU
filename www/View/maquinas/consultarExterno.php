@@ -29,7 +29,7 @@
 		    </tr>
 			<tr>
 				<td><?= i18n("Documentación:") ?></td>
-		        <td><img src="../../Recursos/images/PDF.png"></td>
+		        <td><img src="../../Resources/images/PDF.png"></td>
 			</tr>
 			<?php } ?>
 		</table>
@@ -56,7 +56,7 @@
 			<td width="20%"><?php echo $row2['dniResponsable']; ?></td> 
 			<td width="20%"><?php echo $row2['dniApertura']; ?></td>
 			<td width="20%"><?php echo $row2['estadoIncid']; ?></td>
-			<td width="20%"><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncid=<?php echo $row2['idIncid'];?>">Consultar</a></td>
+			<td width="20%"><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row2['idIncid'];?>">Consultar</a></td>
 		</tr>
 		<?php } ?>
 	</table>

@@ -22,11 +22,14 @@
 			lista();
 			break;
 		case 'GUARDAR TRABAJO':
-			guardarTrabajo();
+			modificado();
 			break;
 		case 'FINALIZAR TRABAJO':
-			guardarTrabajo();
+			modificado();
 			cerrarIteracion();
+			break;
+		case 'NEXTID':
+			siguienteIteracion();
 			break;
 	}
 
@@ -42,6 +45,7 @@
 		$iteracion->alta();
 		
 		header("location: iteracionesController.php?accion=Consulta&idIncid=$idI&nIteracion=$id");
+
 	}
 
 	function consulta(){
@@ -160,18 +164,6 @@
 		}
 	}
 
-	function guardarTrabajo(){
-		session_start();
-
-		$idIncid = $_POST['idIncid'];
-		$nIteracion = $_POST['nIteracion'];
-
-		$iteracion = new Iteracion($idIncid, $nIteracion);
-		$consultaIteracion = $iteracion->cerrarIteracion();
-		session_write_close();
-		lista();
-	}
-
 	function cerrarIteracion(){
 		session_start();
 
@@ -183,6 +175,25 @@
 		session_write_close();
 		lista();
 
+	}
+
+	function siguienteIteracion(){
+		session_start();
+
+		$idIncid = $_POST['idIncid'];
+		$iteracion = new Iteracion($idIncid);
+
+		$nIteracion = $iteracion->nextId();
+
+		$_SESSION["idIncid"] = $idIncid;
+		$_SESSION["nIteracion"] = $nIteracion;
+
+		if($nIteracion == 1){
+			header("location: ../../View/iteraciones/altaExterno.php");
+		} else {
+			header("location: ../../View/iteraciones/altaExterno.php");
+
+		}
 	}
 
 ?>

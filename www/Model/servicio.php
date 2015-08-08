@@ -59,6 +59,14 @@
 			
 		}
 
+		public function listarExterno(){
+
+			$sql = mysql_query("SELECT * FROM OPEXTERNO O RIGHT JOIN SERVICIO S ON O.cifEmpr = S.cifEmpr WHERE O.dniUsu = '".$_SESSION['dni']."'");
+
+			return $sql;
+
+		}
+
 		public function tieneServicio($idMaquina){
 
 			$sql = mysql_query("SELECT idMaq FROM SERVICIO WHERE idMaq = '$idMaquina'");

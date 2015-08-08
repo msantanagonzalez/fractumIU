@@ -91,22 +91,32 @@ switch ($action) {
 		session_start();
 
 		$servicio = new servicio();
-		$listaServicios = $servicio->listar();
-
-		$lista = array();		
-		while($row = mysql_fetch_array($listaServicios)){
-			array_push($lista, $row);
-		}
-
-		$_SESSION["listaServicios"] = $lista;
+		
 		
 		switch($_SESSION['tipo']){
 		
 			case 'J':
+				$listaServicios = $servicio->listar();
+
+				$lista = array();		
+				while($row = mysql_fetch_array($listaServicios)){
+					array_push($lista, $row);
+				}
+
+				$_SESSION["listaServicios"] = $lista;
 				session_write_close();
 				header("location: ../View/servicios/gestorJefe.php");
 				break;
 			case 'E':
+				$listaServicios = $servicio->listarExterno();
+
+				$lista = array();		
+				while($row = mysql_fetch_array($listaServicios)){
+					array_push($lista, $row);
+				}
+
+				$_SESSION["listaServicios"] = $lista;
+
 				session_write_close();
 				header("location: ../View/servicios/gestorExterno.php");
 				break;

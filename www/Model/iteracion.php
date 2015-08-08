@@ -87,5 +87,14 @@
 
 		}
 
+		public function existe(){
+			$sql = mysql_query("SELECT nIteracion FROM ITERACION") or die(mysql_error());
+			if(!$sql){
+				return false;
+			} else {
+				return true;
+			}
+		}
+
 	}
 ?>
