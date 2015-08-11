@@ -560,7 +560,7 @@ function comprobarEmpresa() {
         var mailEmpr = document.getElementById("mailEmpr").value;
 		 
          if( cifEmpr == null || cifEmpr.length == 0 || /^\s+$/.test(cifEmpr) || cifEmpr.match(/^\[a-zA-Z]d{8}$/)!=null) {
-            alert("Error: Error de registro de cif de Empresa");
+            alert("Error: Error de registro de cif de Empresa, debe ser una letra y 8 digitos");
             return false; 
 			
          }else  if( nomEmpr == null || nomEmpr.length == 0 || /^\s+$/.test(nomEmpr) || nomEmpr.match(/[A-Za-z0-9]/)==null ) {
@@ -1123,12 +1123,12 @@ function modificarIteracion(){
             return false; 
 			
          }else  if( numSerie == null || numSerie.length == 0 || /^\s+$/.test(numSerie) || numSerie.match(/^\d*$/)==null ) {
-            alert("Error: Numero de serie no valido");
+            alert("Error: Numero de serie no valido, introduzca solo digitos");
             return false;          
          }
      
          else  if( nomMaq == null || nomMaq.length == 0 || /^\s+$/.test(nomMaq) || nomMaq.match(/[A-Za-z0-9]/)==null ) {
-            alert("Error: Nombre de maquina no valido");
+            alert("Error: Nombre de maquina no valido, introduzca solo digitos y letras");
             return false;          
          }
         else  if( coste == null || coste.length == 0 || /^\s+$/.test(coste) || coste.match(/^\d*$/)==null) {
