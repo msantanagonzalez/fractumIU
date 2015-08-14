@@ -29,9 +29,9 @@ require_once("../../Model/I18n.php");
 					<table class="default">
 						<tr> 
 							<td width="25%"><?= i18n("Usuario:") ?> </td> 
-							<td width="25%"><input type="text" class="text" name="dniUsu" placeholder="DNI:"/></td> 
+							<td width="25%"><input title="Por favor introduzca un nombre de usuario" required type="text" class="text" name="dniUsu" placeholder="DNI:"/></td> 
 							<td width="25%"><?= i18n("Contraseña:") ?> </td> 
-							<td width="25%"> <input type="password" class="text" name="passUsu" placeholder="Contraseña:" /></td>
+							<td width="25%"> <input  title="Por favor introduzca su password" required type="password" class="text" name="passUsu" placeholder="Contraseña:" /></td>
 						</tr>
 						<tr>
 							<td width="20%" colspan="4"><input type="submit" name="accion" value="login"></td>

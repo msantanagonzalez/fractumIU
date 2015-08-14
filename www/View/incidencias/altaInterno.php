@@ -17,23 +17,23 @@
 			</tr>
 			<tr>
 				<td><?= i18n("Fecha Apertura:") ?></td>
-				<td><input id="fechaApertura" type='date' name='fechaApertura' value=''></td>
+				<td><input title="Se necesita una fecha de apertura" id="fechaApertura" type='date' name='fechaApertura' value='' required/></td>
 				<td><?= i18n("Fecha Cierre:") ?></td>
-				<td><input id="fechaCierre" type='date' name='fechaCierre' value=''></td>
+				<td><input title="Se necesita una fecha de Cierre" id="fechaCierre" type='date' name='fechaCierre' value='' required/></td>
 			</tr>	
 			<tr>
 				<td><?= i18n("Estado:") ?></td>
 				<td>
-					<select name='estadoIncidencia'>
-						<option value='NULL' selected>-</option>
+					<select required title="Debe seleccionar un estado para esta incidencia" name='estadoIncidencia' >
+						<<option value="" selected>-</option>
 						<option value='Abierta'><?= i18n("Abierta") ?></option>
 					  	<option value='Programada'><?= i18n("Programada") ?></option>
 					</select> 		
 				</td>
 				<td><?= i18n("Máquina:") ?></td>
 				<td>
-					<select name='idMaquina'>
-						  <option value='NULL' selected>-</option>
+					<select required title="Debe seleccionar una maquina" name='idMaquina'>
+						  <option value="" selected>-</option>
 						  <option value='maq1'>maq1</option>
 						  <option value='maq2'>maq2</option>
 					</select> 		

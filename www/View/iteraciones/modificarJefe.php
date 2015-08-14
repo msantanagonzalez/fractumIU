@@ -32,7 +32,7 @@
 			</tr>
 			<tr> 
 				<td><?= i18n("Estado Iteración:") ?></td>
-				<td width="25%"><input id="estadoItera" type="date" class="text" name="estadoItera" value="<?php echo $row['estadoItera']; ?>" /></td> 	
+				<td width="25%"><input id="estadoItera" type="text" class="text" name="estadoItera" value="<?php echo $row['estadoItera']; ?>" /></td>
 			</tr>
 			<tr>
 				<td width="25%"><br><?= i18n("Descripción:") ?></td>

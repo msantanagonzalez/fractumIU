@@ -3,12 +3,11 @@
 	require_once("../structure/header.php");
 	$idIncid=$_SESSION["idIncid"];
 	$nIteracion=$_SESSION["nIteracion"];
-
 ?>
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
 <h1 id="headerExterno"><a><?= i18n("- NUEVA ITERACION DE EMPLEADO EXTERNO -") ?></a></h1>
 <br>
-<form name='FormAltaIteracion' onsubmit="" action='../../Controller/iteracionesController.php' method='POST'>
+<form name='FormAltaIteracion' onsubmit= "return comprobarAltaIteracion()" action='../../Controller/iteracionesController.php' method='POST'>
 	<div style='height:350px;width:auto;overflow-y: scroll;'>
 		<table class='default'>
 			<tr>
@@ -20,11 +19,11 @@
 				
 			<tr>
 				<td><?= i18n("Fecha Apertura:") ?></td>
-				<td><input id="fechaCreacion" type='date' name='FechaCreacion' value='<?php echo date('Y/m/d');?>'></td>
+				<td><input required title="Es necesario introducir una fecha de inicio" id="fechaCreacion" type='date' name='FechaCreacion' value='<?php echo date('Y/m/d');?>'></td>
 				<td><?= i18n("Hora Inicio:") ?></td> 
 				<td><input id="horaInicio" type='time' class='text' value='<?php echo  date('h:i:s'); ?>'> </td>
 				<td><?= i18n("Hora Fin:") ?></td> 
-				<td><input id="horaFin" type='time' class='text' value='<?php echo date('h:i:s', strtotime('+24 hour')); ?>'> </td>
+				<td><input id="horaFin" type='time' class='text' value='<?php echo date('h:i:s', strtotime('+25 hour')); ?>'> </td>
 			</tr>
 			<tr>
 				<td><?= i18n("Estado Iteración:") ?></td>

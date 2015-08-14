@@ -5,7 +5,7 @@
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
 <h1 id="headerExterno"><a><i><?= i18n("ITERACIÓN") ?> $#IDincidencia</i></a></h1>
 <div>
-	<form method="POST" action="../../Controller/iteracionesController.php">
+	<form method="POST" onsubmit="return modificarIteracion()" action="../../Controller/iteracionesController.php">
 
 		<?php $rows = $_SESSION['consultaIteracion'];
 		 foreach ($rows as $row) { ?>
@@ -32,7 +32,7 @@
 			</tr>
 			<tr> 
 				<td><?= i18n("Estado Iteración:") ?></td>
-				<td width="25%"><input id="estadoItera" type="date" class="text" name="estadoItera" value="<?php echo $row['estadoItera']; ?>" /></td> 	
+				<td width="25%"><input id="estadoItera" type="text" class="text" name="estadoItera" value="<?php echo $row['estadoItera']; ?>" /></td> 	
 			</tr>
 			<tr>
 				<td width="25%"><br><?= i18n("Descripción:") ?></td>

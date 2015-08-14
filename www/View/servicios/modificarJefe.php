@@ -22,8 +22,8 @@
 			<td width="25%"><input type="text" class="text" disabled name="cifEmpr" value="<?php echo $row['cifEmpr']; ?>"/></td> 
 			<td width="25%"><?= i18n("Periodicidad:") ?> </td> 
 			<td width="25%">
-				<select id="periodicidad" name="periodicidad">
-					<option value="NULL" selected>-</option>
+				<select title="debe seleccionar una periodicidad" required id="periodicidad" name="periodicidad">
+					<option value="" selected>-</option>
 					<option value="1 mes">1 mes</option>
 					<option value="3 meses">3 meses</option>
 					<option value="6 meses">6 meses</option>
@@ -39,9 +39,9 @@
 		</tr>
 		<tr> 
 			<td width="25%"><?= i18n("Fecha Apertura:") ?> </td> 
-			<td width="25%"><input id="fechaInicio" type="text" class="text" name="fInicioSer" value="<?php echo $row['fInicioSer']; ?>" /></td> 
+			<td width="25%"><input title="debe seleccionar una fecha de apertura" required id="fechaInicio" type="date" class="text" name="fInicioSer" value="<?php echo $row['fInicioSer']; ?>" /></td> 
 			<td width="25%"><?= i18n("Fecha Cierre:") ?> </td> 
-			<td width="25%"> <input id="fechaFin" type="text" class="text" name="fFinSer" value="<?php echo $row['fFinSer']; ?>" /></td>
+			<td width="25%"> <input title="debe seleccionar una fecha de fin" required id="fechaFin" type="date" class="text" name="fFinSer" value="<?php echo $row['fFinSer']; ?>" /></td>
 		</tr>
 		<tr> 
 			<td width="25%"><?= i18n("Coste:") ?> </td> 

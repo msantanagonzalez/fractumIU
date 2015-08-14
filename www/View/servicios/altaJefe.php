@@ -9,8 +9,8 @@
 		<tr> 
 			<td width="25%"><?= i18n("CIF Empresa:") ?></td> 
 			<td width="25%">
-				<select name="cifEmpr">
-					<option value="NULL" selected=""> - </option>
+				<select title="Seleccione una de las empresas" required name="cifEmpr">
+					<option value="" selected=""> - </option>
 					<?php $resul2 = $_SESSION["listaEmpresas"]; foreach ($resul2 as $empresa){ ?>		
 					<option value="<?php echo $empresa['cifEmpr'];?>"><?php echo $empresa['cifEmpr']." - ".$empresa['nomEmpr'];?></option>
 					<?php } ?>	
@@ -18,8 +18,8 @@
 			</td> 
 			<td width="25%"><?= i18n("Periodicidad:") ?></td> 
 			<td width="25%"> 
-				<select id="periodicidad" name="periodicidad">
-					<option value="NULL" selected>-</option>
+				<select title="Seleccione periodicidad del mantenimiento" required id="periodicidad" name="periodicidad">
+					<option value="" selected>-</option>
 					<option value="1 mes">1 mes</option>
 					<option value="3 meses">3 meses</option>
 					<option value="6 meses">6 meses</option>
@@ -31,8 +31,8 @@
 			<td width="25%"><input id="idServ" type="text" class="text" name="idServ" value=""/></td> 
 			<td width="25%">#ID <?= i18n("Máquina:") ?></td> 
 			<td width="25%">
-				<select name="idMaq" id="idMaq">
-					<option value="NULL" selected>-</option>
+				<select title="Seleccione una maquina" required name="idMaq" id="idMaq">
+					<option value="" selected>-</option>
 					<?php $rows = $_SESSION["listaMaquina"]; foreach ($rows as $row){ ?>		
 					<option value="<?php echo $row['idMaq'];?>"><?php echo $row['idMaq']." - ".$row['nomMaq'];?></option> 
 					<?php } ?>
@@ -41,9 +41,9 @@
 		</tr>
 		<tr> 
 			<td width="25%"><?= i18n("Fecha Apertura:") ?> </td> 
-			<td width="25%"><input  id="fechaInicio" type="text" class="text" name="fInicioSer" value="" /></td> 
+			<td width="25%"><input title="debe seleccionar una fecha de apertura" required id="fechaInicio" type="date" class="text" name="fInicioSer" value="" /></td> 
 			<td width="25%"><?= i18n("Fecha Cierre:") ?> </td> 
-			<td width="25%"> <input type="text" class="text" name="fFinSer" value="" /></td>
+			<td width="25%"> <input title="debe seleccionar una fecha de cierre" required type="date" class="text" name="fFinSer" value="" /></td>
 		</tr>
 		<tr> 
 			<td width="25%"><?= i18n("Coste:") ?></td> 

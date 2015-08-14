@@ -11,8 +11,8 @@
 			<td width="25%"><input id="dni" type="text" class="text" name="dni"/></td> 
 			<td width="25%"><?= i18n("Empresa:") ?> </td>
 			<td width="25%">
-			<select name="cif">
-			  <option value="NULL">----</option>
+			<select title="Seleccione una empresa" required name="cif">
+			  <option value="">----</option>
 				<?php
 				$resul2 = $_SESSION["listaEmpresas"];
 					foreach ($resul2 as $empresa){

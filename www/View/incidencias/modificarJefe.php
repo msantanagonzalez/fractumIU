@@ -22,14 +22,14 @@
 			</tr>
 			<tr> 
 				<td width="25%"><?= i18n("Fecha Apertura:") ?></td> 
-				<td width="25%"><input id="fechaApertura" type="text" class="text" name="fechaApertura" value="<?php echo $row['fAper']; ?>" /></td> 
+				<td width="25%"><input title="Debe insertar una fecha de Apertura" id="fechaApertura" type="date" class="text" name="fechaApertura" value="<?php echo $row['fAper']; ?>" required/></td> 
 				<td width="25%"><?= i18n("Fecha Cierre:") ?></td> 
-				<td width="25%"><input id="fechaCierre" type="text" class="text" name="fechaCierre" value="<?php echo $row['fCier']; ?>" /></td>
+				<td width="25%"><input title="Debe insertar una fecha de cierre" id="fechaCierre" type="date" class="text" name="fechaCierre" value="<?php echo $row['fCier']; ?>" required/></td>
 			</tr>
 			<tr> 
 				<td><?= i18n("Estado:") ?></td>
 				<td>
-					<select name='estadoIncidencia'>
+					<select title="Seleccione o no una opcion" required name='estadoIncidencia'>
 						<option value='<?php echo $row['estadoIncid']; ?>' hidden selected><?php echo $row['estadoIncid']; ?></option>
 						<option value='Derivada'>Derivada</option>
 						<option value='Cerrada'>Cerrada</option>

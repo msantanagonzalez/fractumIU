@@ -7,9 +7,9 @@
 	
 foreach ($datosUsuario as $usuario){
 ?>
-  <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>   
+<script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>   
 <h1 id="headerJefe"><a><i><?= i18n("PERFIL") ?> <?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></i></a></h1>
-<form onsubmit="return modificarJefe()" method="POST" action="../../Controller/usuariosController.php?dniUsu=<?php echo $usuario['dniUsu']; ?>">
+<form onsubmit="return modificarInternoJefe()" method="POST" action="../../Controller/usuariosController.php?dniUsu=<?php echo $usuario['dniUsu']; ?>">
 	<table class="default">
 		<tr> 
 			<td width="25%"><?= i18n("Nombre:") ?> </td> 

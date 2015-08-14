@@ -6,7 +6,7 @@
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
 <h1 id="headerInterno"><a><?= i18n("- NUEVA ITERACION DE EMPLEADO INTERNO -") ?></a></h1>
 <br>
-<form name='FormAltaIteracion' onsubmit="" action='../../Controller/iteracionesController.php' method='POST'>
+<form name='FormAltaIteracion' onsubmit= "return comprobarAltaIteracion()" action='../../Controller/iteracionesController.php' method='POST'>
 	<input type="hidden" class="text" name="idIncid" value="indic1">
 	<input type="hidden" class="text" name="nIteracion" value="1"/>
 	<input type='hidden' class='text' name="estadoItera" value="0"/>
@@ -21,11 +21,11 @@
 				
 			<tr>
 				<td><?= i18n("Fecha Apertura:") ?></td>
-				<td><input id="fechaCreacion" type='date' name='FechaCreacion' value='<?php echo date('Y/m/d');?>'></td>
+				<td><input required title="Es necesario introducir una fecha de inicio" id="fechaCreacion" type='date' name='FechaCreacion' value='<?php echo date('Y/m/d');?>'/></td>
 				<td><?= i18n("Hora Inicio:") ?></td> 
-				<td><input id="horaInicio" type='time' class='text' value='<?php echo  date('h:i:s'); ?>'> </td>
+				<td><input  title="Es necesario introducir una hora de inicio" id="horaInicio" type='time' class='text' value='<?php echo  date('h:i:s'); ?>'> </td>
 				<td><?= i18n("Hora Fin:") ?></td> 
-				<td><input id="horaFin" type='time' class='text' value='<?php echo date('h:i:s', strtotime('+24 hour')); ?>'> </td>
+				<td><input  title="es necesario introducir una hora de fin" id="horaFin" type='time' class='text' value='<?php echo date('h:i:s', strtotime('+25 hour')); ?>'> </td>
 			</tr>
 			<tr>
 				<td><?= i18n("Estado Iteración:") ?></td>
