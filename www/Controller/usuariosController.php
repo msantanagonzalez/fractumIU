@@ -10,10 +10,10 @@ include_once '../Model/interno.php';
 include_once '../Model/empresa.php';
 include_once '../Model/maquina.php';
 include_once '../Model/incidencia.php';
-require_once("../Model/iteracion.php");
-require_once("../Model/servicio.php");
+require_once '../Model/iteracion.php';
+require_once '../Model/servicio.php';
 
-# NOTA: CAMBIAR LOS REQUEST POR POST O GETS..... 
+# NOTA: CAMBIAR LOS REQUEST POR POST O GETS.....
 $action =$_REQUEST['accion'];
 
 switch ($action) {
@@ -22,10 +22,10 @@ switch ($action) {
 		break;
 	case 'logOut':
 		logOut();
-		break;	
+		break;
 	case 'gestionUsuarios':
 		gestionUsuarios();
-		break;	
+		break;
 	case 'altaInterno':
 		nuevoUsuarioInterno();
 		gestionUsuarios();
@@ -56,29 +56,26 @@ switch ($action) {
 	function loginUsuario(){
 		$dniUsu  = $_POST["dniUsu"];
 		$passUsu = $_POST["passUsu"];
-		
+
 		$usuario = new usuario($dniUsu, "", "", $passUsu, "" );
 		$recurso = $usuario->login();
 
 		# This is how to use the "Recurso"
 		if($recurso != false )
-		{			
+		{
 			switch ($_SESSION['tipo']){
 				case 'J':
 					listaMaquinaJefeAndInterno();
 					listaIncidenciaJefeAndInterno();
 					header("location:../View/usuarios/homeJefeJefe.php");
-					//require_once("../View/usuarios/jefe/homeJefe.php");
 					break;
 				case 'I':
 					listaMaquinaJefeAndInterno();
 					listaIncidenciaJefeAndInterno();
 					header("location:../View/usuarios/homeInternoInterno.php");
-					//require_once("../View/usuarios/jefe/homeJefe.php");
 					break;
 				case 'E':
 					header("location:../View/usuarios/homeExternoExterno.php");
-					//require_once("../View/usuarios/jefe/homeJefe.php");
 					break;
 			}
 		}else{
@@ -86,16 +83,16 @@ switch ($action) {
 			header("location:../View/usuarios/Login.php");
 		}
 	}
-	
+
 	function logOut()
 	{
 		session_start();
-		session_unset(); 
+		session_unset();
 		session_destroy();
-		anadirMensaje("|Success| Sesión cerrada correctamente","success");		
+		anadirMensaje("|Success| Sesión cerrada correctamente","success");
 		header("location:../View/usuarios/Login.php");
 	}
-	
+
 	function gestionUsuarios(){
 		session_start();
 		listarUsuariosInternos();
@@ -109,38 +106,38 @@ switch ($action) {
 		$recurso  = $interno->listarInternos();
 		# Create a temporal array to save the data
 				$listaInternos=array();
-				
+
 				while($row = mysql_fetch_array($recurso)){
 						array_push($listaInternos,$row);
 				}
-				
+
 			$_SESSION["listaInternos"] = $listaInternos;
 	}
-	
+
 	function listarUsuariosExternos(){
 		$externo = new externo("","","","","");
 		$recurso  = $externo->listarExternos();
 		# Create a temporal array to save the data
 				$listaExternos=array();
-				
+
 				while($row = mysql_fetch_array($recurso)){
 						array_push($listaExternos,$row);
 				}
-				
+
 			$_SESSION["listaExternos"] = $listaExternos;
 	}
-	
+
 	function consultarUsuario(){
-	
+
 	session_start();
-		
+
 	$dniUsu =$_GET['dniUsu'];
 	$usuario = new usuario($dniUsu, "", "", "", "" );
 	$recurso = $usuario->consultarUsuario();
-	
+
 	# Create a temporal array to save the data
 				$datosUsuario=array();
-				
+
 				while($row = mysql_fetch_array($recurso)){
 						array_push($datosUsuario,$row);
 				}
@@ -166,7 +163,7 @@ switch ($action) {
 								while($row = mysql_fetch_array($recurso)){
 												array_push($datosUsuario,$row);
 								}
-								$_SESSION["datosInterno"] = $datosUsuario;	
+								$_SESSION["datosInterno"] = $datosUsuario;
 								header("location:../View/usuarios/consultarInternoJefe.php");
 							break;
 							case 'E':
@@ -176,7 +173,7 @@ switch ($action) {
 								while($row = mysql_fetch_array($recurso)){
 												array_push($datosUsuario,$row);
 								}
-								$_SESSION["datosExterno"] = $datosUsuario;	
+								$_SESSION["datosExterno"] = $datosUsuario;
 								header("location:../View/usuarios/consultarExternoJefe.php");
 							break;
 							default:
@@ -208,19 +205,19 @@ switch ($action) {
 						echo "ERROR";
 						break;
 				}
-		}		
+		}
 	session_write_close();
 	}
-	
+
 	function guardarModificacion(){
 		session_start();
 		switch ($_SESSION['tipo']){
 			case 'J':
-			
+
 					$dniUsu = $_GET['dniUsu'];
 					$usuario = new usuario($dniUsu, "", "", "", "" );
 					$recurso = $usuario->consultarUsuario();
-					
+
 					$datosUsuario=array();
 					while($row = mysql_fetch_array($recurso)){
 						array_push($datosUsuario,$row);
@@ -230,27 +227,27 @@ switch ($action) {
 						if (!empty($_POST['nomUsu'])){
 						$nomUsu = $_POST['nomUsu'];
 						}else{$nomUsu = $datos['nomUsu'];}
-						
+
 						if (!empty($_POST['apellUsu'])){
 						$apellUsu = $_POST['apellUsu'];
 						}else{$apellUsu = $datos['apellUsu'];}
-						
+
 						if (!empty($_POST['passUsu'])){
-						$passUsu = $_POST['passUsu']; 
-						}else{$passUsu = $datos['passUsu'];}	
-						
+						$passUsu = $_POST['passUsu'];
+						}else{$passUsu = $datos['passUsu'];}
+
 						switch($datos['tipoUsu'])
 						{
 							case 'J':
 								$jefe = new jefe($datos['dniUsu'],"","","","");
 								$recurso  = $jefe->consultarUsuario();
-								
+
 								$datosJefe=array();
 								while($row = mysql_fetch_array($recurso)){
 									array_push($datosJefe,$row);
 								}
 								foreach ($datosJefe as $jefe){
-									# Datos especificos de operario interno	
+									# Datos especificos de operario interno
 									if (!empty($_POST['correoUsu'])){
 									$correoUsu = $_POST['correoUsu'];
 									}else{$correoUsu = $jefe['mailJefe'];}
@@ -263,23 +260,23 @@ switch ($action) {
 								$jefe->setTelefJefe($telUsu);
 								$jefe->setMailJefe($correoUsu);
 								$jefe->modificarUsuario();
-								
+
 								anadirMensaje("| SUCCESS | Usuario: ".$datos['dniUsu']." modificado","success");
 							break;
 							case 'I':
 								$interno = new interno($datos['dniUsu'],"","","","");
 								$recurso  = $interno->consultarUsuario();
-								
+
 								$datosInterno=array();
 								while($row = mysql_fetch_array($recurso)){
 									array_push($datosInterno,$row);
 								}
 								foreach ($datosInterno as $interno){
-									# Datos especificos de operario interno	
+									# Datos especificos de operario interno
 									if (!empty($_POST['correoUsu'])){
 									$correoUsu = $_POST['correoUsu'];
 									}else{$correoUsu = $interno['mailOpeInt'];}
-									
+
 									if (!empty($_POST['telUsu'])){
 									$telUsu = $_POST['telUsu'];
 									}else{$telUsu = $interno['telfOpeInt'];}
@@ -288,13 +285,13 @@ switch ($action) {
 								$interno->setTelefOpeInt($telUsu);
 								$interno->setMailOpeInt($correoUsu);
 								$interno->modificarUsuario();
-								
+
 								anadirMensaje("| SUCCESS | Usuario interno: ".$datos['dniUsu']." modificado","success");
 							break;
 							case 'E':
 								$externo = new externo($datos['dniUsu'],"","","","");
 								$recurso  = $externo->consultarUsuario();
-								
+
 								$datosExterno=array();
 								while($row = mysql_fetch_array($recurso)){
 									array_push($datosExterno,$row);
@@ -302,17 +299,17 @@ switch ($action) {
 								foreach ($datosExterno as $externo){
 									# Datos especificos de operario externo
 									if (!empty($_POST['cifEmpr'])){
-									$cifEmpr = $_POST['cifEmpr']; 
+									$cifEmpr = $_POST['cifEmpr'];
 									}else{$cifEmpr = $externo['cifEmpr'];}
 								}
 								$externo = new externo($datos['dniUsu'],"","","","");
 								$externo->setCifEmpr($cifEmpr);
 								$externo->modificarUsuario();
-								
+
 								anadirMensaje("| SUCCESS | Usuario externo: ".$datos['dniUsu']." modificado","success");
 							break;
 						}
-						
+
 						$usuario->setNomUsu($nomUsu);
 						$usuario->setApellUsu($apellUsu);
 						$usuario->setPassUsu($passUsu);
@@ -334,11 +331,11 @@ switch ($action) {
 					}
 				break;
 			default:
-				
+
 				break;
 		}
 	}
-	
+
 	/**
 	 * Creacion de usuarios.
 	 */
@@ -349,17 +346,17 @@ switch ($action) {
 		$apellidos = $_REQUEST['apellidos'];
 		$telefono  = $_REQUEST['tlf'];
 		$email     = $_REQUEST['correo'];
-		
+
 		$usuario = new usuario($dniUsu, $nombre, $apellidos, $dniUsu, 'I' );
 		$usuario->altaUsuario();
-		# NOTA: Se crea el objeto de tipo interno haciendo referencia al constructor 
+		# NOTA: Se crea el objeto de tipo interno haciendo referencia al constructor
 		# de la clase padre, de lo contrario peta, echarle un vistazo al ejemplo:
 		# http://php.net/manual/en/language.oop5.inheritance.php
 		$interno  = new interno($dniUsu, $nombre, $apellidos, $dniUsu, 'I' );
 		$interno->setTelefOpeInt($telefono);
 		$interno->setMailOpeInt($email);
 		$interno->altaUsuario();
-		
+
 		anadirMensaje("| SUCCESS | Usuario Interno: ".$dniUsu." creado","success");
 	}
 
@@ -368,18 +365,18 @@ switch ($action) {
 		$nombre    = $_REQUEST['nombre'];
 		$apellidos = $_REQUEST['apellidos'];
 		$cifEmpr   = $_REQUEST['cif'];
-		
+
 		# Cuando este implementado empresa se tiene que validar el CIF
-		
+
 		$usuario = new usuario($dniUsu, $nombre, $apellidos, $dniUsu, 'E' );
 		$usuario->altaUsuario();
-		# NOTA: Se crea el objeto de tipo interno haciendo referencia al constructor 
+		# NOTA: Se crea el objeto de tipo interno haciendo referencia al constructor
 		# de la clase padre, de lo contrario peta, echarle un vistazo al ejemplo:
 		# http://php.net/manual/en/language.oop5.inheritance.php
 		$externo = new externo($dniUsu, $nombre, $apellidos, $dniUsu, 'E' );
 		$externo->setCifEmpr($cifEmpr);
 		$externo->altaUsuario();
-		
+
 		anadirMensaje("| SUCCESS | Usuario Externo: ".$dniUsu." creado","success");
 	}
 
@@ -391,59 +388,62 @@ switch ($action) {
 		$dniUsu    = $_GET['dniUsu'];
 		$usuario = new usuario ($dniUsu, "", "", "", "");
 		$recurso  = $usuario->consultarUsuario();
-		
+
 		# Create a temporal array to save the data
 				$datosUsuario=array();
-				
+
 				while($row = mysql_fetch_array($recurso)){
 						array_push($datosUsuario,$row);
 				}
-				
-		# Accedemos al array		
+
+		# Accedemos al array
 				foreach($datosUsuario as $row)
 				{
 					switch ($row['tipoUsu']){
 						case 'I':
 						$interno = new interno ($dniUsu, "", "", "", "");
 						$interno->bajaUsuario();
-						
+
 						anadirMensaje("| SUCCESS | Usuario Interno: ".$dniUsu." eliminado","success");
 						break;
 						case 'E':
 						$externo = new externo ($dniUsu, "", "", "", "");
 						$externo->bajaUsuario();
-						
+
 						anadirMensaje("| SUCCESS | Usuario Externo: ".$dniUsu." eliminado","success");
 						break;
 					}
 				}
-		$recurso  = $usuario->bajaUsuario();		
+		$recurso  = $usuario->bajaUsuario();
 	 }
 
+//Esto deberia estar en controlador de empresas
 	function listarEmpresas(){
 		session_start();
 		$empresa = new Empresa();
 		$listaEmpresas = $empresa->listarEmpresas();
-		
-		$lista = array();		
+
+		$lista = array();
 		while($row = mysql_fetch_array($listaEmpresas)){
 			array_push($lista, $row);
 		}
 
 		$_SESSION["listaEmpresas"] = $lista;
 	}
-	
+
+//Esto deberia estar en controlador de maquinas
 	function listaMaquinaJefeAndInterno(){
 				$maquina = new Maquina();
 				$listaMaquinas = $maquina->lista();
 				$lista = array();
-				
+
 				while($row = mysql_fetch_array($listaMaquinas)){
 					array_push($lista, $row);
 				}
 				$_SESSION["listaMaquina"] = $lista;
 
-				$servicio = new servicio();
+				//$servicio = new servicio(); CREAR SIEMPRE EL OBJETO CON LOS ARGUMENTOS DE LA CLASE,AUNQUE SEAN VACIOS
+				$servicio = new servicio("","","","","","","","","");
 				$servicios = array();
 				$incidencia = new Incidencia();
 				$incidencias = array();
@@ -466,12 +466,12 @@ switch ($action) {
 				$_SESSION['listaServicios'] = $servicios;
 				$_SESSION['listaIncidMaquina'] = $incidencias;
 	}
-	
+//Esto deberia estar en controlador de incidencias
 	function listaIncidenciaJefeAndInterno(){
 				$incidencia = new Incidencia();
 				$listaIncidencias = $incidencia->lista();
 
-				$lista = array();		
+				$lista = array();
 				while($row = mysql_fetch_array($listaIncidencias)){
 					array_push($lista, $row);
 				}
@@ -507,7 +507,7 @@ switch ($action) {
 
 				$_SESSION['listaIt'] = $ultIt;
 	}
-	
+
 	function accesoAltaExterno(){
 		session_start();
 		if(empty($_SESSION["listaEmpresas"])){
