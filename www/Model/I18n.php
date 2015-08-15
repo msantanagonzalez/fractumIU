@@ -13,28 +13,28 @@
  * Idioma recuperada cada vez que esta clase se crea una instancia .
  * Además de este archivo crea una función global , i18n () , como un acceso directo
  * A la función.
- * 
- */ 
+ *
+ */
 class I18n {
 
   private $messages;
-  
+
   const DEFAULT_LANGUAGE="es";
   const CURRENT_LANGUAGE_SESSION_VAR="__currentlang__";
-  
-  public function __construct(){    
-    if (session_status() == PHP_SESSION_NONE) {      
-	session_start();
+
+  public function __construct(){
+    if (session_status() == PHP_SESSION_NONE) {
+	     session_start();
     }
-    
+
     if (isset($_SESSION[self::CURRENT_LANGUAGE_SESSION_VAR])) {
       $this->setLanguage(
 	$_SESSION[self::CURRENT_LANGUAGE_SESSION_VAR]);
     } else{
-      $this->setLanguage(self::DEFAULT_LANGUAGE);    
+      $this->setLanguage(self::DEFAULT_LANGUAGE);
     }
   }
-  
+
   /**
    * Establece el idioma (y lo mantiene en la sesión del usuario )
    *
@@ -44,10 +44,10 @@ class I18n {
   public function setLanguage($language){
     include(__DIR__."/../View/messages/messages_$language.php");
     $this->messages = $i18n_messages;
-          
+
     $_SESSION[self::CURRENT_LANGUAGE_SESSION_VAR] = $language;
   }
-  
+
 /**
    * Busca la traducción de la lengua actual de una clave dada
    * param String $ key La clave para tranlate
@@ -60,7 +60,7 @@ class I18n {
       return $key;
     }
   }
-  
+
 
   private static $i18n_singleton = null;
   /**

@@ -1,6 +1,6 @@
 <?php
 
-class usuario {
+class usuario{
 
 	protected $dniUsu;
 	private $nomUsu;
@@ -47,7 +47,7 @@ class usuario {
 		$resultado = mysql_query($actualizarUsuario) or die(mysql_error());
 		return $resultado;
 	}
-	
+
 	protected function actualizarPassSql(){
 		$actualizarUsuario = "UPDATE USUARIO SET passUsu = '$this->passUsu' where dniUsu='$this->dniUsu'";
 		$resultado = mysql_query($actualizarUsuario) or die(mysql_error());
@@ -67,6 +67,7 @@ class usuario {
 			session_start();
 			$_SESSION['dni']  = $this->dniUsu;
 			$_SESSION['tipo'] = $usuario['tipoUsu'];
+			//session_write_close();
 			return $result;
 		}
 	}
@@ -74,19 +75,19 @@ class usuario {
 	public function getTipoUsu(){
 		return $this->tipoUsu;
 	}
-	
+
 	public function setNomUsu($nom){
 	$this->nomUsu  = $nom;
 	}
-	
+
 	public function setApellUsu($apell){
 	$this->apellUsu  = $apell;
 	}
-	
+
 	public function setPassUsu($pass){
 	$this->passUsu  = $pass;
 	}
-	
+
 	public function altaUsuario(){
 		$resultado = $this->consultarUsuarioSql();
 		if ($resultado) {
@@ -97,7 +98,7 @@ class usuario {
 		}
 	}
 
-	
+
 	public function bajaUsuario(){
 		$resultado = $this->consultarUsuarioSql();
 		if ($resultado) {
@@ -126,7 +127,7 @@ class usuario {
 			return false;
 		}
 	}
-	
+
 	public function modificarPass(){
 		$resultado = $this->actualizarPassSql();
 		if ($resultado) {
@@ -135,7 +136,7 @@ class usuario {
 			return false;
 		}
 	}
-	
+
 }
 
 ?>

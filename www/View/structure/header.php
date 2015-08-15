@@ -4,11 +4,11 @@
 	header("../../Controller/incidenciasController.php?accion=Pendientes");
 	switch ($_SESSION['tipo']){
 		case "J":
-			headerJefe();	
+			headerJefe();
 		break;
 		case "I":
 			headerInterno();
-		break;	
+		break;
 		case "E":
 			headerExterno();
 		break;
@@ -41,13 +41,13 @@ function headerJefe(){
 <body class="left-sidebar">
 	<div id="wrapper"><!--WRAPPER-->
 		<div id="content"><!--CONTENIDO-->
-			<div class="inner"><!--INNER--> 
-			
+			<div class="inner"><!--INNER-->
+
 <?php
 }
 function headerInterno(){
-?>	
-<!DOCTYPE HTML>		
+?>
+<!DOCTYPE HTML>
 <html>
 <head>
 	<title>·Fractum!</title>
@@ -69,7 +69,7 @@ function headerInterno(){
 <body class="left-sidebar">
 	<div id="wrapper"><!--WRAPPER-->
 		<div id="content"><!--CONTENIDO-->
-			<div class="inner"><!--INNER--> 
+			<div class="inner"><!--INNER-->
 <?php
 }
 function headerExterno(){
@@ -96,7 +96,7 @@ function headerExterno(){
 <body class="left-sidebar">
 	<div id="wrapper"><!--WRAPPER-->
 		<div id="content"><!--CONTENIDO-->
-			<div class="inner"><!--INNER--> 
+			<div class="inner"><!--INNER-->
 <?php
 }
 ?>

@@ -3,8 +3,8 @@ function navJefe()
 {
 ?>
 <div id="sidebarJefe"> <!--BARRA LATERAL-->
-	<h1 id="logo"><a href="../usuarios/homeJefeJefe.php"><?= i18n("·Fractum!") ?></a></h1>		
-            <nav id="nav"> 
+	<h1 id="logo"><a href="../usuarios/homeJefeJefe.php"><?= i18n("·Fractum!") ?></a></h1>
+            <nav id="nav">
           		<ul>
             		<div align="center">
                    		<li class="current">
@@ -13,7 +13,7 @@ function navJefe()
                         	</a>
                      	</li>
                      	<li class='current'> <a href="../../Controller/incidenciasController.php?accion=Pendientes"><?= i18n("Pendientes:") ?>
-                        <span class="badge"> <?php echo $_SESSION['pendientes']; ?> </span> </a> </li>
+                        <!-- <span class="badge"> <?php echo $_SESSION['pendientes']; ?> </span> </a> </li> -->
 						          <li class="current"><a href="../../Controller/incidenciasController.php?accion=Listar"><?= i18n("Gestionar Incidencias") ?></a></li>
                       <li class="current"><a href="../../Controller/usuariosController.php?accion=gestionUsuarios"><?= i18n("Gestionar Usuarios") ?></a></li>
                       <li class="current"><a href="../../Controller/empresasController.php?accion=Listar"><?= i18n("Gestionar Empresas") ?></a></li>
@@ -35,8 +35,8 @@ function navInterno()
 {
 ?>
 <div id="sidebarInterno"> <!--BARRA LATERAL-->
-			<h1 id='logo'><a href='../usuarios/homeInternoInterno.php'><?= i18n("·Fractum!") ?></a></h1> 	
-                <nav id='nav'> 
+			<h1 id='logo'><a href='../usuarios/homeInternoInterno.php'><?= i18n("·Fractum!") ?></a></h1>
+                <nav id='nav'>
               		<ul>
                 		<div align='center'>
                        		<li class='current'>
@@ -44,8 +44,8 @@ function navInterno()
                             		<img src='../../Resources/images/DefaultAvatar.png'><em><strong><br><?= i18n("operarioInterno:") ?> <?php echo $_SESSION["dni"];?></strong></em><strong></strong></img>
                             	</a>
                          	</li>
-							<!--NOTIFICACIONES-->		
-							<li class='current'><a href="../../Controller/incidenciasController.php?accion=Pendientes"><?= i18n("Pendientes:") ?><span class="badge"><?php echo $_SESSION['pendientes']; ?></span></a></li>
+							<!--NOTIFICACIONES-->
+							 <!-- <li class='current'><a href="../../Controller/incidenciasController.php?accion=Pendientes"><?= i18n("Pendientes:") ?><span class="badge"><?php echo $_SESSION['pendientes']; ?></span></a></li> -->
 							<!-- FIN NOTIFICACIONES-->
               <li class='current'><a href="../../View/incidencias/altaInterno.php"><?= i18n("Alta incidencia") ?></a></li>
 							<li class='current'><strong><a href="../../Controller/incidenciasController.php?accion=Listar"><?= i18n("Listar Incidencias") ?></a></strong></li>
@@ -69,8 +69,8 @@ function navExterno()
 {
 ?>
 <div id="sidebarExterno"> <!--BARRA LATERAL-->
-			<h1 id='logo'><a href='../usuarios/homeExternoExterno.php'><?= i18n("·Fractum!") ?></a></h1> 	
-                <nav id='nav'> 
+			<h1 id='logo'><a href='../usuarios/homeExternoExterno.php'><?= i18n("·Fractum!") ?></a></h1>
+                <nav id='nav'>
               		<ul>
                 		<div align='center'>
                        		<li class='current'>
@@ -78,8 +78,8 @@ function navExterno()
                             		<img src='../../Resources/images/DefaultAvatar.png'><em><strong><br><?= i18n("operarioExterno:") ?><?php echo $_SESSION["dni"];?></strong></em><strong></strong></img>
                             	</a>
                          	</li>
-                         	<!--NOTIFICACIONES-->		
-							<li class='current'><a href="../../Controller/incidenciasController.php?accion=Pendientes"><?= i18n("Pendientes:") ?> <span class="badge"><?php echo $_SESSION['pendientes']; ?></span></a></li>
+                         	<!--NOTIFICACIONES-->
+							<!-- <li class='current'><a href="../../Controller/incidenciasController.php?accion=Pendientes"><?= i18n("Pendientes:") ?> <span class="badge"><?php echo $_SESSION['pendientes']; ?></span></a></li> -->
 							<!-- FIN NOTIFICACIONES-->
 							<li class='current'><strong><a href="../../Controller/incidenciasController.php?accion=Listar"><?= i18n("Listar Incidencias") ?></a></strong></li>
 							<li class='current'><a href="../../Controller/maquinasController.php?accion=Listar"><?= i18n("Listar máquinas") ?></a></li>
