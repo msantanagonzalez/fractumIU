@@ -1,17 +1,23 @@
 <?php
-include_once 'bdController.php';
-include_once 'generalController.php';
+//----------|Get the path|----------//
+$path = dirname(__FILE__); //Gets the full path
+$smallPath = mb_substr($path,0,28); //gets the server path
+define('cribPath',$smallPath.'/');
+//---------------------------------//
+
+require_once cribPath.'Controller/bdController.php';
+require_once cribPath.'Controller/generalController.php';
 
 
 
-include_once '../Model/jefe.php';
-include_once '../Model/externo.php';
-include_once '../Model/interno.php';
-include_once '../Model/empresa.php';
-include_once '../Model/maquina.php';
-include_once '../Model/incidencia.php';
-require_once '../Model/iteracion.php';
-require_once '../Model/servicio.php';
+require_once cribPath.'Model/jefe.php';
+require_once cribPath.'Model/externo.php';
+require_once cribPath.'Model/interno.php';
+require_once cribPath.'Model/empresa.php';
+require_once cribPath.'Model/maquina.php';
+require_once cribPath.'Model/incidencia.php';
+require_once cribPath.'Model/iteracion.php';
+require_once cribPath.'Model/servicio.php';
 
 # NOTA: CAMBIAR LOS REQUEST POR POST O GETS.....
 $action =$_REQUEST['accion'];
@@ -67,7 +73,7 @@ switch ($action) {
 				case 'J':
 					listaMaquinaJefeAndInterno();
 					listaIncidenciaJefeAndInterno();
-					header("location:../View/usuarios/homeJefeJefe.php");
+					header('location:../View/usuarios/homeJefeJefe.php');
 					break;
 				case 'I':
 					listaMaquinaJefeAndInterno();

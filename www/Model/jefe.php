@@ -3,7 +3,7 @@
 * Clase jefe que hereda de clase usuario.
 */
 
-include_once('usuario.php');
+require_once cribPath.'Model/usuario.php';
 
 class jefe extends usuario {
 	private $telefJefe;

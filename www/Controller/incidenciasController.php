@@ -1,6 +1,11 @@
 <?php
-	require_once("../Model/incidencia.php");
-	include_once 'bdController.php';
+//----------|Get the path|----------//
+$path = dirname(__FILE__); //Gets the full path
+$smallPath = mb_substr($path,0,28); //gets the server path
+define('cribPath',$smallPath.'/');
+//---------------------------------//
+	require_once cribPath.'Model/incidencia.php';
+	require_once cribPath.'Controller/bdController.php';
 
 	if(isset($_GET['accion'])){	$accion = $_GET['accion']; }
 	if(isset($_POST['accion'])){ $accion = $_POST['accion']; }

@@ -1,7 +1,13 @@
 <?php
+//----------|Get the path|----------//
+$path = dirname(__FILE__); //Gets the full path
+$smallPath = mb_substr($path,0,28); //gets the server path
+define('cribPath',$smallPath.'/');
+//---------------------------------//
+
 	session_start();
 	//header("location: ../../../Controller/incidenciasController.php?accion=contarPendientes");
-	header("../../Controller/incidenciasController.php?accion=Pendientes");
+	//header("../../Controller/incidenciasController.php?accion=Pendientes");
 	switch ($_SESSION['tipo']){
 		case "J":
 			headerJefe();
@@ -14,8 +20,10 @@
 		break;
 }
 
-require_once("../messages/messages_ga.php");
-require_once("../../Model/I18n.php");
+//require_once("../messages/messages_ga.php");
+require_once cribPath.'Model/I18n.php';
+
+
 
 function headerJefe(){
 ?>

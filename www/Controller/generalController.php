@@ -4,7 +4,7 @@ if(isset($acceso)){
 	{
 		case "ON":
 			anadirMensaje("|INFO| Acceso jefe: Usuario=12345678E Pass=1234","info");
-			header("location:View/usuarios/Login.php");
+			header('location:View/usuarios/Login.php');
 		break;
 	}
 }

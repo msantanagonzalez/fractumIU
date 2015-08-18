@@ -1,7 +1,13 @@
 <?php
+//Note: Path apunta a View/usuarios por el header location
+//----------|Get the path|----------//
+$path = dirname(__FILE__); //Gets the full path
+$smallPath = mb_substr($path,0,28); //gets the server path
+define('cribPath',$smallPath.'/');
+//---------------------------------//
 session_start();
-require_once("../messages/messages_ga.php");
-require_once("../../Model/I18n.php");
+require_once cribPath.'View/messages/messages_ga.php';
+require_once cribPath.'Model/I18n.php';
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -39,7 +45,7 @@ require_once("../../Model/I18n.php");
 					</table>
 				</form>
 				<?php 
-				require '../crearMensaje.php'; 
+				require_once cribPath.'View/crearMensaje.php'; 
 				?>
 				<ul>
 				<li><a href="../../Controller/LanguageController.php?lang=es">español

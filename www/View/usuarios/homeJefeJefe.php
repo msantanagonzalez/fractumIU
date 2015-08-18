@@ -1,8 +1,13 @@
 <?php
+//----------|Get the path|----------//
+$path = dirname(__FILE__); //Gets the full path
+$smallPath = mb_substr($path,0,28); //gets the server path
+define('cribPath',$smallPath.'/');
+//---------------------------------//
 
 	$userType	=	"jefe";
-	require_once("../structure/header.php");
-	require '../crearMensaje.php';
+	require_once cribPath.'View/structure/header.php';
+	require_once cribPath.'View/crearMensaje.php';
 ?>
 <h1 id="headerJefe"><a><i><?= i18n("INCIDENCIAS") ?></i></a></h1>
 <table class="default">
@@ -93,5 +98,5 @@
 </form>
 				
 <?php
-	require_once("../structure/footer.php");
+	require_once cribPath.'View/structure/footer.php';
 ?>

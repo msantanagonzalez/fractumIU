@@ -59,7 +59,9 @@ class usuario{
 
 	public function login(){
 		$sql = "SELECT * FROM USUARIO WHERE dniUsu = '$this->dniUsu' AND passUsu = '$this->passUsu'";
-		$result = mysql_query($sql) or die(mysql_error());
+		$result = mysql_query($sql) or die(mysql_error("ERROR EN LOGIN"));
+		echo $sql;
+		
 		if (mysql_num_rows($result) == 0){
 			return false;
 		} else {
@@ -67,7 +69,7 @@ class usuario{
 			session_start();
 			$_SESSION['dni']  = $this->dniUsu;
 			$_SESSION['tipo'] = $usuario['tipoUsu'];
-			//session_write_close();
+			session_write_close();
 			return $result;
 		}
 	}
