@@ -1,11 +1,11 @@
 <?php
 
-include_once '../Model/servicio.php';
-include_once 'bdController.php';
-include_once 'generalController.php';
+require_once '../Model/servicio.php';
+require_once 'bdController.php';
+require_once 'generalController.php';
 
-include_once '../Model/maquina.php';
-include_once '../Model/empresa.php';
+require_once '../Model/maquina.php';
+require_once '../Model/empresa.php';
 
 
 if(isset($_GET['accion'])){	$accion = $_GET['accion']; }
@@ -45,7 +45,7 @@ switch ($action) {
 }
 
 	function alta(){
-		session_start();
+		//session_start();
 
 		$servicio = new servicio($_POST["idServ"], $_SESSION["dni"], $_POST["cifEmpr"],$_POST["idMaq"], $_POST["periodicidad"],$_POST["fInicioSer"], $_POST["fFinSer"],  $_POST["costeSer"], $_POST["descripSer"]);
 		$servicio->alta();
@@ -57,7 +57,7 @@ switch ($action) {
 	
 	function consultar(){
 		
-		session_start();
+		//session_start();
 
 		$servicio = new servicio();
 
@@ -75,11 +75,11 @@ switch ($action) {
 		switch($_SESSION['tipo']){
 		
 			case 'J':
-				session_write_close();
+				//session_write_close();
 				header("location: ../View/servicios/consultarJefe.php");
 				break;
 			case 'E':
-				session_write_close();
+				//session_write_close();
 				header("location: ../View/servicios/consultarExterno.php");
 				break;
 		}
@@ -88,7 +88,7 @@ switch ($action) {
 	
 	function listar(){
 		
-		session_start();
+		//session_start();
 
 		$servicio = new servicio();
 		
@@ -104,7 +104,7 @@ switch ($action) {
 				}
 
 				$_SESSION["listaServicios"] = $lista;
-				session_write_close();
+				//session_write_close();
 				header("location: ../View/servicios/gestorJefe.php");
 				break;
 			case 'E':
@@ -117,14 +117,14 @@ switch ($action) {
 
 				$_SESSION["listaServicios"] = $lista;
 
-				session_write_close();
+				//session_write_close();
 				header("location: ../View/servicios/gestorExterno.php");
 				break;
 		}
 	}
 	function modificar(){
 		
-		session_start();
+		//session_start();
 
 		$servicio = new servicio();
 
@@ -140,14 +140,14 @@ switch ($action) {
 		
 		if ($_SESSION['tipo'] == 'J') {
 			
-				session_write_close();
+				//session_write_close();
 				header("location: ../View/servicios/modificarJefe.php");
 				
 		}
 	}
 	
 	function modificado(){
-		session_start();
+		//session_start();
 		
 		$idServ = $_POST['idServ'];
 		$dniUsu = $_POST['dniUsu'];
@@ -167,7 +167,7 @@ switch ($action) {
 	
 	function trabajar(){
 		
-		session_start();
+		//session_start();
 		$idServ = $_POST['idServ'];
 		$dniUsu = $_SESSION['dni'];
 		$fecha=date('Y-m-d');
@@ -179,7 +179,7 @@ switch ($action) {
 	}
 	
 	function eliminar(){
-		session_start();
+		//session_start();
 		$idServ = $_GET['idServ'];
 		$servicio = new Servicio($idServ, "", "", "", "", "", "", "", "");
 		$resultado  = $servicio->consultaServicio($idServ);
@@ -192,7 +192,7 @@ switch ($action) {
 	}
 	
 	function listarMaquinaSinServicio(){
-				session_start();
+				//session_start();
 				$maquina = new Maquina();
 				$listaMaquinas = $maquina->listaMaquinaSinServicio();
 				$lista = array();
@@ -201,11 +201,11 @@ switch ($action) {
 					array_push($lista, $row);
 				}
 				$_SESSION["maquinaSinServicio"] = $lista;
-				session_write_close();
+				//session_write_close();
 	}
 	
 	function listarEmpresas(){
-		session_start();
+		//session_start();
 		$empresa = new Empresa();
 		$listaEmpresas = $empresa->listarEmpresas();
 		

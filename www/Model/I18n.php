@@ -24,7 +24,7 @@ class I18n {
 
   public function __construct(){
     if (session_status() == PHP_SESSION_NONE) {
-	     session_start();
+	     //session_start();
     }
 
     if (isset($_SESSION[self::CURRENT_LANGUAGE_SESSION_VAR])) {

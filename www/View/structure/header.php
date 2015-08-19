@@ -1,11 +1,5 @@
 <?php
-//----------|Get the path|----------//
-$path = dirname(__FILE__); //Gets the full path
-$smallPath = mb_substr($path,0,28); //gets the server path
-define('cribPath',$smallPath.'/');
-//---------------------------------//
-
-	session_start();
+	//session_start();
 	//header("location: ../../../Controller/incidenciasController.php?accion=contarPendientes");
 	//header("../../Controller/incidenciasController.php?accion=Pendientes");
 	switch ($_SESSION['tipo']){
@@ -21,7 +15,7 @@ define('cribPath',$smallPath.'/');
 }
 
 //require_once("../messages/messages_ga.php");
-require_once cribPath.'Model/I18n.php';
+require_once $_SESSION['cribPath'].'Model/I18n.php';
 
 
 

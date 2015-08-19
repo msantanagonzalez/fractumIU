@@ -1,4 +1,12 @@
 <?php
+function checkIfLogged(){
+	if($_SESSION['userIn'] != 1){
+	anadirMensaje("|ERROR| Inicia sesion para continuar","danger");
+	header('location:../../index.php');
+	//header('location:View/usuarios/Login.php');
+	}
+}
+
 if(isset($acceso)){
 	switch ($acceso)
 	{
@@ -10,18 +18,18 @@ if(isset($acceso)){
 }
 
 function anadirMensaje($mensaje, $alerta){
-		session_start();
+		////session_start();();
 		if(!isset($_SESSION['notificaciones']))
 		{
 			$_SESSION['notificaciones']=array();
-		array_push($_SESSION['notificaciones'],array('alerta' => $alerta, 'mensaje' => $mensaje));	
+		array_push($_SESSION['notificaciones'],array('alerta' => $alerta, 'mensaje' => $mensaje));
 		}else{
-		array_push($_SESSION['notificaciones'],array('alerta' => $alerta, 'mensaje' => $mensaje));	
+		array_push($_SESSION['notificaciones'],array('alerta' => $alerta, 'mensaje' => $mensaje));
 		}
 }
 
 function subirArchivo($idMaquina,$idIncidencia,$idIteracion,$tipo){
-	$ext_permitidas = array('jpg','jpeg','png','pdf','txt','doc','docx');	 
+	$ext_permitidas = array('jpg','jpeg','png','pdf','txt','doc','docx');
 	# 5000kb
 	$limite = 5000 * 1024;
 	switch($tipo){
@@ -42,11 +50,11 @@ function subirMaquina($idMaquina,$ext_permitidas,$limite){
 		$path= $dir.$nombre;
 		$nombre_tmp = $_FILES['docMaquina']['tmp_name'];
 		$tipo = $_FILES['docMaquina']['type'];
-		$tamano = $_FILES['docMaquina']['size'];		
+		$tamano = $_FILES['docMaquina']['size'];
 		$partes_nombre = explode('.', $nombre);
 		$extension = end( $partes_nombre );
 		$ext_correcta = in_array($extension, $ext_permitidas);
-				
+
 		if($ext_correcta && $tamano <= $limite ){
 			  if(file_exists($dir.$nombre)){
 				anadirMensaje("|ERROR| Ya hay un archivo con ese nombre: ".$nombre."|".$tipo."|".$tamano."Mb" ,"danger");
@@ -59,7 +67,7 @@ function subirMaquina($idMaquina,$ext_permitidas,$limite){
 			anadirMensaje("|ERROR|Error al subir archivo: ".$nombre."|".$tipo."|".$tamano."Mb" ,"danger");
 		}
 	}
-	
+
 	function subirIteracion(){
 		echo "implementar subida documentacion en iteracion";
 	}
@@ -77,5 +85,5 @@ function subirMaquina($idMaquina,$ext_permitidas,$limite){
 		//Eliminacion de carpeta.
 		rmdir($carpeta);
 		anadirMensaje("|INFO|Carpeta: ".$carpeta." eliminada","info");
-	}	
+	}
 ?>

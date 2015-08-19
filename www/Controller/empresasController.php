@@ -1,7 +1,7 @@
 <?php
 	require_once("../Model/empresa.php");
-	include_once 'bdController.php';
-	include_once 'generalController.php';
+	require_once 'bdController.php';
+	require_once 'generalController.php';
 
 	if(isset($_GET['accion'])){	$accion = $_GET['accion']; }
 	if(isset($_POST['accion'])){ $accion = $_POST['accion']; }
@@ -28,7 +28,7 @@
 
 
 	function alta(){
-		session_start();
+		//session_start();
 
 		$empresa = new Empresa($_POST["cifEmpr"], $_POST["nomEmpr"], $_POST["telefEmpr"], $_POST["mailEmpr"]);
 		$empresa->altaEmpresa();
@@ -40,7 +40,7 @@
 
 
 	function consulta(){
-		session_start();
+		//session_start();
 
 		$empresa = new Empresa();
 
@@ -56,7 +56,7 @@
 
 		switch ($_SESSION['tipo']) {
 			case 'J':
-				session_write_close();
+				//session_write_close();
 				header("location: ../View/empresas/consultarJefe.php");
 				break;
 		}
@@ -64,7 +64,7 @@
 
 
 	function modificar(){
-		session_start();
+		//session_start();
 
 		$empresa = new Empresa();
 
@@ -79,7 +79,7 @@
 		$_SESSION["consultaEmpresa"] = $consulta;
 		switch ($_SESSION['tipo']) {
 			case 'J':
-				session_write_close();
+				//session_write_close();
 				header("location: ../View/empresas/modificarJefe.php");
 				break;
 		}
@@ -87,7 +87,7 @@
 
 
 	function modificado(){
-		session_start();
+		//session_start();
 		
 		$cifEmpr = $_POST['cifEmpr'];
 		$nomEmpr = $_POST['nomEmpr'];
@@ -103,7 +103,7 @@
 
 
 	function lista(){
-		session_start();
+		//session_start();
 
 		$empresa = new Empresa();
 		$listaEmpresas = $empresa->listarEmpresas();
@@ -117,7 +117,7 @@
 
 		switch ($_SESSION['tipo']) {
 			case 'J':
-				session_write_close();
+				//session_write_close();
 				header("location: ../View/empresas/listarJefe.php");
 				break;
 		}
@@ -126,7 +126,7 @@
 
 
 	function eliminar(){
-		session_start();
+		//session_start();
 		$cifEmpr = $_GET['cifEmpr'];
 		$empresa = new Empresa($cifEmpr, "", "", "");
 		$resultado  = $empresa->consultaEmpresa($cifEmpr);

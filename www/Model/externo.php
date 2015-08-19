@@ -1,6 +1,6 @@
 <?php
 
-include_once('usuario.php');
+require_once('usuario.php');
 
 class externo extends usuario {
 

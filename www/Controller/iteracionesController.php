@@ -1,6 +1,6 @@
 <?php
 	require_once("../Model/iteracion.php");
-	include_once 'bdController.php';
+	require_once 'bdController.php';
 
 	if(isset($_GET['accion'])){	$accion = $_GET['accion']; }
 	if(isset($_POST['accion'])){ $accion = $_POST['accion']; }
@@ -34,7 +34,7 @@
 	}
 
 	function alta(){
-		session_start();
+		//session_start();
 
 		$iteracion2 = new Iteracion();
 		$id = $iteracion2->nextId();
@@ -49,7 +49,7 @@
 	}
 
 	function consulta(){
-		session_start();
+		//session_start();
 
 		$idIncid = $_REQUEST['idIncid'];
 		$nIteracion = $_REQUEST['nIteracion'];
@@ -66,23 +66,23 @@
 
 		switch ($_SESSION['tipo']) {
 			case 'J':
-				session_write_close();
+				//session_write_close();
 				header("location: ../View/iteraciones/consultarJefe.php");
 				break;
 			case 'I':
 				header("location: ../View/iteraciones/consultarInterno.php");
-				session_write_close();
+				//session_write_close();
 				break;
 			case 'E':
 				header("location: ../View/iteraciones/consultarExterno.php");
-				session_write_close();
+				//session_write_close();
 			default:				
 				break;
 		}
 	}
 
 	function modificar(){
-		session_start();
+		//session_start();
 
 
 		$idIteracion = $_REQUEST['idIncidencia'];
@@ -100,15 +100,15 @@
 
 		switch ($_SESSION['tipo']) {
 			case 'J':
-				session_write_close();
+				//session_write_close();
 				header("location: ../View/iteraciones/modificarJefe.php");
 				break;
 			case 'I':
-				session_write_close();
+				//session_write_close();
 				header("location: ../View/iteraciones/modificarInterno.php");
 				break;
 			case 'E':
-				session_write_close();
+				//session_write_close();
 				header("location: ../View/iteraciones/modificarExterno.php");
 			default:				
 				break;
@@ -116,7 +116,7 @@
 	}
 
 	function modificado(){
-		session_start();
+		//session_start();
 		
 		$idIncid = $_POST['idIncid'];
 		$nIteracion = $_POST['nIteracion'];
@@ -134,7 +134,7 @@
 	}
 
 	function lista(){
-		session_start();
+		//session_start();
 		$idIncid =$_REQUEST['idIncid'];
 		$iteracion = new Iteracion($idIncid);
 		$listaIteraciones = $iteracion->lista();
@@ -148,16 +148,16 @@
 
 		switch ($_SESSION['tipo']) {
 			case 'J':
-				session_write_close();
+				//session_write_close();
 				header("location: ../View/incidencias/consultarJefe.php");
 				break;
 			case 'I':
 				header("location: ../View/incidencias/consultarInterno.php");
-				session_write_close();
+				//session_write_close();
 				break;
 			case 'E':
 				header("location: ../View/incidencias/consultarExterno.php");
-				session_write_close();
+				//session_write_close();
 				break;
 			default:					
 				break;
@@ -165,20 +165,20 @@
 	}
 
 	function cerrarIteracion(){
-		session_start();
+		//session_start();
 
 		$idIncid = $_POST['idIncid'];
 		$nIteracion = $_POST['nIteracion'];
 
 		$iteracion = new Iteracion($idIncid, $nIteracion);
 		$consultaIteracion = $iteracion->cerrarIteracion();
-		session_write_close();
+		//session_write_close();
 		lista();
 
 	}
 
 	function siguienteIteracion(){
-		session_start();
+		//session_start();
 
 		$idIncid = $_POST['idIncid'];
 		$iteracion = new Iteracion($idIncid);

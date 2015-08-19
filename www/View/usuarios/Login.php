@@ -1,13 +1,7 @@
 <?php
-//Note: Path apunta a View/usuarios por el header location
-//----------|Get the path|----------//
-$path = dirname(__FILE__); //Gets the full path
-$smallPath = mb_substr($path,0,28); //gets the server path
-define('cribPath',$smallPath.'/');
-//---------------------------------//
-session_start();
-require_once cribPath.'View/messages/messages_ga.php';
-require_once cribPath.'Model/I18n.php';
+//session_start(); 
+require_once $_SESSION['cribPath'].'View/messages/messages_ga.php';
+require_once $_SESSION['cribPath'].'Model/I18n.php';
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -33,19 +27,19 @@ require_once cribPath.'Model/I18n.php';
 			<h1 id="headerJefe"><a><i><?= i18n("Login") ?></i></a></h1>
 				<form method="POST" action="../../Controller/usuariosController.php">
 					<table class="default">
-						<tr> 
-							<td width="25%"><?= i18n("Usuario:") ?> </td> 
-							<td width="25%"><input title="Por favor introduzca un nombre de usuario" required type="text" class="text" name="dniUsu" placeholder="DNI:"/></td> 
-							<td width="25%"><?= i18n("Contraseña:") ?> </td> 
+						<tr>
+							<td width="25%"><?= i18n("Usuario:") ?> </td>
+							<td width="25%"><input title="Por favor introduzca un nombre de usuario" required type="text" class="text" name="dniUsu" placeholder="DNI:"/></td>
+							<td width="25%"><?= i18n("Contraseña:") ?> </td>
 							<td width="25%"> <input  title="Por favor introduzca su password" required type="password" class="text" name="passUsu" placeholder="Contraseña:" /></td>
 						</tr>
 						<tr>
 							<td width="20%" colspan="4"><input type="submit" name="accion" value="login"></td>
-						</tr> 
+						</tr>
 					</table>
 				</form>
-				<?php 
-				require_once cribPath.'View/crearMensaje.php'; 
+				<?php
+				require_once $_SESSION['cribPath'].'View/crearMensaje.php';
 				?>
 				<ul>
 				<li><a href="../../Controller/LanguageController.php?lang=es">español
@@ -55,6 +49,6 @@ require_once cribPath.'Model/I18n.php';
 				<?php i18n("Galego"); ?>
 				</a></li>
 			</ul>
-		</div>	
+		</div>
 	</body>
 </html>

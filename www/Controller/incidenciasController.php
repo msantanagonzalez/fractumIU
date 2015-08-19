@@ -4,8 +4,8 @@ $path = dirname(__FILE__); //Gets the full path
 $smallPath = mb_substr($path,0,28); //gets the server path
 define('cribPath',$smallPath.'/');
 //---------------------------------//
-	require_once cribPath.'Model/incidencia.php';
-	require_once cribPath.'Controller/bdController.php';
+	require_once $_SESSION['cribPath'].'Model/incidencia.php';
+	require_once $_SESSION['cribPath'].'Controller/bdController.php';
 
 	if(isset($_GET['accion'])){	$accion = $_GET['accion']; }
 	if(isset($_POST['accion'])){ $accion = $_POST['accion']; }
@@ -32,7 +32,7 @@ define('cribPath',$smallPath.'/');
 	}
 
 	function alta(){
-		session_start();
+		//session_start();
 
 		$incidencia = new Incidencia($_POST["idIncidencia"], $_POST["fechaApertura"], $_POST["fechaCierre"], $_POST["dniResponsable"], $_POST["dniApertura"],
 										$_POST["idMaquina"],  $_POST["estadoIncidencia"], $_POST["derivada"], $_POST['descripcion']);
@@ -42,7 +42,7 @@ define('cribPath',$smallPath.'/');
 	}
 
 	function consulta(){
-		session_start();
+		//session_start();
 
 		$incidencia = new Incidencia();
 
@@ -58,15 +58,15 @@ define('cribPath',$smallPath.'/');
 
 		switch ($_SESSION['tipo']) {
 			case 'J':
-				session_write_close();
+				//session_write_close();
 				header("location: iteracionesController.php?accion=Listar&idIncid=$idIncidencia");
 				break;
 			case 'I':
-				session_write_close();
+				//session_write_close();
 				header("location: iteracionesController.php?accion=Listar&idIncid=$idIncidencia");
 				break;
 			case 'E':
-				session_write_close();
+				//session_write_close();
 				header("location: iteracionesController.php?accion=Listar&idIncid=$idIncidencia");
 				break;
 			default:				
@@ -75,7 +75,7 @@ define('cribPath',$smallPath.'/');
 	}
 
 	function modificar(){
-		session_start();
+		//session_start();
 
 		$incidencia = new Incidencia();
 
@@ -91,23 +91,23 @@ define('cribPath',$smallPath.'/');
 
 		switch ($_SESSION['tipo']) {
 			case 'J':
-				session_write_close();
+				//session_write_close();
 				header("location: ../View/incidencias/modificarJefe.php");
 				break;
 			case 'I':
 				header("location: ../View/incidencias/modificarInterno.php");
-				session_write_close();
+				//session_write_close();
 				break;
 			case 'E':
 				header("location: ../View/incidencias/modificarExterno.php");
-				session_write_close();
+				//session_write_close();
 			default:				
 				break;
 		}
 	}
 
 	function modificado(){
-		session_start();
+		//session_start();
 		
 		$idIncidencia = $_POST['idIncidencia'];
 		$derivada = $_POST['derivada'];
@@ -127,7 +127,7 @@ define('cribPath',$smallPath.'/');
 	}
 
 	function lista(){
-		session_start();
+		//session_start();
 		$incidencia = new Incidencia();
 		
 		switch ($_SESSION['tipo']) {
@@ -167,7 +167,7 @@ define('cribPath',$smallPath.'/');
 	}
 
 	function pendientes(){
-		session_start();
+		//session_start();
 
 		$tipo = $_SESSION['tipo'];
 
@@ -183,16 +183,16 @@ define('cribPath',$smallPath.'/');
 
 		switch ($_SESSION['tipo']) {
 			case 'J':
-				session_write_close();
+				//session_write_close();
 				header("location: ../View/incidencias/pendientesJefe.php");
 				break;
 			case 'I':
 				header("location: ../View/incidencias/pendientesInterno.php");
-				session_write_close();
+				//session_write_close();
 				break;
 			case 'E':
 				header("location: ../View/incidencias/pendientesExterno.php");
-				session_write_close();
+				//session_write_close();
 			default:				
 				break;
 		}

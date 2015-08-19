@@ -1,23 +1,17 @@
 <?php
-//----------|Get the path|----------//
-$path = dirname(__FILE__); //Gets the full path
-$smallPath = mb_substr($path,0,28); //gets the server path
-define('cribPath',$smallPath.'/');
-//---------------------------------//
-
-require_once cribPath.'Controller/bdController.php';
-require_once cribPath.'Controller/generalController.php';
+require_once $_SESSION['cribPath'].'Controller/bdController.php';
+require_once $_SESSION['cribPath'].'Controller/generalController.php';
 
 
 
-require_once cribPath.'Model/jefe.php';
-require_once cribPath.'Model/externo.php';
-require_once cribPath.'Model/interno.php';
-require_once cribPath.'Model/empresa.php';
-require_once cribPath.'Model/maquina.php';
-require_once cribPath.'Model/incidencia.php';
-require_once cribPath.'Model/iteracion.php';
-require_once cribPath.'Model/servicio.php';
+require_once $_SESSION['cribPath'].'Model/jefe.php';
+require_once $_SESSION['cribPath'].'Model/externo.php';
+require_once $_SESSION['cribPath'].'Model/interno.php';
+require_once $_SESSION['cribPath'].'Model/empresa.php';
+require_once $_SESSION['cribPath'].'Model/maquina.php';
+require_once $_SESSION['cribPath'].'Model/incidencia.php';
+require_once $_SESSION['cribPath'].'Model/iteracion.php';
+require_once $_SESSION['cribPath'].'Model/servicio.php';
 
 # NOTA: CAMBIAR LOS REQUEST POR POST O GETS.....
 $action =$_REQUEST['accion'];
@@ -78,32 +72,34 @@ switch ($action) {
 				case 'I':
 					listaMaquinaJefeAndInterno();
 					listaIncidenciaJefeAndInterno();
-					header("location:../View/usuarios/homeInternoInterno.php");
+					header('location:../View/usuarios/homeInternoInterno.php');
 					break;
 				case 'E':
-					header("location:../View/usuarios/homeExternoExterno.php");
+					header('location:../View/usuarios/homeExternoExterno.php');
 					break;
 			}
 		}else{
 			anadirMensaje("|ERROR| Usuario o Pass Incorrecto","danger");
-			header("location:../View/usuarios/Login.php");
+			//header('location:../View/usuarios/Login.php');
+			header('location:../index.php');
 		}
 	}
 
 	function logOut()
 	{
-		session_start();
+		//session_start();
 		session_unset();
 		session_destroy();
-		anadirMensaje("|Success| Sesión cerrada correctamente","success");
-		header("location:../View/usuarios/Login.php");
+		//anadirMensaje("|Success| Sesión cerrada correctamente","success");
+		//header("location:../View/usuarios/Login.php");
+		header('location:../index.php');
 	}
 
 	function gestionUsuarios(){
-		session_start();
+		//session_start();
 		listarUsuariosInternos();
 		listarUsuariosExternos();
-		session_write_close();
+		//session_write_close();
 		header("location:../View/usuarios/listarUsuariosJefe.php");
 	}
 
@@ -135,7 +131,7 @@ switch ($action) {
 
 	function consultarUsuario(){
 
-	session_start();
+	//session_start();
 
 	$dniUsu =$_GET['dniUsu'];
 	$usuario = new usuario($dniUsu, "", "", "", "" );
@@ -212,11 +208,11 @@ switch ($action) {
 						break;
 				}
 		}
-	session_write_close();
+	//session_write_close();
 	}
 
 	function guardarModificacion(){
-		session_start();
+		//session_start();
 		switch ($_SESSION['tipo']){
 			case 'J':
 
@@ -425,7 +421,7 @@ switch ($action) {
 
 //Esto deberia estar en controlador de empresas
 	function listarEmpresas(){
-		session_start();
+		//session_start();
 		$empresa = new Empresa();
 		$listaEmpresas = $empresa->listarEmpresas();
 
@@ -515,7 +511,7 @@ switch ($action) {
 	}
 
 	function accesoAltaExterno(){
-		session_start();
+		//session_start();
 		if(empty($_SESSION["listaEmpresas"])){
 			anadirMensaje("| ERROR | No hay empresas en el sistema","danger");
 			gestionUsuarios();

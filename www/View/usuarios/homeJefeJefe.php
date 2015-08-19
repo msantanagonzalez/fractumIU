@@ -1,13 +1,11 @@
 <?php
-//----------|Get the path|----------//
-$path = dirname(__FILE__); //Gets the full path
-$smallPath = mb_substr($path,0,28); //gets the server path
-define('cribPath',$smallPath.'/');
-//---------------------------------//
-
 	$userType	=	"jefe";
-	require_once cribPath.'View/structure/header.php';
-	require_once cribPath.'View/crearMensaje.php';
+	require_once $_SESSION['cribPath'].'View/structure/header.php';
+	require_once $_SESSION['cribPath'].'View/crearMensaje.php';
+	//---- Meter esto en todas las vistas ----
+	require_once $_SESSION['cribPath'].'Controller/generalController.php';
+	checkIfLogged();
+	// ----------------------------------------
 ?>
 <h1 id="headerJefe"><a><i><?= i18n("INCIDENCIAS") ?></i></a></h1>
 <table class="default">
@@ -23,22 +21,22 @@ define('cribPath',$smallPath.'/');
 <div style="height:107px;width:auto;overflow-y: scroll;"><!--ESTO DA LUGAR AL SCROLL-->
 	<form method="POST" action="../../Controller/incidenciasController.php">
 		<table class="default">
-			<?php 
+			<?php
 				if(isset($_SESSION['listaIncidencia']))
-				$rows = $_SESSION['listaIncidencia']; 
+				$rows = $_SESSION['listaIncidencia'];
 				if (empty($rows)) {
 				?>
 					<div class="alert alert-warning" role="alert">
-					<?= i18n("| INFO |- No hay incidencias para listar") ?> 
+					<?= i18n("| INFO |- No hay incidencias para listar") ?>
 					</div>
 				<?php
 				}
 				else{
 					foreach ($rows as $row) {
 				?>
-				<tr> 
-					<td width="17%"><?php echo $row['idIncid'];?></td> 
-					<td width="17%">Avería alternador</td> 
+				<tr>
+					<td width="17%"><?php echo $row['idIncid'];?></td>
+					<td width="17%">Avería alternador</td>
 					<td width="17%">Fulanito</a></td> <!-- Falta linkar al perfil del usuario. -->
 					<td width="17%"><?php echo $row['fAper']; ?></td>
 					<td width="17%"><?php echo $row['estadoIncid']; ?></td>
@@ -46,8 +44,8 @@ define('cribPath',$smallPath.'/');
 						<input type="button" value="Consulta" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>'"/>
 					</td>
 				</tr>
-				<?php 
-				} 
+				<?php
+				}
 			}
 			?>
 		</table>
@@ -66,23 +64,23 @@ define('cribPath',$smallPath.'/');
 </table>
 <form method="POST" action="../../Controller/maquinasController.php">
 	<table class="default">
-		<?php 
+		<?php
 			if(isset($_SESSION['listaMaquina']))
 			$rows = $_SESSION['listaMaquina'];
 			if (empty($rows)) {
 			?>
 				<div class="alert alert-warning" role="alert">
-				<?= i18n("| INFO |- No hay maquinas para listar") ?> 
+				<?= i18n("| INFO |- No hay maquinas para listar") ?>
 				</div>
 			<?php
 			}
 			else{
 				foreach ($rows as $row) {
 				?>
-				<tr> 
-					<td width="20%"  name = "idMaq"><?php echo $row['idMaq']; ?></td> 
-					<td width="20%"><?= i18n("Si") ?></td> 
-					<td width="20%">13/09/2014</td> 
+				<tr>
+					<td width="20%"  name = "idMaq"><?php echo $row['idMaq']; ?></td>
+					<td width="20%"><?= i18n("Si") ?></td>
+					<td width="20%">13/09/2014</td>
 					<td width="10%">
 						<input type="button"  value="Consulta" onclick="window.location.href='../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>'"/>
 					</td>
@@ -90,13 +88,13 @@ define('cribPath',$smallPath.'/');
 						<input type="button" value="Eliminar" onclick="window.location.href='../../Controller/maquinasController.php?accion=Eliminar&idMaq=<?php echo $row['idMaq'];?>'">
 					</td>
 				</tr>
-				<?php 
-				} 
+				<?php
+				}
 			}
 		?>
 </table>
 </form>
-				
+
 <?php
-	require_once cribPath.'View/structure/footer.php';
+	require_once $_SESSION['cribPath'].'View/structure/footer.php';
 ?>

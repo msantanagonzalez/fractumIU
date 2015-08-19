@@ -1,7 +1,7 @@
 <?php
 	require_once("../Model/maquina.php");
-	include_once 'bdController.php';
-	include_once 'generalController.php';
+	require_once 'bdController.php';
+	require_once 'generalController.php';
 
 	if(isset($_GET['accion'])){	$accion = $_GET['accion']; }
 	if(isset($_POST['accion'])){ $accion = $_POST['accion']; }
@@ -37,7 +37,7 @@
 	}
 
 	function alta(){
-		session_start();
+		//session_start();
 
 		$maquina = new Maquina($_POST["idMaq"], $_POST["nSerie"], $_POST["descripMaq"],$_POST["nomMaq"], $_POST["costeMaq"]);
 		$maquina->alta();
@@ -61,7 +61,7 @@
 	}
 
 	function consulta(){
-		session_start();
+		//session_start();
 
 		$maquina = new Maquina();
 
@@ -91,15 +91,15 @@
 		
 		switch ($_SESSION['tipo']) {
 			case 'J':
-				session_write_close();
+				//session_write_close();
 				header("location: ../View/maquinas/consultarJefe.php");
 				break;
 			case 'I':
-				session_write_close();
+				//session_write_close();
 				header("location: ../View/maquinas/consultarInterno.php");
 				break;
 			case 'E':
-				session_write_close();
+				//session_write_close();
 				header("location: ../View/maquinas/consultarExterno.php");
 				
 			default:				
@@ -107,7 +107,7 @@
 		}
 	}
 	function modificar(){
-		session_start();
+		//session_start();
 		$maquina = new Maquina();
 
 	
@@ -130,13 +130,13 @@
 		$_SESSION["documentoMaquina"] = $consulta;
 
 		if($_SESSION['tipo'] == 'J') {
-				session_write_close();
+				//session_write_close();
 				header("location: ../View/maquinas/modificarJefe.php");
 				
 		}
 	}
 	function modificado(){
-		session_start();
+		//session_start();
 		
 		$idMaq = $_POST['idMaq'];
 		$nSerie = $_POST['nSerie'];
@@ -161,7 +161,7 @@
 	}
 	
 	function lista(){
-		session_start();
+		//session_start();
 
 		$maquina = new Maquina();
 		
@@ -174,7 +174,7 @@
 					array_push($lista, $row);
 				}
 				$_SESSION["listaMaquina"] = $lista;
-				session_write_close();
+				//session_write_close();
 				header("location: ../View/maquinas/listarJefe.php");
 				break;
 			case 'I':
@@ -186,7 +186,7 @@
 				}
 				$_SESSION["listaMaquina"] = $lista;
 				header("location: ../View/maquinas/listarInterno.php");
-				session_write_close();
+				//session_write_close();
 				break;
 			case 'E':
 				$listaMaquinas1 = $maquina->listaMaquinasOpEservicio();
@@ -208,7 +208,7 @@
 				$_SESSION["listaMaquina2"] = $lista2;
 				
 				header("location: ../View/maquinas/listarExterno.php");
-				session_write_close();
+				//session_write_close();
 				break;
 			default:				
 				break;
@@ -217,7 +217,7 @@
 	///comprobar
 					
 	function eliminar(){
-	session_start();
+	//session_start();
 		$idMaq    = $_GET['idMaq'];
 		$maquina = new Maquina ($idMaq,"","","","");
 		$resultado  = $maquina->consultaMaquina($idMaq);
@@ -246,7 +246,7 @@
 	}
 
 	function listarIncidencias(){
-		session_start();
+		//session_start();
 			$idMaquina = $_GET['idMaq'];
 
 			$maquina = new Maquina();

@@ -1,5 +1,5 @@
 <?php
-$online = 1;
+$online = 0;
 if($online == 1){
 	function connectBD(){
         mysql_connect("mysql.hostinger.es","u674038104_admin","Fractum@2015");
@@ -16,7 +16,7 @@ if($online == 1){
 	function contarPendientes(){
 		require_once("incidencia.php");
 		/*
-		session_start();
+		//session_start();
 		if(isset($_SESSION['tipo'])){
 			$tipo = $_SESSION['tipo'];
 		}else{
@@ -28,7 +28,7 @@ if($online == 1){
 			$result = mysql_fetch_array($numero);
 
 			$_SESSION['pendientes'] = $result['num'];
-		session_write_close();
+		//session_write_close();
 		*/
 	}
 
