@@ -1,6 +1,6 @@
 <?php
 	$userType="jefe";
-	require_once("../structure/header.php");
+	require_once $_SESSION['cribPath'].'View/structure/header.php';
 ?>
 <h1 id="headerJefe"><a><i><?= i18n("NUEVA INCIDENCIA") ?></i></a></h1>
 <form name='FormAltaIncidencia' onsubmit="return comprobarAltaIncidenciaJefe()" action='../../Controller/incidenciasController.php' method='POST'>
@@ -15,13 +15,15 @@
 				<td>
 					<select required title="Debe seleccionar a un responsable" name="dniResponsable" id="dniResponsable">
 						<option value="" selected>-</option>
-						<?php $rows = $_SESSION["listaInternos"]; foreach ($rows as $row){ ?>		
-						<option value="<?php echo $row[0];?>"><?php echo $row[0]." - ".$row[1];?></option> 
+						<?php
+						$rows = $_SESSION["listaInternos"]; 
+						foreach ($rows as $row){ ?>
+						<option value="<?php echo $row[0];?>"><?php echo $row[0]." - ".$row[1];?></option>
 						<?php } ?>
-						<?php $rows = $_SESSION["listaExternos"]; foreach ($rows as $row){ ?>		
-						<option value="<?php echo $row[0];?>"><?php echo $row[0]." - ".$row[1];?></option> 
+						<?php $rows = $_SESSION["listaExternos"]; foreach ($rows as $row){ ?>
+						<option value="<?php echo $row[0];?>"><?php echo $row[0]." - ".$row[1];?></option>
 						<?php } ?>
-					</select>	
+					</select>
 				</td>
 			</tr>
 			<tr>
@@ -29,7 +31,7 @@
 				<td><input title="Debe seleccionar una fecha de apertura" type='date' name='fechaApertura' value='' required/></td>
 				<td><?= i18n("Fecha Cierre:") ?></td>
 				<td><input title="Debe seleccionar una fecha de cierre" type="date" name='fechaCierre' value='' required/></td>
-			</tr>	
+			</tr>
 			<tr>
 				<td><?= i18n("Estado:") ?></td>
 				<td>
@@ -37,16 +39,16 @@
 						<option value="" selected>-</option>
 						<option value='Abierta'><?= i18n("Abierta") ?></option>
 					  	<option value='Programada'><?= i18n("Programada") ?></option>
-					</select> 		
+					</select>
 				</td>
 				<td><?= i18n("Máquina:") ?></td>
 				<td>
 					<select required title="Debe seleccionar una maquina" name="idMaquina">
 						<option value="" selected>-</option>
-						<?php $rows = $_SESSION["listaMaquina"]; foreach ($rows as $row){ ?>		
-						<option value="<?php echo $row['idMaq'];?>"><?php echo $row['idMaq']." - ".$row['nomMaq'];?></option> 
+						<?php $rows = $_SESSION["listaMaquina"]; foreach ($rows as $row){ ?>
+						<option value="<?php echo $row['idMaq'];?>"><?php echo $row['idMaq']." - ".$row['nomMaq'];?></option>
 						<?php } ?>
-					</select>		
+					</select>
 				</td>
 			</tr>
 			<tr>
@@ -58,7 +60,7 @@
 			</tr>
 		</table>
 		<table>
-			<tr> 
+			<tr>
 				<th width="20%">
 				</th>
 				<th width="40%">
@@ -71,5 +73,5 @@
 </form>
 
 <?php
-	require_once("../structure/footer.php");
+	require_once $_SESSION['cribPath'].'View/structure/footer.php';
 ?>

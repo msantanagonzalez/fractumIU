@@ -1,7 +1,7 @@
 <?php
 	$userType="jefe";
-	require_once("../structure/header.php");
-	require '../crearMensaje.php';
+	require_once $_SESSION['cribPath'].'View/structure/header.php';
+	require_once $_SESSION['cribPath'].'View/crearMensaje.php';
 ?>
 
 <h1 id="headerJefe"><a><i><?= i18n("EMPRESA") ?></i></a></h1>
@@ -16,25 +16,25 @@
 <form method="POST" action="../../Controller/empresasController.php">
 	<table class="default">
 		<!--<td width="10%"><button><a onclick="return Eliminar_Elemento()">Eliminar</a></button></td> -->
-		<?php 
+		<?php
 			$rows = $_SESSION['listaEmpresas'];
 			if (empty($rows)) {
 			?>
 				<div class="alert alert-warning" role="alert">
 				<?= i18n("| INFO |- No hay empresas para listar ") ?>
-				
+
 				</div>
 			<?php
 			}else{
 			foreach ($rows as $row) {
 				?>
-				<tr> 
-					<td width="30%"><?php echo $row['cifEmpr'];?></td>  
+				<tr>
+					<td width="30%"><?php echo $row['cifEmpr'];?></td>
 					<td width="40%"><?php echo $row['nomEmpr']; ?></td>
 					<td width="10%"><input type="button" value="Consulta" onclick="window.location.href='../../Controller/empresasController.php?accion=Consulta&cifEmpr=<?php echo $row['cifEmpr']; ?>'"/></td>
 					<td width="10%"><input type="button" value="Eliminar" onclick="window.location.href='../../Controller/empresasController.php?accion=Eliminar&cifEmpr=<?php echo $row['cifEmpr']; ?>'"></td>
 				</tr>
-				<?php 
+				<?php
 				}
 		}
 		?>
@@ -47,5 +47,5 @@
 </table>
 
 <?php
-	require_once("../structure/footer.php");
+	require_once $_SESSION['cribPath'].'View/structure/footer.php';
 ?>

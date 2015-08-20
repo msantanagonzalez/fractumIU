@@ -1,6 +1,6 @@
 <?php
-	require_once("../structure/header.php");
-	require '../crearMensaje.php';
+	require_once $_SESSION['cribPath'].'View/structure/header.php';
+	require_once $_SESSION['cribPath'].'View/crearMensaje.php';
 ?>
 
 <h1 id="headerJefe"><a><i><?= i18n("INCIDENCIAS") ?></i></a></h1>
@@ -16,7 +16,7 @@
 </table>
 <form method="POST" action="../../Controller/incidenciasController.php">
 	<table class="default">
-		<?php 
+		<?php
 			$rows = $_SESSION['listaIncidencia'];
 			if (empty($rows)) {
 			?>
@@ -28,22 +28,22 @@
 			else{
 			foreach ($rows as $row) {
 			?>
-			<tr> 
-				<td width="17%"><?php echo $row['idIncid'];?></td> 
-				<td width="17%"><?php echo $row['dniResponsable'];?></td> 
+			<tr>
+				<td width="17%"><?php echo $row['idIncid'];?></td>
+				<td width="17%"><?php echo $row['dniResponsable'];?></td>
 				<td width="17%"><?php echo $row['fAper']; ?></td>
 				<td width="17%"><?php echo $row['estadoIncid']; ?></td>
 				<?php if ($row['derivada'] == 0) {?>
-				<td width="17%"><?php echo $row['cifEmpr']; ?></td> 
+				<td width="17%"><?php echo $row['cifEmpr']; ?></td>
 				<?php } else { ?>
-				<td width="17%">NO</td> 
+				<td width="17%">NO</td>
 				<?php }?>
 				<td width="17%">
 				<input type="button" value="Consulta" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>'"/>
 				</td>
 			</tr>
-			<?php 
-			} 
+			<?php
+			}
 		}
 		?>
 	</table>
@@ -57,5 +57,5 @@
 </table>
 
 <?php
-	require_once("../structure/footer.php");
+	require_once $_SESSION['cribPath'].'View/structure/footer.php';
 ?>

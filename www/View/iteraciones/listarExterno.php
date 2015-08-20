@@ -1,6 +1,6 @@
 <?php
 	$userType="externo";
-	require_once("../structure/header.php");
+	require_once $_SESSION['cribPath'].'View/structure/header.php';
 ?>
 
 <h1 id="headerJefe"><a><i><?= i18n("- ITERACIONES -") ?></i></a></h1>
@@ -33,5 +33,5 @@
 </table>
 
 <?php
-	require_once("../structure/footer.php");
+	require_once $_SESSION['cribPath'].'View/structure/footer.php';
 ?>

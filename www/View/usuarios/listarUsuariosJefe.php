@@ -1,6 +1,6 @@
 <?php
 	$userType="jefe";
-	require_once("../structure/header.php");
+	require_once $_SESSION['cribPath'].'View/structure/header.php';
 	require '../crearMensaje.php';
 ?>
             	<h1 id="headerJefe"><a><i><?= i18n("OPERARIOS INTERNOS") ?></i></a></h1>
@@ -97,5 +97,5 @@
 			 	</table>
 				
 <?php
-	require_once("../structure/footer.php");
+	require_once $_SESSION['cribPath'].'View/structure/footer.php';
 ?>

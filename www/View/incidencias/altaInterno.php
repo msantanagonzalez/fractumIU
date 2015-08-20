@@ -1,5 +1,5 @@
 <?php
-	require_once("../structure/header.php");
+	require_once $_SESSION['cribPath'].'View/structure/header.php';
 ?>
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
 <h1 id="headerInterno"><a><i><?= i18n("NUEVA INCIDENCIA") ?></i></a></h1>
@@ -20,7 +20,7 @@
 				<td><input title="Se necesita una fecha de apertura" id="fechaApertura" type='date' name='fechaApertura' value='' required/></td>
 				<td><?= i18n("Fecha Cierre:") ?></td>
 				<td><input title="Se necesita una fecha de Cierre" id="fechaCierre" type='date' name='fechaCierre' value='' required/></td>
-			</tr>	
+			</tr>
 			<tr>
 				<td><?= i18n("Estado:") ?></td>
 				<td>
@@ -28,7 +28,7 @@
 						<<option value="" selected>-</option>
 						<option value='Abierta'><?= i18n("Abierta") ?></option>
 					  	<option value='Programada'><?= i18n("Programada") ?></option>
-					</select> 		
+					</select>
 				</td>
 				<td><?= i18n("Máquina:") ?></td>
 				<td>
@@ -36,7 +36,7 @@
 						  <option value="" selected>-</option>
 						  <option value='maq1'>maq1</option>
 						  <option value='maq2'>maq2</option>
-					</select> 		
+					</select>
 				 </td>
 			</tr>
 			<tr>
@@ -47,7 +47,7 @@
 			</tr>
 		</table>
 		<table>
-			<tr> 
+			<tr>
 				<th width="20%">
 				</th>
 				<th width="40%">
@@ -60,5 +60,5 @@
 </form>
 
 <?php
-	require_once("../structure/footer.php");
+	require_once $_SESSION['cribPath'].'View/structure/footer.php';
 ?>

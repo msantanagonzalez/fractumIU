@@ -1,6 +1,6 @@
 <?php
 	$userType="jefe";
-	require_once("../structure/header.php");
+	require_once $_SESSION['cribPath'].'View/structure/header.php';
 ?>
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
 <h1 id="headerJefe"><a><i><?= i18n("ALTA OPERARIO EXTERNO") ?></i></a></h1>
@@ -42,5 +42,5 @@
 	</tr> 
 </table>
 <?php
-	require_once("../structure/footer.php");
+	require_once $_SESSION['cribPath'].'View/structure/footer.php';
 ?>

@@ -1,6 +1,6 @@
 <?php
-	require_once("../Model/iteracion.php");
-	require_once 'bdController.php';
+	require_once $_SESSION['cribPath'].'Model/iteracion.php';
+	require_once $_SESSION['cribPath'].'Controller/bdController.php';
 
 	if(isset($_GET['accion'])){	$accion = $_GET['accion']; }
 	if(isset($_POST['accion'])){ $accion = $_POST['accion']; }
@@ -43,7 +43,7 @@
 		$iteracion = new Iteracion($idI, $id, $_POST["fechaIter"], $_POST["hInicio"], $_POST["hFin"],
 										$_POST["estadoItera"],  $_POST["descripIter"], $_POST["costeIter"], $_SESSION['dni']);
 		$iteracion->alta();
-		
+
 		header("location: iteracionesController.php?accion=Consulta&idIncid=$idI&nIteracion=$id");
 
 	}
@@ -57,7 +57,7 @@
 		$iteracion = new Iteracion($idIncid, $nIteracion);
 		$consultaIteracion = $iteracion->consulta();
 
-		$consulta = array();		
+		$consulta = array();
 		while($row = mysql_fetch_array($consultaIteracion)){
 			array_push($consulta, $row);
 		}
@@ -76,7 +76,7 @@
 			case 'E':
 				header("location: ../View/iteraciones/consultarExterno.php");
 				//session_write_close();
-			default:				
+			default:
 				break;
 		}
 	}
@@ -87,11 +87,11 @@
 
 		$idIteracion = $_REQUEST['idIncidencia'];
 		$nIteracion = $_REQUEST['nIteracion'];
-		
+
 		$iteracion = new Iteracion($idIteracion, $nIteracion);
 		$consultaIteracion = $iteracion->consulta();
 
-		$consulta = array();		
+		$consulta = array();
 		while($row = mysql_fetch_array($consultaIteracion)){
 			array_push($consulta, $row);
 		}
@@ -110,14 +110,14 @@
 			case 'E':
 				//session_write_close();
 				header("location: ../View/iteraciones/modificarExterno.php");
-			default:				
+			default:
 				break;
 		}
 	}
 
 	function modificado(){
 		//session_start();
-		
+
 		$idIncid = $_POST['idIncid'];
 		$nIteracion = $_POST['nIteracion'];
 		$fechaIter = $_POST['fechaIter'];
@@ -125,7 +125,7 @@
 		$hFin = $_POST['hFin'];
 		$descripIter = $_POST['descripIter'];
 		$costeIter = $_POST['costeIter'];
-		
+
 
 		$iteracion = new Iteracion($idIncid, $nIteracion, $fechaIter, $hInicio, $hFin, '', $descripIter, $costeIter);
 		$iteracion->modificacion();
@@ -139,7 +139,7 @@
 		$iteracion = new Iteracion($idIncid);
 		$listaIteraciones = $iteracion->lista();
 
-		$lista = array();		
+		$lista = array();
 		while($row = mysql_fetch_array($listaIteraciones)){
 			array_push($lista, $row);
 		}
@@ -159,7 +159,7 @@
 				header("location: ../View/incidencias/consultarExterno.php");
 				//session_write_close();
 				break;
-			default:					
+			default:
 				break;
 		}
 	}

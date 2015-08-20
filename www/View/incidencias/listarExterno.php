@@ -1,5 +1,5 @@
 <?php
-	require_once("../structure/header.php");
+	require_once $_SESSION['cribPath'].'View/structure/header.php';
 ?>
 
 <h1 id="headerExterno"><a><i><?= i18n("INCIDENCIAS") ?></i></a></h1>
@@ -15,19 +15,19 @@
 </table>
 <form method="POST" action="../../Controller/incidenciasController.php">
 	<table class="default">
-		<?php 
+		<?php
 			$rows = $_SESSION['listaIncidencia1'];
 			foreach ($rows as $row) {
 		?>
-		<tr> 
-			<td width="17%"><?php echo $row['idIncid'];?></td> 
-			<td width="17%"><?php echo $row['dniResponsable'];?></td> 
+		<tr>
+			<td width="17%"><?php echo $row['idIncid'];?></td>
+			<td width="17%"><?php echo $row['dniResponsable'];?></td>
 			<td width="17%"><?php echo $row['idMaq'];?></td>
 			<td width="17%"><?php echo $row['fAper']; ?></td>
 			<?php if($row['estadoIncid'] == 'Derivada'){ ?>
-			<td width="17%">ABIERTA</td> 
+			<td width="17%">ABIERTA</td>
 			<?php } else { ?>
-			<td width="17%">CERRADA</td> 
+			<td width="17%">CERRADA</td>
 			<?php } ?>
 			<td width="17%"><button><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>">Consultar</a></button></td>
 		</tr>
@@ -36,5 +36,5 @@
 </form>
 
 <?php
-	require_once("../structure/footer.php");
+	require_once $_SESSION['cribPath'].'View/structure/footer.php';
 ?>

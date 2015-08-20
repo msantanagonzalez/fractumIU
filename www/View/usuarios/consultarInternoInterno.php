@@ -1,6 +1,6 @@
 <?php
 	$userType="interno";
-	require_once("../structure/header.php");
+	require_once $_SESSION['cribPath'].'View/structure/header.php';
 	
 	$datosUsuario = $_SESSION["datosUsuario"];
 	$datosInterno = $_SESSION["datosInterno"];
@@ -43,5 +43,5 @@ foreach ($datosUsuario as $usuario){
 
 <?php
 }
-	require_once("../structure/footer.php");
+	require_once $_SESSION['cribPath'].'View/structure/footer.php';
 ?>

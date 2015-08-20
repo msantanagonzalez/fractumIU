@@ -1,6 +1,6 @@
 <?php
 	$userType="jefe";
-	require_once("../structure/header.php");
+	require_once $_SESSION['cribPath'].'View/structure/header.php';
 	require '../crearMensaje.php';
 ?>
 
@@ -57,5 +57,5 @@
 </table>
 
 <?php
-	require_once("../structure/footer.php");
+	require_once $_SESSION['cribPath'].'View/structure/footer.php';
 ?>

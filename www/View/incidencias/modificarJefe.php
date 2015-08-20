@@ -1,6 +1,6 @@
 <?php
 	$userType="jefe";
-	require_once("../structure/header.php");
+	require_once $_SESSION['cribPath'].'View/structure/header.php';
 ?>
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
 <?php $rows = $_SESSION['consultaIncidencia']; ?>
@@ -62,5 +62,5 @@
 </div>
 
 <?php
-	require_once("../structure/footer.php");
+	require_once $_SESSION['cribPath'].'View/structure/footer.php';
 ?>

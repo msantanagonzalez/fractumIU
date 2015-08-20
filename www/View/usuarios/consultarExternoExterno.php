@@ -1,6 +1,6 @@
 <?php
 	$userType="externo";
-	require_once("../structure/header.php");
+	require_once $_SESSION['cribPath'].'View/structure/header.php';
 	
 	$datosUsuario = $_SESSION["datosUsuario"];
 	$datosExterno = $_SESSION["datosExterno"];
@@ -40,5 +40,5 @@ foreach ($datosUsuario as $usuario){
 </form>
 <?php
 }
-	require_once("../structure/footer.php");
+	require_once $_SESSION['cribPath'].'View/structure/footer.php';
 ?>

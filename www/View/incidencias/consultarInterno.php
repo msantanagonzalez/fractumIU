@@ -1,5 +1,5 @@
 <?php
-	require_once("../structure/header.php");
+	require_once $_SESSION['cribPath'].'View/structure/header.php';
 ?>
 
 <h1 id="headerInterno"><a><i><?= i18n("INCIDENCIA") ?> $#IDincidencia</i></a></h1>
@@ -10,30 +10,30 @@
 		<input type="hidden" class="text" name="derivada" value="<?php echo $row['derivada']; ?>"/>
 		<table class="default">
 			<?php foreach ($rows as $row) { ?>
-			<tr> 
-				<td width="25%"><?= i18n("Apertura:") ?></td> 
-				<td width="25%"><input type="text" class="text" disabled name="dniApertura" value="<?php echo $row['dniApertura']; ?>"/></td> 
-				<td width="25%"><?= i18n("Responsable:") ?></td> 
+			<tr>
+				<td width="25%"><?= i18n("Apertura:") ?></td>
+				<td width="25%"><input type="text" class="text" disabled name="dniApertura" value="<?php echo $row['dniApertura']; ?>"/></td>
+				<td width="25%"><?= i18n("Responsable:") ?></td>
 				<td width="25%"><input type="text" class="text" disabled name="dniResponsable" value="<?php echo $row['dniResponsable']; ?>"/></td>
 			</tr>
-			<tr> 
-				<td width="25%"><?= i18n("Fecha Apertura:") ?></td> 
-				<td width="25%"><input type="text" class="text" disabled name="fechaApertura" value="<?php echo $row['fAper']; ?>" /></td> 
-				<td width="25%"><?= i18n("Fecha Cierre:") ?> </td> 
+			<tr>
+				<td width="25%"><?= i18n("Fecha Apertura:") ?></td>
+				<td width="25%"><input type="text" class="text" disabled name="fechaApertura" value="<?php echo $row['fAper']; ?>" /></td>
+				<td width="25%"><?= i18n("Fecha Cierre:") ?> </td>
 				<td width="25%"><input type="text" class="text" disabled name="fechaCierre" value="<?php echo $row['fCier']; ?>" /></td>
 			</tr>
-			<tr> 
+			<tr>
 				<td><?= i18n("Estado:") ?></td>
 				<td>
 					<select name='estadoIncidencia' disabled>
 						<option value='<?php echo $row['estadoIncid']; ?>' selected><?php echo $row['estadoIncid']; ?></option>
-					</select> 		
+					</select>
 				</td>
 				<td><?= i18n("Máquina:") ?></td>
 				<td>
 					<select name='idMaquina' disabled>
 					  	<option value='<?php echo $row['idMaq']; ?>' selected><?php echo $row['idMaq']; ?></option>
-					</select> 		
+					</select>
 				 </td>
 			</tr>
 			<tr>
@@ -53,7 +53,7 @@
 		</tr>
 		<tr>
 			<td colspan="4"><a href="../../View/iteraciones/altaInterno.php?idIncidencia=<?php echo $row['idIncid']; ?>"><input type="button" value="Alta"></a></td>
-		</tr> 
+		</tr>
 	</table>
 	<h1 id="headerInterno"><a><?= i18n("- ITERACIONES -") ?></a></h1> <!--SECCIÓN-->
 	<table class="default"><!--TABLA-->
@@ -67,12 +67,12 @@
     </table>
      	   <table class="default"><!--TABLA-->
 		<tr>
-			<?php 
+			<?php
 				$rows2 = $_SESSION['listaIteraciones'];
 				foreach ($rows2 as $row2) {
 			?>
-			<tr> 
-				<td width="20%"><?php echo $row2['idIncid'];?></td>  
+			<tr>
+				<td width="20%"><?php echo $row2['idIncid'];?></td>
 				<td width="20%"><?php echo $row2['nIteracion']; ?></td>
 				<td width="20%"><?php echo $row2['dniUsu']; ?></td>
 				<td width="20%"><?php echo $row2['costeIter']; ?></td>
@@ -91,5 +91,5 @@
 </div>
 
 <?php
-	require_once("../structure/footer.php");
+	require_once $_SESSION['cribPath'].'View/structure/footer.php';
 ?>

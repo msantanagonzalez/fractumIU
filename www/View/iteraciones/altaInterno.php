@@ -1,6 +1,6 @@
 <?php
 	$userType="interno";
-	require_once("../structure/header.php");
+	require_once $_SESSION['cribPath'].'View/structure/header.php';
 	$idIncid=$_REQUEST['idIncidencia'];
 ?>
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
@@ -58,5 +58,5 @@
 </form>
 
 <?php
-	require_once("../structure/footer.php");
+	require_once $_SESSION['cribPath'].'View/structure/footer.php';
 ?>

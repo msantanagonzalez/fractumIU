@@ -1,6 +1,6 @@
 <?php
 	$userType="externo";
-	require_once("../structure/header.php");
+	require_once $_SESSION['cribPath'].'View/structure/header.php';
 	$idIncid=$_SESSION["idIncid"];
 	$nIteracion=$_SESSION["nIteracion"];
 ?>
@@ -56,5 +56,5 @@
 </form>
 
 <?php
-	require_once("../structure/footer.php");
+	require_once $_SESSION['cribPath'].'View/structure/footer.php';
 ?>

@@ -1,6 +1,6 @@
 <?php
 	$userType="jefe";
-	require_once("../structure/header.php");
+	require_once $_SESSION['cribPath'].'View/structure/header.php';
 	
 	$datosUsuario = $_SESSION["datosUsuario"];
 	$datosExterno = $_SESSION["datosExterno"];
@@ -39,5 +39,5 @@
 
 <?php
 }
-	require_once("../structure/footer.php");
+	require_once $_SESSION['cribPath'].'View/structure/footer.php';
 ?>

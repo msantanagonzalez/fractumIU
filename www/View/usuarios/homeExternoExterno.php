@@ -1,6 +1,6 @@
 <?php
     $userType="externo";
-    require_once("../structure/header.php");
+    require_once $_SESSION['cribPath'].'View/structure/header.php';
 ?>
 
 <h1 id="headerExterno"><a><?= i18n("- INCIDENCIAS -") ?></a></h1> <!--SECCIÓN-->
@@ -95,5 +95,5 @@
 </div>
              	  
 <?php
-    require_once("../structure/footer.php");
+    require_once $_SESSION['cribPath'].'View/structure/footer.php';
 ?>

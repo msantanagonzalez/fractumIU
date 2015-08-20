@@ -1,7 +1,7 @@
 <?php
-	require_once("../Model/empresa.php");
-	require_once 'bdController.php';
-	require_once 'generalController.php';
+	require_once $_SESSION['cribPath'].'Model/empresa.php';
+	require_once $_SESSION['cribPath'].'Controller/bdController.php';
+	require_once $_SESSION['cribPath'].'Controller/generalController.php';
 
 	if(isset($_GET['accion'])){	$accion = $_GET['accion']; }
 	if(isset($_POST['accion'])){ $accion = $_POST['accion']; }
@@ -33,7 +33,7 @@
 		$empresa = new Empresa($_POST["cifEmpr"], $_POST["nomEmpr"], $_POST["telefEmpr"], $_POST["mailEmpr"]);
 		$empresa->altaEmpresa();
 		$tempEmpresa = $_POST["cifEmpr"];
-		
+
 		anadirMensaje("| SUCCESS | Empresa: ".$_POST["cifEmpr"]." creada","success");
 		header("location: empresasController.php?accion=Listar");
 	}
@@ -47,7 +47,7 @@
 		$cifEmpresa = $_REQUEST['cifEmpr'];
 		$consultaEmpresa = $empresa->consultaEmpresa($cifEmpresa);
 
-		$consulta = array();		
+		$consulta = array();
 		while($row = mysql_fetch_array($consultaEmpresa)){
 			array_push($consulta, $row);
 		}
@@ -71,7 +71,7 @@
 		$cifEmpr = $_REQUEST['cifEmpr'];
 		$consultaEmpresa = $empresa->consultaEmpresa($cifEmpr);
 
-		$consulta = array();		
+		$consulta = array();
 		while($row = mysql_fetch_array($consultaEmpresa)){
 			array_push($consulta, $row);
 		}
@@ -88,7 +88,7 @@
 
 	function modificado(){
 		//session_start();
-		
+
 		$cifEmpr = $_POST['cifEmpr'];
 		$nomEmpr = $_POST['nomEmpr'];
 		$telefEmpr = $_POST['telefEmpr'];
@@ -96,7 +96,7 @@
 
 		$empresa = new Empresa($cifEmpr, $nomEmpr, $telefEmpr, $mailEmpr);
 		$empresa->modificarEmpresa($cifEmpr);
-		
+
 		anadirMensaje("| SUCCESS | Empresa: ".$cifEmpr." modificada","success");
 		header("location: empresasController.php?accion=Listar");
 	}
@@ -108,7 +108,7 @@
 		$empresa = new Empresa();
 		$listaEmpresas = $empresa->listarEmpresas();
 
-		$lista = array();		
+		$lista = array();
 		while($row = mysql_fetch_array($listaEmpresas)){
 			array_push($lista, $row);
 		}
@@ -121,7 +121,7 @@
 				header("location: ../View/empresas/listarJefe.php");
 				break;
 		}
-				
+
 	}
 
 
@@ -133,7 +133,7 @@
 		if ($resultado){
 			$empresa->bajaEmpresa();
 		}
-		
+
 		anadirMensaje("| SUCCESS | Empresa: ".$cifEmpr." eliminada","success");
 		header("location: empresasController.php?accion=Listar");
 	}

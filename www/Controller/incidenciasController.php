@@ -1,9 +1,4 @@
 <?php
-//----------|Get the path|----------//
-$path = dirname(__FILE__); //Gets the full path
-$smallPath = mb_substr($path,0,28); //gets the server path
-define('cribPath',$smallPath.'/');
-//---------------------------------//
 	require_once $_SESSION['cribPath'].'Model/incidencia.php';
 	require_once $_SESSION['cribPath'].'Controller/bdController.php';
 
@@ -33,10 +28,8 @@ define('cribPath',$smallPath.'/');
 
 	function alta(){
 		//session_start();
-
 		$incidencia = new Incidencia($_POST["idIncidencia"], $_POST["fechaApertura"], $_POST["fechaCierre"], $_POST["dniResponsable"], $_POST["dniApertura"],
-										$_POST["idMaquina"],  $_POST["estadoIncidencia"], $_POST["derivada"], $_POST['descripcion']);
-		$incidencia->alta();
+			$_POST["idMaquina"],  $_POST["estadoIncidencia"], $_POST["derivada"], $_POST["descripcion"]);
 		$tempIncidencia = $_POST["idIncidencia"];
 		header("location: incidenciasController.php?accion=Consulta&idIncidencia=$tempIncidencia");
 	}
@@ -49,7 +42,7 @@ define('cribPath',$smallPath.'/');
 		$idIncidencia = $_REQUEST['idIncidencia'];
 		$consultaIncidencia = $incidencia->consultaIncidencia($idIncidencia);
 
-		$consulta = array();		
+		$consulta = array();
 		while($row = mysql_fetch_array($consultaIncidencia)){
 			array_push($consulta, $row);
 		}
@@ -69,7 +62,7 @@ define('cribPath',$smallPath.'/');
 				//session_write_close();
 				header("location: iteracionesController.php?accion=Listar&idIncid=$idIncidencia");
 				break;
-			default:				
+			default:
 				break;
 		}
 	}
@@ -82,7 +75,7 @@ define('cribPath',$smallPath.'/');
 		$idIncidencia = $_REQUEST['idIncidencia'];
 		$consultaIncidencia = $incidencia->consultaIncidencia($idIncidencia);
 
-		$consulta = array();		
+		$consulta = array();
 		while($row = mysql_fetch_array($consultaIncidencia)){
 			array_push($consulta, $row);
 		}
@@ -101,14 +94,14 @@ define('cribPath',$smallPath.'/');
 			case 'E':
 				header("location: ../View/incidencias/modificarExterno.php");
 				//session_write_close();
-			default:				
+			default:
 				break;
 		}
 	}
 
 	function modificado(){
 		//session_start();
-		
+
 		$idIncidencia = $_POST['idIncidencia'];
 		$derivada = $_POST['derivada'];
 		$dniApertura = $_POST['dniApertura'];
@@ -119,7 +112,7 @@ define('cribPath',$smallPath.'/');
 		$idMaquina = $_POST['idMaquina'];
 		$descripcion = $_POST['descripcion'];
 
-		$incidencia = new Incidencia($idIncidencia, $fechaApertura, $fechaCierre, $dniResponsable, $dniApertura, 
+		$incidencia = new Incidencia($idIncidencia, $fechaApertura, $fechaCierre, $dniResponsable, $dniApertura,
 									$idMaquina, $estadoIncidencia, $derivada, $descripcion);
 		$incidencia->modificacion($idIncidencia);
 
@@ -129,11 +122,11 @@ define('cribPath',$smallPath.'/');
 	function lista(){
 		//session_start();
 		$incidencia = new Incidencia();
-		
+
 		switch ($_SESSION['tipo']) {
 			case 'J':
 				$listaIncidencias = $incidencia->lista();
-				$lista = array();		
+				$lista = array();
 				while($row = mysql_fetch_array($listaIncidencias)){
 					array_push($lista, $row);
 				}
@@ -143,7 +136,7 @@ define('cribPath',$smallPath.'/');
 				break;
 			case 'I':
 				$listaIncidencias = $incidencia->lista();
-				$lista = array();		
+				$lista = array();
 				while($row = mysql_fetch_array($listaIncidencias)){
 					array_push($lista, $row);
 				}
@@ -154,14 +147,14 @@ define('cribPath',$smallPath.'/');
 			case 'E':
 				$listaIncidencia1 = $incidencia->listaIncidenciasOpE();
 				$lista1 = array();
-		
+
 				while($row = mysql_fetch_array($listaIncidencia1)){
 					array_push($lista1, $row);
 				}
 				$_SESSION["listaIncidencia1"] = $lista1;
 				header("location: ../View/incidencias/listarExterno.php");
 				break;
-			default:				
+			default:
 				break;
 		}
 	}
@@ -174,7 +167,7 @@ define('cribPath',$smallPath.'/');
 		$incidencia = new Incidencia();
 		$listaIncidencias = $incidencia->pendientes($tipo);
 
-		$lista = array();		
+		$lista = array();
 		while($row = mysql_fetch_array($listaIncidencias)){
 			array_push($lista, $row);
 		}
@@ -193,7 +186,7 @@ define('cribPath',$smallPath.'/');
 			case 'E':
 				header("location: ../View/incidencias/pendientesExterno.php");
 				//session_write_close();
-			default:				
+			default:
 				break;
 		}
 	}
