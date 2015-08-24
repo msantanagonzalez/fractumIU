@@ -78,7 +78,7 @@
 				<tr> 
 					<td width="20%"  name = "idMaq"><?php echo $row['idMaq']; ?></td> 
 					<td width="20%"><?php echo $servicio[$cont]; ?></td> 
-					 <td width="20%"><?php echo $incidencias[$cont][0][0]; ?></td>
+					<td width="20%"><?php if(!$incidencias[$cont]) echo "-"; else echo $incidencias[$cont][0][0]; ?></td>
                     <td width="3%"></td>
 					<td width="10%"><a href="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>"><input type="button" name="accion" value="Consultar"></input></a></button></td>
 				</tr>

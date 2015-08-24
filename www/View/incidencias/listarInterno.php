@@ -33,11 +33,7 @@
 				<td width="17%"><?php echo $row['dniResponsable'];?></td> 
 				<td width="17%"><?php echo $row['fAper']; ?></td>
 				<td width="17%"><?php echo $row['estadoIncid']; ?></td>
-				<?php if ($row['derivada'] == 0) {?>
 				<td width="17%"><?php if($row['derivada'] == "0") echo "-"; else echo $row['cifEmpr']; ?></td> 
-				<?php } else { ?>
-				<td width="17%">NO</td> 
-				<?php }?>
 				<td width="17%"><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>"><input type="button" name="accion" value="Consulta"></input></a></td>
 			</tr>
 			<?php } 
