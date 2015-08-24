@@ -8,7 +8,7 @@
     	<th width="17%">#ID <?= i18n("Inc.") ?></th>
        	<th width="17%"><?= i18n("Responsable:") ?></th>
     	<th width="17%"><?= i18n("Apertura:") ?></th>
-        <th width="17%"><?= i18n("Estado:") ?></th>Responsable
+        <th width="17%"><?= i18n("Estado:") ?></th>
         <th width="17%"><?= i18n("Derivada") ?></th>
         <th width="17%">&nbsp;</th>
     </tr>
@@ -16,7 +16,7 @@
 <form method="POST" action="../../Controller/incidenciasController.php">
 	<table class="default">
 		<?php 
-			$rows = $_SESSION['listaIncidencia'];
+			$rows = $_SESSION['listaIncidenciasI'];
 			if (empty($rows)) {
 			?>
 				<div class="alert alert-warning" role="alert">
@@ -34,7 +34,7 @@
 				<td width="17%"><?php echo $row['fAper']; ?></td>
 				<td width="17%"><?php echo $row['estadoIncid']; ?></td>
 				<?php if ($row['derivada'] == 0) {?>
-				<td width="17%"><?php echo $row['cifEmpr']; ?></td> 
+				<td width="17%"><?php if($row['derivada'] == "0") echo "-"; else echo $row['cifEmpr']; ?></td> 
 				<?php } else { ?>
 				<td width="17%">NO</td> 
 				<?php }?>

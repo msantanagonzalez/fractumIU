@@ -141,7 +141,7 @@
 					array_push($lista, $row);
 				}
 
-				$_SESSION["listaIncidencia"] = $lista;
+				$_SESSION["listaIncidenciasI"] = $lista;
 				header("location: ../View/incidencias/listarInterno.php");
 				break;
 			case 'E':
