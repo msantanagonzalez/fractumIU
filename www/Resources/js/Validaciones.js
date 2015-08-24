@@ -633,7 +633,7 @@ function comprobarAltaIncidenciaJefe(){
 	     var patron=new RegExp("^([0-9]{1,2})([/])([0-9]{1,2})([/])(19|20)+([0-9]{2})$");
          var dayI,dayF,monthI,monthF,yearI,yearF;
           
-        if( responsable == null || responsable.length == 0 || /^\s+$/.test(responsable) || responsable.match(/^\d{8}[a-zA-Z]$/) == null) {
+       /* if( responsable == null || responsable.length == 0 || /^\s+$/.test(responsable) || responsable.match(/^\d{8}[a-zA-Z]$/) == null) {
             alert("Es obligatorio introducir un dni de operario correcto en un formato adecuado [ocho caracteres y un digito].");  
             return false;
 			
@@ -649,7 +649,7 @@ function comprobarAltaIncidenciaJefe(){
             alert("La letra del dni no es correcta");
             return false;
 			
-            }if(fechaApertura == null || fechaApertura.length==0 || fechaApertura.match(/\d{1,2}\/\d{1,2}\/\d{2,4}$/) == null){
+            }*/ if(fechaApertura == null || fechaApertura.length==0 || fechaApertura.match(/\d{1,2}\/\d{1,2}\/\d{2,4}$/) == null){
             alert("Es obligatorio introducir una fecha de alta");
             return false;
 			}else{
@@ -747,13 +747,13 @@ function comprobarAltaIncidenciaJefe(){
 
  
 
-
+/*
 function comprobarModificarIncidenciaJefe(){ 
 
 		 var responsable = document.getElementById("dniResponsable").value;
 		
 		 
-         /*variable para comprobar que la letra introducida en el campo dni sea correspondiente con el numero del dni*/
+         //variable para comprobar que la letra introducida en el campo dni sea correspondiente con el numero del dni
         
          var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
         
@@ -776,7 +776,7 @@ function comprobarModificarIncidenciaJefe(){
 			}
 	
 }
-
+*/
 
 function comprobarAltaIteracion(){
 
@@ -969,7 +969,7 @@ function altaOperarioExterno(){
 	     var patron=new RegExp("^([0-9]{1,2})([/])([0-9]{1,2})([/])(19|20)+([0-9]{2})$");
          var dayI,dayF,monthI,monthF,yearI,yearF;
           
-        if( responsable == null || responsable.length == 0 || /^\s+$/.test(responsable) || responsable.match(/^\d{8}[a-zA-Z]$/) == null) {
+      /*  if( responsable == null || responsable.length == 0 || /^\s+$/.test(responsable) || responsable.match(/^\d{8}[a-zA-Z]$/) == null) {
             alert("Es obligatorio introducir un dni de operario correcto en un formato adecuado [ocho caracteres y un digito].");  
             return false;
 			
@@ -985,7 +985,7 @@ function altaOperarioExterno(){
             alert("La letra del dni no es correcta");
             return false;
 			
-            }if( nombre == null || nombre.length == 0 || /^\s+$/.test(nombre) || nombre.match(/[A-Za-z0-9]/)==null ) {
+            }*/if( nombre == null || nombre.length == 0 || /^\s+$/.test(nombre) || nombre.match(/[A-Za-z0-9]/)==null ) {
             alert("Error: Nombre no valido");
             return false;          
          }else if(apellidos == null || apellidos.length == 0 || /^\s+$/.test(apellidos) || apellidos.match(/[A-Za-z0-9]/)==null ){
@@ -1008,7 +1008,7 @@ function altaOperarioInterno(){
          var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
         
        
-        if( responsable == null || responsable.length == 0 || /^\s+$/.test(responsable) || responsable.match(/^\d{8}[a-zA-Z]$/) == null) {
+        /*if( responsable == null || responsable.length == 0 || /^\s+$/.test(responsable) || responsable.match(/^\d{8}[a-zA-Z]$/) == null) {
             alert("Es obligatorio introducir un dni de operario correcto en un formato adecuado [ocho caracteres y un digito].");  
             return false;
 			
@@ -1024,7 +1024,7 @@ function altaOperarioInterno(){
             alert("La letra del dni no es correcta");
             return false;
 			
-            }if( nombre == null || nombre.length == 0 || /^\s+$/.test(nombre) || nombre.match(/[A-Za-z0-9]/)==null ) {
+            }*/if( nombre == null || nombre.length == 0 || /^\s+$/.test(nombre) || nombre.match(/[A-Za-z0-9]/)==null ) {
             alert("Error: Nombre no valido");
             return false;          
          }else if(apellidos == null || apellidos.length == 0 || /^\s+$/.test(apellidos) || apellidos.match(/[A-Za-z0-9]/)==null ){
