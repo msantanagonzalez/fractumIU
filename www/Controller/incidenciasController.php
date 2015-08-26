@@ -28,10 +28,10 @@
 
 	function alta(){
 		//session_start();
-		$incidencia = new Incidencia($_POST["idIncidencia"], $_POST["fechaApertura"], $_POST["fechaCierre"], $_POST["dniResponsable"], $_POST["dniApertura"],
-			$_POST["idMaquina"],  $_POST["estadoIncidencia"], $_POST["derivada"], $_POST["descripcion"]);
-		$tempIncidencia = $_POST["idIncidencia"];
-		header("location: incidenciasController.php?accion=Consulta&idIncidencia=$tempIncidencia");
+		$incidencia = new Incidencia($_POST["idIncidencia"], $_POST["fechaApertura"], $_POST["fechaCierre"], $_POST["dniResponsable"], $_POST["dniApertura"], $_POST["idMaquina"],  $_POST["estadoIncidencia"], $_POST["derivada"], $_POST["descripIncid"], $_POST["cifEmpr"]);
+
+		$incidencia->alta();
+		header("location: incidenciasController.php?accion=Listar");
 	}
 
 	function consulta(){
@@ -101,9 +101,11 @@
 
 	function modificado(){
 		//session_start();
+		if($_POST['estadoIncidencia']=='Derivada'){
+			$derivada = 1;
+		} else $derivada = 0;
 
 		$idIncidencia = $_POST['idIncidencia'];
-		$derivada = $_POST['derivada'];
 		$dniApertura = $_POST['dniApertura'];
 		$dniResponsable = $_POST['dniResponsable'];
 		$fechaApertura = $_POST['fechaApertura'];
@@ -112,16 +114,16 @@
 		$idMaquina = $_POST['idMaquina'];
 		$descripcion = $_POST['descripcion'];
 
-		$incidencia = new Incidencia($idIncidencia, $fechaApertura, $fechaCierre, $dniResponsable, $dniApertura,
-									$idMaquina, $estadoIncidencia, $derivada, $descripcion);
-		$incidencia->modificacion($idIncidencia);
+		$incidencia = new Incidencia($idIncidencia, $fechaApertura, $fechaCierre, $dniResponsable, $dniApertura, $idMaquina, $estadoIncidencia, $derivada, $descripcion);
 
+		$incidencia->modificacion($idIncidencia);
 		header("location: incidenciasController.php?accion=Consulta&idIncidencia=$idIncidencia");
 	}
 
 	function lista(){
 		//session_start();
 		$incidencia = new Incidencia();
+
 
 		switch ($_SESSION['tipo']) {
 			case 'J':

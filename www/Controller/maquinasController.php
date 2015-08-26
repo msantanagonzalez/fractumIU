@@ -41,7 +41,7 @@
 
 		$maquina = new Maquina($_POST["idMaq"], $_POST["nSerie"], $_POST["descripMaq"],$_POST["nomMaq"], $_POST["costeMaq"]);
 		$maquina->alta();
-		$tempMaquina = $_POST["idMaq"];
+		$idMaquina = $_POST["idMaq"];
 
 		# Subida de archivo
 		if(empty($_FILES['docMaquina'])){

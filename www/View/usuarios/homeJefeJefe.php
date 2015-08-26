@@ -11,9 +11,9 @@
 <table class="default">
     <tr>
     	<th width="17%">#ID <?= i18n("Inc.") ?></th>
-       	<th width="17%"><?= i18n("Problema") ?></th>
-        <th width="17%"><?= i18n("Últ. operario") ?> </th>
-    	<th width="17%"><?= i18n("Fecha") ?></th>
+       	<th width="17%"><?= i18n("Apertura") ?></th>
+        <th width="17%"><?= i18n("Responsable") ?> </th>
+    	<th width="17%"><?= i18n("Cierre") ?></th>
         <th width="17%"><?= i18n("Estado") ?></th>
         <th width="17%">&nbsp;</th>
     </tr>
@@ -36,9 +36,9 @@
 				?>
 				<tr>
 					<td width="17%"><?php echo $row['idIncid'];?></td>
-					<td width="17%">Avería alternador</td>
-					<td width="17%">Fulanito</a></td> <!-- Falta linkar al perfil del usuario. -->
 					<td width="17%"><?php echo $row['fAper']; ?></td>
+					<td width="17%"><?php echo $row['dniResponsable']; ?></td> <!-- Falta linkar al perfil del usuario. -->
+					<td width="17%"><?php echo $row['fCier']; ?></td>
 					<td width="17%"><?php echo $row['estadoIncid']; ?></td>
 					<td width="17%">
 						<input type="button" value="Consulta" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>'"/>
@@ -56,8 +56,8 @@
 <table class="default">
     <tr>
     	<th width="20%">#ID <?= i18n("Máquina") ?></th>
-    	<th width="20%"><?= i18n("Servicio") ?></th>
-       	<th width="20%"><?= i18n("Últ. Incidencia") ?></th>
+    	<th width="18%"><?= i18n("Servicio") ?></th>
+       	<th width="20%"><?= i18n("&Uacute;lt. Incid.") ?></th>
         <th width="10%">&nbsp;</th>
         <th width="10%">&nbsp;</th>
     </tr>
@@ -65,6 +65,8 @@
 <form method="POST" action="../../Controller/maquinasController.php">
 	<table class="default">
 		<?php
+            $incidencias = $_SESSION['listaIncidMaquina'];
+            $servicio = $_SESSION['listaServicios'];
 			if(isset($_SESSION['listaMaquina']))
 			$rows = $_SESSION['listaMaquina'];
 			if (empty($rows)) {
@@ -75,24 +77,26 @@
 			<?php
 			}
 			else{
+                $cont = 0;
 				foreach ($rows as $row) {
 				?>
 				<tr>
 					<td width="20%"  name = "idMaq"><?php echo $row['idMaq']; ?></td>
-					<td width="20%"><?= i18n("Si") ?></td>
-					<td width="20%">13/09/2014</td>
-					<td width="10%">
-						<input type="button"  value="Consulta" onclick="window.location.href='../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>'"/>
-					</td>
-					<td width="10%">
-						<input type="button" value="Eliminar" onclick="window.location.href='../../Controller/maquinasController.php?accion=Eliminar&idMaq=<?php echo $row['idMaq'];?>'">
-					</td>
+					<td width="20%"><?php if(isset($servicio[$cont][0])) echo $servicio[$cont][0]; else echo "NO"?></td>
+					 <td width="20%"><?php if(isset($incidencias[$cont][0][0])) echo $incidencias[$cont][0][0]; else echo "-" ?></td>
+                     <td width="10%">
+ 						<input type="button"  value="Consulta" onclick="window.location.href='../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>'"/>
+ 					</td>
+ 					<td width="10%">
+ 						<input type="button" value="Eliminar" onclick="window.location.href='../../Controller/maquinasController.php?accion=Eliminar&idMaq=<?php echo $row['idMaq'];?>'">
+ 					</td>
 				</tr>
 				<?php
+                    $cont++;
 				}
 			}
 		?>
-</table>
+	</table>
 </form>
 
 <?php

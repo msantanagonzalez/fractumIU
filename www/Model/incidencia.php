@@ -12,9 +12,7 @@
 		private $derivada;
 		private $cifEmpr;
 
-		public function __construct($idIncidencia = NULL, $fechaApertura = NULL, $fechaCierre = NULL, $dniResponsable = NULL, $dniApertura = NULL, 
-									$idMaquina = NULL, $estadoIncidencia = NULL, $derivada = NULL, $descripcion = NULL,
-									$cifEmpr = NULL){
+		public function __construct($idIncidencia = NULL, $fechaApertura = NULL, $fechaCierre = NULL, $dniResponsable = NULL, $dniApertura = NULL, $idMaquina = NULL, $estadoIncidencia = NULL, $derivada = NULL, $descripcion = NULL, $cifEmpr = NULL){
 			$this->idIncidencia = $idIncidencia;
 			$this->fechaApertura = $fechaApertura;
 			$this->fechaCierre = $fechaCierre;
@@ -28,9 +26,7 @@
 		}
 
 		public function alta(){
-			mysql_query("INSERT INTO INCIDENCIA(idIncid, fAper, fCier, dniResponsable, dniApertura, idMaq, estadoIncid, derivada, descripIncid, cifEmpr) 
-						VALUES ('$this->idIncidencia','$this->fechaApertura','$this->fechaCierre','$this->dniResponsable','$this->dniApertura','$this->idMaquina',
-							'$this->estadoIncidencia','$this->derivada', '$this->descripcion', '$this->cifEmpr')") or die(mysql_error());
+			mysql_query("INSERT INTO INCIDENCIA(idIncid, fAper, fCier, dniResponsable, dniApertura, idMaq, estadoIncid, derivada, descripIncid, cifEmpr) VALUES ('$this->idIncidencia','$this->fechaApertura','$this->fechaCierre','$this->dniResponsable','$this->dniApertura','$this->idMaquina', '$this->estadoIncidencia','$this->derivada', '$this->descripcion', '$this->cifEmpr')") or die(mysql_error());
 		}
 
 		public function consultaIncidencia($incidencia){
@@ -40,8 +36,8 @@
 		}
 
 		public function modificacion($idIncidencia){
-			mysql_query("UPDATE INCIDENCIA SET fAper = '$this->fechaApertura', fCier = '$this->fechaCierre', dniResponsable = '$this->dniResponsable', 
-				estadoIncid = '$this->estadoIncidencia' WHERE idIncid = '$idIncidencia'") or die(mysql_error());
+			mysql_query("UPDATE INCIDENCIA SET fAper = '$this->fechaApertura', fCier = '$this->fechaCierre', dniResponsable = '$this->dniResponsable',
+				estadoIncid = '$this->estadoIncidencia', derivada = '$this->derivada' WHERE idIncid = '$idIncidencia'") or die(mysql_error());
 		}
 
 		public function lista(){
@@ -75,7 +71,7 @@
 					break;
 			}
 		}
-		
+
 		public function pendientes($tipo){
 			switch ($tipo) {
 				case 'J':

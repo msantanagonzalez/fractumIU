@@ -9,37 +9,48 @@
 <div>
 	<form name="formModificarIncidencia" onsubmit="return comprobarModificarIncidenciaJefe()" method="POST" action="../../Controller/incidenciasController.php">
 			<input type="hidden" class="text" name="idIncidencia" value="<?php echo $row['idIncid']; ?>"/>
-			<input type="hidden" class="text" name="derivada" value="<?php echo $row['derivada']; ?>"/>
 			<input type="hidden" class="text" name="dniApertura" value="<?php echo $row['dniApertura']; ?>"/>
 			<input type="hidden" class="text" name="idMaquina" value="<?php echo $row['idMaq']; ?>"/>
 			<input type="hidden" class="text" name='descripcion' value="<?php echo $row['descripIncid'];?>"/>
 		<table class="default">
-			<tr> 
-				<td width="25%"><?= i18n("Apertura:") ?> </td> 
-				<td width="25%"><input type="text" class="text" disabled value="<?php echo $row['dniApertura']; ?>"/></td> 
-				<td width="25%"><?= i18n("Responsable:") ?></td> 
-				<td width="25%"><input id="dniResponsable" type="text" class="text" name="dniResponsable" value="<?php echo $row['dniResponsable']; ?>"/></td>
+			<tr>
+				<td width="25%"><?= i18n("Apertura:") ?> </td>
+				<td width="25%"><input type="text" class="text" disabled value="<?php echo $row['dniApertura']; ?>"/></td>
+				<td width="25%"><?= i18n("Responsable:") ?></td>
+				<td width="25%">
+					<select required title="Debe seleccionar a un responsable" name="dniResponsable" id="dniResponsable">
+						<option value='<?php echo $row['dniResponsable']; ?>' hidden selected><?php echo $row['dniResponsable']; ?></option>
+						<?php
+						$rows = $_SESSION["listaInternos"];
+						foreach ($rows as $row){ ?>
+						<option value="<?php echo $row[0];?>"><?php echo $row[0]." - ".$row[1];?></option>
+						<?php } ?>
+						<?php $rows = $_SESSION["listaExternos"]; foreach ($rows as $row){ ?>
+						<option value="<?php echo $row[0];?>"><?php echo $row[0]." - ".$row[1];?></option>
+						<?php } ?>
+					</select>
+				</td>
 			</tr>
-			<tr> 
-				<td width="25%"><?= i18n("Fecha Apertura:") ?></td> 
-				<td width="25%"><input title="Debe insertar una fecha de Apertura" id="fechaApertura" type="date" class="text" name="fechaApertura" value="<?php echo $row['fAper']; ?>" required/></td> 
-				<td width="25%"><?= i18n("Fecha Cierre:") ?></td> 
+			<tr>
+				<td width="25%"><?= i18n("Fecha Apertura:") ?></td>
+				<td width="25%"><input title="Debe insertar una fecha de Apertura" id="fechaApertura" type="date" class="text" name="fechaApertura" value="<?php echo $row['fAper']; ?>" required/></td>
+				<td width="25%"><?= i18n("Fecha Cierre:") ?></td>
 				<td width="25%"><input title="Debe insertar una fecha de cierre" id="fechaCierre" type="date" class="text" name="fechaCierre" value="<?php echo $row['fCier']; ?>" required/></td>
 			</tr>
-			<tr> 
+			<tr>
 				<td><?= i18n("Estado:") ?></td>
 				<td>
 					<select title="Seleccione o no una opcion" required name='estadoIncidencia'>
 						<option value='<?php echo $row['estadoIncid']; ?>' hidden selected><?php echo $row['estadoIncid']; ?></option>
 						<option value='Derivada'>Derivada</option>
 						<option value='Cerrada'>Cerrada</option>
-					</select> 		
+					</select>
 				</td>
 				<td><?= i18n("Máquina:") ?></td>
 				<td>
 					<select disabled>
 					  	<option value='<?php echo $row['idMaq']; ?>' selected><?php echo $row['idMaq']; ?></option>
-					</select> 		
+					</select>
 				 </td>
 			</tr>
 			<tr>
@@ -52,11 +63,11 @@
 			</tr>
 			<?php } ?>
 		</table>
-	
+
 	<table class="default">
 		<tr>
 			<td colspan="4"><input type="submit" name="accion" value="Modificado"></td>
-		</tr> 
+		</tr>
 	</table>
 	</form>
 </div>

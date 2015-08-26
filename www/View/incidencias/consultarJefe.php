@@ -3,7 +3,7 @@ require_once $_SESSION['cribPath'].'View/structure/header.php';
 $rows = $_SESSION['consultaIncidencia'];
 foreach ($rows as $row) { ?>
 <h1 id="headerJefe"><a><i><?= i18n("INCIDENCIA") ?> <?php echo $row['idIncid']; ?></i></a></h1>
-<div style='height:525px;width:auto;overflow-y: scroll;'>
+<div style='height:650px;width:auto;overflow-y: scroll;'>
 	<form method="POST" action="../../Controller/incidenciasController.php">
 
 		<input type="hidden" class="text" name="idIncidencia" value="<?php echo $row['idIncid']; ?>"/>
@@ -49,16 +49,15 @@ foreach ($rows as $row) { ?>
 	</form>
 	<table class="default">
 		<tr>
-			<td colspan="4"><a href="../../Controller/incidenciasController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid']; ?>"><input type="submit" name="pModificar" value="Modificar"></a></td>
+			<td colspan="4"><a href="../../Controller/incidenciasController.php?accion=Modificar&idIncidencia=<?php echo $row[0]; ?>"><input type="submit" name="Modificar" value="Modificar"></a></td>
 		</tr>
 	</table>
 	<h1 id="headerJefe"><a><i><?= i18n("- ITERACIONES -") ?></i></a></h1>
 	<table class="default">
 	    <tr>
-	    	<th width="28%">#idIncidencia</th>
+	    	<th width="40%">#ID <?= i18n("Incid.") ?></th>
 	    	<th width="40%"><?= i18n("Número Iteración") ?></th>
-	        <th width="10%">&nbsp;</th>
-	        <th width="10%">&nbsp;</th>
+	        <th width="20%">&nbsp;</th>
 	    </tr>
 	</table>
 	<form method="POST" action="../../Controller/iteracionesController.php">
@@ -68,9 +67,11 @@ foreach ($rows as $row) { ?>
 				foreach ($rows2 as $row2) {
 			?>
 			<tr>
-				<td width="30%"><?php echo $row2['idIncid'];?></td>
+				<td width="40%"><?php echo $row2['idIncid'];?></td>
 				<td width="40%"><?php echo $row2['nIteracion']; ?></td>
-				<td width="10%"><button><a href="../../Controller/iteracionesController.php?accion=Consulta&idIncid=<?php echo $row2['idIncid'] ?>&nIteracion=<?php echo $row2['nIteracion'] ?>">Consultar</a></button></td>
+				<td width="20%">
+					<input type="button" value="Consulta" onclick="window.location.href='../../Controller/iteracionesController.php?accion=Consulta&idIncid=<?php echo $row2[0] ?>&nIteracion=<?php echo $row2[1] ?>'"/>
+				</td>
 			</tr>
 			<?php } ?>
 		</table>

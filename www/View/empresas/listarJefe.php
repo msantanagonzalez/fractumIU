@@ -7,8 +7,8 @@
 <h1 id="headerJefe"><a><i><?= i18n("EMPRESA") ?></i></a></h1>
 <table class="default">
     <tr>
-    	<th width="28%"><?= i18n("#CIF:") ?></th>
-    	<th width="40%"><?= i18n("Nombre:") ?></th>
+    	<th width="28%"><?= i18n("#CIF") ?></th>
+    	<th width="40%"><?= i18n("Nombre") ?></th>
         <th width="10%">&nbsp;</th>
         <th width="10%">&nbsp;</th>
     </tr>
@@ -27,15 +27,16 @@
 			<?php
 			}else{
 			foreach ($rows as $row) {
+				if($row[0]!="A0000000Z"){
 				?>
 				<tr>
-					<td width="30%"><?php echo $row['cifEmpr'];?></td>
+					<td width="31%"><?php echo $row['cifEmpr'];?></td>
 					<td width="40%"><?php echo $row['nomEmpr']; ?></td>
 					<td width="10%"><input type="button" value="Consulta" onclick="window.location.href='../../Controller/empresasController.php?accion=Consulta&cifEmpr=<?php echo $row['cifEmpr']; ?>'"/></td>
 					<td width="10%"><input type="button" value="Eliminar" onclick="window.location.href='../../Controller/empresasController.php?accion=Eliminar&cifEmpr=<?php echo $row['cifEmpr']; ?>'"></td>
 				</tr>
 				<?php
-				}
+}				}
 		}
 		?>
 	</table>

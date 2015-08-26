@@ -91,7 +91,9 @@
 			<td width="20%"><?php echo $row2['dniResponsable']; ?></td>
 			<td width="20%"><?php echo $row2['dniApertura']; ?></td>
 			<td width="20%"><?php echo $row2['estadoIncid']; ?></td>
-			<td width="20%"><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row2['idIncid'];?>">Consultar</a></td>
+			<td width="20%">
+				<input type="button" value="Consultar" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row2['idIncid'];?>'"/>
+			</td>
 		</tr>
 		<?php } ?>
 	</table>

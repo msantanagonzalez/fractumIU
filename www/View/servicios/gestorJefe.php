@@ -7,11 +7,11 @@
 <h1 id="headerJefe"><a><i><?= i18n("SERVICIOS") ?></i></a></h1>
 <table class="default">
     <tr>
-		<th width="10%">#ID <?= i18n("Servicio:") ?></th>
-    	<th width="10%">#ID <?= i18n("Máquina:") ?></th>
-    	<th width="10%"><?= i18n("Periodicidad:") ?></th>
-       	<th width="10%"><?= i18n("Coste:") ?></th>
-       	<th width="10%"><?= i18n("Empresa:") ?></th>
+		<th width="10%">#ID <?= i18n("Servicio") ?></th>
+    	<th width="10%">#ID <?= i18n("Máquina") ?></th>
+    	<th width="10%"><?= i18n("Periodicidad") ?></th>
+       	<th width="10%"><?= i18n("Coste") ?></th>
+       	<th width="10%"><?= i18n("Empresa") ?></th>
         <th width="10%">&nbsp;</th>
         <th width="10%">&nbsp;</th>
     </tr>
@@ -34,19 +34,19 @@
 			<form method="POST" action="../../Controller/serviciosController.php">
 				<tr>
 					<td width="10%"><?php echo $row['idServ'];?></td>
-					<td width="10%"><?php echo $row['idMaq'];?></td> 
-					<td width="10%"><?php echo $row['periodicidad'];?></td> 
+					<td width="10%"><?php echo $row['idMaq'];?></td>
+					<td width="10%"><?php echo $row['periodicidad'];?></td>
 					<td width="10%"><?php echo $row['costeSer'];?></td>
-					<td width="7%"><?php echo $row['cifEmpr'];?></td> 
+					<td width="7%"><?php echo $row['cifEmpr'];?></td>
 					<td width="5%"><input type="button" value="Consulta" onclick="window.location.href='../../Controller/serviciosController.php?accion=Consulta&idServ=<?php echo $row['idServ']; ?>'"/></td>
 					<td width="5%"><input type="button" value="Eliminar" onclick="window.location.href='../../Controller/serviciosController.php?accion=Eliminar&idServ=<?php echo $row['idServ']; ?>'"/></td>
 				</tr>
 			</form>
-			<?php 
-			} 
+			<?php
+			}
 		}
 		?>
-		
+
 	</table>
 </div>
 
