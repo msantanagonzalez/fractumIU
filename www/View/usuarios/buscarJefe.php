@@ -14,10 +14,10 @@
 	<h1 id="headerJefe"><a><i><?= i18n("INCIDENCIAS") ?></i></a></h1>
 	<table class="default">
 	    <tr>
-	    	<th width="17%">#ID <?= i18n("Inc.") ?></th>
-	       	<th width="17%"><?= i18n("Problema") ?></th>
-	        <th width="17%"><?= i18n("Últ. operario") ?> </th>
-	    	<th width="17%"><?= i18n("Fecha") ?></th>
+	    	<th width="15%">#ID <?= i18n("Inc.") ?></th>
+	       	<th width="15%"><?= i18n("Problema") ?></th>
+	        <th width="15%"><?= i18n("Últ. operario") ?> </th>
+	    	<th width="13%"><?= i18n("Fecha") ?></th>
 	        <th width="17%"><?= i18n("Estado") ?></th>
 	        <th width="17%">&nbsp;</th>
 	    </tr>
@@ -39,8 +39,9 @@
 				?>
 					<tr>
 						<td width="17%"><?php echo $row['idIncid'];?></td>
-						<td width="17%">Avería alternador</td>
-						<td width="17%">Fulanito</a></td> <!-- Falta linkar al perfil del usuario. -->
+						<td width="17%"><?php echo $row['descripIncid'];?></td>
+						<!-- LINKADO al perfil del usuario. -->
+						<td width="17%"><a href='../../Controller/usuariosController.php?accion=consultar&dniUsu=<?php echo $row['dniResponsable'];?>'><?php echo $row['dniResponsable']; ?></a></td>
 						<td width="17%"><?php echo $row['fAper']; ?></td>
 						<td width="17%"><?php echo $row['estadoIncid']; ?></td>
 						<td width="17%">
@@ -96,10 +97,10 @@
 	<h1 id="headerJefe"><a><i><?= i18n("OPERARIOS EXTERNOS") ?></i></a></h1>
 	<table class="default">
 		<tr>
-			<th width="20%">#ID <?= i18n("Int.") ?>Ext.</th>
-			<th width="20%"><?= i18n("Nome/Apelidos") ?></th>
-			<th width="20%"><?= i18n("Teléfono:") ?></th>
-			<th width="20%">Empresa</th>
+			<th width="5%">#ID <?= i18n("Int.") ?>Ext.</th>
+			<th width="4%"><?= i18n("Nome/Apelidos") ?></th>
+			<th width="4%"><?= i18n("Teléfono:") ?></th>
+			<th width="5%">Empresa</th>
 			<th width="10%">&nbsp;</th>
 			<th width="10%">&nbsp;</th>
 		</tr>
@@ -122,7 +123,7 @@
 					<td width="20%" name = "dni"><?php echo $row['dniUsu']; ?> </td>
 					<td width="20%" name = "nombre"><?php echo $row['nomUsu']." ".$row['apellUsu']; ?></td>
 					<td width="20%" name = "telefono"><?php echo $row['telefEmpr']; ?> </td>
-					<td width="17%" name = "empresa"><?php echo $row['nomEmpr']; ?> </td>
+					<td width="17%" name = "empresa"><a href='../../Controller/empresasController.php?accion=Consulta&cifEmpr=<?php echo $row['cifEmpr'];?>'><?php echo $row['nomEmpr']; ?></a></td>
 					<td width="7%"><input type="button" value="Consulta" onclick="window.location.href='../../Controller/usuariosController.php?accion=consultar&dniUsu=<?php echo $row['dniUsu'];?>'"></td>
 					<td width="7%"><input type="button" value="Eliminar" onclick="window.location.href='../../Controller/usuariosController.php?accion=eliminar&dniUsu=<?php echo $row['dniUsu'];?>'"></td>
 				</tr>
@@ -136,9 +137,9 @@
 	<h1 id="headerJefe"><a><i><?= i18n("MÁQUINAS") ?></i></a></h1>
 	<table class="default">
 	  <tr>
-	    <th width="20%">#ID <?= i18n("Máquina") ?></th>
-	  	<th width="20%"><?= i18n("Servicio") ?></th>
-	   	<th width="20%"><?= i18n("Últ. Incidencia") ?></th>
+	    <th width="12%">#ID <?= i18n("Máquina") ?></th>
+	  	<th width="9%"><?= i18n("Servicio") ?></th>
+	   	<th width="12%"><?= i18n("Últ. Incidencia") ?></th>
 	    <th width="10%">&nbsp;</th>
 	    <th width="10%">&nbsp;</th>
 	  </tr>
@@ -160,6 +161,7 @@
 						<tr>
 							<td width="20%"  name = "idMaq"><?php echo $row['idMaq']; ?></td>
 							<td width="20%"><?= i18n("Si") ?></td>
+							<!-- FALTA MARCAR LA FECHA DE LA ULTIMA INCIDENCIA DE LA MAQUINA-->
 							<td width="20%">13/09/2014</td>
 							<td width="10%">
 								<input type="button"  value="Consulta" onclick="window.location.href='../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>'"/>
@@ -179,11 +181,11 @@
 	<h1 id="headerJefe"><a><i><?= i18n("SERVICIOS") ?></i></a></h1>
 	<table class="default">
 	  <tr>
-			<th width="10%">#ID <?= i18n("Servicio:") ?></th>
-	    <th width="10%">#ID <?= i18n("Máquina:") ?></th>
-	  	<th width="10%"><?= i18n("Periodicidad:") ?></th>
-	   	<th width="10%"><?= i18n("Coste:") ?></th>
-	   	<th width="10%"><?= i18n("Empresa:") ?></th>
+			<th width="2%">#ID <?= i18n("Servicio:") ?></th>
+	    <th width="2%">#ID <?= i18n("Máquina:") ?></th>
+	  	<th width="2%"><?= i18n("Periodicidad:") ?></th>
+	   	<th width="2%"><?= i18n("Coste:") ?></th>
+	   	<th width="2%"><?= i18n("Empresa:") ?></th>
 	    <th width="10%">&nbsp;</th>
 	    <th width="10%">&nbsp;</th>
 	  </tr>

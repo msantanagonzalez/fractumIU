@@ -14,17 +14,18 @@ class buscador{
 	 * Inicio de las funciones SQL
 	 */
 	protected function buscarIncidenciaSql(){
-		$consultarIncidencia  = "SELECT * FROM INCIDENCIA WHERE idIncid LIKE '%$this->datos%' OR dniResponsable LIKE '%$this->datos%' OR dniApertura LIKE '%$this->datos%' OR idMaq LIKE '%$this->datos%' OR cifEmpr LIKE '%$this->datos%'";
+		$consultarIncidencia  = "SELECT * FROM INCIDENCIA WHERE dniResponsable LIKE '%$this->datos%' OR dniApertura LIKE '%$this->datos%' OR idMaq LIKE '%$this->datos%' OR descripIncid LIKE '%$this->datos%' OR cifEmpr LIKE '%$this->datos%'";
  		$resultado = mysql_query($consultarIncidencia) or die(mysql_error());
  		return $resultado;
  	}
 	protected function buscarIncidenciaInternoSql(){
-		$consultarIncidencia  = "SELECT * FROM INCIDENCIA WHERE derivada=0 AND idIncid LIKE '%$this->datos%' OR dniResponsable LIKE '%$this->datos%' OR dniApertura LIKE '%$this->datos%' OR idMaq LIKE '%$this->datos%' OR cifEmpr LIKE '%$this->datos%'";
+		$consultarIncidencia  = "SELECT * FROM INCIDENCIA WHERE derivada=0 AND (dniResponsable LIKE '%$this->datos%' OR dniApertura LIKE '%$this->datos%' OR idMaq LIKE '%$this->datos%' OR cifEmpr LIKE '%$this->datos%')";
  		$resultado = mysql_query($consultarIncidencia) or die(mysql_error());
  		return $resultado;
  	}
 	protected function buscarIncidenciaExternoSql(){
-		$consultarIncidencia  = "SELECT * FROM INCIDENCIA INNER JOIN MAQUINA ON MAQUINA.idMaq=INCIDENCIA.idMaq WHERE INCIDENCIA.derivada=1 AND INCIDENCIA.idIncid LIKE '%$this->datos%' OR INCIDENCIA.dniResponsable LIKE '%$this->datos%' OR INCIDENCIA.idMaq LIKE '%$this->datos%' OR INCIDENCIA.cifEmpr LIKE '%$this->datos%' OR MAQUINA.nSerie LIKE '%$this->datos%'";
+		$consultarIncidencia  = "SELECT * FROM INCIDENCIA WHERE derivada=1 AND (dniResponsable LIKE '%$this->datos%' OR idMaq LIKE '%$this->datos%' OR descripIncid LIKE '%$this->datos%' OR cifEmpr LIKE '%$this->datos%')";
+		//$consultarIncidencia  = "SELECT * FROM INCIDENCIA JOIN MAQUINA ON MAQUINA.idMaq=INCIDENCIA.idMaq WHERE INCIDENCIA.derivada=1 AND INCIDENCIA.dniResponsable LIKE '%$this->datos%' OR INCIDENCIA.idMaq LIKE '%$this->datos%' OR INCIDENCIA.cifEmpr LIKE '%$this->datos%' OR MAQUINA.nSerie LIKE '%$this->datos%'";
  		$resultado = mysql_query($consultarIncidencia) or die(mysql_error());
  		return $resultado;
  	}
@@ -39,16 +40,17 @@ class buscador{
 		return $resultado;
 	}
 	protected function buscarMaquinaSql(){
-		$consultarMaquina  = "SELECT * FROM MAQUINA WHERE idMaq LIKE '%$this->datos%' OR nSerie LIKE '%$this->datos%'";
+		$consultarMaquina  = "SELECT * FROM MAQUINA INNER JOIN SERVICIO ON MAQUINA.idMaq=SERVICIO.idMaq WHERE MAQUINA.idMaq LIKE '%$this->datos%' OR MAQUINA.nSerie LIKE '%$this->datos%' OR SERVICIO.idServ LIKE '%$this->datos%'";
 		$resultado = mysql_query($consultarMaquina) or die(mysql_error());
 		return $resultado;
 	}
 	protected function buscarMaquinaExternoSql(){
-		$consultarMaquina  = "SELECT * FROM INCIDENCIA INNER JOIN MAQUINA ON MAQUINA.idMaq=INCIDENCIA.idMaq WHERE INCIDENCIA.derivada=1 AND MAQUINA.idMaq LIKE '%$this->datos%' OR MAQUINA.nSerie LIKE '%$this->datos%' OR INCIDENCIA.idIncid LIKE '%$this->datos%' OR INCIDENCIA.cifEmpr LIKE '%$this->datos%'";
+		$consultarMaquina  = "SELECT * FROM INCIDENCIA INNER JOIN MAQUINA ON MAQUINA.idMaq=INCIDENCIA.idMaq WHERE INCIDENCIA.derivada=1 AND (MAQUINA.idMaq LIKE '%$this->datos%' OR MAQUINA.nSerie LIKE '%$this->datos%' OR MAQUINA.nomMaq LIKE '%$this->datos%' OR INCIDENCIA.descripIncid LIKE '%$this->datos%' OR INCIDENCIA.cifEmpr LIKE '%$this->datos%')";
 		$resultado = mysql_query($consultarMaquina) or die(mysql_error());
 		return $resultado;
 	}
 	protected function buscarServicioSql(){
+		//$consultarMaquina  = "SELECT * FROM SERVICIO INNER JOIN MAQUINA ON SERVICIO.idMaq=MAQUINA.idMaq WHERE SERVICIO.idServ LIKE '%$this->datos%' OR SERVICIO.dniUsu LIKE '%$this->datos%' OR SERVICIO.cifEmpr LIKE '%$this->datos%' OR MAQUINA.idMaq LIKE '%$this->datos%'";
 		$consultarMaquina  = "SELECT * FROM SERVICIO WHERE idServ LIKE '%$this->datos%' OR dniUsu LIKE '%$this->datos%' OR cifEmpr LIKE '%$this->datos%' OR idMaq LIKE '%$this->datos%'";
 		$resultado = mysql_query($consultarMaquina) or die(mysql_error());
 		return $resultado;
