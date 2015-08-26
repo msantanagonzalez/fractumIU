@@ -3,7 +3,7 @@
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 ?>
 
-<h1 id="headerInterno"><a><i><?= i18n("- MÁQUINAS SERVICIOS -") ?></i></a></h1>
+<h1 id="headerInterno"><a><i><?= i18n("- MÁQUINAS -") ?></i></a></h1>
 <table class="default">
     <tr>
     	<th width="20%"><?= i18n("ID") ?></th>
@@ -27,8 +27,22 @@
 			<td width="20%"><?php echo $row['idMaq']; ?></td>
 			<td width="20%"><?php echo $row['nomMaq']; ?></td>
 			<td width="20%"><?php echo $servicio[$cont]; ?></td>
-			<td width="20%"><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncid=<?php echo $ultimaIncid[$cont][0][0];?>"><?php echo $ultimaIncid[$cont][0][0]; ?></td>
-			<td width="20%"><a href="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>"><button >Consultar</button></a></td>
+			
+			<?php
+			if (empty($ultimaIncid[$cont][0][0])) {
+			?>
+			<td><?php echo 'Sin Incidencias'; ?></td>
+			<?php
+			}else{	
+			?>
+			
+			<td width="20%"><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $ultimaIncid[$cont][0][0];?>"><?php echo $ultimaIncid[$cont][0][0]; ?></td>
+			
+			<?php }
+			?>
+			
+			<td width="20%"><a href="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>"><colspan="4"><input type="button" value="Consultar"</a></td>
+			
 		</tr>
 		<?php
 		 $cont++;

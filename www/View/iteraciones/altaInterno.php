@@ -7,36 +7,38 @@
 <h1 id="headerInterno"><a><?= i18n("- NUEVA ITERACION DE EMPLEADO INTERNO -") ?></a></h1>
 <br>
 <form name='FormAltaIteracion' onsubmit= "return comprobarAltaIteracion()" action='../../Controller/iteracionesController.php' method='POST'>
-	<input type="hidden" class="text" name="idIncid" value="indic1">
+	<input type="hidden" class="text" name="idIncid" value='<?php echo $idIncid; ?>'>
 	<input type="hidden" class="text" name="nIteracion" value="1"/>
 	<input type='hidden' class='text' name="estadoItera" value="0"/>
+	
+	
 	<div style='height:350px;width:auto;overflow-y: scroll;'>
 		<table class='default'>
 			<tr>
 				<td><?= i18n("ID Incidencia:") ?></td>
-				<td><input id="idIncid" type='text'  value='<?php echo $idIncid; ?>' disabled ></td>
+				<td><input id="idIncid"  type='text' name='idIncid' value='<?php echo $idIncid; ?>' disabled ></td>
 				<td><?= i18n("Número Iteración:") ?></td>
 				<td><input id="nIteracion" type='text'  value='0'></td>
 			</tr>
 				
 			<tr>
 				<td><?= i18n("Fecha Apertura:") ?></td>
-				<td><input required title="Es necesario introducir una fecha de inicio" id="fechaCreacion" type='date' name='FechaCreacion' value='<?php echo date('Y/m/d');?>'/></td>
+				<td><input required title="Es necesario introducir una fecha de inicio" id="fechaIter" type='date' name='fechaIter' value='<?php echo date('Y/m/d');?>'/></td>
 				<td><?= i18n("Hora Inicio:") ?></td> 
-				<td><input  title="Es necesario introducir una hora de inicio" id="horaInicio" type='time' class='text' value='<?php echo  date('h:i:s'); ?>'> </td>
+				<td><input  title="Es necesario introducir una hora de inicio" id="hInicio" type='time' name='hInicio' class='text' value='<?php echo  date('h:i:s'); ?>'> </td>
 				<td><?= i18n("Hora Fin:") ?></td> 
-				<td><input  title="es necesario introducir una hora de fin" id="horaFin" type='time' class='text' value='<?php echo date('h:i:s', strtotime('+25 hour')); ?>'> </td>
+				<td><input  title="es necesario introducir una hora de fin" id="hFin" type='time' name='hFin' class='text' value='<?php echo date('h:i:s', strtotime('+25 hour')); ?>'> </td>
 			</tr>
 			<tr>
 				<td><?= i18n("Estado Iteración:") ?></td>
-			    <td><input id="estadoItera" type='text' value='0'></td>
+			    <td><input id="estadoItera" type='text' name='estadoItera' value='0'></td>
 				<td><?= i18n("Coste Trabajo:") ?></td>
-			    <td><input id="coste" type='text' value=''></td>
+			    <td><input id=" costeIter" type='text' name='costeIter' value=''></td>
 			</tr>
 			<tr>
 				<td width="30%"><br><?= i18n("Descripción:") ?></td>
 				<td colspan='3' width="75%">
-				<textarea id="des" style="resize:none; text-align:left;" style="t" rows="4" name='descripcion'></textarea>
+				<textarea id="des" style="resize:none; text-align:left;" style="t" rows="4" name='descripIter'></textarea>
 				</td>
 			</tr>
 			
@@ -50,9 +52,9 @@
 	</div>
 	<table>
 		<tr> 
-			<td width='25%'><a href="../../Controller/iteracionesController.php?accion='GUARDAR TRABAJO'"><input type='submit' name='accion' value='GUARDAR TRABAJO'></a> </td>
-			<td width='25%'><a href="../../Controller/iteracionesController.php?accion='FINALIZAR TRABAJO'"><input type='submit' name='accion' value='CERRAR'></a></td>
-			<td width='25%'><a href="../../Controller/iteracionesController.php?accion='Alta'"><input type='submit' name='accion' value='Alta'></a></td>
+			<td width='25%'><input type='submit' name='accion' value='GUARDAR TRABAJO'></td>
+			<td width='25%'><input type='submit' name='accion' value='CERRAR'></td>
+			<td width='25%'><input type='submit' name='accion' value='Alta'></td>
 		</tr>
 	</table>
 </form>

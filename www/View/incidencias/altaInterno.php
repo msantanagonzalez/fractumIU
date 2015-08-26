@@ -3,8 +3,9 @@
 ?>
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
 <h1 id="headerInterno"><a><i><?= i18n("NUEVA INCIDENCIA") ?></i></a></h1>
-<form name='FormAltaIncidencia' onsubmit="return comprobarAltaIncidenciaInterno()" action='../../Controller/incidenciasController.php' method='POST'>
-	<input type="hidden" class="text" name="idIncidencia" value="id0"/>
+<form name='FormAltaIncidencia' onsubmit="return comprobarAltaIncidenciaInterno()" action='../../Controller/incidenciasController.php' method='POST' enctype="multipart/form-data">
+	<input type="hidden" class="text" name="idIncidencia" value='NULL'/>
+	<input type="hidden" class="text" name="cifEmpr" value='K7885586J'/>
 	<input type="hidden" class="text" name="derivada" value="0"/>
 	<input type='hidden' class='text' name="dniApertura" value='<?php echo $_SESSION['dni']; ?>'/>
 	<input id="dniResponsable" type='hidden' class='text' name='dniResponsable' value='<?php echo $_SESSION['dni']; ?>'/>
@@ -33,14 +34,17 @@
 				<td><?= i18n("Máquina:") ?></td>
 				<td>
 					<select required title="Debe seleccionar una maquina" name='idMaquina'>
-						  <option value="" selected>-</option>
-						  <option value='maq1'>maq1</option>
-						  <option value='maq2'>maq2</option>
+						  <option value="" required>-</option>
+						  <?php
+								$rows = $_SESSION["listaMaquina"]; 
+								foreach ($rows as $row){ ?>
+								<option value="<?php echo $row[0];?>"><?php echo $row[0]." - ".$row[1];?></option>
+						  <?php } ?>
 					</select>
 				 </td>
 			</tr>
 			<tr>
-				<td width="25%"><br><?= i18n("Descripción:") ?></td>
+				<td width="25%%"><br><?= i18n("Descripción:") ?></td>
 				<td colspan='3' width="75%">
 					<textarea id="des" style="resize:none; text-align:left;" style="t" rows="4" name='descripcion'></textarea>
 				</td>
