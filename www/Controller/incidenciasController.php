@@ -31,7 +31,7 @@
 		$incidencia = new Incidencia($_POST["idIncidencia"], $_POST["fechaApertura"], $_POST["fechaCierre"], $_POST["dniResponsable"], $_POST["dniApertura"], $_POST["idMaquina"],  $_POST["estadoIncidencia"], $_POST["derivada"], $_POST["descripIncid"], $_POST["cifEmpr"]);
 
 		$incidencia->alta();
-		header("location: incidenciasController.php?accion=Listar");
+		lista();
 	}
 
 	function consulta(){

@@ -44,8 +44,7 @@
 										$_POST["estadoItera"],  $_POST["descripIter"], $_POST["costeIter"], $_SESSION['dni']);
 		$iteracion->alta();
 
-		header("location: iteracionesController.php?accion=Consulta&idIncid=$idI&nIteracion=$id");
-
+		lista();
 	}
 
 	function consulta(){
