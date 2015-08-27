@@ -83,7 +83,6 @@
 	function modificar(){
 		//session_start();
 
-
 		$idIteracion = $_REQUEST['idIncidencia'];
 		$nIteracion = $_REQUEST['nIteracion'];
 

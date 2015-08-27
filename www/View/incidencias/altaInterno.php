@@ -36,7 +36,7 @@
 					<select required title="Debe seleccionar una maquina" name='idMaquina'>
 						  <option value="" required>-</option>
 						  <?php
-								$rows = $_SESSION["listaMaquina"]; 
+								$rows = $_SESSION["listaMaquina"];
 								foreach ($rows as $row){ ?>
 								<option value="<?php echo $row[0];?>"><?php echo $row[0]." - ".$row[1];?></option>
 						  <?php } ?>
@@ -46,7 +46,7 @@
 			<tr>
 				<td width="25%%"><br><?= i18n("Descripción:") ?></td>
 				<td colspan='3' width="75%">
-					<textarea id="des" style="resize:none; text-align:left;" style="t" rows="4" name='descripcion'></textarea>
+					<textarea id="des" style="resize:none; text-align:left;" style="t" rows="4" name='descripIncid'></textarea>
 				</td>
 			</tr>
 		</table>

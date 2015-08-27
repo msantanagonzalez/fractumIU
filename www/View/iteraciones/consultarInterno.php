@@ -8,7 +8,7 @@
 
 	<div style='height:350px;width:auto;overflow-y: scroll;'>
 	<form method="POST" action="../../Controller/iteracionesController.php">
-	<?php $rows = $_SESSION['consultaIteracion']; 
+	<?php $rows = $_SESSION['consultaIteracion'];
 	 foreach ($rows as $row) { ?>
 		<table class='default'>
 			<tr>
@@ -19,12 +19,12 @@
 			</tr>
 
 			<tr>
-				
+
 		        <td><?= i18n("Coste") ?></td>
 		        <td><input type='text' disabled name="coste" value="<?php echo $row['costeIter']; ?>"></td>
 		        <td><?= i18n("Fecha Apertura:") ?></td>
 		        <td><input type='date' disabled value="<?php echo $row['fechaIter']; ?>"></td>
-		 
+
 		    </tr>
 			<br>
 		    <tr>
@@ -48,12 +48,12 @@
 				</td>
 		    </tr>
 		</table>
- 	
+
     <br>
     <table>
 		<tr>
-			<td colspan="4"><a href="../../Controller/iteracionesController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid']; ?>&nIteracion=<?echo $row['nIteracion'];?>"><input type="button" name="Modificar" value="Modificar"></a></td>
-		</tr> 
+			<td colspan="4"><a href="../../Controller/iteracionesController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid']; ?>&nIteracion=<?php echo $row['nIteracion'];?>"><input type="button" name="Modificar" value="Modificar"></a></td>
+		</tr>
 	</table>
 	<?php } ?>
 </form>
