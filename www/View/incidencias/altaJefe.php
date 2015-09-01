@@ -5,7 +5,7 @@
 <h1 id="headerJefe"><a><i><?= i18n("NUEVA INCIDENCIA") ?></i></a></h1>
 <form name='FormAltaIncidencia' onsubmit="return comprobarAltaIncidenciaJefe()" action='../../Controller/incidenciasController.php' method='POST'>
 	<input type="hidden" class="text" name="idIncidencia" value="NULL"/>
-	<input type="hidden" class="text" name="derivada" value="1"/>
+	<input type="hidden" class="text" name="derivada" value="0"/>
 	<input type='hidden' class='text' name="dniApertura" value='<?php echo $_SESSION['dni']; ?>'/>
 	<input type='hidden' class='text' name="cifEmpr" value='A0000000Z'/>
 		<table class='default'>
@@ -17,12 +17,9 @@
 					<select required title="Debe seleccionar a un responsable" name="dniResponsable" id="dniResponsable">
 						<option value="" selected>-</option>
 						<?php
-						$rows = $_SESSION["listaInternos"];
+						$rows = $_SESSION["consultaResponsables"];
 						foreach ($rows as $row){ ?>
 						<option value="<?php echo $row[0];?>"><?php echo $row[0]." - ".$row[1];?></option>
-						<?php } ?>
-						<?php $rows = $_SESSION["listaExternos"]; foreach ($rows as $row){ ?>
-						<option value="<?php echo $row[0];?>" MO><?php echo $row[0]." - ".$row[1];?></option>
 						<?php } ?>
 					</select>
 				</td>

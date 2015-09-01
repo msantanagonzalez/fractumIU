@@ -435,13 +435,21 @@ switch ($action) {
 
 //Esto deberia estar en controlador de maquinas
 	function listaMaquinaJefeAndInterno(){
-				$maquina = new Maquina();
-				$listaMaquinas = $maquina->lista();
-				$lista = array();
+				$servicio = new Servicio();
 
-				while($row = mysql_fetch_array($listaMaquinas)){
-					array_push($lista, $row);
-				}
+				$listaServHome = array();
+				$listaServicios = $servicio->listar();
+				while($row = mysql_fetch_array($listaServicios)){ array_push($listaServHome, $row);}
+
+
+				$maquina = new Maquina();
+
+				$lista = array();
+				$listaMaquinas = $maquina->lista();
+				while($row = mysql_fetch_array($listaMaquinas)){ array_push($lista, $row); }
+
+
+				$_SESSION["listaServHome"] = $listaServHome;
 				$_SESSION["listaMaquina"] = $lista;
 
 				//$servicio = new servicio(); CREAR SIEMPRE EL OBJETO CON LOS ARGUMENTOS DE LA CLASE,AUNQUE SEAN VACIOS

@@ -1,5 +1,6 @@
 <?php
 	require_once $_SESSION['cribPath'].'Model/incidencia.php';
+	require_once $_SESSION['cribPath'].'Model/interno.php';
 	require_once $_SESSION['cribPath'].'Controller/bdController.php';
 
 	if(isset($_GET['accion'])){	$accion = $_GET['accion']; }
@@ -36,18 +37,16 @@
 
 	function consulta(){
 		//session_start();
+		$idIncidencia = $_GET['idIncidencia'];
 
 		$incidencia = new Incidencia();
 
-		$idIncidencia = $_REQUEST['idIncidencia'];
-		$consultaIncidencia = $incidencia->consultaIncidencia($idIncidencia);
-
 		$consulta = array();
-		while($row = mysql_fetch_array($consultaIncidencia)){
-			array_push($consulta, $row);
-		}
+		$consultaIncidencia = $incidencia->consultaIncidencia($idIncidencia);
+		while($row = mysql_fetch_array($consultaIncidencia)){ array_push($consulta, $row); }
 
 		$_SESSION["consultaIncidencia"] = $consulta;
+
 
 		switch ($_SESSION['tipo']) {
 			case 'J':
@@ -70,15 +69,13 @@
 	function modificar(){
 		//session_start();
 
+		$idIncidencia = $_GET['idIncidencia'];
+
 		$incidencia = new Incidencia();
 
-		$idIncidencia = $_REQUEST['idIncidencia'];
-		$consultaIncidencia = $incidencia->consultaIncidencia($idIncidencia);
-
 		$consulta = array();
-		while($row = mysql_fetch_array($consultaIncidencia)){
-			array_push($consulta, $row);
-		}
+		$consultaIncidencia = $incidencia->consultaIncidencia($idIncidencia);
+		while($row = mysql_fetch_array($consultaIncidencia)){ array_push($consulta, $row); }
 
 		$_SESSION["consultaIncidencia"] = $consulta;
 
@@ -122,8 +119,16 @@
 
 	function lista(){
 		//session_start();
-		$incidencia = new Incidencia();
+		$responsables = new interno("", "", "", "", "");
 
+		$consultaResp = array();
+		$consultaResponsables = $responsables->listarInternos();
+		while($row = mysql_fetch_array($consultaResponsables)){ array_push($consultaResp, $row); }
+
+		$_SESSION["consultaResponsables"] = $consultaResp;
+
+
+		$incidencia = new Incidencia();
 
 		switch ($_SESSION['tipo']) {
 			case 'J':

@@ -3,29 +3,27 @@
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 ?>
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
-<?php $rows = $_SESSION['consultaIncidencia']; ?>
-<?php foreach ($rows as $row) { ?>
-<h1 id="headerJefe"><a><i><?= i18n("INCIDENCIA") ?> <?php echo $row['idIncid']; ?> </i></a></h1>
+<?php $iData = $_SESSION['consultaIncidencia']; ?>
+<h1 id="headerJefe"><a><i><?= i18n("INCIDENCIA") ?> <?php echo $iData[0][0]; ?> </i></a></h1>
 <div>
 	<form name="formModificarIncidencia" onsubmit="return comprobarModificarIncidenciaJefe()" method="POST" action="../../Controller/incidenciasController.php">
-			<input type="hidden" class="text" name="idIncidencia" value="<?php echo $row['idIncid']; ?>"/>
-			<input type="hidden" class="text" name="dniApertura" value="<?php echo $row['dniApertura']; ?>"/>
-			<input type="hidden" class="text" name="idMaquina" value="<?php echo $row['idMaq']; ?>"/>
-			<input type="hidden" class="text" name='descripcion' value="<?php echo $row['descripIncid'];?>"/>
+			<input type="hidden" class="text" name="idIncidencia" value="<?php echo $iData[0][0]; ?>"/>
+			<input type="hidden" class="text" name="dniApertura" value="<?php echo $iData[0][4]; ?>"/>
+			<input type="hidden" class="text" name="idMaquina" value="<?php echo $iData[0][5]; ?>"/>
+			<input type="hidden" class="text" name='descripcion' value="<?php echo $iData[0][8];?>"/>
+			<input type="hidden" class="text" name='cifEmpr' value="<?php echo $iData[0][9];?>"/>
+
 		<table class="default">
 			<tr>
 				<td width="25%"><?= i18n("Apertura:") ?> </td>
-				<td width="25%"><input type="text" class="text" disabled value="<?php echo $row['dniApertura']; ?>"/></td>
+				<td width="25%"><input type="text" class="text" disabled value="<?php echo $iData[0][4]; ?>"/></td>
 				<td width="25%"><?= i18n("Responsable:") ?></td>
 				<td width="25%">
 					<select required title="Debe seleccionar a un responsable" name="dniResponsable" id="dniResponsable">
-						<option value='<?php echo $row['dniResponsable']; ?>' hidden selected><?php echo $row['dniResponsable']; ?></option>
+						<option value='<?php echo $row['dniResponsable']; ?>' hidden selected><?php echo $iData[0][3]; ?></option>
 						<?php
-						$rows = $_SESSION["listaInternos"];
+						$rows = $_SESSION["consultaResponsables"];
 						foreach ($rows as $row){ ?>
-						<option value="<?php echo $row[0];?>"><?php echo $row[0]." - ".$row[1];?></option>
-						<?php } ?>
-						<?php $rows = $_SESSION["listaExternos"]; foreach ($rows as $row){ ?>
 						<option value="<?php echo $row[0];?>"><?php echo $row[0]." - ".$row[1];?></option>
 						<?php } ?>
 					</select>
@@ -33,15 +31,15 @@
 			</tr>
 			<tr>
 				<td width="25%"><?= i18n("Fecha Apertura:") ?></td>
-				<td width="25%"><input title="Debe insertar una fecha de Apertura" id="fechaApertura" type="date" class="text" name="fechaApertura" value="<?php echo $row['fAper']; ?>" required/></td>
+				<td width="25%"><input title="Debe insertar una fecha de Apertura" id="fechaApertura" type="date" class="text" name="fechaApertura" value="<?php echo $iData[0][1]; ?>" required/></td>
 				<td width="25%"><?= i18n("Fecha Cierre:") ?></td>
-				<td width="25%"><input title="Debe insertar una fecha de cierre" id="fechaCierre" type="date" class="text" name="fechaCierre" value="<?php echo $row['fCier']; ?>" required/></td>
+				<td width="25%"><input title="Debe insertar una fecha de cierre" id="fechaCierre" type="date" class="text" name="fechaCierre" value="<?php echo $iData[0][2]; ?>" required/></td>
 			</tr>
 			<tr>
 				<td><?= i18n("Estado:") ?></td>
 				<td>
 					<select title="Seleccione o no una opcion" required name='estadoIncidencia'>
-						<option value='<?php echo $row['estadoIncid']; ?>' hidden selected><?php echo $row['estadoIncid']; ?></option>
+						<option value='<?php echo $row['estadoIncid']; ?>' hidden selected><?php echo $iData[0][6]; ?></option>
 						<option value='Derivada'>Derivada</option>
 						<option value='Cerrada'>Cerrada</option>
 					</select>
@@ -49,7 +47,7 @@
 				<td><?= i18n("Máquina:") ?></td>
 				<td>
 					<select disabled>
-					  	<option value='<?php echo $row['idMaq']; ?>' selected><?php echo $row['idMaq']; ?></option>
+					  	<option value='<?php echo $row['idMaq']; ?>' selected><?php echo $iData[0][5]; ?></option>
 					</select>
 				 </td>
 			</tr>
@@ -57,11 +55,10 @@
 				<td width="25%"><br><?= i18n("Descripción:") ?></td>
 				<td colspan='3' width="75%">
 					<textarea  style="resize:none; text-align:left;" style="t" rows="4" disabled>
-					<?php echo $row['descripIncid'];?>
+					<?php echo $iData[0][8];?>
 					</textarea>
 				</td>
 			</tr>
-			<?php } ?>
 		</table>
 
 	<table class="default">

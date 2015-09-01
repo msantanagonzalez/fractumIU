@@ -1,5 +1,6 @@
 <?php
 	require_once $_SESSION['cribPath'].'Model/maquina.php';
+	require_once $_SESSION['cribPath'].'Model/servicio.php';
 	require_once $_SESSION['cribPath'].'Controller/bdController.php';
 	require_once $_SESSION['cribPath'].'Controller/generalController.php';
 
@@ -110,7 +111,6 @@
 		//session_start();
 		$maquina = new Maquina();
 
-
 		$idMaquina = $_REQUEST['idMaq'];
 		$consultaMaquina = $maquina->consultaMaquina($idMaquina);
 
@@ -164,16 +164,28 @@
 		//session_start();
 
 		$maquina = new Maquina();
+		$servicio = new Servicio();
 
 		switch ($_SESSION['tipo']) {
 			case 'J':
+				$listaServicios = $servicio->listar();
+				$listaServ = array();
+
+				while($row = mysql_fetch_array($listaServicios)){
+					array_push($listaServ, $row);
+				}
+
+
 				$listaMaquinas = $maquina->lista();
 				$lista = array();
 
 				while($row = mysql_fetch_array($listaMaquinas)){
 					array_push($lista, $row);
 				}
+
 				$_SESSION["listaMaquina"] = $lista;
+				$_SESSION["listaServ"] = $listaServ;
+
 				//session_write_close();
 				header("location: ../View/maquinas/listarJefe.php");
 				break;
