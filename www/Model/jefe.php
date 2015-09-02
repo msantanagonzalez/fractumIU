@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
 * Clase jefe que hereda de clase usuario.
 */
@@ -47,7 +47,7 @@ class jefe extends usuario {
 		$resultado = mysql_query($actualizarUsuario) or die(mysql_error());
 		return $resultado;
 	}
-	
+
 	public function consultarUsuario(){
 		$resultado = $this->consultarUsuarioSql();
 		if ($resultado) {
@@ -56,7 +56,7 @@ class jefe extends usuario {
 			return false;
 		}
 	}
-	
+
 	public function modificarUsuario(){
 		$resultado = $this->consultarUsuarioSql();
 		if ($resultado) {
@@ -68,8 +68,4 @@ class jefe extends usuario {
 	}
 
 }
-
-
 ?>
-
-

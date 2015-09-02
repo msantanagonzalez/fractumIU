@@ -20,7 +20,7 @@
 				<td width="25%"><?= i18n("Responsable:") ?></td>
 				<td width="25%">
 					<select required title="Debe seleccionar a un responsable" name="dniResponsable" id="dniResponsable">
-						<option value='<?php echo $row['dniResponsable']; ?>' hidden selected><?php echo $iData[0][3]; ?></option>
+						<option value='<?php echo $iData[0][3];; ?>' hidden selected><?php echo $iData[0][3]; ?></option>
 						<?php
 						$rows = $_SESSION["consultaResponsables"];
 						foreach ($rows as $row){ ?>
@@ -39,7 +39,7 @@
 				<td><?= i18n("Estado:") ?></td>
 				<td>
 					<select title="Seleccione o no una opcion" required name='estadoIncidencia'>
-						<option value='<?php echo $row['estadoIncid']; ?>' hidden selected><?php echo $iData[0][6]; ?></option>
+						<option value='<?php echo $iData[0][6]; ?>' hidden selected><?php echo $iData[0][6]; ?></option>
 						<option value='Derivada'>Derivada</option>
 						<option value='Cerrada'>Cerrada</option>
 					</select>
@@ -47,7 +47,7 @@
 				<td><?= i18n("Máquina:") ?></td>
 				<td>
 					<select disabled>
-					  	<option value='<?php echo $row['idMaq']; ?>' selected><?php echo $iData[0][5]; ?></option>
+					  	<option value='<?php echo $iData[0][5]; ?>' selected><?php echo $iData[0][5]; ?></option>
 					</select>
 				 </td>
 			</tr>
