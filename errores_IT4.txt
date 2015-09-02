@@ -1,0 +1,5 @@
+1.1) 
+	Undefined index en row
+	Undefined index en estadoIncid
+	Undefined index en idMaq
+	
