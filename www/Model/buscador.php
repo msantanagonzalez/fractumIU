@@ -19,7 +19,7 @@ class buscador{
  		return $resultado;
  	}
 	protected function buscarIncidenciaInternoSql(){
-		$consultarIncidencia  = "SELECT * FROM INCIDENCIA WHERE derivada=0 AND (dniResponsable LIKE '%$this->datos%' OR dniApertura LIKE '%$this->datos%' OR idMaq LIKE '%$this->datos%' OR cifEmpr LIKE '%$this->datos%')";
+		$consultarIncidencia  = "SELECT * FROM INCIDENCIA WHERE derivada=0 AND (dniResponsable LIKE '%$this->datos%' OR dniApertura LIKE '%$this->datos%' OR idMaq LIKE '%$this->datos%' OR descripIncid LIKE '%$this->datos%' OR cifEmpr LIKE '%$this->datos%')";
  		$resultado = mysql_query($consultarIncidencia) or die(mysql_error());
  		return $resultado;
  	}
@@ -35,7 +35,7 @@ class buscador{
 		return $resultado;
 	}
 	protected function buscarOpExternoSql(){
-		$consultarExterno  = "SELECT * FROM USUARIO INNER JOIN OPEXTERNO ON USUARIO.dniUsu=OPEXTERNO.dniUsu INNER JOIN EMPRESA ON OPEXTERNO.cifEmpr=EMPRESA.cifEmpr WHERE OPEXTERNO.dniUsu LIKE '%$this->datos%' OR OPEXTERNO.cifEmpr LIKE '%$this->datos%'";
+		$consultarExterno  = "SELECT * FROM USUARIO INNER JOIN OPEXTERNO ON USUARIO.dniUsu=OPEXTERNO.dniUsu INNER JOIN EMPRESA ON OPEXTERNO.cifEmpr=EMPRESA.cifEmpr WHERE OPEXTERNO.dniUsu LIKE '%$this->datos%' OR USUARIO.nomUsu LIKE '%$this->datos%' OR USUARIO.apellUsu LIKE '%$this->datos%' OR OPEXTERNO.cifEmpr LIKE '%$this->datos%'";
 		$resultado = mysql_query($consultarExterno) or die(mysql_error());
 		return $resultado;
 	}
