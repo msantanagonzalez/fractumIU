@@ -79,6 +79,16 @@
 
 		$_SESSION["consultaIncidencia"] = $consulta;
 
+		$interno = new Interno();
+
+		$internos = array();
+		$consultaInternos = $interno->listarInternos();
+		while($row2 = mysql_fetch_array($consultaInternos)){
+			array_push($internos, $row2);
+		}
+
+		$_SESSION['listaInternosJefe'] = $internos;
+
 		switch ($_SESSION['tipo']) {
 			case 'J':
 				//session_write_close();

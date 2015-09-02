@@ -22,7 +22,7 @@
 					<select required title="Debe seleccionar a un responsable" name="dniResponsable" id="dniResponsable">
 						<option value='<?php echo $iData[0][3];; ?>' hidden selected><?php echo $iData[0][3]; ?></option>
 						<?php
-						$rows = $_SESSION["consultaResponsables"];
+						$rows = $_SESSION["listaInternosJefe"];
 						foreach ($rows as $row){ ?>
 						<option value="<?php echo $row[0];?>"><?php echo $row[0]." - ".$row[1];?></option>
 						<?php } ?>
