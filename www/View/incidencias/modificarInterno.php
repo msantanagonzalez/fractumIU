@@ -30,7 +30,10 @@
 				<td><?= i18n("Estado:") ?></td>
 				<td>
 					<select name='estadoIncidencia'>
-						<option value='<?php echo $row['estadoIncid']; ?>' selected><?php echo $row['estadoIncid']; ?></option>
+						<option value='<?php echo $row['estadoIncid']; ?>' selected>-- <?php echo $row['estadoIncid']; ?> --</option>
+						<option value='Abierta'>Abierta</option>
+						<option value='Pendiente'>Pendiente de Derivar</option>
+						<option value='Cerrada'>Cerrada</option>
 					</select>
 				</td>
 				<td><?= i18n("Máquina:") ?></td>

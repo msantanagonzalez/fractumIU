@@ -8,8 +8,8 @@
 <br>
 <form name='FormAltaIteracion' onsubmit= "return comprobarAltaIteracion()" action='../../Controller/iteracionesController.php' method='POST'>
 	<input type="hidden" class="text" name="idIncid" value='<?php echo $idIncid; ?>'>
-	<input type="hidden" class="text" name="nIteracion" value="1"/>
-	<input type='hidden' class='text' name="estadoItera" value="0"/>
+	<input type="hidden" class="text" name="nIteracion" value="NULL"/>
+	<input type='hidden' class="text" name='estadoItera' value='1'>
 	
 	
 	<div style='height:350px;width:auto;overflow-y: scroll;'>
@@ -17,8 +17,8 @@
 			<tr>
 				<td><?= i18n("ID Incidencia:") ?></td>
 				<td><input id="idIncid"  type='text' name='idIncid' value='<?php echo $idIncid; ?>' disabled ></td>
-				<td><?= i18n("Número Iteración:") ?></td>
-				<td><input id="nIteracion" type='text'  value='0'></td>
+				<td><?= i18n("ID Usuario:") ?></td>
+				<td><input   type='text'  value='<?php echo $_SESSION['dni']; ?>' disabled ></td>
 			</tr>
 				
 			<tr>
@@ -31,7 +31,7 @@
 			</tr>
 			<tr>
 				<td><?= i18n("Estado Iteración:") ?></td>
-			    <td><input id="estadoItera" type='text' name='estadoItera' value='0'></td>
+			    <td><input id="estadoItera" type='text' value='Abierta' disabled></td>
 				<td><?= i18n("Coste Trabajo:") ?></td>
 			    <td><input id=" costeIter" type='text' name='costeIter' value=''></td>
 			</tr>
@@ -52,7 +52,6 @@
 	</div>
 	<table>
 		<tr> 
-			<td width='25%'><input type='submit' name='accion' value='GUARDAR TRABAJO'></td>
 			<td width='25%'><input type='submit' name='accion' value='CERRAR'></td>
 			<td width='25%'><input type='submit' name='accion' value='Alta'></td>
 		</tr>

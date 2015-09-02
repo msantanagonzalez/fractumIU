@@ -16,24 +16,22 @@
 				<td><input type='text' disabled name="numeroIncidencia" value="<?php echo $row['idIncid']; ?>"></td>
 				<td><?= i18n("Número Iteración") ?></td>
 		        <td><input type='text' disabled name="numeroTrabajo" value="<?php echo $row['nIteracion']; ?>"></td>
+				<td width="25%"><?= i18n("ID usuario:") ?> </td>
+				<td width="25%"><input type="text" class="text" disabled value="<?php echo $row['dniUsu']; ?>"/></td>
 			</tr>
-
 			<tr>
-
 		        <td><?= i18n("Coste") ?></td>
 		        <td><input type='text' disabled name="coste" value="<?php echo $row['costeIter']; ?>"></td>
 		        <td><?= i18n("Fecha Apertura:") ?></td>
 		        <td><input type='date' disabled value="<?php echo $row['fechaIter']; ?>"></td>
-
 		    </tr>
-			<br>
 		    <tr>
 		        <td><?= i18n("Hora Inicio:") ?></td>
 		        <td><input type='time' disabled value="<?php echo $row['hInicio']; ?>"></td>
 		        <td><?= i18n("Hora Fin:") ?></td>
 		        <td><input type='time' disabled value="<?php echo $row['hFin']; ?>"></td>
 				<td><?= i18n("Estado Iteración:") ?></td>
-		        <td><input type='time' disabled value="<?php echo $row['estadoItera']; ?>"></td>
+		        <td><input type='text' disabled value="<?php if($row['estadoItera']==1){echo 'Abierta' ;}else{ echo 'Cerrada';}  ?>"></td>
 		  </tr>
 		    </tr>
 				<td><?= i18n("Documentación:") ?></td>
@@ -52,7 +50,13 @@
     <br>
     <table>
 		<tr>
-			<td colspan="4"><a href="../../Controller/iteracionesController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid']; ?>&nIteracion=<?php echo $row['nIteracion'];?>"><input type="button" name="Modificar" value="Modificar"></a></td>
+		
+			<?php
+			if($row['dniUsu']==$_SESSION['dni']){?>
+				<td colspan="4"><a href="../../Controller/iteracionesController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid']; ?>&nIteracion=<?php echo $row['nIteracion'];?>"><input type="button" name="Modificar" value="Modificar"></a></td>
+			<?php
+			}
+			?>
 		</tr>
 	</table>
 	<?php } ?>

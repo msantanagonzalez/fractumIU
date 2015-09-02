@@ -23,6 +23,12 @@
 			$this->costeIter = $costeIter;
 			$this->dniUsu = $dniUsu;
 		}
+		
+		public function setEstado($estadoItera){
+			
+			$this->estadoItera = $estadoItera;
+					
+		} 
 
 		public function alta(){
 			mysql_query("INSERT INTO ITERACION(idIncid, nIteracion, fechaIter, hInicio, hFin, estadoItera, descripIter, costeIter, dniUsu) 
@@ -39,6 +45,10 @@
 		public function modificacion(){
 			mysql_query("UPDATE ITERACION SET hFin = '$this->hFin', descripIter = '$this->descripIter', 
 				costeIter = '$this->costeIter' WHERE idIncid = '$this->idIncid' AND nIteracion = '$this->nIteracion'") or die(mysql_error());
+		}
+		
+		public function modEstado(){
+			mysql_query("UPDATE ITERACION SET estadoItera = '$this->estadoItera' WHERE idIncid = '$this->idIncid' AND nIteracion = '$this->nIteracion'") or die(mysql_error());
 		}
 
 		public function lista(){

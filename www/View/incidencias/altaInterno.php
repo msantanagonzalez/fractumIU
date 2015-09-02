@@ -26,9 +26,9 @@
 				<td><?= i18n("Estado:") ?></td>
 				<td>
 					<select required title="Debe seleccionar un estado para esta incidencia" name='estadoIncidencia' >
-						<<option value="" selected>-</option>
+						<<option value="" selected>		-</option>
 						<option value='Abierta'><?= i18n("Abierta") ?></option>
-					  	<option value='Programada'><?= i18n("Programada") ?></option>
+						<option value='Pendiente Derivar'><?= i18n("Pendiente de Derivar") ?></option>
 					</select>
 				</td>
 				<td><?= i18n("Máquina:") ?></td>

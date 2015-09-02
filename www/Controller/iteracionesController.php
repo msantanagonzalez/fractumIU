@@ -117,6 +117,7 @@
 		//session_start();
 
 		$idIncid = $_POST['idIncid'];
+		$estadoIter = $_POST['estadoItera'];
 		$nIteracion = $_POST['nIteracion'];
 		$fechaIter = $_POST['fechaIter'];
 		$hInicio = $_POST['hInicio'];
@@ -126,6 +127,8 @@
 
 
 		$iteracion = new Iteracion($idIncid, $nIteracion, $fechaIter, $hInicio, $hFin, '', $descripIter, $costeIter);
+		$iteracion->setEstado($estadoIter);
+		$iteracion->modEstado();
 		$iteracion->modificacion();
 
 		header("location: iteracionesController.php?accion=Consulta&idIncid=$idIncid&nIteracion=$nIteracion");
