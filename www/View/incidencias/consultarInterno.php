@@ -51,14 +51,14 @@ foreach ($rows as $row) { ?>
 	<table class="default">
 		<tr>
 			<?php
-			
-			if(($row['dniApertura']==$_SESSION['dni']) and ($row['estadoIncid']!='Cerrada')){?>
+
+			if(($row['dniApertura']==$_SESSION['dni']) and ($row['estadoIncid']!='Cerrada') and ($row['estadoIncid']!='Derivada')){?>
 					<td colspan="4"><a href="../../Controller/incidenciasController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid']; ?>"><input type="button" name="accion" value="Modificar"></td>
 			<?php
 			}
 			?>
 		</tr>
-<?php } ?>		
+<?php } ?>
 
 
 	</table>
@@ -95,14 +95,14 @@ foreach ($rows as $row) { ?>
 <table class="default">
 	<tr>
 			<?php
-			
-			if($row['estadoIncid']!='Cerrada'){?>
+
+			if(($row['estadoIncid']!='Cerrada')and ($row['estadoIncid']!='Derivada')){?>
 					<td colspan="4"><a href="../../View/iteraciones/altaInterno.php?accion=Alta&idIncidencia=<?php echo $row['idIncid'] ?>"><input type="button"  value="NUEVA ITERACION"/></a></td>
 			<?php
 			}
 			?>
 	</tr>
-				
+
 </table>
 </div>
 
