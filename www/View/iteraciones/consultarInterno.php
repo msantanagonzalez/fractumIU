@@ -52,7 +52,7 @@
 		<tr>
 
 			<?php
-			if(($row['dniUsu']==$_SESSION['dni'])&&($row['estadoItera']=='Cerrada')){?>
+			if(($row['dniUsu']==$_SESSION['dni'])&&($row['estadoItera']!=='Cerrada')){?>
 				<td colspan="4"><a href="../../Controller/iteracionesController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid']; ?>&nIteracion=<?php echo $row['nIteracion'];?>"><input type="button" name="Modificar" value="Modificar"></a></td>
 			<?php
 			}
