@@ -1,6 +1,10 @@
 <?php
     $userType="externo";
     require_once $_SESSION['cribPath'].'View/structure/header.php';
+    //---- Meter esto en todas las vistas ----
+  require_once $_SESSION['cribPath'].'Controller/generalController.php';
+  checkIfLogged();
+  // ----------------------------------------
 ?>
 
 <h1 id="headerExterno"><a><?= i18n("- INCIDENCIAS -") ?></a></h1> <!--SECCIÓN-->
@@ -59,7 +63,19 @@
 <div style="height:107px;width:auto;overflow-y: scroll;"><!--ESTO DA LUGAR AL SCROLL-->
     <table class="default"><!--TABLA-->
     <?php 
-      $rows2 = $_SESSION['listaMaquina1'];
+      
+        if(isset($_SESSION['listaMaquina1']) | isset($_SESSION['listaMaquina2'])){
+          $rows2 = $_SESSION['listaMaquina1'];
+          $rows = $_SESSION['listaMaquina2'];
+        }
+        if (empty($rows2) & empty($rows)) {
+        ?>
+          <div class="alert alert-warning" role="alert">
+          <?= i18n("| INFO |- No hay maquinas para listar") ?> 
+          </div>
+        <?php
+        }
+        else{
       foreach ($rows2 as $row) {
     ?>
     <form method="POST" action="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>">
@@ -67,8 +83,8 @@
     <tr>
       <td width="10%"><?php echo $row['idMaq']; ?></th>
       <td width="25%"><?php echo $row['nomMaq']; ?></td>
-        <td width="25%">No</td>
-        <td width="25%">10/11/2013</td>
+        <td width="25%">No</td> <!-- Dentro de este foreach no tiene mantenimiento ninguna -->
+        <td width="25%"><?php echo $row['fAper'];?></td>
       <td width="20%"><a href="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>"><button >Consultar</button></a></td>
     </tr>
     <?php } ?>
@@ -77,7 +93,7 @@
 
     <table class="default"><!--TABLA-->
     <?php 
-      $rows = $_SESSION['listaMaquina2'];
+      
       foreach ($rows as $row1) {
     ?>
     <form method="POST" action="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row1['idMaq'];?>">
@@ -85,11 +101,12 @@
     <tr>
       <td width="10%"><?php echo $row1['idMaq']; ?></th>
       <td width="25%"><?php echo $row1['nomMaq']; ?></td>
-        <td width="25%">No</td>
-        <td width="25%">10/11/2013</td>
+        <td width="25%">Si</td> <!-- Dentro de este foreach tienen mantenimiento todas -->
+        <td width="25%"><?php echo $row1['fAper'];?></td>
       <td width="20%"><a href="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row1['idMaq'];?>"><button >Consultar</button></a></td>
     </tr>
-    <?php } ?>
+    <?php }
+    } ?>
   </table>
 
 </div>

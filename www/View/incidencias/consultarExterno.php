@@ -26,7 +26,10 @@
 				<td><?= i18n("Estado:") ?></td>
 				<td>
 					<select name='estadoIncidencia' disabled>
-						<option value='<?php echo $row['estadoIncid']; ?>' selected><?php echo $row['estadoIncid']; ?></option>
+					<?php if($row['estadoIncid']== "Derivada") {?>
+						<option value='ABIERTA' selected>ABIERTA</option>
+					<?php } ?>
+
 					</select>
 				</td>
 				<td><?= i18n("Máquina:") ?></td>

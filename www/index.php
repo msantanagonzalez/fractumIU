@@ -1,7 +1,7 @@
 <?php
 
 //----------|Get the path|----------//
-//session_start();
+session_start();
 $_SESSION['cribPath'] = dirname(__FILE__).'/'; //Gets the full path
 //---------------------------------//
 $acceso = "ON";

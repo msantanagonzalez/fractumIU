@@ -54,16 +54,18 @@ class Maquina {
 	}
 
 	public function listaMaquinasOpEservicio(){
-		$sql = mysql_query("SELECT M.* 
-			FROM  OPEXTERNO O RIGHT JOIN  SERVICIO S
-			ON O.cifEmpr = S.cifEmpr LEFT JOIN MAQUINA M
-			ON S.idMaq = M.idMaq WHERE O.dniUsu = '".$_SESSION['dni']."'");
+		$sql = mysql_query("SELECT DISTINCT I.idMaq, M.nomMaq, I.fAper
+			FROM OPEXTERNO O
+			INNER JOIN INCIDENCIA I ON O.cifEmpr = I.cifEmpr
+			INNER JOIN MAQUINA M ON I.idMaq = M.idMaq
+			INNER JOIN SERVICIO S ON S.idMaq = M.idMaq
+			WHERE O.dniUsu = '".$_SESSION['dni']."'");
 		return $sql;
 	}
 	
 	public function listaMaquinasOpEIncidencia(){
 		$sql = mysql_query(
-			"SELECT M.*
+			"SELECT DISTINCT M.*, I.fAper
 			FROM OPEXTERNO O LEFT JOIN INCIDENCIA I
 			ON O.cifEmpr = I.cifEmpr RIGHT JOIN MAQUINA M
 			ON I.idMaq = M.idMaq WHERE O.dniUsu = '".$_SESSION['dni']."'");

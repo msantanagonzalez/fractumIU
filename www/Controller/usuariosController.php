@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once $_SESSION['cribPath'].'Controller/bdController.php';
 require_once $_SESSION['cribPath'].'Controller/generalController.php';
 
@@ -14,7 +15,7 @@ require_once $_SESSION['cribPath'].'Model/iteracion.php';
 require_once $_SESSION['cribPath'].'Model/servicio.php';
 
 # NOTA: CAMBIAR LOS REQUEST POR POST O GETS.....
-$action =$_REQUEST['accion'];
+$action = $_REQUEST['accion'];
 
 switch ($action) {
 	case 'login':
@@ -75,6 +76,9 @@ switch ($action) {
 					header('location:../View/usuarios/homeInternoInterno.php');
 					break;
 				case 'E':
+					listaMaquinasExternoProvisional();
+					listaIncidenciasExternoProvisional();
+
 					header('location:../View/usuarios/homeExternoExterno.php');
 					break;
 			}
@@ -527,4 +531,45 @@ switch ($action) {
 			header("location:../View/usuarios/altaExternoJefe.php");
 		}
 	}
+
+
+
+
+// --------- CODIGO PROVISIONAL --------------
+	function listaMaquinasExternoProvisional(){
+		$maquina = new Maquina();
+		$servicio = new Servicio();
+		$listaMaquinas1 = $maquina->listaMaquinasOpEservicio();
+		$lista1 = array();
+		while($row = mysql_fetch_array($listaMaquinas1)){
+			array_push($lista1, $row);
+		}
+		$_SESSION["listaMaquina1"] = $lista1;
+		$listaMaquinas2 = $maquina->listaMaquinasOpEIncidencia();
+		$lista2 = array();
+		while($row = mysql_fetch_array($listaMaquinas2)){
+			array_push($lista2, $row);
+		}
+		$_SESSION["listaMaquina2"] = $lista2;
+	}
+
+
+	function listaIncidenciasExternoProvisional(){
+		$responsables = new interno("", "", "", "", "");
+		$consultaResp = array();
+		$consultaResponsables = $responsables->listarInternos();
+		while($row = mysql_fetch_array($consultaResponsables)){ array_push($consultaResp, $row); }
+		$_SESSION["consultaResponsables"] = $consultaResp;
+		$incidencia = new Incidencia();
+		$listaIncidencia1 = $incidencia->listaIncidenciasOpE();
+		$lista1 = array();
+		while($row = mysql_fetch_array($listaIncidencia1)){
+			array_push($lista1, $row);
+		}
+		$_SESSION["listaIncidencia1"] = $lista1;
+	}
+
+
+
+
 ?>
