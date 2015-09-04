@@ -1,131 +1,234 @@
-/* ***********************  */
-/* Base de datos: `FractumDB` */
-/* Usuario: AdminFractum       */
-/* Pass: Fractum       */
-/* ***********************  */
+-- phpMyAdmin SQL Dump
+-- version 4.1.14
+-- http://www.phpmyadmin.net
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 05-09-2015 a las 00:23:33
+-- Versión del servidor: 5.6.17
+-- Versión de PHP: 5.5.12
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-
-/* ************************* */
-/* Base de datos: `FractumDB`  */
-/* ************************* */
-
-DROP DATABASE IF EXISTS `FractumDB`;
-CREATE DATABASE `FractumDB` DEFAULT CHARACTER SET latin1 COLLATE latin1_spanish_ci;
-USE `FractumDB`;
-
-/* **************** */
-/* USER AdminFractum  */
-/* **************** */
-
-GRANT USAGE ON *.* TO 'AdminFractum'@'localhost';
-   DROP USER 'AdminFractum'@'localhost';
-
-CREATE USER 'AdminFractum'@'localhost' IDENTIFIED BY  'Fractum';
-
-GRANT USAGE ON * . * TO  'AdminFractum'@'localhost' IDENTIFIED BY  'Fractum' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0 ;
-
-GRANT ALL PRIVILEGES ON  `FractumDB` . * TO  'AdminFractum'@'localhost' WITH GRANT OPTION ;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
--- 1.- Sentencias de borrado de todas las tablas 
+--
+-- Base de datos: `fractumdb`
+--
+CREATE DATABASE IF NOT EXISTS `fractumdb` DEFAULT CHARACTER SET latin1 COLLATE latin1_spanish_ci;
+USE `fractumdb`;
 
-DROP TABLE IF EXISTS `DOCITERACION` ;
-DROP TABLE IF EXISTS `DOCMAQUINA` ;
-DROP TABLE IF EXISTS `TRABAJAOPINTERNO` ;
-DROP TABLE IF EXISTS `TRABAJAOPEXTERNO` ;
-DROP TABLE IF EXISTS  `REALIZA` ;
-DROP TABLE IF EXISTS  `ITERACION` ;
-DROP TABLE IF EXISTS  `INCIDENCIA` ;
-DROP TABLE IF EXISTS  `SERVICIO` ;
-DROP TABLE IF EXISTS  `MAQUINA` ;
-DROP TABLE IF EXISTS  `OPINTERNO` ;
-DROP TABLE IF EXISTS  `OPEXTERNO` ;
-DROP TABLE IF EXISTS  `JEFE` ;
-DROP TABLE IF EXISTS  `EMPRESA` ;
+-- --------------------------------------------------------
 
+--
+-- Estructura de tabla para la tabla `dociteracion`
+--
 
-
-
-/* 2.- Creacion de tablas         */
-
-/* 3.0- Tabla USUARIO */
-
-CREATE TABLE `USUARIO` (
-  `dniUsu` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
-  `nomUsu` varchar(20) COLLATE latin1_spanish_ci NOT NULL,
-  `apellUsu` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
-  `passUsu` varchar(80) COLLATE latin1_spanish_ci NOT NULL,
-  `tipoUsu` varchar(2) COLLATE latin1_spanish_ci NOT NULL,
-  
-  CONSTRAINT Pk_USUARIO PRIMARY KEY (`dniUsu`) 
+DROP TABLE IF EXISTS `dociteracion`;
+CREATE TABLE IF NOT EXISTS `dociteracion` (
+  `idIncid` int(15) NOT NULL,
+  `urlDocItr` varchar(100) COLLATE latin1_spanish_ci NOT NULL,
+  `nIteracion` int(15) NOT NULL,
+  `nDocIter` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
+  PRIMARY KEY (`idIncid`,`nIteracion`,`nDocIter`),
+  KEY `Fk_DOCITERACION_ITERACION` (`nIteracion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+-- --------------------------------------------------------
 
-/* 2.1- Tabla EMPRESA   */
+--
+-- Estructura de tabla para la tabla `docmaquina`
+--
 
-CREATE TABLE  `EMPRESA` (
+DROP TABLE IF EXISTS `docmaquina`;
+CREATE TABLE IF NOT EXISTS `docmaquina` (
+  `idMaq` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
+  `urlDocMaq` varchar(100) COLLATE latin1_spanish_ci NOT NULL,
+  `nDocMaq` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
+  PRIMARY KEY (`idMaq`,`nDocMaq`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `empresa`
+--
+
+DROP TABLE IF EXISTS `empresa`;
+CREATE TABLE IF NOT EXISTS `empresa` (
   `cifEmpr` varchar(9) COLLATE latin1_spanish_ci NOT NULL,
   `nomEmpr` varchar(20) COLLATE latin1_spanish_ci NOT NULL,
   `telefEmpr` int(13) NOT NULL,
   `mailEmpr` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
- 
-  CONSTRAINT Pk_EMPRESA PRIMARY KEY (`cifEmpr`)
-)ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+  PRIMARY KEY (`cifEmpr`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
-/* 2.2- Tabla JEFE   */
+--
+-- Volcado de datos para la tabla `empresa`
+--
 
-CREATE TABLE `JEFE` (
-  `dniUsu` varchar(15)  COLLATE latin1_spanish_ci NOT NULL,
+INSERT INTO `empresa` (`cifEmpr`, `nomEmpr`, `telefEmpr`, `mailEmpr`) VALUES
+('DEFAULT', 'DEFAULT', 600000000, 'default@default.com'),
+('E0001', 'Empresa1', 600000000, 'empresa1@empresa.com');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `incidencia`
+--
+
+DROP TABLE IF EXISTS `incidencia`;
+CREATE TABLE IF NOT EXISTS `incidencia` (
+  `idIncid` int(15) NOT NULL AUTO_INCREMENT,
+  `fAper` date NOT NULL,
+  `fCier` date NOT NULL,
+  `dniResponsable` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
+  `dniApertura` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
+  `idMaq` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
+  `estadoIncid` enum('Abierta','En Curso','Cerrada','Programada','Pendiente Derivar','Derivada','Pendiente Cierre','Cerrada') COLLATE latin1_spanish_ci NOT NULL,
+  `derivada` tinyint(1) NOT NULL,
+  `descripIncid` varchar(150) COLLATE latin1_spanish_ci NOT NULL,
+  `cifEmpr` varchar(9) COLLATE latin1_spanish_ci DEFAULT NULL,
+  PRIMARY KEY (`idIncid`),
+  KEY `Fk_INCIDENCIA_MAQUINA` (`idMaq`),
+  KEY `Fk_INCIDENCIA_EMPRESA` (`cifEmpr`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=5 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `iteracion`
+--
+
+DROP TABLE IF EXISTS `iteracion`;
+CREATE TABLE IF NOT EXISTS `iteracion` (
+  `idIncid` int(15) NOT NULL,
+  `nIteracion` int(15) NOT NULL AUTO_INCREMENT,
+  `dniUsu` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
+  `fechaIter` date NOT NULL,
+  `hInicio` time NOT NULL,
+  `hFin` time NOT NULL,
+  `estadoItera` tinyint(1) NOT NULL,
+  `descripIter` varchar(100) COLLATE latin1_spanish_ci NOT NULL,
+  `costeIter` float NOT NULL,
+  PRIMARY KEY (`nIteracion`,`idIncid`),
+  KEY `Fk_ITERACION` (`idIncid`),
+  KEY `Fk_ITERACION_USUARIO` (`dniUsu`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=5 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `jefe`
+--
+
+DROP TABLE IF EXISTS `jefe`;
+CREATE TABLE IF NOT EXISTS `jefe` (
+  `dniUsu` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
   `telefJefe` int(13) NOT NULL,
   `mailJefe` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
-    
-  CONSTRAINT Pk_JEFE PRIMARY KEY (`dniUsu`),
-  CONSTRAINT Fk_USUARIO FOREIGN KEY (`dniUsu`) REFERENCES USUARIO(`dniUsu`) ON DELETE CASCADE
+  PRIMARY KEY (`dniUsu`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `jefe`
+--
 
+INSERT INTO `jefe` (`dniUsu`, `telefJefe`, `mailJefe`) VALUES
+('12345678E', 654789321, 'marcoSantana@gmail.com');
 
-/* 2.3- Tabla OPEXTERNO   */
+-- --------------------------------------------------------
 
-CREATE TABLE `OPEXTERNO` (
-  `dniUsu` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
-  `cifEmpr` varchar(9) COLLATE latin1_spanish_ci NOT NULL,
-  
-  CONSTRAINT Pk_OPEXTERNO PRIMARY KEY (`dniUsu`),
-  CONSTRAINT Fk_OPEXTERNO_JEFE FOREIGN KEY (`dniUsu`) REFERENCES USUARIO(`dniUsu`) ON DELETE CASCADE,
-  CONSTRAINT Fk_OPEXTERNO_CIFEMPRESA FOREIGN KEY (`cifEmpr`) REFERENCES EMPRESA(`cifEmpr`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+--
+-- Estructura de tabla para la tabla `maquina`
+--
 
-
-/* 2.4- Tabla OPINTERNO   */
-
-CREATE TABLE `OPINTERNO` (
-  `dniUsu` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
-  `telefOpeInt` int(13) NOT NULL,
-  `mailOpeInt` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
-  
-  CONSTRAINT Pk_OPINTERNO PRIMARY KEY (`dniUsu`),
-  CONSTRAINT Fk_OPINTERNO FOREIGN KEY (`dniUsu`) REFERENCES USUARIO(`dniUsu`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
-
-/* 2.5- Tabla MAQUINA   */
-
-CREATE TABLE `MAQUINA` (
+DROP TABLE IF EXISTS `maquina`;
+CREATE TABLE IF NOT EXISTS `maquina` (
   `idMaq` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
   `nSerie` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
   `nomMaq` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
   `descripMaq` varchar(150) COLLATE latin1_spanish_ci NOT NULL,
   `costeMaq` float NOT NULL,
-  CONSTRAINT Pk_MAQUINA PRIMARY KEY (`idMaq`)
-)ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+  PRIMARY KEY (`idMaq`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `maquina`
+--
 
+INSERT INTO `maquina` (`idMaq`, `nSerie`, `nomMaq`, `descripMaq`, `costeMaq`) VALUES
+('IdMaquina1', '0000000001', 'Maquina1', 'Descripcion de maquina1\r\n				', 100);
 
-/* 2.6- Tabla SERVICIO  */
+-- --------------------------------------------------------
 
-CREATE TABLE `SERVICIO` (
+--
+-- Estructura de tabla para la tabla `opexterno`
+--
+
+DROP TABLE IF EXISTS `opexterno`;
+CREATE TABLE IF NOT EXISTS `opexterno` (
+  `dniUsu` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
+  `cifEmpr` varchar(9) COLLATE latin1_spanish_ci NOT NULL,
+  PRIMARY KEY (`dniUsu`),
+  KEY `Fk_OPEXTERNO_CIFEMPRESA` (`cifEmpr`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `opexterno`
+--
+
+INSERT INTO `opexterno` (`dniUsu`, `cifEmpr`) VALUES
+('12345678B', 'E0001');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `opinterno`
+--
+
+DROP TABLE IF EXISTS `opinterno`;
+CREATE TABLE IF NOT EXISTS `opinterno` (
+  `dniUsu` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
+  `telefOpeInt` int(13) NOT NULL,
+  `mailOpeInt` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
+  PRIMARY KEY (`dniUsu`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `opinterno`
+--
+
+INSERT INTO `opinterno` (`dniUsu`, `telefOpeInt`, `mailOpeInt`) VALUES
+('12345678A', 600000000, 'interno@interno.com');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `realiza`
+--
+
+DROP TABLE IF EXISTS `realiza`;
+CREATE TABLE IF NOT EXISTS `realiza` (
+  `dniUsu` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
+  `idServ` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
+  `fechaRealizacion` date NOT NULL,
+  PRIMARY KEY (`idServ`,`dniUsu`,`fechaRealizacion`),
+  KEY `Fk_REALZA` (`dniUsu`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `servicio`
+--
+
+DROP TABLE IF EXISTS `servicio`;
+CREATE TABLE IF NOT EXISTS `servicio` (
   `idServ` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
   `dniUsu` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
   `cifEmpr` varchar(9) COLLATE latin1_spanish_ci NOT NULL,
@@ -135,188 +238,151 @@ CREATE TABLE `SERVICIO` (
   `fFinSer` date NOT NULL,
   `costeSer` float NOT NULL,
   `descripSer` varchar(100) COLLATE latin1_spanish_ci NOT NULL,
-  CONSTRAINT Pk_SERVICIO PRIMARY KEY (`idServ`),
-  CONSTRAINT Fk_SERVICIO FOREIGN KEY (`dniUsu`) REFERENCES JEFE(`dniUsu`) ON DELETE CASCADE,
-  CONSTRAINT Fk_SERVICIO_EMPRESA FOREIGN KEY (`cifEmpr`) REFERENCES EMPRESA(`cifEmpr`) ON DELETE CASCADE,
-  CONSTRAINT Fk_SERVICIO_MAQUINA FOREIGN KEY (`idMaq`) REFERENCES MAQUINA(`idMaq`) ON DELETE CASCADE
+  PRIMARY KEY (`idServ`),
+  KEY `Fk_SERVICIO` (`dniUsu`),
+  KEY `Fk_SERVICIO_EMPRESA` (`cifEmpr`),
+  KEY `Fk_SERVICIO_MAQUINA` (`idMaq`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `servicio`
+--
 
-/* 2.7- Tabla INCIDENCIA */
+INSERT INTO `servicio` (`idServ`, `dniUsu`, `cifEmpr`, `idMaq`, `periodicidad`, `fInicioSer`, `fFinSer`, `costeSer`, `descripSer`) VALUES
+('IdServicio1', '12345678E', 'E0001', 'IdMaquina1', '12 meses', '2015-09-05', '2015-09-05', 50, 'Mantenimiento completo, coste de piezas no incluido.\r\n				');
 
+-- --------------------------------------------------------
 
+--
+-- Estructura de tabla para la tabla `trabajaopexterno`
+--
 
-
-CREATE TABLE `INCIDENCIA` (
-  `idIncid` int(15) NOT NULL AUTO_INCREMENT,
-  `fAper` date NOT NULL,
-  `fCier` date NOT NULL,
-  `dniResponsable` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
-  `dniApertura` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
-  `idMaq` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
-  `estadoIncid` enum('Abierta','En Curso','Cerrada','Programada','Pendiente Derivar','Derivada','Pendiente Cierre', 'Cerrada') COLLATE latin1_spanish_ci NOT NULL,
-  `derivada` boolean NOT NULL,
-  `descripIncid` varchar(150) COLLATE latin1_spanish_ci NOT NULL,
-  `cifEmpr` varchar(9) COLLATE latin1_spanish_ci,
-  CONSTRAINT Pk_INCIDENCIA PRIMARY KEY (`idIncid`),
-  CONSTRAINT Fk_INCIDENCIA_MAQUINA FOREIGN KEY (`idMaq`) REFERENCES MAQUINA(`idMaq`) ON DELETE CASCADE,
-  CONSTRAINT Fk_INCIDENCIA_EMPRESA FOREIGN KEY (`cifEmpr`) REFERENCES EMPRESA(`cifEmpr`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
-
-
-
-
-
-
-/* 2.8- Tabla ITERACION */
-
-CREATE TABLE `ITERACION` (
-  `idIncid` int(15) COLLATE latin1_spanish_ci NOT NULL,
-  `nIteracion` int(15) NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `trabajaopexterno`;
+CREATE TABLE IF NOT EXISTS `trabajaopexterno` (
+  `idIncid` int(15) NOT NULL,
   `dniUsu` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
-  `fechaIter` date NOT NULL,
-  `hInicio` time NOT NULL,
-  `hFin` time NOT NULL,
-  `estadoItera` boolean NOT NULL,
-  `descripIter` varchar(100) COLLATE latin1_spanish_ci NOT NULL,
-  `costeIter` float NOT NULL,
-   CONSTRAINT Pk_ITERACION PRIMARY KEY (`nIteracion`,`idIncid`),
-  CONSTRAINT Fk_ITERACION FOREIGN KEY (`idIncid`) REFERENCES INCIDENCIA(`idIncid`) ON DELETE CASCADE,
-  CONSTRAINT Fk_ITERACION_USUARIO FOREIGN KEY (`dniUsu`) REFERENCES USUARIO(`dniUsu`) ON DELETE CASCADE
+  PRIMARY KEY (`idIncid`,`dniUsu`),
+  KEY `Fk_TRABAJAOPEXTERNO` (`dniUsu`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+-- --------------------------------------------------------
 
+--
+-- Estructura de tabla para la tabla `trabajaopinterno`
+--
 
-/* 2.9- Tabla REALIZA   */
-
-CREATE TABLE `REALIZA` (
-  `dniUsu` varchar(15)  COLLATE latin1_spanish_ci NOT NULL,
-  `idServ` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
-  `fechaRealizacion` date NOT NULL,
-  CONSTRAINT Pk_REALIZA PRIMARY KEY (`idServ`,`dniUsu`,`fechaRealizacion`),
-  CONSTRAINT Fk_REALZA FOREIGN KEY (`dniUsu`) REFERENCES OPEXTERNO(`dniUsu`) ON DELETE CASCADE,
-  CONSTRAINT Fk_REALZA_SERVICIO FOREIGN KEY (`idServ`) REFERENCES SERVICIO(`idServ`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
-
-
-/* 2.10- Tabla TRABAJAOPEXTERNO   */
-
-CREATE TABLE `TRABAJAOPEXTERNO` (
-  `idIncid` int(15) COLLATE latin1_spanish_ci NOT NULL,
+DROP TABLE IF EXISTS `trabajaopinterno`;
+CREATE TABLE IF NOT EXISTS `trabajaopinterno` (
+  `idIncid` int(15) NOT NULL,
   `dniUsu` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
-  CONSTRAINT Pk_TRABAJAOPEXTERNO PRIMARY KEY (`idIncid`,`dniUsu`),
-  CONSTRAINT Fk_TRABAJAOPEXTERNO FOREIGN KEY (`dniUsu`) REFERENCES OPEXTERNO(`dniUsu`) ON DELETE CASCADE,
-  CONSTRAINT Fk_TRABAJAOPEXTERNO_INCIDENCIA FOREIGN KEY (`idIncid`) REFERENCES INCIDENCIA(`idIncid`) ON DELETE CASCADE
+  PRIMARY KEY (`idIncid`,`dniUsu`),
+  KEY `Fk_TRABAJAOPINTERNO` (`dniUsu`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+-- --------------------------------------------------------
 
-/* 2.11- Tabla TRABAJAOPINTERNO   */
+--
+-- Estructura de tabla para la tabla `usuario`
+--
 
-CREATE TABLE `TRABAJAOPINTERNO` (
-  `idIncid` int(15) COLLATE latin1_spanish_ci NOT NULL,
+DROP TABLE IF EXISTS `usuario`;
+CREATE TABLE IF NOT EXISTS `usuario` (
   `dniUsu` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
-  CONSTRAINT Pk_TRABAJAOPINTERNO PRIMARY KEY (`idIncid`,`dniUsu`),
-  CONSTRAINT Fk_TRABAJAOPINTERNO FOREIGN KEY (`dniUsu`) REFERENCES OPINTERNO(`dniUsu`) ON DELETE CASCADE,
-  CONSTRAINT Fk_TRABAJAOPINTERNO_INCIDENCIA FOREIGN KEY (`idIncid`) REFERENCES INCIDENCIA(`idIncid`) ON DELETE CASCADE
+  `nomUsu` varchar(20) COLLATE latin1_spanish_ci NOT NULL,
+  `apellUsu` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
+  `passUsu` varchar(80) COLLATE latin1_spanish_ci NOT NULL,
+  `tipoUsu` varchar(2) COLLATE latin1_spanish_ci NOT NULL,
+  PRIMARY KEY (`dniUsu`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `usuario`
+--
 
-/* 2.12- Tabla DOCMAQUINA */
-CREATE TABLE `DOCMAQUINA` (
-  `idMaq` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
-  `urlDocMaq` varchar(100) COLLATE latin1_spanish_ci NOT NULL ,
-  `nDocMaq` varchar(15) COLLATE latin1_spanish_ci NOT NULL ,
-  CONSTRAINT Pk_DOCMAQUINA PRIMARY KEY (`idMaq`,`nDocMaq`),
-  CONSTRAINT Fk_DOCMAQUINA_MAQUINA FOREIGN KEY (`idMaq`) REFERENCES MAQUINA(`idMaq`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+INSERT INTO `usuario` (`dniUsu`, `nomUsu`, `apellUsu`, `passUsu`, `tipoUsu`) VALUES
+('12345678A', 'Interno', 'Interno', '12345678A', 'I'),
+('12345678B', 'Externo', 'Externo', '12345678B', 'E'),
+('12345678E', 'Marco', 'Santana', '1234', 'J');
 
-/* 2.13- Tabla DOCITERACION */
-CREATE TABLE `DOCITERACION` (
-  `idIncid` int(15) COLLATE latin1_spanish_ci NOT NULL,
-  `urlDocItr` varchar(100) COLLATE latin1_spanish_ci NOT NULL,
-  `nIteracion` int(15) COLLATE latin1_spanish_ci NOT NULL,
-  `nDocIter` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
-  CONSTRAINT Pk_DOCITERACION PRIMARY KEY (`idIncid`,`nIteracion`,`nDocIter`),
-  CONSTRAINT Fk_DOCITERACION_INCIDENCIA FOREIGN KEY (`idIncid`) REFERENCES INCIDENCIA(`idIncid`) ON DELETE CASCADE,
-  CONSTRAINT Fk_DOCITERACION_ITERACION FOREIGN KEY (`nIteracion`) REFERENCES ITERACION(`nIteracion`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+--
+-- Restricciones para tablas volcadas
+--
 
+--
+-- Filtros para la tabla `dociteracion`
+--
+ALTER TABLE `dociteracion`
+  ADD CONSTRAINT `Fk_DOCITERACION_INCIDENCIA` FOREIGN KEY (`idIncid`) REFERENCES `incidencia` (`idIncid`) ON DELETE CASCADE,
+  ADD CONSTRAINT `Fk_DOCITERACION_ITERACION` FOREIGN KEY (`nIteracion`) REFERENCES `iteracion` (`nIteracion`) ON DELETE CASCADE;
 
+--
+-- Filtros para la tabla `docmaquina`
+--
+ALTER TABLE `docmaquina`
+  ADD CONSTRAINT `Fk_DOCMAQUINA_MAQUINA` FOREIGN KEY (`idMaq`) REFERENCES `maquina` (`idMaq`) ON DELETE CASCADE;
 
+--
+-- Filtros para la tabla `incidencia`
+--
+ALTER TABLE `incidencia`
+  ADD CONSTRAINT `Fk_INCIDENCIA_MAQUINA` FOREIGN KEY (`idMaq`) REFERENCES `maquina` (`idMaq`) ON DELETE CASCADE,
+  ADD CONSTRAINT `Fk_INCIDENCIA_EMPRESA` FOREIGN KEY (`cifEmpr`) REFERENCES `empresa` (`cifEmpr`) ON DELETE CASCADE;
 
+--
+-- Filtros para la tabla `iteracion`
+--
+ALTER TABLE `iteracion`
+  ADD CONSTRAINT `Fk_ITERACION` FOREIGN KEY (`idIncid`) REFERENCES `incidencia` (`idIncid`) ON DELETE CASCADE,
+  ADD CONSTRAINT `Fk_ITERACION_USUARIO` FOREIGN KEY (`dniUsu`) REFERENCES `usuario` (`dniUsu`) ON DELETE CASCADE;
 
-/* ********************************************** */
-/* 3.- Introducir datos ejemplo                   */
-/* ********************************************** */
+--
+-- Filtros para la tabla `jefe`
+--
+ALTER TABLE `jefe`
+  ADD CONSTRAINT `Fk_USUARIO` FOREIGN KEY (`dniUsu`) REFERENCES `usuario` (`dniUsu`) ON DELETE CASCADE;
 
-/* 3.0- Tabla USUARIO */
+--
+-- Filtros para la tabla `opexterno`
+--
+ALTER TABLE `opexterno`
+  ADD CONSTRAINT `Fk_OPEXTERNO_JEFE` FOREIGN KEY (`dniUsu`) REFERENCES `usuario` (`dniUsu`) ON DELETE CASCADE,
+  ADD CONSTRAINT `Fk_OPEXTERNO_CIFEMPRESA` FOREIGN KEY (`cifEmpr`) REFERENCES `empresa` (`cifEmpr`) ON DELETE CASCADE;
 
-INSERT INTO USUARIO ( dniUsu, nomUsu, apellUsu, passUsu, tipoUsu) 
-VALUES ("12345678E","Marco","Santana","1234","J"),
-('12564856U','Francisco','Gonzalez','1234','E'),
-('12569875T','Ramon','Garcia','1234','E'),
-('58961245K','Pablo','Rodriguez','1234','E'),
-('75369854H','Jose','Ramirez','1234','I'),
-('36596584F','Javier','Lorenzo','1234','I');
+--
+-- Filtros para la tabla `opinterno`
+--
+ALTER TABLE `opinterno`
+  ADD CONSTRAINT `Fk_OPINTERNO` FOREIGN KEY (`dniUsu`) REFERENCES `usuario` (`dniUsu`) ON DELETE CASCADE;
 
-/* 3.1- Tabla EMPRESA     */
-INSERT INTO EMPRESA ( cifEmpr, nomEmpr,telefEmpr, mailEmpr) 
-VALUES ("K7885586J","empresa1","986152523","empresa1@gmail.com"),
-('I658952F', 'empresa2', '965826548', 'empresa2@gmail.com'),
-('Y568952G', 'empresa3', '981051175', 'empresa3@gmail.com');
+--
+-- Filtros para la tabla `realiza`
+--
+ALTER TABLE `realiza`
+  ADD CONSTRAINT `Fk_REALZA` FOREIGN KEY (`dniUsu`) REFERENCES `opexterno` (`dniUsu`) ON DELETE CASCADE,
+  ADD CONSTRAINT `Fk_REALZA_SERVICIO` FOREIGN KEY (`idServ`) REFERENCES `servicio` (`idServ`) ON DELETE CASCADE;
 
+--
+-- Filtros para la tabla `servicio`
+--
+ALTER TABLE `servicio`
+  ADD CONSTRAINT `Fk_SERVICIO` FOREIGN KEY (`dniUsu`) REFERENCES `jefe` (`dniUsu`) ON DELETE CASCADE,
+  ADD CONSTRAINT `Fk_SERVICIO_EMPRESA` FOREIGN KEY (`cifEmpr`) REFERENCES `empresa` (`cifEmpr`) ON DELETE CASCADE,
+  ADD CONSTRAINT `Fk_SERVICIO_MAQUINA` FOREIGN KEY (`idMaq`) REFERENCES `maquina` (`idMaq`) ON DELETE CASCADE;
 
+--
+-- Filtros para la tabla `trabajaopexterno`
+--
+ALTER TABLE `trabajaopexterno`
+  ADD CONSTRAINT `Fk_TRABAJAOPEXTERNO` FOREIGN KEY (`dniUsu`) REFERENCES `opexterno` (`dniUsu`) ON DELETE CASCADE,
+  ADD CONSTRAINT `Fk_TRABAJAOPEXTERNO_INCIDENCIA` FOREIGN KEY (`idIncid`) REFERENCES `incidencia` (`idIncid`) ON DELETE CASCADE;
 
-/* 3.2- Tabla JEFE */
-INSERT INTO JEFE (dniUsu, telefJefe, mailJefe) 
-VALUES ("12345678E","654789321","marcoSantana@gmail.com");
+--
+-- Filtros para la tabla `trabajaopinterno`
+--
+ALTER TABLE `trabajaopinterno`
+  ADD CONSTRAINT `Fk_TRABAJAOPINTERNO` FOREIGN KEY (`dniUsu`) REFERENCES `opinterno` (`dniUsu`) ON DELETE CASCADE,
+  ADD CONSTRAINT `Fk_TRABAJAOPINTERNO_INCIDENCIA` FOREIGN KEY (`idIncid`) REFERENCES `incidencia` (`idIncid`) ON DELETE CASCADE;
 
-/* 3.3- Tabla OPEXTERNO */
-INSERT INTO OPEXTERNO ( dniUsu, cifEmpr) 
-VALUES ("12564856U","I658952F"),
-('12569875T','K7885586J'),
-('58961245K','K7885586J');
-
-/* 3.4- Tabla OPINTERNO */
-INSERT INTO OPINTERNO ( dniUsu, telefOpeInt, mailOpeInt) 
-VALUES ("75369854H","654632652","joseramirez@gmail.com"),
-('36596584F','698598452','javier@gmail.com');
-
-/* 3.5- Tabla MAQUINA */
-INSERT INTO MAQUINA ( idMaq, nSerie,nomMaq, descripMaq, costeMaq) 
-VALUES ("maq1","55S6F8S","Centrifugadora de lechuga","descripcion","4562,5"),
-('maq2','88FS86J','Fabrica hielos','descripcion','450,46');
-
-/* 3.6- Tabla SERVICIO */
-INSERT INTO SERVICIO ( idServ, dniUsu, cifEmpr, idMaq, periodicidad,fInicioSer,fFinSer,costeSer,descripSer) 
-VALUES ("serv1","12345678E","K7885586J","maq1","6 meses","00-00-0000","00-00-0000","2500,0","revision mantenimiento"),
-('serv2','12345678E','K7885586J','maq2','3 meses','00-00-0000','00-00-0000','1200,0','revision mantenimiento');
-
-/* 3.7- Tabla INCIDENCIA */
-INSERT INTO INCIDENCIA ( idIncid, fAper, fCier, dniResponsable, dniApertura,idMaq ,estadoIncid ,derivada,descripIncid,cifEmpr)
-VALUES (null,"00-00-0000","00-00-0000","75369854H","75369854H","maq2","Pendiente Derivar", "0","descripcion incidencia","K7885586J"),
-(null,'00-00-0000','00-00-0000','75369854H','75369854H','maq1','En Curso', '1','descripcion incidencia','Y568952G'),
-(null,'00-00-0000','00-00-0000','75369854H','75369854H','maq2','En Curso', '0','descripcion incidencia','K7885586J');
-
-/* 3.8- Tabla ITERACION */
-INSERT INTO ITERACION ( idIncid, nIteracion, dniUsu, fechaIter, hInicio, hFin, estadoItera , descripIter, costeIter)
-VALUES ("1",null,"12564856U","00-00-0000","00:00:00","00:00:00","0","descripcioniteracion 1","456"),
-('2',null,'58961245K','00-00-0000','00:00:00','00:00:00','1','descripcioniteracion 1','46'),
- ('1',null,'12564856U','00-00-0000','00:00:00','00:00:00','0','descripcioniteracion 2','46545'),
- ('2',null,'12564856U','00-00-0000','00:00:00','00:00:00','0','descripcioniteracion 2','46');
-
-
-/* 3.9- Tabla REALIZA */
-INSERT INTO REALIZA (dniUsu,idServ,fechaRealizacion)
-VALUES('12564856U','serv1',"00-00-0000"),
-('12564856U','serv2','00-00-0000');
-
-
-/* 3.10- Tabla TRABAJAOPEXTERNO */
-INSERT INTO TRABAJAOPEXTERNO (idIncid,dniUsu)
-VALUES("1","12564856U");
-
-/* 3.11- Tabla TRABAJAOPINTERNO */
-INSERT INTO TRABAJAOPINTERNO (idIncid,dniUsu)
-VALUES("1","75369854H");
-
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

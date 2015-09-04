@@ -7,7 +7,7 @@
 	<input type="hidden" class="text" name="idIncidencia" value="NULL"/>
 	<input type="hidden" class="text" name="derivada" value="0"/>
 	<input type='hidden' class='text' name="dniApertura" value='<?php echo $_SESSION['dni']; ?>'/>
-	<input type='hidden' class='text' name="cifEmpr" value='A0000000Z'/>
+	<input type='hidden' class='text' name="cifEmpr" value='DEFAULT'/>
 		<table class='default'>
 		   	<tr>
 				<td><?= i18n("Apertura:") ?></td>

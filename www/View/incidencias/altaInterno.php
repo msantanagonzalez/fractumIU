@@ -5,7 +5,7 @@
 <h1 id="headerInterno"><a><i><?= i18n("NUEVA INCIDENCIA") ?></i></a></h1>
 <form name='FormAltaIncidencia' onsubmit="return comprobarAltaIncidenciaInterno()" action='../../Controller/incidenciasController.php' method='POST' enctype="multipart/form-data">
 	<input type="hidden" class="text" name="idIncidencia" value='NULL'/>
-	<input type="hidden" class="text" name="cifEmpr" value='K7885586J'/>
+	<input type="hidden" class="text" name="cifEmpr" value='DEFAULT'/>
 	<input type="hidden" class="text" name="derivada" value="0"/>
 	<input type='hidden' class='text' name="dniApertura" value='<?php echo $_SESSION['dni']; ?>'/>
 	<input id="dniResponsable" type='hidden' class='text' name='dniResponsable' value='<?php echo $_SESSION['dni']; ?>'/>
