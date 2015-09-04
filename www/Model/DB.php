@@ -2,8 +2,8 @@
 $online = 0;
 if($online == 1){
 	function connectBD(){
-        mysql_connect("mysql.hostinger.es","u674038104_admin","Fractum@2015");
-				mysql_select_db("u674038104_db");
+        mysql_connect("db590367337.db.1and1.com","dbo590367337","Fractum");
+				mysql_select_db("db590367337");
 	}
 }else{
 	function connectBD(){
