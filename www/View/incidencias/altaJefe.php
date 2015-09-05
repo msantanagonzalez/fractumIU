@@ -34,9 +34,7 @@
 				<td><?= i18n("Estado:") ?></td>
 				<td>
 					<select required name='estadoIncidencia'>
-						<option value="" selected>-</option>
-						<option value='Abierta'><?= i18n("Abierta") ?></option>
-					  	<option value='Programada'><?= i18n("Programada") ?></option>
+					  	<option value='Programada' selected=""><?= i18n("Programada") ?></option>
 					</select>
 				</td>
 				<td><?= i18n("Máquina:") ?></td>

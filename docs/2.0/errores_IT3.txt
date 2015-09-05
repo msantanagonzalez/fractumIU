@@ -1,0 +1,32 @@
+1.1) 
+	En maquinas: cambiar "S" por idServicio y llevar a consultar servicio.
+1.2)
+	Undefined index: fAper on line 36.
+	Undefined index: fCier on line 38.
+	Errores por todas partes.
+	Array sin datos en responsables(A veces)
+1.3)
+	En responsables, deberia ser unicamente los usuarios Internos, sacar los externos de la lista.
+	En el alta "Derivada" esta siempre a 1. 
+
+2.1)
+	No permite cambiar el estado de la incidencia.
+
+2.2)
+	Quitar campo "Numero Iteracion"(Es autoincrementable).
+	Cambiar campo "Estado Iteracion".
+	Si accedes a "Guardar trabajo": Redireccion incorrecta(Se recomienda quitar este boton).
+	Meter campo que indique quien trabaja sobre la iteracion.(Disabled,solo para efectos informativos).
+2.3)
+	Cambiar campo "Estado Iteracion".
+	Meter campo que indique quien trabajo sobre la iteracion.(Disabled,solo para efectos informativos).
+	Asegurar que un usuario no pueda modificar la iteracion de otro usuario. 
+
+3.1)
+	Boton trabajar? 
+----------------------
+4.1)
+|-Busqueda-|
+	Incidencia-> Prioridad en la descripcion, es decir, si buscas "patata" buscar que tenga patata en la descripcion.
+	Usuarios-> Buscar tambien por nombre. 
+	

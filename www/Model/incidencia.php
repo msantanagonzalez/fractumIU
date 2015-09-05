@@ -1,5 +1,6 @@
 <?php
-	include 'usuario.php';
+	require_once 'usuario.php';
+	require_once 'servicio.php';
 
 	class Incidencia{
 		private $idIncidencia;
@@ -95,5 +96,13 @@
 
 			return $sql;
 		}
+
+		public function hasServicios($maquina){
+			$servicio = new servicio("","","","","","","","","");
+			$hasServicios	= $servicio->checkMaquina($maquina);
+			
+			return $hasServicios;
+		}
+
 	}
 ?>

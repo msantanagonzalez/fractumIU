@@ -3,7 +3,10 @@
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 ?>
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
-<?php $iData = $_SESSION['consultaIncidencia']; ?>
+<?php
+	$iData = $_SESSION['consultaIncidencia'];
+	$hasServicios = $_SESSION['consultaServicios'];
+ ?>
 <h1 id="headerJefe"><a><i><?= i18n("INCIDENCIA") ?> <?php echo $iData[0][0]; ?> </i></a></h1>
 <div>
 	<form name="formModificarIncidencia" onsubmit="return comprobarModificarIncidenciaJefe()" method="POST" action="../../Controller/incidenciasController.php">
@@ -44,12 +47,30 @@
 						<option value='Cerrada'>Cerrada</option>
 					</select>
 				</td>
+				<td><?= i18n("Empresa:") ?></td>
+				<td><input type="text" class="text" disabled name="cifEmpr" value="<?php echo $iData[0]['cifEmpr']; ?>"/><td>
+			</tr>
+			<tr>
 				<td><?= i18n("Máquina:") ?></td>
 				<td>
 					<select disabled>
 					  	<option value='<?php echo $iData[0][5]; ?>' selected><?php echo $iData[0][5]; ?></option>
 					</select>
 				 </td>
+				 <td><?= i18n("Servicios:") ?></td>
+ 				<td>
+ 					<?php
+ 					if($hasServicios){
+ 						?>
+ 							<input type="checkbox" checked disabled/>
+ 						<?php
+ 					}else{
+ 						?>
+ 							<input type="checkbox" disabled/>
+ 						<?php
+ 					}
+ 					?>
+ 				</td>
 			</tr>
 			<tr>
 				<td width="25%"><br><?= i18n("Descripción:") ?></td>

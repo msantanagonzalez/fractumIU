@@ -91,5 +91,14 @@
 
 		}
 
+		public function checkMaquina($maquina){
+			$sql = mysql_query("SELECT * FROM SERVICIO WHERE idMaq = '$maquina'") or die(mysql_error());
+			if(mysql_num_rows($sql)!=0){
+					return TRUE;
+			}else{
+				return FALSE;
+			}
+		}
+
 	}
 ?>

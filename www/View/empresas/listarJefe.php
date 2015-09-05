@@ -33,7 +33,13 @@
 					<td width="31%"><?php echo $row['cifEmpr'];?></td>
 					<td width="40%"><?php echo $row['nomEmpr']; ?></td>
 					<td width="10%"><input type="button" value="Consulta" onclick="window.location.href='../../Controller/empresasController.php?accion=Consulta&cifEmpr=<?php echo $row['cifEmpr']; ?>'"/></td>
+					<?php
+					if ($row['cifEmpr'] != 'DEFAULT'){
+					?>
 					<td width="10%"><input type="button" value="Eliminar" onclick="window.location.href='../../Controller/empresasController.php?accion=Eliminar&cifEmpr=<?php echo $row['cifEmpr']; ?>'"></td>
+					<?php
+					}
+					?>					
 				</tr>
 				<?php
 }				}

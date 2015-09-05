@@ -218,12 +218,15 @@ switch ($action) {
 	}
 
 	function accesoAltaServicio(){
+		/*
 		if(empty($_SESSION["maquinaSinServicio"])){
 			anadirMensaje("| ERROR | Todas las maquinas tienen un servicio asociado","danger");
 			listar();
 		}else{
 			header("location:../View/servicios/altaJefe.php");
 		}
+		*/
+		header("location:../View/servicios/altaJefe.php");
 	}
 
 

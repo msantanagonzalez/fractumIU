@@ -1,0 +1,77 @@
+﻿1.1) 
+	no lista incidencias correctamente, los nombres no se corresponden con la incidencia.
+	los campos de la máquina no se corresponden dicha máquina. Alinear los campos con los datos.
+	consultarIncidencia: en la casilla máquina debe aparecer el nombre, no el ID.
+1.2)
+	alinear campos con datos.
+1.3)
+	Informacion "a pelo"
+
+1.4)
+	Faltan datos
+
+1.5)
+	Asegurarse que los arrays lleguen con datos.
+	Cuando se deriva una incidencia no cambia el campo "Derivada" a 1 en la BD.
+	
+
+1.6)
+	Notice: Undefined index: descripcion in C:\wamp\www\Fractum\fractumIU\www\Controller\incidenciasController.php on line 38
+	Cannot add or update a child row: a foreign key constraint fails (`fractumdb`.`incidencia`, CONSTRAINT `Fk_INCIDENCIA_EMPRESA` FOREIGN KEY (`cifEmpr`) REFERENCES `empresa` (`cifEmpr`) ON DELETE CASCADE) 
+	NOTA: esto es porque hay que indicar en el insert into el cifde la empresa, o pasarle un NULL. 
+
+	NO REALIZA NINGUNA ACCION.
+
+1.7)
+
+	Meter lista para seleccionar responsable.
+
+1.8)
+	You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'nIteracion'];?>'' at line 1
+
+1.9)
+	Probar subida de documentacion.
+	cambiar el botón "Consultar" en incidencias relativas.
+
+1.11)
+	Error al crear objeto de la case "servicio",faltan parametros.
+
+2.1)
+	En listar maquina, asegurarse que si una maquina no tiene una incidencia, no aparezca el warning.
+	Probar si funciona contacto jefe(abre para enviar un correo).
+
+2.2)
+	los links de servicio y última incidencia no llevan a ningún sitio, cambiar el botón "Consultar", cambiar el nombre de la sección de "Máquinas Servicio" a "Máquinas".
+	
+2.3)
+	Echo "Responsable" sobra.
+	Aparece el CIF de la empresa si hay un 0 en el campo de la BD, cuando deberia aparecer al haber un 1.
+2.4)
+	Poner en la cabecera el ID de la incidencia, en el codigo hay dos "rows" fuera del foreach.
+	Boton "Alta" lleva a la creacion de una nueva Iteracion,no a la creacion de una nueva incidencia.
+2.5)
+	No hace NADA, datos metidos a pelo, por lo cual no se puede probar funcionamiento.(Estado incidencia) 
+2.6)
+	Dentro de consultar incidencia: Referencia a archivo erroneo.
+	
+3.1)
+	Home no muestra las incidencias derivadas asociadas a la empresa del operario.(primera vez que se entra).
+	Home no muestra las maquinas que tengan un servicio asociado con la empresa del operario.(primera vez que se entra).
+	Datos a pelo(cuando aparecen).
+3.2)
+	Cambiar cabeceras, y poner "Servicios" e "Incidencias".
+
+3.3)
+	Si no hay iteraciones, no mostrar el mensaje de error de PHP.
+	Meter el estado de la iteracion. 
+3.4)
+	
+	Mostar en la cabecera el ID de la incidencia. Hay "Rows" fuera del foreach en el codigo.
+	En "Estado" deberia aparecer "Abierta" no "Derivada" ya que quien mira la incidencia es el operario Externo.
+
+3.5)
+	Error al redireccionar, Usar path absoluto, con la $_SESSION['cribPath']. 
+3.6)
+	Agregar quien trabajó sobre la iteracion.
+3.7)
+	Creacion de objeto "servicio" erroneo, faltan metodos. 

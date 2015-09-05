@@ -43,10 +43,13 @@
 
 		$consulta = array();
 		$consultaIncidencia = $incidencia->consultaIncidencia($idIncidencia);
-		while($row = mysql_fetch_array($consultaIncidencia)){ array_push($consulta, $row); }
+
+		while($row = mysql_fetch_array($consultaIncidencia)){
+			$_SESSION["consultaServicios"] = $incidencia->hasServicios($row['idMaq']);
+			array_push($consulta, $row);
+		}
 
 		$_SESSION["consultaIncidencia"] = $consulta;
-
 
 		switch ($_SESSION['tipo']) {
 			case 'J':
@@ -75,11 +78,14 @@
 
 		$consulta = array();
 		$consultaIncidencia = $incidencia->consultaIncidencia($idIncidencia);
-		while($row = mysql_fetch_array($consultaIncidencia)){ array_push($consulta, $row); }
+		while($row = mysql_fetch_array($consultaIncidencia)){
+			$_SESSION["consultaServicios"] = $incidencia->hasServicios($row['idMaq']);
+			 array_push($consulta, $row);
+		 }
 
 		$_SESSION["consultaIncidencia"] = $consulta;
 
-		$interno = new Interno();
+		$interno = new Interno("","","","","");
 
 		$internos = array();
 		$consultaInternos = $interno->listarInternos();
