@@ -1,6 +1,7 @@
 <?php
 	require_once $_SESSION['cribPath'].'Model/incidencia.php';
 	require_once $_SESSION['cribPath'].'Model/interno.php';
+	require_once $_SESSION['cribPath'].'Model/empresa.php';
 	require_once $_SESSION['cribPath'].'Controller/bdController.php';
 
 	if(isset($_GET['accion'])){	$accion = $_GET['accion']; }
@@ -95,6 +96,16 @@
 
 		$_SESSION['listaInternosJefe'] = $internos;
 
+		$empresa = new Empresa("","","","");
+		$empresas = array();
+
+		$consultaEmpresas=$empresa->listarEmpresas();
+		while($row2 = mysql_fetch_array($consultaEmpresas)){
+			array_push($empresas, $row2);
+		}
+
+		$_SESSION['listaEmpresasJefe'] = $empresas;
+
 		switch ($_SESSION['tipo']) {
 			case 'J':
 				//session_write_close();
@@ -126,8 +137,9 @@
 		$estadoIncidencia = $_POST['estadoIncidencia'];
 		$idMaquina = $_POST['idMaquina'];
 		$descripcion = $_POST['descripcion'];
+		$cifEmpr = $_POST['cifEmpr'];
 
-		$incidencia = new Incidencia($idIncidencia, $fechaApertura, $fechaCierre, $dniResponsable, $dniApertura, $idMaquina, $estadoIncidencia, $derivada, $descripcion);
+		$incidencia = new Incidencia($idIncidencia, $fechaApertura, $fechaCierre, $dniResponsable, $dniApertura, $idMaquina, $estadoIncidencia, $derivada, $descripcion,$cifEmpr);
 
 		$incidencia->modificacion($idIncidencia);
 		header("location: incidenciasController.php?accion=Consulta&idIncidencia=$idIncidencia");

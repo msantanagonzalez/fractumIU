@@ -38,7 +38,7 @@
 
 		public function modificacion($idIncidencia){
 			mysql_query("UPDATE INCIDENCIA SET fAper = '$this->fechaApertura', fCier = '$this->fechaCierre', dniResponsable = '$this->dniResponsable',
-				estadoIncid = '$this->estadoIncidencia', derivada = '$this->derivada' WHERE idIncid = '$idIncidencia'") or die(mysql_error());
+				estadoIncid = '$this->estadoIncidencia', derivada = '$this->derivada', cifEmpr = '$this->cifEmpr' WHERE idIncid = '$idIncidencia'") or die(mysql_error());
 		}
 
 		public function lista(){
@@ -100,7 +100,7 @@
 		public function hasServicios($maquina){
 			$servicio = new servicio("","","","","","","","","");
 			$hasServicios	= $servicio->checkMaquina($maquina);
-			
+
 			return $hasServicios;
 		}
 

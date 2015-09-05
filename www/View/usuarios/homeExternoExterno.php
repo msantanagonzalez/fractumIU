@@ -21,29 +21,29 @@
 <div style="height:107px;width:auto;overflow-y: scroll;"><!--ESTO DA LUGAR AL SCROLL-->
   <form method="POST" action="../../Controller/incidenciasController.php">
     <table class="default">
-      <?php 
+      <?php
         if(isset($_SESSION['listaIncidencia1']))
         $rows = $_SESSION['listaIncidencia1'];
         if (empty($rows)) {
         ?>
           <div class="alert alert-warning" role="alert">
-          <?= i18n("| INFO |- No hay incidencias para listar") ?> 
+          <?= i18n("| INFO |- No hay incidencias para listar") ?>
           </div>
         <?php
         }
         else{
           foreach ($rows as $row) {
         ?>
-        <tr> 
-          <td width="17%"><?php echo $row['idIncid'];?></td> 
-          <td width="17%">[----------]</td> 
+        <tr>
+          <td width="17%"><?php echo $row['idIncid'];?></td>
+          <td width="17%">[----------]</td>
           <td width="17%"><?php echo $row['dniResponsable'];?></a></td> <!-- Falta linkar al perfil del usuario. -->
           <td width="17%"><?php echo $row['fAper']; ?></td>
           <td width="17%"><?php echo $row['estadoIncid']; ?></td>
           <td width="17%"><button><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>">Consultar</a></button></td>
         </tr>
-        <?php 
-        } 
+        <?php
+        }
       }
       ?>
     </table>
@@ -62,8 +62,8 @@
 </table>
 <div style="height:107px;width:auto;overflow-y: scroll;"><!--ESTO DA LUGAR AL SCROLL-->
     <table class="default"><!--TABLA-->
-    <?php 
-      
+    <?php
+
         if(isset($_SESSION['listaMaquina1']) | isset($_SESSION['listaMaquina2'])){
           $rows2 = $_SESSION['listaMaquina1'];
           $rows = $_SESSION['listaMaquina2'];
@@ -71,7 +71,7 @@
         if (empty($rows2) & empty($rows)) {
         ?>
           <div class="alert alert-warning" role="alert">
-          <?= i18n("| INFO |- No hay maquinas para listar") ?> 
+          <?= i18n("| INFO |- No hay maquinas para listar") ?>
           </div>
         <?php
         }
@@ -88,12 +88,13 @@
       <td width="20%"><a href="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>"><button >Consultar</button></a></td>
     </tr>
     <?php } ?>
+    </form>
   </table>
 
 
     <table class="default"><!--TABLA-->
-    <?php 
-      
+    <?php
+
       foreach ($rows as $row1) {
     ?>
     <form method="POST" action="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row1['idMaq'];?>">
@@ -107,10 +108,11 @@
     </tr>
     <?php }
     } ?>
+    </form>
   </table>
 
 </div>
-             	  
+
 <?php
     require_once $_SESSION['cribPath'].'View/structure/footer.php';
 ?>

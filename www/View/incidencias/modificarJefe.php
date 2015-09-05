@@ -6,6 +6,7 @@
 <?php
 	$iData = $_SESSION['consultaIncidencia'];
 	$hasServicios = $_SESSION['consultaServicios'];
+	$empresas = $_SESSION['listaEmpresasJefe'];
  ?>
 <h1 id="headerJefe"><a><i><?= i18n("INCIDENCIA") ?> <?php echo $iData[0][0]; ?> </i></a></h1>
 <div>
@@ -43,12 +44,35 @@
 				<td>
 					<select title="Seleccione o no una opcion" required name='estadoIncidencia'>
 						<option value='<?php echo $iData[0][6]; ?>' hidden selected><?php echo $iData[0][6]; ?></option>
+						<?php
+						if($iData[0][6] == 'Programada'){
+						?>
+						<option value='Cerrada'>Cerrada</option>
+						<?php
+						}else{
+						?>
 						<option value='Derivada'>Derivada</option>
 						<option value='Cerrada'>Cerrada</option>
+						<?php
+						}
+						?>
+
+
 					</select>
 				</td>
 				<td><?= i18n("Empresa:") ?></td>
-				<td><input type="text" class="text" disabled name="cifEmpr" value="<?php echo $iData[0]['cifEmpr']; ?>"/><td>
+				<td>
+					<select required name='cifEmpr'>
+						<option title="Debe seleccionar una empresa" value="" selected>-</option>
+						<?php foreach ($empresas as $key){
+							if($key['cifEmpr'] != 'DEFAULT'){
+							?>
+								<option value='<?php echo $key['cifEmpr']; ?>'><?php echo $key['cifEmpr']; ?></option>
+							<?php
+							}
+						}?>
+					</select>
+				<td>
 			</tr>
 			<tr>
 				<td><?= i18n("Máquina:") ?></td>

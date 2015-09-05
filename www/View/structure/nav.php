@@ -84,7 +84,7 @@ function navExterno()
 							<li class='current'><strong><a href="../../Controller/incidenciasController.php?accion=Listar"><?= i18n("Listar Incidencias") ?></a></strong></li>
 							<li class='current'><a href="../../Controller/maquinasController.php?accion=Listar"><?= i18n("Listar máquinas") ?></a></li>
                             <li class='current'><strong><a href="../../Controller/serviciosController.php?accion=Listar"><?= i18n("Listar Servicios") ?></a></strong></li>
-							<li class='current'><a href="#"><?= i18n("Contacto jefe") ?></a></li>
+							<li class='current'><a href='mailto:jefe@fractum.com?cc=administracion@fractum.es'><?= i18n("Contacto jefe") ?></a></li>
 							<li class='current'><a href="../../Controller/usuariosController.php?accion=logOut" id='Logout_Usuario'><?= i18n("> Log Out") ?></a></li>
                             <form method='POST' action="../../Controller/busquedaController.php" style='text-align:center'>
                         	<section class='box search'>
