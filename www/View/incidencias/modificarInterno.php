@@ -13,6 +13,7 @@
 		<input type="hidden" class="text" name="idMaquina" value="<?php echo $row['idMaq']; ?>"/>
 		<input type="hidden" class="text" name='descripcion' value="<?php echo $row['descripIncid'];?>"/>
 		<input type="hidden" class="text" name="dniResponsable" value="<?php echo $row['dniResponsable']; ?>"/>
+		<input type="hidden" class="text" name="cifEmpr" value="DEFAULT"/>
 		<table class="default">
 			<tr>
 				<td width="25%"><?= i18n("Apertura:") ?> </td>
