@@ -28,7 +28,7 @@
 				<td width="25%"><?= i18n("Hora Inicio:") ?> </td>
 				<td width="25%"><input type="time" class="text" name="horaInicio" disabled value="<?php echo $row['hInicio']; ?>" /></td>
 				<td width="25%"><?= i18n("Hora Fin:") ?></td>
-				<td width="25%"><input id="horaFin" type="time" class="text" name="hFin" value="<?php echo $row['hFin']; ?>" /></td>
+				<td width="25%"><input id="horaFin" type="time" class="text" name="hFin" readonly="readonly" value='<?php echo  date('h:i:s'); ?>' /></td>
 			</tr>
 			<tr>
 				<td><?= i18n("Iterador:") ?></td>

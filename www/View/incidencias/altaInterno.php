@@ -18,7 +18,7 @@
 			</tr>
 			<tr>
 				<td><?= i18n("Fecha Apertura:") ?></td>
-				<td><input title="Se necesita una fecha de apertura" id="fechaApertura" type='date' name='fechaApertura' value='' required/></td>
+				<td><input readonly="readonly" title="Se necesita una fecha de apertura" id="fechaApertura" type='date' name='fechaApertura' value='<?php echo date('Y-m-d');?>' required/></td>
 				<td><?= i18n("Fecha Cierre:") ?></td>
 				<td><input title="Se necesita una fecha de Cierre" id="fechaCierre" type='date' name='fechaCierre' value='' required/></td>
 			</tr>
@@ -46,7 +46,7 @@
 			<tr>
 				<td width="25%%"><br><?= i18n("Descripción:") ?></td>
 				<td colspan='3' width="75%">
-					<textarea id="des" style="resize:none; text-align:left;" style="t" rows="4" name='descripIncid'></textarea>
+					<textarea required title="por favor introduzca una breve descripcion" id="des" style="resize:none; text-align:left;" style="t" rows="4" name='descripIncid'></textarea>
 				</td>
 			</tr>
 		</table>

@@ -23,22 +23,22 @@
 				
 			<tr>
 				<td><?= i18n("Fecha Apertura:") ?></td>
-				<td><input required title="Es necesario introducir una fecha de inicio" id="fechaIter" type='date' name='fechaIter' value='<?php echo date('Y/m/d');?>'/></td>
+				<td><input readonly = "readonly" required title="Es necesario introducir una fecha de inicio" id="fechaIter" type='date' name='fechaIter' value='<?php echo date('Y-m-d');?>'></td>
 				<td><?= i18n("Hora Inicio:") ?></td> 
-				<td><input  title="Es necesario introducir una hora de inicio" id="hInicio" type='time' name='hInicio' class='text' value='<?php echo  date('h:i:s'); ?>'> </td>
-				<td><?= i18n("Hora Fin:") ?></td> 
-				<td><input  title="es necesario introducir una hora de fin" id="hFin" type='time' name='hFin' class='text' value='<?php echo date('h:i:s', strtotime('+25 hour')); ?>'> </td>
+				<td><input readonly = "readonly" title="Es necesario introducir una hora de inicio" id="hInicio" type='time' name='hInicio' class='text' value='<?php echo  date('h:i:s'); ?>'> </td>
+			<!--	<td>"Hora Fin:"</td> -->
+				<td><input type="hidden" title="es necesario introducir una hora de fin" id="hFin" type='time' name='hFin' class='text' value='<?php echo date('h:i:s', strtotime('+26 hour')); ?>'> </td>
 			</tr>
 			<tr>
 				<td><?= i18n("Estado Iteración:") ?></td>
 			    <td><input id="estadoItera" type='text' value='Abierta' disabled></td>
 				<td><?= i18n("Coste Trabajo:") ?></td>
-			    <td><input id=" costeIter" type='text' name='costeIter' value=''></td>
+			    <td><input required title="Por favor introduzca un coste del trabajo" id=" costeIter" type='text' name='costeIter' value=''></td>
 			</tr>
 			<tr>
 				<td width="30%"><br><?= i18n("Descripción:") ?></td>
 				<td colspan='3' width="75%">
-				<textarea id="des" style="resize:none; text-align:left;" style="t" rows="4" name='descripIter'></textarea>
+				<textarea required title="por favor introduzca una breve descripcion" id="des" style="resize:none; text-align:left;" style="t" rows="4" name='descripIter'></textarea>
 				</td>
 			</tr>
 			
