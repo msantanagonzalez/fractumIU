@@ -63,30 +63,33 @@
 
 	function consulta(){
 		//session_start();
-
 		$maquina = new Maquina("","","","","");
-
 		$idMaquina = $_REQUEST['idMaq'];
-		$consultaMaquina = $maquina->consultaMaquina($idMaquina);
+
 		$consulta = array();
-		while($row = mysql_fetch_array($consultaMaquina)){
-			array_push($consulta, $row);
-		}
+		$consultaMaquina = $maquina->consultaMaquina($idMaquina);
+		while($row = mysql_fetch_array($consultaMaquina)){ array_push($consulta, $row); }
 
 		$_SESSION["consultaMaquina"] = $consulta;
 
-		$consultaIncidencia = $maquina->listarIncidenciasAsociadas($idMaquina);
-		$consulta2 = array();
-		while($row = mysql_fetch_array($consultaIncidencia)){
-			array_push($consulta2, $row);
-		}
-		$_SESSION["consultaIncidenciaMaquina"] = $consulta2;
 
-		$documentoMaquina = $maquina->getPathImage($idMaquina);
 		$consulta = array();
-		while($row = mysql_fetch_array($documentoMaquina)){
-			array_push($consulta, $row);
-		}
+		$consultaIncidencia = $maquina->listarIncidenciasAsociadas($idMaquina);
+		while($row = mysql_fetch_array($consultaIncidencia)){ array_push($consulta, $row); }
+
+		$_SESSION["consultaIncidenciaMaquina"] = $consulta;
+
+
+		$consulta = array();
+		$consultaServicios = $maquina->listarServiciosAsociados($idMaquina);
+		while($row = mysql_fetch_array($consultaServicios)){ array_push($consulta, $row); }
+
+		$_SESSION["consultaServicioMaquina"] = $consulta;
+
+
+		$consulta = array();
+		$documentoMaquina = $maquina->getPathImage($idMaquina);
+		while($row = mysql_fetch_array($documentoMaquina)){ array_push($consulta, $row); }
 
 		$_SESSION["documentoMaquina"] = $consulta;
 

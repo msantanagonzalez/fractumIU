@@ -25,21 +25,13 @@ foreach ($rows as $row) { ?>
 			</tr>
 			<tr>
 				<td><?= i18n("Estado:") ?></td>
-				<td>
-					<select name='estadoIncidencia' disabled>
-						<option value='<?php echo $row['estadoIncid']; ?>' selected><?php echo $row['estadoIncid']; ?></option>
-					</select>
-				</td>
+				<td><input type="text" class="text" disabled name="estadoIncidencia" value='<?php echo $row['estadoIncid']; ?>'/></td>
 				<td><?= i18n("Empresa:") ?></td>
 				<td><input type="text" class="text" disabled name="cifEmpr" value="<?php echo $row['cifEmpr']; ?>"/><td>
 			</tr>
 			<tr>
 				<td><?= i18n("Máquina:") ?></td>
-			 <td>
-				 <select name='idMaquina' disabled>
-						 <option value='<?php echo $row['idMaq']; ?>' selected><?php echo $row['idMaq']; ?></option>
-				 </select>
-				</td>
+			 <td><input type="text" class="text" disabled name="idMaquina" value='<?php echo $row['idMaq']; ?>'/></td>
 				<td><?= i18n("Servicios:") ?></td>
 				<td>
 					<?php
@@ -58,9 +50,7 @@ foreach ($rows as $row) { ?>
 			<tr>
 				<td width="25%"><br><?= i18n("Descripción:") ?></td>
 				<td colspan='3' width="75%">
-					<textarea style="resize:none; text-align:left;" style="t" rows="4" name='descripcion' disabled>
-					<?php echo $row['descripIncid'];?>
-					</textarea>
+					<textarea style="resize:none; text-align:left;" style="t" rows="4" name='descripcion' disabled> <?php echo $row['descripIncid'];?> </textarea>
 				</td>
 			</tr>
 			<?php } ?>
@@ -68,9 +58,7 @@ foreach ($rows as $row) { ?>
 	</form>
 	<table class="default">
 		<tr>
-		<?php
-		if(($row['estadoIncid'] == 'Programada') || ($row['estadoIncid'] == 'Pendiente Derivar')){
-		?>
+		<?php if(($row['estadoIncid'] == 'Programada') || ($row['estadoIncid'] == 'Pendiente Derivar')){ ?>
 		<td colspan="4"><a href="../../Controller/incidenciasController.php?accion=Modificar&idIncidencia=<?php echo $row[0]; ?>"><input type="submit" name="Modificar" value="Modificar"></a></td>
 		<?php
 		}
@@ -80,8 +68,9 @@ foreach ($rows as $row) { ?>
 	<h1 id="headerJefe"><a><i><?= i18n("- ITERACIONES -") ?></i></a></h1>
 	<table class="default">
 	    <tr>
-	    	<th width="40%">#ID <?= i18n("Incid.") ?></th>
-	    	<th width="40%"><?= i18n("Número Iteración") ?></th>
+	    	<th width="20%"><?= i18n("Nº Iteración") ?></th>
+			<th width="20%"><?= i18n("Operario") ?></th>
+			<th width="20%"><?= i18n("Estado") ?></th>
 	        <th width="20%">&nbsp;</th>
 	    </tr>
 	</table>
@@ -92,8 +81,9 @@ foreach ($rows as $row) { ?>
 				foreach ($rows2 as $row2) {
 			?>
 			<tr>
-				<td width="40%"><?php echo $row2['idIncid'];?></td>
-				<td width="40%"><?php echo $row2['nIteracion']; ?></td>
+				<td width="20%"><?php echo $row2['nIteracion'];?></td>
+				<td width="20%"><?php echo $row2['dniUsu']; ?></td>
+				<td width="20%"><?php if($row2['nIteracion']=1) echo "Abierta"; else echo "Cerrada" ?></td>
 				<td width="20%">
 					<input type="button" value="Consulta" onclick="window.location.href='../../Controller/iteracionesController.php?accion=Consulta&idIncid=<?php echo $row2[0] ?>&nIteracion=<?php echo $row2[1] ?>'"/>
 				</td>

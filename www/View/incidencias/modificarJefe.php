@@ -63,7 +63,7 @@
 				<td><?= i18n("Empresa:") ?></td>
 				<td>
 					<select required name='cifEmpr'>
-						<option title="Debe seleccionar una empresa" value="" selected>-</option>
+						<option title="Debe seleccionar una empresa" value="<? echo $iData[0][9] ?>" selected><? echo $iData[0][9] ?></option>
 						<?php foreach ($empresas as $key){
 							if($key['cifEmpr'] != 'DEFAULT'){
 							?>
@@ -99,9 +99,7 @@
 			<tr>
 				<td width="25%"><br><?= i18n("Descripción:") ?></td>
 				<td colspan='3' width="75%">
-					<textarea  style="resize:none; text-align:left;" style="t" rows="4" disabled>
-					<?php echo $iData[0][8];?>
-					</textarea>
+					<textarea style="resize:none; text-align:left;" style="t" rows="4" disabled> <?php echo $iData[0][8];?></textarea>
 				</td>
 			</tr>
 		</table>

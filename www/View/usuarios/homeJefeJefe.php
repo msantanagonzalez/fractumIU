@@ -82,15 +82,18 @@
 				foreach ($rows as $row) {
 				?>
 				<tr>
-					<td width="20%"  name = "idMaq"><?php echo $row['idMaq']; ?></td>
+					<td width="20%"  name = "idMaq"><?php echo $row[0]; ?></td>
 					<td width="20%">
-						<?php if(isset($servicio[$cont][0])){ ?>
-						<a href="../../Controller/serviciosController.php?accion=Consulta&idServ=<?php echo $servicio[$cont][0] ?>">
-							<?php echo $servicio[$cont][0]; ?>
-						</a>
-
-						<?php } else echo "NO";?></td>
-					 <td width="20%"><?php if(isset($incidencias[$cont][0][0])) echo $incidencias[$cont][0][0]; else echo "-" ?></td>
+						<?php if(isset($row[1])){ ?>
+							<a href="../../Controller/serviciosController.php?accion=Consulta&idServ=<?php echo $row[1] ?>"> <?php echo $row[1] ?>
+					<?php }else echo "NO" ?></td>
+					 <td width="20%">
+						<?php if(isset($row[2])){ ?>
+							 <a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row[2]?>">
+								 <?echo $row[2];?>
+							 </a>
+						<? } else echo "-" ?>
+					 </td>
                      <td width="10%">
  						<input type="button"  value="Consulta" onclick="window.location.href='../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>'"/>
  					</td>

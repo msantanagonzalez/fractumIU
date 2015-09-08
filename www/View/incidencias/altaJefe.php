@@ -8,6 +8,7 @@
 	<input type="hidden" class="text" name="derivada" value="0"/>
 	<input type='hidden' class='text' name="dniApertura" value='<?php echo $_SESSION['dni']; ?>'/>
 	<input type='hidden' class='text' name="cifEmpr" value='DEFAULT'/>
+	<input type='hidden' class='text' name="estadoIncidencia" value='Programada'/>
 		<table class='default'>
 		   	<tr>
 				<td><?= i18n("Apertura:") ?></td>
@@ -32,11 +33,7 @@
 			</tr>
 			<tr>
 				<td><?= i18n("Estado:") ?></td>
-				<td>
-					<select required name='estadoIncidencia'>
-					  	<option value='Programada' selected=""><?= i18n("Programada") ?></option>
-					</select>
-				</td>
+				<td> <input required disabled type='text' class='text' name='estadoIncidencia' value='Programada' selected/> </td>
 				<td><?= i18n("Máquina:") ?></td>
 				<td>
 					<select required title="Debe seleccionar una maquina" name="idMaquina">
@@ -50,8 +47,7 @@
 			<tr>
 				<td width="25%"><br><?= i18n("Descripción:") ?></td>
 				<td colspan='3'width="75%">
-					<textarea required title="Por favor redacte una breve descripcion" id="des" style="resize:none; text-align:left;" style="t" rows="4" name='descripIncid'>
-					</textarea>
+					<textarea id="des" style="resize:none; text-align:left;" style="t" rows="4" name='descripIncid'>  </textarea>
 				</td>
 			</tr>
 		</table>

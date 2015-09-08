@@ -99,6 +99,33 @@
 	</table>
 </form>
 
+<h1 id="headerJefe"><a><i><?= i18n("SERVICIOS ASOCIADOS") ?></i></a></h1>
+<table class="default">
+    <tr>
+    	<th width="25%">#ID <?= i18n("Serv.") ?></th>
+    	<th width="25%"><?= i18n("Perdiodicidad") ?></th>
+       	<th width="25%"><?= i18n("Coste") ?></th>
+        <th width="25%">&nbsp;</th>
+    </tr>
+</table>
+<form method="POST" action="../../Controller/maquinasController.php">
+	<table class="default">
+		<?php
+			$rows2 = $_SESSION['consultaServicioMaquina'];
+	 		foreach ($rows2 as $row2) {
+		?>
+		<tr>
+			<td width="25%"><?php echo $row2[0]; ?></td>
+			<td width="25%"><?php echo $row2[1]; ?></td>
+			<td width="25%"><?php echo $row2[2]; ?></td>
+			<td width="25%">
+				<input type="button" value="Consultar" onclick="window.location.href='../../Controller/serviciosController.php?accion=Consulta&idServ=<?php echo $row2[0];?>'"/>
+			</td>
+		</tr>
+		<?php } ?>
+	</table>
+</form>
+
 <?php
 	require_once $_SESSION['cribPath'].'View/structure/footer.php';
 ?>
