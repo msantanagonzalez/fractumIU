@@ -49,6 +49,9 @@ switch ($action) {
 		listarEmpresas();
 		accesoAltaExterno();
 		break;
+	case 'nav':
+		accesoNav();
+		break;
 	default:
 		echo "Revisa la accion del form, por aqui paso!";
 		break;
@@ -532,7 +535,26 @@ switch ($action) {
 		}
 	}
 
+	function accesoNav(){
+		switch ($_SESSION['tipo']){
+			case 'J':
+				listaMaquinaJefeAndInterno();
+				listaIncidenciaJefeAndInterno();
+				header('location:../View/usuarios/homeJefeJefe.php');
+				break;
+			case 'I':
+				listaMaquinaJefeAndInterno();
+				listaIncidenciaJefeAndInterno();
+				header('location:../View/usuarios/homeInternoInterno.php');
+				break;
+			case 'E':
+				listaMaquinasExternoProvisional();
+				listaIncidenciasExternoProvisional();
 
+				header('location:../View/usuarios/homeExternoExterno.php');
+				break;
+		}
+	}
 
 
 // --------- CODIGO PROVISIONAL --------------
