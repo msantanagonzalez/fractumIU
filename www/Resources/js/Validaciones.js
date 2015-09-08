@@ -844,8 +844,8 @@ function modificarIteracion(){
             alert("Error: Error de registro del ID de la maquina, debe ser 1 letra y 8 digitos");
             return false; 
 			
-         }else  if( numSerie == null || numSerie.length == 0 || /^\s+$/.test(numSerie) || numSerie.match(/^\d*$/)==null ) {
-            alert("Error: Numero de serie no valido, introduzca solo digitos");
+         }else  if( numSerie == null || numSerie.length == 0 || /^\s+$/.test(numSerie) || numSerie.match(/[A-Za-z0-9]/)==null ) {
+            alert("Error: Numero de serie no valido, introduzca solo digitos o letras (o ambos)");
             return false;          
          }
      
