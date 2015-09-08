@@ -429,7 +429,7 @@ switch ($action) {
 //Esto deberia estar en controlador de empresas
 	function listarEmpresas(){
 		//session_start();
-		$empresa = new Empresa();
+		$empresa = new Empresa("","","","");
 		$listaEmpresas = $empresa->listarEmpresas();
 
 		$lista = array();
@@ -442,14 +442,14 @@ switch ($action) {
 
 //Esto deberia estar en controlador de maquinas
 	function listaMaquinaJefeAndInterno(){
-				$servicio = new Servicio();
+				$servicio = new Servicio("","","","","","","","","");
 
 				$listaServHome = array();
 				$listaServicios = $servicio->listar();
 				while($row = mysql_fetch_array($listaServicios)){ array_push($listaServHome, $row);}
 
 
-				$maquina = new Maquina();
+				$maquina = new Maquina("","","","","");
 
 				$lista = array();
 				$listaMaquinas = $maquina->lista();
@@ -462,7 +462,7 @@ switch ($action) {
 				//$servicio = new servicio(); CREAR SIEMPRE EL OBJETO CON LOS ARGUMENTOS DE LA CLASE,AUNQUE SEAN VACIOS
 				$servicio = new servicio("","","","","","","","","");
 				$servicios = array();
-				$incidencia = new Incidencia();
+				$incidencia = new Incidencia("","","","","","","","","","");
 				$incidencias = array();
 
 				foreach ($lista as $maquina) {
@@ -485,7 +485,7 @@ switch ($action) {
 	}
 //Esto deberia estar en controlador de incidencias
 	function listaIncidenciaJefeAndInterno(){
-				$incidencia = new Incidencia();
+				$incidencia = new Incidencia("","","","","","","","","","");
 				$listaIncidencias = $incidencia->lista();
 
 				$lista = array();
@@ -496,7 +496,7 @@ switch ($action) {
 				$_SESSION["listaIncidencia"] = $lista;
 
 				// Listar iteraciones (se necesita para ult. operario y ult. iteración)
-				$iteracion = new Iteracion();
+				$iteracion = new Iteracion("","","","","","","","","");
 
 				$incidencias = array();
 				foreach ($lista as $incidencia){
@@ -559,8 +559,8 @@ switch ($action) {
 
 // --------- CODIGO PROVISIONAL --------------
 	function listaMaquinasExternoProvisional(){
-		$maquina = new Maquina();
-		$servicio = new Servicio();
+		$maquina = new Maquina("","","","","");
+		$servicio = new Servicio("","","","","","","","","");
 		$listaMaquinas1 = $maquina->listaMaquinasOpEservicio();
 		$lista1 = array();
 		while($row = mysql_fetch_array($listaMaquinas1)){
@@ -582,7 +582,7 @@ switch ($action) {
 		$consultaResponsables = $responsables->listarInternos();
 		while($row = mysql_fetch_array($consultaResponsables)){ array_push($consultaResp, $row); }
 		$_SESSION["consultaResponsables"] = $consultaResp;
-		$incidencia = new Incidencia();
+		$incidencia = new Incidencia("","","","","","","","","","");
 		$listaIncidencia1 = $incidencia->listaIncidenciasOpE();
 		$lista1 = array();
 		while($row = mysql_fetch_array($listaIncidencia1)){

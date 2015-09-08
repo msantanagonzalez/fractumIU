@@ -42,7 +42,7 @@
 	function consulta(){
 		//session_start();
 
-		$empresa = new Empresa();
+		$empresa = new Empresa("","","","");
 
 		$cifEmpresa = $_REQUEST['cifEmpr'];
 		$consultaEmpresa = $empresa->consultaEmpresa($cifEmpresa);
@@ -66,7 +66,7 @@
 	function modificar(){
 		//session_start();
 
-		$empresa = new Empresa();
+		$empresa = new Empresa("","","","");
 
 		$cifEmpr = $_REQUEST['cifEmpr'];
 		$consultaEmpresa = $empresa->consultaEmpresa($cifEmpr);
@@ -105,7 +105,7 @@
 	function lista(){
 		//session_start();
 
-		$empresa = new Empresa();
+		$empresa = new Empresa("","","","");
 		$listaEmpresas = $empresa->listarEmpresas();
 
 		$lista = array();

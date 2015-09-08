@@ -59,7 +59,7 @@ switch ($action) {
 
 		//session_start();
 
-		$servicio = new servicio();
+		$servicio = new servicio("","","","","","","","","");
 
 		$idServicio= $_REQUEST['idServ'];
 		$consultaServicio = $servicio->consultaServicio($idServicio);
@@ -126,7 +126,7 @@ switch ($action) {
 
 		//session_start();
 
-		$servicio = new servicio();
+		$servicio = new servicio("","","","","","","","","");
 
 		$idServicio = $_REQUEST['idServ'];
 		$consultaServicio = $servicio->consultaServicio($idServicio);
@@ -193,7 +193,7 @@ switch ($action) {
 
 	function listarMaquinaSinServicio(){
 				//session_start();
-				$maquina = new Maquina();
+				$maquina = new Maquina("","","","","");
 				$listaMaquinas = $maquina->listaMaquinaSinServicio();
 				$lista = array();
 
@@ -206,7 +206,7 @@ switch ($action) {
 
 	function listarEmpresas(){
 		//session_start();
-		$empresa = new Empresa();
+		$empresa = new Empresa("","","","");
 		$listaEmpresas = $empresa->listarEmpresas();
 
 		$lista = array();

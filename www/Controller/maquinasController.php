@@ -64,7 +64,7 @@
 	function consulta(){
 		//session_start();
 
-		$maquina = new Maquina();
+		$maquina = new Maquina("","","","","");
 
 		$idMaquina = $_REQUEST['idMaq'];
 		$consultaMaquina = $maquina->consultaMaquina($idMaquina);
@@ -109,7 +109,7 @@
 	}
 	function modificar(){
 		//session_start();
-		$maquina = new Maquina();
+		$maquina = new Maquina("","","","","");
 
 		$idMaquina = $_REQUEST['idMaq'];
 		$consultaMaquina = $maquina->consultaMaquina($idMaquina);
@@ -163,8 +163,8 @@
 	function lista(){
 		//session_start();
 
-		$maquina = new Maquina();
-		$servicio = new Servicio();
+		$maquina = new Maquina("","","","","");
+		$servicio = new Servicio("","","","","");
 
 		switch ($_SESSION['tipo']) {
 			case 'J':
@@ -261,7 +261,7 @@
 		//session_start();
 			$idMaquina = $_GET['idMaq'];
 
-			$maquina = new Maquina();
+			$maquina = new Maquina("","","","","");
 
 			$resultado = $maquina->listarIncidencias($idMaquina);
 	}

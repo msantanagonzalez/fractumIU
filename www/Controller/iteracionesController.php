@@ -36,7 +36,7 @@
 	function alta(){
 		//session_start();
 
-		$iteracion2 = new Iteracion();
+		$iteracion2 = new Iteracion("","","","","","","","","");
 		$id = $iteracion2->nextId();
 		$idI = $_POST["idIncid"];
 
@@ -53,7 +53,7 @@
 		$idIncid = $_REQUEST['idIncid'];
 		$nIteracion = $_REQUEST['nIteracion'];
 
-		$iteracion = new Iteracion($idIncid, $nIteracion);
+		$iteracion = new Iteracion($idIncid, $nIteracion,"","","","","","","");
 		$consultaIteracion = $iteracion->consulta();
 
 		$consulta = array();
@@ -86,7 +86,7 @@
 		$idIteracion = $_REQUEST['idIncidencia'];
 		$nIteracion = $_REQUEST['nIteracion'];
 
-		$iteracion = new Iteracion($idIteracion, $nIteracion);
+		$iteracion = new Iteracion($idIteracion, $nIteracion,"","","","","","","");
 		$consultaIteracion = $iteracion->consulta();
 
 		$consulta = array();
@@ -137,7 +137,7 @@
 	function lista(){
 		//session_start();
 		$idIncid =$_REQUEST['idIncid'];
-		$iteracion = new Iteracion($idIncid);
+		$iteracion = new Iteracion($idIncid,"","","","","","","","");
 		$listaIteraciones = $iteracion->lista();
 
 		$lista = array();
@@ -171,7 +171,7 @@
 		$idIncid = $_POST['idIncid'];
 		$nIteracion = $_POST['nIteracion'];
 
-		$iteracion = new Iteracion($idIncid, $nIteracion);
+		$iteracion = new Iteracion($idIncid, $nIteracion,"","","","","","","");
 		$consultaIteracion = $iteracion->cerrarIteracion();
 		//session_write_close();
 		lista();
@@ -182,7 +182,7 @@
 		//session_start();
 
 		$idIncid = $_POST['idIncid'];
-		$iteracion = new Iteracion($idIncid);
+		$iteracion = new Iteracion($idIncid,"","","","","","","","");
 
 		$nIteracion = $iteracion->nextId();
 

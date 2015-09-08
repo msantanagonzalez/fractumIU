@@ -40,7 +40,7 @@
 		//session_start();
 		$idIncidencia = $_GET['idIncidencia'];
 
-		$incidencia = new Incidencia();
+		$incidencia = new Incidencia("","","","","","","","","","");
 
 		$consulta = array();
 		$consultaIncidencia = $incidencia->consultaIncidencia($idIncidencia);
@@ -75,7 +75,7 @@
 
 		$idIncidencia = $_GET['idIncidencia'];
 
-		$incidencia = new Incidencia();
+		$incidencia = new Incidencia("","","","","","","","","","");
 
 		$consulta = array();
 		$consultaIncidencia = $incidencia->consultaIncidencia($idIncidencia);
@@ -156,7 +156,7 @@
 		$_SESSION["consultaResponsables"] = $consultaResp;
 
 
-		$incidencia = new Incidencia();
+		$incidencia = new Incidencia("","","","","","","","","","");
 
 		switch ($_SESSION['tipo']) {
 			case 'J':
@@ -199,7 +199,7 @@
 
 		$tipo = $_SESSION['tipo'];
 
-		$incidencia = new Incidencia();
+		$incidencia = new Incidencia("","","","","","","","","","");
 		$listaIncidencias = $incidencia->pendientes($tipo);
 
 		$lista = array();
