@@ -44,10 +44,8 @@
 				 </td>
 			</tr>
 			<tr>
-				<td width="25%%"><br><?= i18n("Descripción:") ?></td>
-				<td colspan='3' width="75%">
-					<textarea id="des" style="resize:none; text-align:left;" style="t" rows="4" name='descripIncid'></textarea>
-				</td>
+				<td colspan='1' width="25%"><?= i18n("Descripción:") ?></td>
+				<td colspan='3' width="75%"><textarea id="des" style="resize:none; text-align:left;" style="t" rows="4" name='descripIncid'></textarea></td>
 			</tr>
 		</table>
 		<table>
