@@ -90,9 +90,9 @@
 					 <td width="20%">
 						<?php if(isset($row[2])){ ?>
 							 <a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row[2]?>">
-								 <?echo $row[2];?>
+								 <?php echo $row[2];?>
 							 </a>
-						<? } else echo "-" ?>
+						<?php } else echo "-" ?>
 					 </td>
                      <td width="10%">
  						<input type="button"  value="Consulta" onclick="window.location.href='../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>'"/>
