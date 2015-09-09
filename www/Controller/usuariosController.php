@@ -452,7 +452,7 @@ switch ($action) {
 				$maquina = new Maquina("","","","","");
 
 				$lista = array();
-				$listaMaquinas = $maquina->lista();
+				$listaMaquinas = $maquina->listaJefe();
 				while($row = mysql_fetch_array($listaMaquinas)){ array_push($lista, $row); }
 
 

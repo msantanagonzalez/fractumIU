@@ -179,7 +179,7 @@
 				}
 
 
-				$listaMaquinas = $maquina->lista();
+				$listaMaquinas = $maquina->listaJefe();
 				$lista = array();
 
 				while($row = mysql_fetch_array($listaMaquinas)){

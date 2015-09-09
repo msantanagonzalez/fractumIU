@@ -48,13 +48,20 @@ class Maquina {
 	}
 
 
-	/*public function lista(){
+	public function lista(){
 		$sql = mysql_query("SELECT * FROM MAQUINA");
 		return $sql;
-	}*/
+	}
 
-	public function lista(){
-		$sql = mysql_query("SELECT m.idMaq, idServ, idIncid FROM maquina m, servicio s, incidencia i WHERE m.idMaq = s.idMaq ORDER BY idIncid DESC LIMIT 1");
+	public function listaJefe(){
+		$sql = mysql_query("SELECT m.idMaq, s.idServ, MAX(i.idIncid) FROM maquina m, servicio s, incidencia i WHERE i.idMaq = m.idMaq AND s.idMaq = m.idMaq GROUP BY idMaq
+		UNION
+		SELECT m.idMaq, s.idServ, NULL FROM maquina m, servicio s, incidencia i WHERE NOT EXISTS(SELECT * FROM incidencia i WHERE m.idMaq = i.idMaq ) AND s.idMaq = m.idMaq GROUP BY idMaq
+		UNION
+		SELECT m.idMaq, NULL, MAX(i.idIncid) FROM maquina m, servicio s, incidencia i WHERE NOT EXISTS(SELECT * FROM servicio s WHERE m.idMaq = s.idMaq) AND i.idMaq = m.idMaq GROUP BY idMaq
+		UNION
+		SELECT m.idMaq, NULL, NULL FROM maquina m, servicio s, incidencia i WHERE NOT EXISTS(SELECT * FROM incidencia i WHERE m.idMaq = i.idMaq) AND NOT EXISTS(SELECT * FROM servicio s WHERE m.idMaq = s.idMaq) GROUP BY idMaq;");
+
 		return $sql;
 	}
 
