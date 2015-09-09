@@ -28,9 +28,7 @@
 		<tr>
 			<td width="25%"><br><?= i18n("Descripción:") ?></td>
 			<td colspan='3' width="75%">
-				<textarea style="resize:none; text-align:left;" style="t" rows="4" name='descripMaq' disabled>
-				<?php echo $row['descripMaq']; ?>
-				</textarea>
+				<textarea style="resize:none; text-align:left;" style="t" rows="4" name='descripMaq' disabled><?php echo $row['descripMaq']; ?></textarea>
 			</td>
 		</tr>
 		<?php

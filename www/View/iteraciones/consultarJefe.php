@@ -34,9 +34,7 @@
 				<tr>
 					<td width="25%"><br><?= i18n("Descripción:") ?></td>
 					<td colspan='4'>
-						<textarea style="resize:none" class="text" rows="5" name='descripcionHistoricoIncidencia' disabled>
-						"<?php echo $row['descripIter']; ?>"
-						</textarea>
+						<textarea style="resize:none" class="text" rows="5" name='descripcionHistoricoIncidencia' disabled><?php echo $row['descripIter']; ?></textarea>
 					</td>
 				</tr>
 
