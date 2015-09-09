@@ -1,48 +1,48 @@
 **************************************** Errores generales ****************************************
--En el nav, cuando se clica en ·Fractum!, hay que ir a un controlador para que recoja los datos necesarios, no ir a pelo a la vista porque no tendrá los datos actualizados. Ocurre lo mismo para todos los usuarios. (Maria)
+DONE -En el nav, cuando se clica en ·Fractum!, hay que ir a un controlador para que recoja los datos necesarios, no ir a pelo a la vista porque no tendrá los datos actualizados. Ocurre lo mismo para todos los usuarios. (Maria)
 -añadir un random en nombre de archivo al subirlo.(Diego)
 -al crear una iteración, donde está hora de inicio tiene que ser disabled y coger la hora del sistema y hora fin debería de aparecer disabled. Cuando se modifica la iteración y se cierra, la hora de inicio ya está en la bd y la hora de fin se tiene que coger del sistema.(Alejandro)
 -donde haya fechas de apertura, que coja la fecha del sistema. en la de cierre, no debe aparecer nada hasta que se cierra la incidencia. se puede modificar la fecha cuando el estado de la incidencia sea "programada".(Alejandro)
--Realizar los constructores de forma correcta.(Maria)
--Las descripciones van ganando tabulación extra cada vez que se modifica cualquier parametro de la misma.(Maria)
--Falta pendientes.(Dani con jefe,Sergio con externo,Ray y Maria con Interno)
+REVISAR -Realizar los constructores de forma correcta.(Maria)
+DONE -Las descripciones van ganando tabulación extra cada vez que se modifica cualquier parametro de la misma.(Maria)
+NOPE -Falta pendientes.(Dani con jefe,Sergio con externo,Ray y Maria con Interno)
 **************************************** Errores por usuario ****************************************
 -Jefe:
 	Home:
-		-cuando se lista a una máquina, debería haber un link para ver la última incidencia (Dani) //1.1
+		DONE -cuando se lista a una máquina, debería haber un link para ver la última incidencia (Dani) //1.1
 	Gestionar máquinas:
-		-los servicios no se corresponden con las máquinas (Dani)//1.2
+		DONE -los servicios no se corresponden con las máquinas (Dani)//1.2
 	Gestionar incidencias:
 		-consultar incidencia
 			-consultar iteracion
 				-|no se puede mostrar la documentación relativa a una iteración (Diego)//1.3
-			-|aparecen los datos de la incidencia con sombreado grisaceo a excepción de su estado y Máquina que quizá desentonan y puede pensarse que son editables directamente sin clicar en modificar (Dani)//1.7
-			-|se muestran 2 datos "rápidos" poco útiles en las iteraciones de la incidencia ya que solamente se muestran los incrementales almacenados en la bd (idIncid y nIteracion) En vez de eso, se tiene que mostar el id de la iteración, el dni del usuario que itera y el estado de la iteración(Dani)//1.8
+			DONE -|aparecen los datos de la incidencia con sombreado grisaceo a excepción de su estado y Máquina que quizá desentonan y puede pensarse que son editables directamente sin clicar en modificar (Dani)//1.7
+			DONE -|se muestran 2 datos "rápidos" poco útiles en las iteraciones de la incidencia ya que solamente se muestran los incrementales almacenados en la bd (idIncid y nIteracion) En vez de eso, se tiene que mostar el id de la iteración, el dni del usuario que itera y el estado de la iteración(Dani)//1.8
 	Gestionar máquinas:
 		-consultar máquina
 			-|no se puede mostrar el pdf en máquina(Diego) //1.4
-			-|meter entre los datos de la máquina y sus incidencias, los servicios que tenga asociados(Dani) //1.5
-		-|fallo al ordenar el array de la vista de máquinas(Dani) //1.6
+		NOPE	-|meter entre los datos de la máquina y sus incidencias, los servicios que tenga asociados(Dani) //1.5
+		DONE -|fallo al ordenar el array de la vista de máquinas(Dani) //1.6
 		-alta máquina
 			-|el #Núm. serie solo deja introducir números de tal modo que si el numero de serie de la maquina tiene letras no deja introducirlas(Alejandro) //1.10
 	Gestionar servicios:
 		-consultar servicio
 			-modificar servicio
-				-| si se modifica la periodicidad, no muestra el valor que tenia antes seleccionado y solo aparece un guión(Dani) // 1.9
+				DONE -| si se modifica la periodicidad, no muestra el valor que tenia antes seleccionado y solo aparece un guión(Dani) // 1.9
 
 -Interno:
 	-Listar incidencias:
 		-Consultar incidencia
 			-Consultar iteración
 				-|no se puede mostrar la documentación(Diego)  //2.1
-				-|Las columnas de iteraciones están muy descuadradas(Ray) //2.3
+				DONE -|Las columnas de iteraciones están muy descuadradas(Ray) //2.3
 			-Alta iteración
-				-|si una incidencia está abierta y se itera sobre ella, tiene que cambiar el estado a "en curso" (Ray) //2.5
+				DONE -|si una incidencia está abierta y se itera sobre ella, tiene que cambiar el estado a "en curso" (Ray) //2.5
 	-Listar máquinas:
 		-Consultar máquina
 			-|no se puede mostrar el pdf(Diego) //2.2
-			-|cambiar el botón de consultar de incidencias relativas(Ray) //2.4
-			-|meter entre los datos de la máquina y sus incidencias, los servicios que tenga asociados(Ray) //2.6
+			DONE -|cambiar el botón de consultar de incidencias relativas(Ray) //2.4
+			DONE -|meter entre los datos de la máquina y sus incidencias, los servicios que tenga asociados(Ray) //2.6
 
 -Externo(Sergio):
 	-Home:

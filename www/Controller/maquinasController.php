@@ -64,7 +64,7 @@
 	function consulta(){
 		//session_start();
 
-		$maquina = new Maquina();
+		$maquina = new Maquina("","","","","");
 
 		$idMaquina = $_REQUEST['idMaq'];
 		$consultaMaquina = $maquina->consultaMaquina($idMaquina);

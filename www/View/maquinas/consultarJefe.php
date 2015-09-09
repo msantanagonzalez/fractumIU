@@ -110,6 +110,7 @@
 	<table class="default">
 		<?php
 			$rows2 = $_SESSION['consultaServicioMaquina'];
+			
 	 		foreach ($rows2 as $row2) {
 		?>
 		<tr>
