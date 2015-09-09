@@ -40,9 +40,22 @@
 			mysql_query("UPDATE INCIDENCIA SET fAper = '$this->fechaApertura', fCier = '$this->fechaCierre', dniResponsable = '$this->dniResponsable',
 				estadoIncid = '$this->estadoIncidencia', derivada = '$this->derivada', cifEmpr = '$this->cifEmpr' WHERE idIncid = '$idIncidencia'") or die(mysql_error());
 		}
+		
+		public function cambiarEstado($idIncidencia, $estado){
+			
+			mysql_query("UPDATE INCIDENCIA SET estadoIncid = '$estado' WHERE idIncid = '$idIncidencia'") or die(mysql_error());
+			
+		}
 
 		public function lista(){
 			$sql = mysql_query("SELECT * FROM INCIDENCIA");
+
+			return $sql;
+		}
+		
+		public function listaPendientesInterno($dniUsu){
+			
+			$sql = mysql_query("SELECT * FROM INCIDENCIA WHERE dniResponsable='$dniUsu' AND (estadoIncid='Abierta' OR estadoIncid='Programada'OR estadoIncid='Pendiente Derivar') ");
 
 			return $sql;
 		}

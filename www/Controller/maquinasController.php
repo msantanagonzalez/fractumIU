@@ -63,33 +63,30 @@
 
 	function consulta(){
 		//session_start();
-		$maquina = new Maquina("","","","","");
-		$idMaquina = $_REQUEST['idMaq'];
 
-		$consulta = array();
+		$maquina = new Maquina();
+
+		$idMaquina = $_REQUEST['idMaq'];
 		$consultaMaquina = $maquina->consultaMaquina($idMaquina);
-		while($row = mysql_fetch_array($consultaMaquina)){ array_push($consulta, $row); }
+		$consulta = array();
+		while($row = mysql_fetch_array($consultaMaquina)){
+			array_push($consulta, $row);
+		}
 
 		$_SESSION["consultaMaquina"] = $consulta;
 
-
-		$consulta = array();
 		$consultaIncidencia = $maquina->listarIncidenciasAsociadas($idMaquina);
-		while($row = mysql_fetch_array($consultaIncidencia)){ array_push($consulta, $row); }
+		$consulta2 = array();
+		while($row = mysql_fetch_array($consultaIncidencia)){
+			array_push($consulta2, $row);
+		}
+		$_SESSION["consultaIncidenciaMaquina"] = $consulta2;
 
-		$_SESSION["consultaIncidenciaMaquina"] = $consulta;
-
-
-		$consulta = array();
-		$consultaServicios = $maquina->listarServiciosAsociados($idMaquina);
-		while($row = mysql_fetch_array($consultaServicios)){ array_push($consulta, $row); }
-
-		$_SESSION["consultaServicioMaquina"] = $consulta;
-
-
-		$consulta = array();
 		$documentoMaquina = $maquina->getPathImage($idMaquina);
-		while($row = mysql_fetch_array($documentoMaquina)){ array_push($consulta, $row); }
+		$consulta = array();
+		while($row = mysql_fetch_array($documentoMaquina)){
+			array_push($consulta, $row);
+		}
 
 		$_SESSION["documentoMaquina"] = $consulta;
 
@@ -100,6 +97,7 @@
 				break;
 			case 'I':
 				//session_write_close();
+				listarServiciosInterno();
 				header("location: ../View/maquinas/consultarInterno.php");
 				break;
 			case 'E':
@@ -112,7 +110,7 @@
 	}
 	function modificar(){
 		//session_start();
-		$maquina = new Maquina("","","","","");
+		$maquina = new Maquina();
 
 		$idMaquina = $_REQUEST['idMaq'];
 		$consultaMaquina = $maquina->consultaMaquina($idMaquina);
@@ -166,8 +164,8 @@
 	function lista(){
 		//session_start();
 
-		$maquina = new Maquina("","","","","");
-		$servicio = new Servicio("","","","","");
+		$maquina = new Maquina();
+		$servicio = new Servicio();
 
 		switch ($_SESSION['tipo']) {
 			case 'J':
@@ -264,8 +262,22 @@
 		//session_start();
 			$idMaquina = $_GET['idMaq'];
 
-			$maquina = new Maquina("","","","","");
+			$maquina = new Maquina();
 
 			$resultado = $maquina->listarIncidencias($idMaquina);
+	}
+
+	function listarServiciosInterno(){
+		//session_start();
+			$idMaquina= $_GET['idMaq'];
+
+			$servicio= new Servicio("","","","","","","","","");
+
+			$listaServInter= $servicio->listarServInterno($idMaquina);
+			$listaSerInter = array();
+				while($row = mysql_fetch_array($listaServInter)){
+					array_push($listaSerInter, $row);
+				}
+			$_SESSION['listarServiciosInterno'] = $listaSerInter;
 	}
 ?>

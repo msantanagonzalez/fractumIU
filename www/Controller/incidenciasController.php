@@ -7,6 +7,7 @@
 	if(isset($_GET['accion'])){	$accion = $_GET['accion']; }
 	if(isset($_POST['accion'])){ $accion = $_POST['accion']; }
 
+if(isset($accion)){
 	switch ($accion) {
 		case 'Alta':
 			alta();
@@ -24,9 +25,11 @@
 			lista();
 			break;
 		case 'Pendientes':
-			pendientes();
+			//pendientesInterno();
 			break;
 	}
+}
+	
 
 	function alta(){
 		//session_start();
@@ -40,7 +43,7 @@
 		//session_start();
 		$idIncidencia = $_GET['idIncidencia'];
 
-		$incidencia = new Incidencia("","","","","","","","","","");
+		$incidencia = new Incidencia();
 
 		$consulta = array();
 		$consultaIncidencia = $incidencia->consultaIncidencia($idIncidencia);
@@ -55,15 +58,15 @@
 		switch ($_SESSION['tipo']) {
 			case 'J':
 				//session_write_close();
-				header("location: iteracionesController.php?accion=Listar&idIncid=$idIncidencia");
+				header("location: iteracionesController.php?accion=listarIteracion&idIncid=$idIncidencia");
 				break;
 			case 'I':
 				//session_write_close();
-				header("location: iteracionesController.php?accion=Listar&idIncid=$idIncidencia");
+				header("location: iteracionesController.php?accion=listarIteracion&idIncid=$idIncidencia");
 				break;
 			case 'E':
 				//session_write_close();
-				header("location: iteracionesController.php?accion=Listar&idIncid=$idIncidencia");
+				header("location: iteracionesController.php?accion=listarIteracion&idIncid=$idIncidencia");
 				break;
 			default:
 				break;
@@ -75,7 +78,7 @@
 
 		$idIncidencia = $_GET['idIncidencia'];
 
-		$incidencia = new Incidencia("","","","","","","","","","");
+		$incidencia = new Incidencia();
 
 		$consulta = array();
 		$consultaIncidencia = $incidencia->consultaIncidencia($idIncidencia);
@@ -145,6 +148,23 @@
 		header("location: incidenciasController.php?accion=Consulta&idIncidencia=$idIncidencia");
 	}
 
+	function pendientesInterno(){
+	
+		$dniUsu = $_SESSION['dni'];
+		$incidencia = new Incidencia();
+		$listaPend = $incidencia->listaPendientesInterno($dniUsu);
+		
+				$listaPendientes = array();
+				while($row = mysql_fetch_array($listaPend)){
+					array_push($listaPendientes, $row);
+				}
+				$_SESSION['cantPendientes'] = mysql_num_rows($listaPend);
+				$_SESSION['pendientesInterno'] = $listaPendientes;
+				
+				//header("location: ../View/incidencias/pendientesInterno.php");
+				
+	}
+	
 	function lista(){
 		//session_start();
 		$responsables = new interno("", "", "", "", "");
@@ -156,7 +176,7 @@
 		$_SESSION["consultaResponsables"] = $consultaResp;
 
 
-		$incidencia = new Incidencia("","","","","","","","","","");
+		$incidencia = new Incidencia();
 
 		switch ($_SESSION['tipo']) {
 			case 'J':
@@ -199,7 +219,7 @@
 
 		$tipo = $_SESSION['tipo'];
 
-		$incidencia = new Incidencia("","","","","","","","","","");
+		$incidencia = new Incidencia();
 		$listaIncidencias = $incidencia->pendientes($tipo);
 
 		$lista = array();

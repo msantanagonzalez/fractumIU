@@ -1,31 +1,32 @@
 <?php
 	require_once $_SESSION['cribPath'].'Model/iteracion.php';
 	require_once $_SESSION['cribPath'].'Controller/bdController.php';
+	require_once $_SESSION['cribPath'].'Model/incidencia.php';
 
 	if(isset($_GET['accion'])){	$accion = $_GET['accion']; }
 	if(isset($_POST['accion'])){ $accion = $_POST['accion']; }
 
 	switch ($accion) {
-		case 'Alta':
-			alta();
+		case 'altaIteracion':
+			altaIteracion();
 			break;
-		case 'Consulta':
-			consulta();
+		case 'consultaIteracion':
+			consultaIteracion();
 			break;
-		case 'Modificado':
-			modificado();
+		case 'modificadoIteracion':
+			modificadoIteracion();
 			break;
-		case 'Modificar':
-			modificar();
+		case 'modificarIteracion':
+			modificarIteracion();
 			break;
-		case 'Listar':
-			lista();
+		case 'listarIteracion':
+			listaIteracion();
 			break;
 		case 'GUARDAR TRABAJO':
-			modificado();
+			modificadoIteracion();
 			break;
 		case 'FINALIZAR TRABAJO':
-			modificado();
+			modificadoIteracion();
 			cerrarIteracion();
 			break;
 		case 'NEXTID':
@@ -33,27 +34,28 @@
 			break;
 	}
 
-	function alta(){
+	function altaIteracion(){
 		//session_start();
 
-		$iteracion2 = new Iteracion("","","","","","","","","");
+		$iteracion2 = new Iteracion();
 		$id = $iteracion2->nextId();
 		$idI = $_POST["idIncid"];
 
 		$iteracion = new Iteracion($idI, $id, $_POST["fechaIter"], $_POST["hInicio"], $_POST["hFin"],
 										$_POST["estadoItera"],  $_POST["descripIter"], $_POST["costeIter"], $_SESSION['dni']);
 		$iteracion->alta();
-
-		lista();
+		
+		modEstadoIncidencia();
+		listaIteracion();
 	}
 
-	function consulta(){
+	function consultaIteracion(){
 		//session_start();
 
 		$idIncid = $_REQUEST['idIncid'];
 		$nIteracion = $_REQUEST['nIteracion'];
 
-		$iteracion = new Iteracion($idIncid, $nIteracion,"","","","","","","");
+		$iteracion = new Iteracion($idIncid, $nIteracion);
 		$consultaIteracion = $iteracion->consulta();
 
 		$consulta = array();
@@ -80,13 +82,13 @@
 		}
 	}
 
-	function modificar(){
+	function modificarIteracion(){
 		//session_start();
 
 		$idIteracion = $_REQUEST['idIncidencia'];
 		$nIteracion = $_REQUEST['nIteracion'];
 
-		$iteracion = new Iteracion($idIteracion, $nIteracion,"","","","","","","");
+		$iteracion = new Iteracion($idIteracion, $nIteracion);
 		$consultaIteracion = $iteracion->consulta();
 
 		$consulta = array();
@@ -113,7 +115,7 @@
 		}
 	}
 
-	function modificado(){
+	function modificadoIteracion(){
 		//session_start();
 
 		$idIncid = $_POST['idIncid'];
@@ -133,11 +135,19 @@
 
 		header("location: iteracionesController.php?accion=Consulta&idIncid=$idIncid&nIteracion=$nIteracion");
 	}
+	
+	function modEstadoIncidencia(){
+		
+		$idIncid = $_POST['idIncid'];
+		$incidencia = new Incidencia("", "", "", "", "", "", "", "", "", "");
+		$incidencia->cambiarEstado($idIncid,'En Curso');
+		
+	}
 
-	function lista(){
+	function listaIteracion(){
 		//session_start();
 		$idIncid =$_REQUEST['idIncid'];
-		$iteracion = new Iteracion($idIncid,"","","","","","","","");
+		$iteracion = new Iteracion($idIncid);
 		$listaIteraciones = $iteracion->lista();
 
 		$lista = array();
@@ -146,6 +156,19 @@
 		}
 
 		$_SESSION["listaIteraciones"] = $lista;
+		
+
+		$incidencia = new Incidencia();
+
+		$consulta = array();
+		$consultaIncidencia = $incidencia->consultaIncidencia($idIncid);
+
+		while($row = mysql_fetch_array($consultaIncidencia)){
+			$_SESSION["consultaServicios"] = $incidencia->hasServicios($row['idMaq']);
+			array_push($consulta, $row);
+		}
+
+		$_SESSION["consultaIncidencia"] = $consulta;
 
 		switch ($_SESSION['tipo']) {
 			case 'J':
@@ -171,10 +194,10 @@
 		$idIncid = $_POST['idIncid'];
 		$nIteracion = $_POST['nIteracion'];
 
-		$iteracion = new Iteracion($idIncid, $nIteracion,"","","","","","","");
+		$iteracion = new Iteracion($idIncid, $nIteracion);
 		$consultaIteracion = $iteracion->cerrarIteracion();
 		//session_write_close();
-		lista();
+		listaIteracion();
 
 	}
 
@@ -182,7 +205,7 @@
 		//session_start();
 
 		$idIncid = $_POST['idIncid'];
-		$iteracion = new Iteracion($idIncid,"","","","","","","","");
+		$iteracion = new Iteracion($idIncid);
 
 		$nIteracion = $iteracion->nextId();
 

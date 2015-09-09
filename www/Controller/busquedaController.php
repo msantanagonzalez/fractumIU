@@ -1,23 +1,28 @@
 <?php
 require_once $_SESSION['cribPath'].'Controller/bdController.php';
+require_once $_SESSION['cribPath'].'Controller/incidenciasController.php';
 require_once $_SESSION['cribPath'].'Model/buscador.php';
+pendientesInterno();
 
 if(isset($_POST['buscar'])){	$action = $_POST['buscar']; }
 
-switch ($action) {
-	case 'busquedaJefe':
-		busquedaJefe();
-		break;
-	case 'busquedaInterno':
-		busquedaInterno();
-		break;
-	case 'busquedaExterno':
-		busquedaExterno();
-		break;
-	default:
-		echo "Opciones no válidas :(";
-		break;
+if(isset($action)){
+	switch ($action) {
+		case 'busquedaJefe':
+			busquedaJefe();
+			break;
+		case 'busquedaInterno':
+			busquedaInterno();
+			break;
+		case 'busquedaExterno':
+			busquedaExterno();
+			break;
+		default:
+			echo "Opciones no válidas :(";
+			break;
+	}	
 }
+
 
 function busquedaJefe(){
 

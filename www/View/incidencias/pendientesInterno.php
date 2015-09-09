@@ -6,7 +6,7 @@
 <table class="default">
     <tr>
     	<th width="17%">#ID <?= i18n("Inc.") ?></th>
-       	<th width="17%"><?= i18n("Últ. operario") ?></th>
+    
         <th width="17%"><?= i18n("Últ. iteración") ?></th>
     	<th width="17%"><?= i18n("Apertura:") ?></th>
         <th width="17%"><?= i18n("Estado:") ?></th>
@@ -16,7 +16,7 @@
 <form method="POST" action="../../Controller/incidenciasController.php">
 	<table class="default">
 		<?php 
-			$rows = $_SESSION['listaIncidencia'];
+			$rows = $_SESSION['pendientesInterno'];
 			if (empty($rows)) {
 			?>
 				<div class="alert alert-info" role="alert">
@@ -29,8 +29,8 @@
 			?>
 			<tr> 
 				<td width="17%"><?php echo $row['idIncid'];?></td> 
-				<td width="17%"><?= i18n("Avería alternador") ?></td> 
-				<td width="17%">Fulanito</a></td> <!-- Falta linkar al perfil del usuario. -->
+				 
+				<td width="17%"><?php echo $row['dniApertura'];?></a></td> <!-- Falta linkar al perfil del usuario. -->
 				<td width="17%"><?php echo $row['fAper']; ?></td>
 				<td width="17%"><?php echo $row['estadoIncid']; ?></td>
 				<td width="17%"><button><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>">Consultar</a></button></td>

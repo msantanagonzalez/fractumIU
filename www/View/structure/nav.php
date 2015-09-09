@@ -3,7 +3,7 @@ function navJefe()
 {
 ?>
 <div id="sidebarJefe"> <!--BARRA LATERAL-->
-	<h1 id="logo"><a href="../../Controller/usuariosController.php?accion=nav"><?= i18n("·Fractum!") ?></a></h1>
+	<h1 id="logo"><a href="../usuarios/homeJefeJefe.php"><?= i18n("·Fractum!") ?></a></h1>
             <nav id="nav">
           		<ul>
             		<div align="center">
@@ -33,9 +33,10 @@ function navJefe()
 
 function navInterno()
 {
+require_once $_SESSION['cribPath'].'Controller/busquedaController.php';
 ?>
 <div id="sidebarInterno"> <!--BARRA LATERAL-->
-			<h1 id='logo'><a href="../../Controller/usuariosController.php?accion=nav"><?= i18n("·Fractum!") ?></a></h1>
+			<h1 id='logo'><a href='../usuarios/homeInternoInterno.php'><?= i18n("·Fractum!") ?></a></h1>
                 <nav id='nav'>
               		<ul>
                 		<div align='center'>
@@ -45,7 +46,8 @@ function navInterno()
                             	</a>
                          	</li>
 							<!--NOTIFICACIONES-->
-							 <!-- <li class='current'><a href="../../Controller/incidenciasController.php?accion=Pendientes"><?= i18n("Pendientes:") ?><span class="badge"><?php echo $_SESSION['pendientes']; ?></span></a></li> -->
+							<!-- <li class='current'><a href="../../Controller/incidenciasController.php?accion=Pendientes"><?= i18n("Pendientes:") ?><span class="badge"><?php echo $_SESSION['cantPendientes']; ?></span></a></li> -->
+							<li class='current'><a href="../incidencias/pendientesInterno.php"><?= i18n("Pendientes:") ?><span class="badge"><?php echo $_SESSION['cantPendientes']; ?></span></a></li>
 							<!-- FIN NOTIFICACIONES-->
               <li class='current'><a href="../../View/incidencias/altaInterno.php"><?= i18n("Alta incidencia") ?></a></li>
 							<li class='current'><strong><a href="../../Controller/incidenciasController.php?accion=Listar"><?= i18n("Listar Incidencias") ?></a></strong></li>
@@ -69,7 +71,7 @@ function navExterno()
 {
 ?>
 <div id="sidebarExterno"> <!--BARRA LATERAL-->
-			<h1 id='logo'><a href="../../Controller/usuariosController.php?accion=nav"><?= i18n("·Fractum!") ?></a></h1>
+			<h1 id='logo'><a href='../usuarios/homeExternoExterno.php'><?= i18n("·Fractum!") ?></a></h1>
                 <nav id='nav'>
               		<ul>
                 		<div align='center'>

@@ -40,7 +40,9 @@ foreach ($rows as $row) { ?>
 			<tr>
 				<td width="25%"><br><?= i18n("Descripción:") ?></td>
 				<td colspan='3' width="75%">
-					<textarea style="resize:none; text-align:left;" style="t" rows="4" name='descripcion' disabled><?php echo $row['descripIncid'];?></textarea>
+					<textarea style="resize:none; text-align:left;" style="t" rows="4" name='descripcion' disabled>
+					<?php echo $row['descripIncid'];?>
+					</textarea>
 				</td>
 			</tr>
 
@@ -51,7 +53,7 @@ foreach ($rows as $row) { ?>
 			<?php
 
 			if(($row['dniApertura']==$_SESSION['dni']) and ($row['estadoIncid']!='Cerrada') and ($row['estadoIncid']!='Derivada')){?>
-					<td colspan="4"><a href="../../Controller/incidenciasController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid']; ?>"><input type="button" name="accion" value="Modificar"></td>
+					<td colspan="4"><a href="../../Controller/incidenciasController.php?accion=modificarIteracion&idIncidencia=<?php echo $row['idIncid']; ?>"><input type="button" name="accion" value="Modificar"></td>
 			<?php
 			}
 			?>
@@ -63,10 +65,10 @@ foreach ($rows as $row) { ?>
 	<h1 id="headerInterno"><a><i><?= i18n("- ITERACIONES -") ?></i></a></h1>
 	<table class="default"><!--TABLA-->
 	    <tr>
-	    	<th width="28%">ID</th>
-			<th width="20%"><?= i18n("Iteración") ?></th>
+	    	<th width="15%">ID</th>
+			<th width="15%"><?= i18n("Iteración") ?></th>
             <th width="20%"><?= i18n("Operario") ?></th>
-            <th width="20%"><?= i18n("Coste") ?></th>
+            <th width="10%"><?= i18n("Coste") ?></th>
 			<th width="20%"><?= i18n("Estado") ?></th>
 	        <th width="20%"> </th>
 	    </tr>
@@ -78,13 +80,13 @@ foreach ($rows as $row) { ?>
 				foreach ($rows2 as $row2) {
 			?>
 			<tr>
-				<td width="20%"><?php echo $row2['idIncid'];?></td>
-				<td width="20%"><?php echo $row2['nIteracion']; ?></td>
-				<td width="20%"><?php echo $row2['dniUsu']; ?></td>
-				<td width="20%"><?php echo $row2['costeIter']; ?></td>
+				<td width="25%"><?php echo $row2['idIncid'];?></td>
+				<td width="25%"><?php echo $row2['nIteracion']; ?></td>
+				<td width="30%"><?php echo $row2['dniUsu']; ?></td>
+				<td width="10%"><?php echo $row2['costeIter']; ?></td>
 				<td width="20%"><?php if($row2['estadoItera']==1){echo 'Abierta' ;}else{ echo 'Cerrada';}  ?></td>
-				<td width="10%"><img src="../../Recursos/images/PDF.png"></td>
-				<td width="10%"><a href="../../Controller/iteracionesController.php?accion=Consulta&idIncid=<?php echo $row2['idIncid'] ?>&nIteracion=<?php echo $row2['nIteracion'] ?>"><input type="button" value="Consultar"></td>
+				<td width="5%"><img src="../../Recursos/images/PDF.png"></td>
+				<td width="10%"><a href="../../Controller/iteracionesController.php?accion=consultaIteracion&idIncid=<?php echo $row2['idIncid'] ?>&nIteracion=<?php echo $row2['nIteracion'] ?>"><input type="button" value="Consultar"></td>
 			</tr>
 				<?php } ?>
 		</table>
@@ -94,8 +96,8 @@ foreach ($rows as $row) { ?>
 	<tr>
 			<?php
 
-			if(($row['estadoIncid']!='Cerrada')and ($row['estadoIncid']!='Derivada')){?>
-					<td colspan="4"><a href="../../View/iteraciones/altaInterno.php?accion=Alta&idIncidencia=<?php echo $row['idIncid'] ?>"><input type="button"  value="NUEVA ITERACION"/></a></td>
+			if(($row['estadoIncid']!='Cerrada')and ($row['estadoIncid']!='Derivada') AND ($row['estadoIncid']!='Pendiente Derivar')){?>
+					<td colspan="4"><a href="../../View/iteraciones/altaInterno.php?accion=altaIteracion&idIncidencia=<?php echo $row['idIncid'] ?>"><input type="button"  value="NUEVA ITERACION"/></a></td>
 			<?php
 			}
 			?>

@@ -66,6 +66,13 @@
 			return $sql;
 
 		}
+		public function listarServInterno($idMaq){
+
+			$sql = mysql_query("SELECT * FROM SERVICIO WHERE idMaq = '$idMaq'");
+
+			return $sql;
+
+		}
 
 		public function tieneServicio($idMaquina){
 
