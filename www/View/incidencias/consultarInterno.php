@@ -55,7 +55,7 @@ foreach ($rows as $row) { ?>
 			<?php
 
 			if(($row['dniApertura']==$_SESSION['dni']) and ($row['estadoIncid']!='Cerrada') and ($row['estadoIncid']!='Derivada')){?>
-					<td colspan="4"><a href="../../Controller/incidenciasController.php?accion=modificarIteracion&idIncidencia=<?php echo $row['idIncid']; ?>"><input type="button" name="accion" value="Modificar"></td>
+					<td colspan="4"><a href="../../Controller/incidenciasController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid']; ?>"><input type="button" name="accion" value="Modificar"></td>
 			<?php
 			}
 			?>

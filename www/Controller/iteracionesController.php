@@ -162,7 +162,7 @@ if(isset($accion)){
 		$iteracion->modEstado();
 		$iteracion->modificacion();
 
-		header("location: iteracionesController.php?accion=ConsultaIteracion&idIncid=$idIncid&nIteracion=$nIteracion");
+		header("location: iteracionesController.php?accion=consultaIteracion&idIncid=$idIncid&nIteracion=$nIteracion");
 	}
 
 	function modEstadoIncidencia(){

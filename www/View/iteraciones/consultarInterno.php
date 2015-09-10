@@ -1,23 +1,24 @@
 <?php
 	$userType="interno";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
-?>
+	$rows = $_SESSION['consultaIteracion'];
 
-<h1 id='headerInterno'><a><?= i18n("- DETALLES TRABAJO -") ?></a></h1>
-
-
-	<div style='height:350px;width:auto;overflow-y: scroll;'>
-	<form method="POST" action="../../Controller/iteracionesController.php">
-	<?php $rows = $_SESSION['consultaIteracion'];
 	 foreach ($rows as $row) { ?>
+		 <h1 id='headerInterno'><a><?= i18n("- DETALLES TRABAJO -") ?></a></h1>
+		 	<div style='height:350px;width:auto;overflow-y: scroll;'>
+		 	<form method="POST" action="../../Controller/iteracionesController.php">
 		<table class='default'>
 			<tr>
 				<td><?= i18n("Identificador Incidencia:") ?></td>
 				<td><input type='text' disabled name="numeroIncidencia" value="<?php echo $row['idIncid']; ?>"></td>
+				<td><?= i18n("ID usuario:") ?> </td>
+				<td><input type="text" class="text" disabled value="<?php echo $row['dniUsu']; ?>"/></td>
+			</tr>
+			<tr>
 				<td><?= i18n("Número Iteración") ?></td>
-		        <td><input type='text' disabled name="numeroTrabajo" value="<?php echo $row['nIteracion']; ?>"></td>
-				<td width="25%"><?= i18n("ID usuario:") ?> </td>
-				<td width="25%"><input type="text" class="text" disabled value="<?php echo $row['dniUsu']; ?>"/></td>
+		    <td><input type='text' disabled name="numeroTrabajo" value="<?php echo $row['nIteracion']; ?>"></td>
+				<td><?= i18n("Estado Iteración:") ?></td>
+				<td><input type='text' disabled value="<?php if($row['estadoItera']==1){echo 'Abierta' ;}else{ echo 'Cerrada';}  ?>"></td>
 			</tr>
 			<tr>
 		        <td><?= i18n("Coste") ?></td>
@@ -30,8 +31,6 @@
 		        <td><input type='time' disabled value="<?php echo $row['hInicio']; ?>"></td>
 		        <td><?= i18n("Hora Fin:") ?></td>
 		        <td><input type='time' disabled value="<?php echo $row['hFin']; ?>"></td>
-				<td><?= i18n("Estado Iteración:") ?></td>
-		        <td><input type='text' disabled value="<?php if($row['estadoItera']==1){echo 'Abierta' ;}else{ echo 'Cerrada';}  ?>"></td>
 		  </tr>
 		    </tr>
 				<td><?= i18n("Documentación:") ?></td>
