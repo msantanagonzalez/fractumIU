@@ -6,7 +6,9 @@ foreach ($rows as $row) { ?>
 <h1 id="headerInterno"><a><i><?= i18n("INCIDENCIA") ?> <?php echo $row['idIncid']; ?></i></a></h1>
 <div style='height:525px;width:auto;overflow-y: scroll;'>
 	<form method="POST" action="../../Controller/incidenciasController.php">
-
+		<?php
+		require_once $_SESSION['cribPath'].'View/crearMensaje.php';
+		?>
 		<input type="hidden" class="text" name="idIncidencia" value="<?php echo $row['idIncid']; ?>"/>
 		<input type="hidden" class="text" name="derivada" value="<?php echo $row['derivada']; ?>"/>
 		<table class="default">
@@ -97,7 +99,7 @@ foreach ($rows as $row) { ?>
 			<?php
 
 			if(($row['estadoIncid']!='Cerrada')and ($row['estadoIncid']!='Derivada') AND ($row['estadoIncid']!='Pendiente Derivar')){?>
-					<td colspan="4"><a href="../../View/iteraciones/altaInterno.php?accion=altaIteracion&idIncidencia=<?php echo $row['idIncid'] ?>"><input type="button"  value="NUEVA ITERACION"/></a></td>
+					<td colspan="4"><a href="../../View/iteraciones/altaInterno.php?accion=altaIteracion&idIncidencia=<?php echo $row['idIncid'] ?>&idMaq=<?php echo $row['idMaq']; ?>"><input type="button"  value="NUEVA ITERACION"/></a></td>
 			<?php
 			}
 			?>

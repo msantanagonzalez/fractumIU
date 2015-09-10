@@ -40,9 +40,9 @@ function subirArchivo($idMaquina,$idIncidencia,$idIteracion,$tipo){
 		case "iteracion":
 			//$dir= "../Resources/documents/".$idMaquina."/".$idIncidencia."/".$idIteracion."/";
 			//subirIteracion();
-			echo "Aqui se para";
-			//list($guardado,$path,$nombreArchivo) = subirIteracion($idIncidencia,$idIteracion,$ext_permitidas,$limite);
-			//return array($guardado,$path,$nombreArchivo);
+			//echo "Aqui se para";
+			list($guardado,$path,$nombreArchivo) = subirIteracion($idMaquina,$idIncidencia,$idIteracion,$ext_permitidas,$limite);
+			return array($guardado,$path,$nombreArchivo);
 		break;
 	}
 }
@@ -59,33 +59,39 @@ function subirMaquina($idMaquina,$ext_permitidas,$limite){
 		$ext_correcta = in_array($extension, $ext_permitidas);
 
 		if($ext_correcta && $tamano <= $limite ){
-			  if(file_exists($dir.$nombre)){
-				anadirMensaje("|ERROR| Ya hay un archivo con ese nombre: ".$nombre."|".$tipo."|".$tamano."Mb" ,"danger");
-			  }else{
-				mkdir($dir);
-				move_uploaded_file($nombre_tmp,$path);
-				anadirMensaje("|INFO| Archivo: ".$nombre."|".$tipo."|".$tamano."Mb - Guardado" ,"info");
-				return array(1,$path,$nombre);
-			  }
+					if(file_exists($dir.$nombre)){
+					anadirMensaje("|ERROR| Ya hay un archivo con ese nombre: ".$nombre."|".$tipo."|".$tamano."Mb" ,"danger");
+				  }else{
+					//mkdir($dir);
+					move_uploaded_file($nombre_tmp,$path);
+					anadirMensaje("|INFO| Archivo: ".$nombre."|".$tipo."|".$tamano."Mb - Guardado" ,"info");
+					return array(1,$path,$nombre);
+				  }
+
 		}else{
 			anadirMensaje("|ERROR|Error al subir archivo: ".$nombre."|".$tipo."|".$tamano."Mb" ,"danger");
 		}
 	}
 
-	function subirIteracion($idIncidencia,$idIteracion,$ext_permitidas,$limite){
-		$dir= "../Resources/documents/".$idMaquina."/Incid".$idIncidencia."/Itera".$idIteracion."/";
+	function subirIteracion($idMaquina,$idIncidencia,$idIteracion,$ext_permitidas,$limite){
+		$dir= "../Resources/documents/".$idMaquina."/Incid_".$idIncidencia."/Itera_".$idIteracion."/";
 		$nombre = $_FILES['docIteracion']['name'];
 		$path= $dir.$nombre;
-		$nombre_tmp = $_FILES['docMaquina']['tmp_name'];
+		$nombre_tmp = $_FILES['docIteracion']['tmp_name'];
+		$tipo = $_FILES['docIteracion']['type'];
+		$tamano = $_FILES['docIteracion']['size'];
 		$partes_nombre = explode('.', $nombre);
 		$extension = end( $partes_nombre );
 		$ext_correcta = in_array($extension, $ext_permitidas);
 
 		if($ext_correcta && $tamano <= $limite ){
+			if(!file_exists($dir)){
+				mkdir($dir,0777,true);
+			}
 			if(file_exists($dir.$nombre)){
 			anadirMensaje("|ERROR| Ya hay un archivo con ese nombre: ".$nombre."|" ,"danger");
 			}else{
-			mkdir($dir);
+			//mkdir($dir);
 			move_uploaded_file($nombre_tmp,$path);
 			anadirMensaje("|INFO| Archivo: ".$nombre." - Guardado" ,"info");
 			return array(1,$path,$nombre);

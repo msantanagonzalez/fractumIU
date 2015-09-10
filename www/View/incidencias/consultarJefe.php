@@ -85,7 +85,7 @@ foreach ($rows as $row) { ?>
 				<td width="20%"><?php echo $row2['dniUsu']; ?></td>
 				<td width="20%"><?php if($row2['nIteracion']=1) echo "Abierta"; else echo "Cerrada" ?></td>
 				<td width="20%">
-					<input type="button" value="Consulta" onclick="window.location.href='../../Controller/iteracionesController.php?accion=Consulta&idIncid=<?php echo $row2[0] ?>&nIteracion=<?php echo $row2[1] ?>'"/>
+					<input type="button" value="Consulta" onclick="window.location.href='../../Controller/iteracionesController.php?accion=consultaIteracion&idIncid=<?php echo $row2[0] ?>&nIteracion=<?php echo $row2[1] ?>'"/>
 				</td>
 			</tr>
 			<?php } ?>

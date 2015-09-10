@@ -1,11 +1,13 @@
 <?php
 	require_once $_SESSION['cribPath'].'Model/iteracion.php';
 	require_once $_SESSION['cribPath'].'Controller/bdController.php';
+	require_once $_SESSION['cribPath'].'Controller/generalController.php';
 	require_once $_SESSION['cribPath'].'Model/incidencia.php';
 
 	if(isset($_GET['accion'])){	$accion = $_GET['accion']; }
 	if(isset($_POST['accion'])){ $accion = $_POST['accion']; }
 
+if(isset($accion)){
 	switch ($accion) {
 		case 'altaIteracion':
 			altaIteracion();
@@ -33,28 +35,34 @@
 			siguienteIteracion();
 			break;
 	}
+}else{
+	echo "AQUI, ACCION SIN VALOR";
+}
 
 	function altaIteracion(){
 		//session_start();
 
-		$iteracion2 = new Iteracion();
-		$id = $iteracion2->nextId();
+		$iteracion2 = new Iteracion("","","","","","","","","");
+		$id = mysql_fetch_row($iteracion2->nextId());
+		$id[0]++;
+		//$id = NULL;
 		$idI = $_POST["idIncid"];
+		$idMaquina = $_POST["idMaq"];
 
-		$iteracion = new Iteracion($idI, $id, $_POST["fechaIter"], $_POST["hInicio"], $_POST["hFin"],
+		$iteracion = new Iteracion($idI,"", $_POST["fechaIter"], $_POST["hInicio"], $_POST["hFin"],
 										$_POST["estadoItera"],  $_POST["descripIter"], $_POST["costeIter"], $_SESSION['dni']);
 		$iteracion->alta();
-
+		//echo $id[0];
 		# Subida de archivo Incompleta
 		if(empty($_FILES['docIteracion'])){
-			anadirMensaje("|WARNING| Iteracion: ".$id." creada sin documentacion","warning");
+			anadirMensaje("|WARNING| Iteracion: ".$id[0]." creada sin documentacion","warning");
 		}else{
-			list($guardado,$path,$nombreArchivo) = subirArchivo("",$idI,$id,"iteracion");
+			list($guardado,$path,$nombreArchivo) = subirArchivo($idMaquina,$idI,$id[0],"iteracion");
 			if($guardado==1){
-				$iteracion->setPathImage($idI,$id,$path,$nombreArchivo);
-				anadirMensaje("|SUCCESS| Iteracion: ".$id." creada con documentacion","success");
+				$iteracion->setPathImage($idI,$id[0],$path,$nombreArchivo);
+				anadirMensaje("|SUCCESS| Iteracion: ".$id[0]." creada con documentacion","success");
 			}else{
-			anadirMensaje("|WARNING| Iteracion: ".$id." creada sin documentacion","warning");
+			anadirMensaje("|WARNING| Iteracion: ".$id[0]." creada sin documentacion ERROR INTERNO","warning");
 			}
 		}
 
@@ -79,7 +87,7 @@
 		$_SESSION["consultaIteracion"] = $consulta;
 
 		$consulta = array();
-		$documentoIteracion = $iteracion->getPathImage();
+		$documentoIteracion = $iteracion->getPathImage($idIncid,$nIteracion);
 		while($row = mysql_fetch_array($documentoIteracion)){
 			array_push($consulta, $row);
 		}

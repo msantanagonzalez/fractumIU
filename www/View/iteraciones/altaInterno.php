@@ -2,14 +2,16 @@
 	$userType="interno";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 	$idIncid=$_REQUEST['idIncidencia'];
+	$idMaq=$_GET['idMaq'];
 ?>
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
 <h1 id="headerInterno"><a><?= i18n("- NUEVA ITERACION DE EMPLEADO INTERNO -") ?></a></h1>
 <br>
-<form name='FormAltaIteracion' onsubmit= "return comprobarAltaIteracion()" action='../../Controller/iteracionesController.php' method='POST'>
+<form name='FormAltaIteracion' onsubmit= "return comprobarAltaIteracion()" action='../../Controller/iteracionesController.php' method='POST' enctype='multipart/form-data'>
 	<input type="hidden" class="text" name="idIncid" value='<?php echo $idIncid; ?>'>
 	<input type="hidden" class="text" name="nIteracion" value="NULL"/>
 	<input type='hidden' class="text" name='estadoItera' value='1'>
+	<input type='hidden' class="text" name='idMaq' value='<?php echo $idMaq; ?>'>
 
 
 	<div style='height:350px;width:auto;overflow-y: scroll;'>

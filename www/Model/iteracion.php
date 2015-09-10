@@ -111,7 +111,7 @@
 			mysql_query($sql) or die(mysql_error());
 		}
 
-		public function getPathImage(){
+		public function getPathImage($idIncid,$nIteracion){
 			$sql = "SELECT * FROM DOCITERACION WHERE idIncid = '$idIncid' AND nIteracion = '$nIteracion'";
 			$resultado = mysql_query($sql) or die(mysql_error());
 			return $resultado;
