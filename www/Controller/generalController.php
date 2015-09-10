@@ -39,7 +39,10 @@ function subirArchivo($idMaquina,$idIncidencia,$idIteracion,$tipo){
 		break;
 		case "iteracion":
 			//$dir= "../Resources/documents/".$idMaquina."/".$idIncidencia."/".$idIteracion."/";
-			subirIteracion();
+			//subirIteracion();
+			echo "Aqui se para";
+			//list($guardado,$path,$nombreArchivo) = subirIteracion($idIncidencia,$idIteracion,$ext_permitidas,$limite);
+			//return array($guardado,$path,$nombreArchivo);
 		break;
 	}
 }
@@ -59,6 +62,7 @@ function subirMaquina($idMaquina,$ext_permitidas,$limite){
 			  if(file_exists($dir.$nombre)){
 				anadirMensaje("|ERROR| Ya hay un archivo con ese nombre: ".$nombre."|".$tipo."|".$tamano."Mb" ,"danger");
 			  }else{
+				mkdir($dir);
 				move_uploaded_file($nombre_tmp,$path);
 				anadirMensaje("|INFO| Archivo: ".$nombre."|".$tipo."|".$tamano."Mb - Guardado" ,"info");
 				return array(1,$path,$nombre);
@@ -68,8 +72,27 @@ function subirMaquina($idMaquina,$ext_permitidas,$limite){
 		}
 	}
 
-	function subirIteracion(){
-		echo "implementar subida documentacion en iteracion";
+	function subirIteracion($idIncidencia,$idIteracion,$ext_permitidas,$limite){
+		$dir= "../Resources/documents/".$idMaquina."/Incid".$idIncidencia."/Itera".$idIteracion."/";
+		$nombre = $_FILES['docIteracion']['name'];
+		$path= $dir.$nombre;
+		$nombre_tmp = $_FILES['docMaquina']['tmp_name'];
+		$partes_nombre = explode('.', $nombre);
+		$extension = end( $partes_nombre );
+		$ext_correcta = in_array($extension, $ext_permitidas);
+
+		if($ext_correcta && $tamano <= $limite ){
+			if(file_exists($dir.$nombre)){
+			anadirMensaje("|ERROR| Ya hay un archivo con ese nombre: ".$nombre."|" ,"danger");
+			}else{
+			mkdir($dir);
+			move_uploaded_file($nombre_tmp,$path);
+			anadirMensaje("|INFO| Archivo: ".$nombre." - Guardado" ,"info");
+			return array(1,$path,$nombre);
+			}
+		}else{
+			anadirMensaje("|ERROR|Error al subir archivo: ".$nombre."|" ,"danger");
+		}
 	}
 
 	function eliminarDir($carpeta)

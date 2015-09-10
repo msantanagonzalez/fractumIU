@@ -11,7 +11,7 @@
 		private $costeIter;
 		private $dniUsu;
 
-		public function __construct($idIncid = NULL, $nIteracion = NULL, $fechaIter = NULL, $hInicio = NULL, $hFin = NULL, 
+		public function __construct($idIncid = NULL, $nIteracion = NULL, $fechaIter = NULL, $hInicio = NULL, $hFin = NULL,
 									$estadoItera = NULL, $descripIter = NULL, $costeIter = NULL, $dniUsu = NULL){
 			$this->idIncid = $idIncid;
 			$this->nIteracion = $nIteracion;
@@ -23,15 +23,15 @@
 			$this->costeIter = $costeIter;
 			$this->dniUsu = $dniUsu;
 		}
-		
+
 		public function setEstado($estadoItera){
-			
+
 			$this->estadoItera = $estadoItera;
-					
-		} 
+
+		}
 
 		public function alta(){
-			mysql_query("INSERT INTO ITERACION(idIncid, nIteracion, fechaIter, hInicio, hFin, estadoItera, descripIter, costeIter, dniUsu) 
+			mysql_query("INSERT INTO ITERACION(idIncid, nIteracion, fechaIter, hInicio, hFin, estadoItera, descripIter, costeIter, dniUsu)
 						VALUES ('$this->idIncid','$this->nIteracion','$this->fechaIter','$this->hInicio','$this->hFin','$this->estadoItera',
 							'$this->descripIter','$this->costeIter','$this->dniUsu')") or die(mysql_error());
 		}
@@ -43,10 +43,10 @@
 		}
 
 		public function modificacion(){
-			mysql_query("UPDATE ITERACION SET hFin = '$this->hFin', descripIter = '$this->descripIter', 
+			mysql_query("UPDATE ITERACION SET hFin = '$this->hFin', descripIter = '$this->descripIter',
 				costeIter = '$this->costeIter' WHERE idIncid = '$this->idIncid' AND nIteracion = '$this->nIteracion'") or die(mysql_error());
 		}
-		
+
 		public function modEstado(){
 			mysql_query("UPDATE ITERACION SET estadoItera = '$this->estadoItera' WHERE idIncid = '$this->idIncid' AND nIteracion = '$this->nIteracion'") or die(mysql_error());
 		}
@@ -104,6 +104,17 @@
 			} else {
 				return true;
 			}
+		}
+
+		public function setPathImage($idI,$id,$path,$nombreArchivo){
+			$sql = "INSERT INTO DOCITERACION(idIncid,nIteracion,urlDocItr,nDocIter)VALUES('$idI','$id','$path','$nombreArchivo')";
+			mysql_query($sql) or die(mysql_error());
+		}
+
+		public function getPathImage(){
+			$sql = "SELECT * FROM DOCITERACION WHERE idIncid = '$idIncid' AND nIteracion = '$nIteracion'";
+			$resultado = mysql_query($sql) or die(mysql_error());
+			return $resultado;
 		}
 
 	}

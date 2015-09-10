@@ -85,7 +85,7 @@ foreach ($rows as $row) { ?>
 				<td width="30%"><?php echo $row2['dniUsu']; ?></td>
 				<td width="10%"><?php echo $row2['costeIter']; ?></td>
 				<td width="20%"><?php if($row2['estadoItera']==1){echo 'Abierta' ;}else{ echo 'Cerrada';}  ?></td>
-				<td width="5%"><img src="../../Recursos/images/PDF.png"></td>
+				<td width="5%"><img src="../../Resources/images/PDF.png"></td>
 				<td width="10%"><a href="../../Controller/iteracionesController.php?accion=consultaIteracion&idIncid=<?php echo $row2['idIncid'] ?>&nIteracion=<?php echo $row2['nIteracion'] ?>"><input type="button" value="Consultar"></td>
 			</tr>
 				<?php } ?>

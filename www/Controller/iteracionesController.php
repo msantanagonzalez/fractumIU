@@ -44,7 +44,20 @@
 		$iteracion = new Iteracion($idI, $id, $_POST["fechaIter"], $_POST["hInicio"], $_POST["hFin"],
 										$_POST["estadoItera"],  $_POST["descripIter"], $_POST["costeIter"], $_SESSION['dni']);
 		$iteracion->alta();
-		
+
+		# Subida de archivo Incompleta
+		if(empty($_FILES['docIteracion'])){
+			anadirMensaje("|WARNING| Iteracion: ".$id." creada sin documentacion","warning");
+		}else{
+			list($guardado,$path,$nombreArchivo) = subirArchivo("",$idI,$id,"iteracion");
+			if($guardado==1){
+				$iteracion->setPathImage($idI,$id,$path,$nombreArchivo);
+				anadirMensaje("|SUCCESS| Iteracion: ".$id." creada con documentacion","success");
+			}else{
+			anadirMensaje("|WARNING| Iteracion: ".$id." creada sin documentacion","warning");
+			}
+		}
+
 		modEstadoIncidencia();
 		listaIteracion();
 	}
@@ -64,6 +77,14 @@
 		}
 
 		$_SESSION["consultaIteracion"] = $consulta;
+
+		$consulta = array();
+		$documentoIteracion = $iteracion->getPathImage();
+		while($row = mysql_fetch_array($documentoIteracion)){
+			array_push($consulta, $row);
+		}
+
+		$_SESSION["documentoIteracion"] = $consulta;
 
 		switch ($_SESSION['tipo']) {
 			case 'J':
@@ -133,15 +154,15 @@
 		$iteracion->modEstado();
 		$iteracion->modificacion();
 
-		header("location: iteracionesController.php?accion=Consulta&idIncid=$idIncid&nIteracion=$nIteracion");
+		header("location: iteracionesController.php?accion=ConsultaIteracion&idIncid=$idIncid&nIteracion=$nIteracion");
 	}
-	
+
 	function modEstadoIncidencia(){
-		
+
 		$idIncid = $_POST['idIncid'];
 		$incidencia = new Incidencia("", "", "", "", "", "", "", "", "", "");
 		$incidencia->cambiarEstado($idIncid,'En Curso');
-		
+
 	}
 
 	function listaIteracion(){
@@ -156,7 +177,7 @@
 		}
 
 		$_SESSION["listaIteraciones"] = $lista;
-		
+
 
 		$incidencia = new Incidencia();
 
