@@ -24,12 +24,16 @@
 			<td width="17%"><?php echo $row['dniResponsable'];?></td>
 			<td width="17%"><?php echo $row['idMaq'];?></td>
 			<td width="17%"><?php echo $row['fAper']; ?></td>
-			<?php if($row['estadoIncid'] == 'Derivada'){ ?>
-			<td width="17%">ABIERTA</td>
-			<?php } else { ?>
-			<td width="17%">CERRADA</td>
-			<?php } ?>
-			<td width="17%"><button><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>">Consultar</a></button></td>
+			<?php if ($row['estadoIncid'] == "Derivada") { ?>
+          		<td width="17%">Abierta</td>
+          <?php } else if($row['estadoIncid'] == "En Curso Externo") { ?>
+	          	<td width="17%">En Curso</td>
+          <?php } else { ?>
+              <td width="17%">Realizada</td>
+          <?php } ?> 
+			<td width="10%">
+ 				<input type="button"  value="Consulta" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>'"/>
+ 		 	</td>
 		</tr>
 		<?php } ?>
 	</table>

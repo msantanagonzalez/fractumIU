@@ -3,63 +3,80 @@
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 ?>
 
-<h1 id="headerExterno"><a><?= i18n("- SERVICIOS -") ?></a></h1> <!--SECCIÓN-->
+<h1 id="headerExterno"><a><?= i18n("- MAQUINAS -") ?></a></h1> <!--SECCIÓN-->
 <table class="default"><!--TABLA-->
 	<tr>
-		<th width="10%"><?= i18n("ID") ?></th>
-		<th width="40%"><?= i18n("Nombre:") ?></th>
-	    <th width="0%"><?= i18n("") ?></th> <!-- Mantenimiento todas en la lista de servicio tienen, asi que este campo no necesario --> 
-	    <th width="35%"><?= i18n("Últ. Incidencia") ?></th>
+		<th width="5%"><?= i18n("ID") ?></th>
+		<th width="10%"><?= i18n("Nombre:") ?></th>
+	    <th width="10%"><?= i18n("Servicio") ?></th>
+	    <th width="10%"><?= i18n("Nº serie") ?></th>
 		<th width="15%"> </th>
 	</tr>
 </table>
 <div style="height:350px;width:auto;overflow-y: scroll;"><!--ESTO DA LUGAR AL SCROLL-->
 
 	<table class="default"><!--TABLA-->
-		<?php 
-			$rows2 = $_SESSION['listaMaquina1'];
-			foreach ($rows2 as $row) {
-		?>
-		<form method="POST" action="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>">
+		<?php
 
-		<tr>
-			<td width="10%"><?php echo $row['idMaq']; ?></th>
-			<td width="40%"><?php echo $row['nomMaq']; ?></td>
-		    <td width="0%"></td>
-		    <td width="35%"><?php echo $row['fAper'];?></td>
-			<td width="20%"><a href="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>"><button >Consultar</button></a></td>
-		</tr>
-		<?php } ?>
-	</table>
-</div>
+        if(isset($_SESSION['listaMaquina1']) | isset($_SESSION['listaMaquina2'])){
+          $rows2 = $_SESSION['listaMaquina1'];
+          $rows = $_SESSION['listaMaquina2'];
+        }
+        if (empty($rows2) & empty($rows)) {
+        ?>
+          <div class="alert alert-warning" role="alert">
+          <?= i18n("| INFO |- No hay maquinas para listar") ?>
+          </div>
+        <?php
+        }
+        else{
+      foreach ($rows2 as $row) {
+    ?>
+    <form method="POST" action="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>">
 
-<h1 id="headerExterno"><a><?= i18n("- INCIDENCIAS-") ?></a></h1> <!--SECCIÓN-->
+    <tr>
+      <td width="10%"><?php echo $row['idMaq']; ?></th>
+      <td width="25%"><?php echo $row['nomMaq']; ?></td>
+      <td width="25%">Si</td>
+      <td width="25%"><?php echo $row['nSerie']; ?></td>
+      <td width="10%">
+ 				<input type="button"  value="Consulta" onclick="window.location.href='../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>'"/>
+ 		</td>
+    </tr>
+    <?php } ?>
+    </form>
+  </table>
+
 <table class="default"><!--TABLA-->
 	<tr>
-		<th width="10%"><?= i18n("ID") ?></th>
-		<th width="25%"><?= i18n("Nombre:") ?></th>
-	    <th width="25%"><?= i18n("Mantenimiento") ?></th>
-	    <th width="25%"><?= i18n("Últ. Incidencia") ?></th>
+		<th width="5%"><?= i18n("ID") ?></th>
+		<th width="10%"><?= i18n("Nombre:") ?></th>
+	    <th width="10%"><?= i18n("Servicio") ?></th>
+	    <th width="10%"><?= i18n("Ultima Incidencia") ?></th>
+	    <th width="10%"><?= i18n("Nº serie") ?></th>
 		<th width="15%"> </th>
 	</tr>
 </table>
-<div style="height:350px;width:auto;overflow-y: scroll;"><!--ESTO DA LUGAR AL SCROLL-->
+    <table class="default"><!--TABLA-->
+    <?php
 
-	<table class="default"><!--TABLA-->
-		<?php 
-			$rows = $_SESSION['listaMaquina2'];
-			foreach ($rows as $row1) {
-		?>
-		<form method="POST" action="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row1['idMaq'];?>">
+      foreach ($rows as $row1) {
+    ?>
+    <form method="POST" action="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row1['idMaq'];?>">
 
-		<tr>
-			<td width="10%"><?php echo $row1['idMaq']; ?></th>
-			<td width="25%"><?php echo $row1['nomMaq']; ?></td>
-		    <td width="25%">No</td>
-		    <td width="25%"><?php echo $row1['fAper'];?></td>
-			<td width="20%"><a href="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row1['idMaq'];?>"><button >Consultar</button></a></td>
-		</tr>
-		<?php } ?>
+    <tr>
+      	<td width="10%"><?php echo $row1['idMaq']; ?></th>
+      	<td width="25%"><?php echo $row1['nomMaq']; ?></td>
+        <td width="25%">No</td>
+        <td width="25%"><?php echo $row1['fAper'];?></td>
+        <td width="25%"><?php echo $row1['nSerie'];?></td>
+    	<td width="10%">
+ 				<input type="button"  value="Consulta" onclick="window.location.href='../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>'"/>
+ 		</td> 
+ 	</tr>
+    <?php }
+    } ?>
+    </form>
 	</table>
 </div>
 <?php

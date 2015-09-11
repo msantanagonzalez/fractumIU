@@ -41,10 +41,10 @@
 		</tr>
 		<?php } ?>
 		<tr>
-		</tr>
+		<!-- </tr>
 			<td colspan="4"><input type="submit" name="accion" value="Trabajar"></td>
 			<input type="hidden" name="idServ" value="<?php echo $row['idServ']; ?>" />
-		</tr>
+		</tr> -->
 	</table>
 </form>
 

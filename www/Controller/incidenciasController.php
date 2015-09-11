@@ -128,24 +128,70 @@ if(isset($accion)){
 
 	function modificado(){
 		//session_start();
-		if($_POST['estadoIncidencia']=='Derivada'){
-			$derivada = 1;
-		} else $derivada = 0;
+		switch ($_SESSION['tipo']) {
+			case 'J':
+				if($_POST['estadoIncidencia']=='Derivada'){
+					$derivada = 1;
+				} else $derivada = 0;
 
-		$idIncidencia = $_POST['idIncidencia'];
-		$dniApertura = $_POST['dniApertura'];
-		$dniResponsable = $_POST['dniResponsable'];
-		$fechaApertura = $_POST['fechaApertura'];
-		$fechaCierre = $_POST['fechaCierre'];
-		$estadoIncidencia = $_POST['estadoIncidencia'];
-		$idMaquina = $_POST['idMaquina'];
-		$descripcion = $_POST['descripcion'];
-		$cifEmpr = $_POST['cifEmpr'];
+				$idIncidencia = $_POST['idIncidencia'];
+				$dniApertura = $_POST['dniApertura'];
+				$dniResponsable = $_POST['dniResponsable'];
+				$fechaApertura = $_POST['fechaApertura'];
+				$fechaCierre = $_POST['fechaCierre'];
+				$estadoIncidencia = $_POST['estadoIncidencia'];
+				$idMaquina = $_POST['idMaquina'];
+				$descripcion = $_POST['descripcion'];
+				$cifEmpr = $_POST['cifEmpr'];
 
-		$incidencia = new Incidencia($idIncidencia, $fechaApertura, $fechaCierre, $dniResponsable, $dniApertura, $idMaquina, $estadoIncidencia, $derivada, $descripcion,$cifEmpr);
+				$incidencia = new Incidencia($idIncidencia, $fechaApertura, $fechaCierre, $dniResponsable, $dniApertura, $idMaquina, $estadoIncidencia, $derivada, $descripcion,$cifEmpr);
 
-		$incidencia->modificacion($idIncidencia);
-		header("location: incidenciasController.php?accion=Consulta&idIncidencia=$idIncidencia");
+				$incidencia->modificacion($idIncidencia);
+				header("location: incidenciasController.php?accion=Consulta&idIncidencia=$idIncidencia");
+				break;
+			case 'I':
+				if($_POST['estadoIncidencia']=='Derivada'){
+					$derivada = 1;
+				} else $derivada = 0;
+
+				$idIncidencia = $_POST['idIncidencia'];
+				$dniApertura = $_POST['dniApertura'];
+				$dniResponsable = $_POST['dniResponsable'];
+				$fechaApertura = $_POST['fechaApertura'];
+				$fechaCierre = $_POST['fechaCierre'];
+				$estadoIncidencia = $_POST['estadoIncidencia'];
+				$idMaquina = $_POST['idMaquina'];
+				$descripcion = $_POST['descripcion'];
+				$cifEmpr = $_POST['cifEmpr'];
+
+				$incidencia = new Incidencia($idIncidencia, $fechaApertura, $fechaCierre, $dniResponsable, $dniApertura, $idMaquina, $estadoIncidencia, $derivada, $descripcion,$cifEmpr);
+
+				$incidencia->modificacion($idIncidencia);
+				header("location: incidenciasController.php?accion=Consulta&idIncidencia=$idIncidencia");
+				break;
+			case 'E':
+				if($_POST['estadoIncidencia']=='Pendiente Cierre'){
+					$derivada = 0;
+				} else $derivada = 1;
+
+				$idIncidencia = $_POST['idIncidencia'];
+				$dniApertura = $_POST['dniApertura'];
+				$dniResponsable = $_POST['dniResponsable'];
+				$fechaApertura = $_POST['fechaApertura'];
+				$fechaCierre = $_POST['fechaCierre'];
+				$estadoIncidencia = $_POST['estadoIncidencia'];
+				$idMaquina = $_POST['idMaquina'];
+				$descripcion = $_POST['descripcion'];
+				$cifEmpr = $_POST['cifEmpr'];
+
+				$incidencia = new Incidencia($idIncidencia, $fechaApertura, $fechaCierre, $dniResponsable, $dniApertura, $idMaquina, $estadoIncidencia, $derivada, $descripcion,$cifEmpr);
+
+				$incidencia->modificacion($idIncidencia);
+				header("location: incidenciasController.php?accion=Consulta&idIncidencia=$idIncidencia");
+				break;
+			default:
+				break;
+			}
 	}
 
 	function pendientesInterno(){

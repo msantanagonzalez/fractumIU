@@ -39,8 +39,16 @@
           <td width="17%">[----------]</td>
           <td width="17%"><?php echo $row['dniResponsable'];?></a></td> <!-- Falta linkar al perfil del usuario. -->
           <td width="17%"><?php echo $row['fAper']; ?></td>
-          <td width="17%"><?php echo $row['estadoIncid']; ?></td>
-          <td width="17%"><button><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>">Consultar</a></button></td>
+          <?php if ($row['estadoIncid'] == "Derivada") { ?>
+          		<td width="17%">Abierta</td>
+          <?php } else if($row['estadoIncid'] == "En Curso Externo") { ?>
+	          	<td width="17%">En Curso</td>
+          <?php } else { ?>
+              <td width="17%">Realizada</td>
+          <?php } ?> 
+         <td width="10%">
+ 				   <input type="button"  value="Consulta" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>'"/>
+ 		     </td>
         </tr>
         <?php
         }
@@ -83,9 +91,9 @@
     <tr>
       <td width="10%"><?php echo $row['idMaq']; ?></th>
       <td width="25%"><?php echo $row['nomMaq']; ?></td>
-        <td width="25%">No</td> <!-- Dentro de este foreach no tiene mantenimiento ninguna -->
-        <td width="25%"><?php echo $row['fAper'];?></td>
-      <td width="20%"><a href="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>"><button >Consultar</button></a></td>
+      <td width="10%">
+ 				<input type="button"  value="Consulta" onclick="window.location.href='../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>'"/>
+ 		</td>
     </tr>
     <?php } ?>
     </form>
@@ -104,8 +112,9 @@
       <td width="25%"><?php echo $row1['nomMaq']; ?></td>
         <td width="25%">Si</td> <!-- Dentro de este foreach tienen mantenimiento todas -->
         <td width="25%"><?php echo $row1['fAper'];?></td>
-      <td width="20%"><a href="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row1['idMaq'];?>"><button >Consultar</button></a></td>
-    </tr>
+    <td width="10%">
+ 				<input type="button"  value="Consulta" onclick="window.location.href='../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>'"/>
+ 		</td> </tr>
     <?php }
     } ?>
     </form>

@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `incidencia` (
   `dniResponsable` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
   `dniApertura` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
   `idMaq` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
-  `estadoIncid` enum('Abierta','En Curso','Cerrada','Programada','Pendiente Derivar','Derivada','Pendiente Cierre','Cerrada') COLLATE latin1_spanish_ci NOT NULL,
+  `estadoIncid` enum('Abierta','En Curso','Cerrada','Programada','Pendiente Derivar','Derivada','Pendiente Cierre','Cerrada','En Curso Externo') COLLATE latin1_spanish_ci NOT NULL,
   `derivada` tinyint(1) NOT NULL,
   `descripIncid` varchar(150) COLLATE latin1_spanish_ci NOT NULL,
   `cifEmpr` varchar(9) COLLATE latin1_spanish_ci DEFAULT NULL,

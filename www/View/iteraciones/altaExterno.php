@@ -12,7 +12,7 @@
 		<table class='default'>
 			<tr>
 				<td><?= i18n("ID Incidencia:") ?></td>
-				<td><input id="idIncid" type='text'  value='<?php echo $idIncid; ?>' disabled > </td>
+				<td><input id="idIncid" type='text'  value='<?php echo $idIncid ?>' disabled ></td>
 				<td><?= i18n("Número Iteración:") ?></td>
 				<td><input id="nIteracion" type='text' value='<?php echo $nIteracion; ?>' disabled ></td>
 			</tr>

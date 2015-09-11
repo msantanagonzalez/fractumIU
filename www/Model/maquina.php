@@ -65,26 +65,31 @@ class Maquina {
 		return $sql;
 	}
 
+
 	public function listaMaquinasOpEservicio(){
-		$sql = mysql_query("SELECT DISTINCT I.idMaq, M.nomMaq, I.fAper
-			FROM OPEXTERNO O
-			INNER JOIN INCIDENCIA I ON O.cifEmpr = I.cifEmpr
-			INNER JOIN MAQUINA M ON I.idMaq = M.idMaq
-			INNER JOIN SERVICIO S ON S.idMaq = M.idMaq
-			WHERE O.dniUsu = '".$_SESSION['dni']."'");
+		$sql = mysql_query("SELECT DISTINCT M.*
+		FROM OPEXTERNO O
+		INNER JOIN EMPRESA E ON O.cifEmpr = E.cifEmpr
+		INNER JOIN SERVICIO S ON O.cifEmpr = S.cifEmpr
+		INNER JOIN MAQUINA M ON S.idMaq = M.idMaq
+		WHERE O.dniUsu = '".$_SESSION['dni']."'");
 		return $sql;
 	}
 
 	public function listaMaquinasOpEIncidencia(){
 		$sql = mysql_query(
-			"SELECT DISTINCT M.*, I.fAper
-			FROM OPEXTERNO O LEFT JOIN INCIDENCIA I
-			ON O.cifEmpr = I.cifEmpr RIGHT JOIN MAQUINA M
-			ON I.idMaq = M.idMaq WHERE O.dniUsu = '".$_SESSION['dni']."'");
+			"SELECT DISTINCT M . * , I.fAper
+			FROM OPEXTERNO O
+			INNER JOIN INCIDENCIA I ON O.cifEmpr = I.cifEmpr
+			INNER JOIN MAQUINA M ON I.idMaq = M.idMaq
+			INNER JOIN SERVICIO S ON O.cifEmpr = S.cifEmpr
+			WHERE O.dniUsu ='".$_SESSION['dni']."'");
 
 		return $sql;
 	}
 
+
+	
 	public function borrar(){
 		$borrarMaquina = "DELETE FROM MAQUINA WHERE idMaq = '$this->idMaquina'";
 		$resultado = mysql_query($borrarMaquina) or die(mysql_error());
@@ -118,7 +123,7 @@ class Maquina {
 	}
 
 	public function listarServiciosAsociados($idMaquina){
-		$resultado = mysql_query("SELECT idServ, periodicidad, costeSer FROM servicio WHERE idMaq='$idMaquina'") or die(mysql_error());
+		$resultado = mysql_query("SELECT idServ, periodicidad, costeSer FROM SERVICIO WHERE idMaq='$idMaquina'") or die(mysql_error());
 		return $resultado;
 	}
 

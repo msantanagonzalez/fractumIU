@@ -25,9 +25,13 @@ foreach ($rows as $row) { ?>
 				<td><?= i18n("Estado:") ?></td>
 				<td>
 					<select name='estadoIncidencia' disabled>
-					<?php if($row['estadoIncid']== "Derivada") {?>
-						<option value='ABIERTA' selected>ABIERTA</option>
-					<?php } ?>
+					<?php if ($row['estadoIncid'] == "Derivada") { ?>
+			          		<option>Abierta</option> 
+			          <?php } else if($row['estadoIncid'] == "En Curso Externo") { ?>
+				          	<option>En Curso</option> 
+			          <?php } else { ?>
+			              <option>Realizada</option> 
+			          <?php } ?> 
 
 					</select>
 				</td>
@@ -47,6 +51,8 @@ foreach ($rows as $row) { ?>
 			<?php } ?>
 		</table>
 	</form>
+	<?php $rows2 = $_SESSION['listaIteraciones']; 
+	if (!empty($rows2)) { ?>
 	<h1 id="headerExterno"><a><?= i18n("- ITERACIONES -") ?></a></h1> <!--SECCIÓN-->
 	<table class="default"><!--TABLA-->
        	<tr>
@@ -60,7 +66,7 @@ foreach ($rows as $row) { ?>
    	<table class="default"><!--TABLA-->
 		<tr>
 			<?php
-				$rows2 = $_SESSION['listaIteraciones'];
+				
 				foreach ($rows2 as $row2) {
 			?>
 			<tr>
@@ -75,10 +81,17 @@ foreach ($rows as $row) { ?>
      	</tr>
    	</table>
 <table>
+<?php } ?>
 		<tr>
+		<?php if ($row['estadoIncid'] == "Derivada") { ?>
 		<td colspan="2"></td>
 			<td colspan="4"><a href="../../Controller/iteracionesController.php?accion=NEXTID&idIncid=<?php echo $row2['idIncid'] ?>"><input type="button" value="NUEVA ITERACION"></a></td>
 		</tr>
+		<?php  } elseif ($row['estadoIncid'] == "En Curso Externo") { ?>
+			<td colspan="2"></td>
+			<td colspan="4"><a href="../../Controller/incidenciasController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid'] ?>"><input type="button" value="MODIFICAR"></a></td>
+		</tr>
+		<?php } ?>
 	</table>
 </div>
 

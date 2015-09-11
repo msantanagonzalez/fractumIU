@@ -47,16 +47,28 @@
 	<table class="default">
 		<?php
 			$rows2 = $_SESSION['consultaIncidenciaMaquina'];
+			$alert = 0;
 	 		foreach ($rows2 as $row2) {
+	 			if($row2['estadoIncid'] =="En Curso Externo" ||$row2['estadoIncid'] =="Derivada"||$row2['estadoIncid'] =="Pendiente Cierre"){
+	 				$alert = 1;
 		?>
 		<tr>
 			<td width="20%"><?php echo $row2['idIncid']; ?></td>
 			<td width="20%"><?php echo $row2['dniResponsable']; ?></td>
 			<td width="20%"><?php echo $row2['dniApertura']; ?></td>
 			<td width="20%"><?php echo $row2['estadoIncid']; ?></td>
-			<td width="20%"><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row2['idIncid'];?>">Consultar</a></td>
+			<td width="10%">
+ 				   <input type="button"  value="Consulta" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row2['idIncid'];?>'"/>
+ 		     </td>
 		</tr>
-		<?php } ?>
+		<?php } 
+		} 	
+		if($alert == 0) { ?>
+          <div class="alert alert-warning" role="alert">
+          <?= i18n("| INFO |- No hay incidencias relativas a esta maquina") ?>
+          </div>
+        <?php
+		}?>
 	</table>
 </form>
 

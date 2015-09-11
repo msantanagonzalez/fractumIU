@@ -39,7 +39,9 @@
 					<td width="10%"><?php echo $row['periodicidad'];?></td> 
 					<td width="10%"><?php echo $row['costeSer'];?></td>
 					<td width="10%"><?php echo $row['cifEmpr'];?></td> 
-					<td width="10%"><button><a href="../../Controller/serviciosController.php?accion=Consulta&idServ=<?php echo $row['idServ']; ?>">Consultar</a></button></td>
+					<td width="10%">
+ 						<input type="button"  value="Consulta" onclick="window.location.href='../../Controller/serviciosController.php?accion=Consulta&idServ=<?php echo $row['idServ']; ?>'"/>
+ 					</td>
 				</tr>
 			</form>
 			<?php 
