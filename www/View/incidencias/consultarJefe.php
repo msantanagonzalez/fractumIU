@@ -9,6 +9,7 @@ foreach ($rows as $row) { ?>
 
 		<input type="hidden" class="text" name="idIncidencia" value="<?php echo $row['idIncid']; ?>"/>
 		<input type="hidden" class="text" name="derivada" value="<?php echo $row['derivada']; ?>"/>
+		<input type="hidden" class="text" name="cifEmpr" value="<?php echo $row['cifEmpr']; ?>"/>
 		<table class="default">
 
 			<tr>
@@ -27,7 +28,7 @@ foreach ($rows as $row) { ?>
 				<td><?= i18n("Estado:") ?></td>
 				<td><input type="text" class="text" disabled name="estadoIncidencia" value='<?php echo $row['estadoIncid']; ?>'/></td>
 				<td><?= i18n("Empresa:") ?></td>
-				<td><input type="text" class="text" disabled name="cifEmpr" value="<?php echo $row['cifEmpr']; ?>"/><td>
+				<td><input type="text" class="text" disabled name="cifEmpr" value="-"/><td>
 			</tr>
 			<tr>
 				<td><?= i18n("Máquina:") ?></td>

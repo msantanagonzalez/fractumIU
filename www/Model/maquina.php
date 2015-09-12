@@ -54,13 +54,13 @@ class Maquina {
 	}
 
 	public function listaJefe(){
-		$sql = mysql_query("SELECT m.idMaq, s.idServ, MAX(i.idIncid) FROM maquina m, servicio s, incidencia i WHERE i.idMaq = m.idMaq AND s.idMaq = m.idMaq GROUP BY idMaq
-		UNION
-		SELECT m.idMaq, s.idServ, NULL FROM maquina m, servicio s, incidencia i WHERE NOT EXISTS(SELECT * FROM incidencia i WHERE m.idMaq = i.idMaq ) AND s.idMaq = m.idMaq GROUP BY idMaq
-		UNION
-		SELECT m.idMaq, NULL, MAX(i.idIncid) FROM maquina m, servicio s, incidencia i WHERE NOT EXISTS(SELECT * FROM servicio s WHERE m.idMaq = s.idMaq) AND i.idMaq = m.idMaq GROUP BY idMaq
-		UNION
-		SELECT m.idMaq, NULL, NULL FROM maquina m, servicio s, incidencia i WHERE NOT EXISTS(SELECT * FROM incidencia i WHERE m.idMaq = i.idMaq) AND NOT EXISTS(SELECT * FROM servicio s WHERE m.idMaq = s.idMaq) GROUP BY idMaq;");
+		$sql = mysql_query(" SELECT m.idMaq, s.idServ, MAX(i.idIncid) AS idIncid, m.nomMaq FROM maquina m, servicio s, incidencia i WHERE i.idMaq = m.idMaq AND s.idMaq = m.idMaq GROUP BY idMaq
+		UNION -- SI SERV Y NO INCID
+		SELECT m.idMaq, s.idServ, NULL, m.nomMaq FROM maquina m, servicio s WHERE NOT EXISTS(SELECT idMaq FROM incidencia WHERE m.idMaq = idMaq) AND s.idMaq = m.idMaq GROUP BY idMaq
+		UNION -- NO SERV Y SI INCID
+		SELECT m.idMaq, NULL, MAX(i.idIncid) AS idIncid, m.nomMaq FROM maquina m, incidencia i WHERE NOT EXISTS(SELECT idMaq FROM servicio WHERE m.idMaq = idMaq) AND i.idMaq = m.idMaq GROUP BY idMaq
+		UNION -- NO SERV Y NO INCID
+		SELECT m.idMaq, NULL, NULL, m.nomMaq FROM maquina m WHERE NOT EXISTS(SELECT idMaq FROM incidencia WHERE m.idMaq = idMaq) AND NOT EXISTS(SELECT idMaq FROM servicio WHERE m.idMaq = idMaq) GROUP BY idMaq; ");
 
 		return $sql;
 	}
@@ -89,7 +89,7 @@ class Maquina {
 	}
 
 
-	
+
 	public function borrar(){
 		$borrarMaquina = "DELETE FROM MAQUINA WHERE idMaq = '$this->idMaquina'";
 		$resultado = mysql_query($borrarMaquina) or die(mysql_error());
