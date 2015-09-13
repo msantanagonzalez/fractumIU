@@ -100,7 +100,7 @@ class Maquina {
 
 		UNION -- SI SERV, NO INCID, NO DOC
 		SELECT m.idMaq, s.idServ, NULL, m.nomMaq, NULL, NULL
-		FROM maquina m, servicio s, docmaquina d
+		FROM maquina m, servicio s
 		WHERE NOT EXISTS(
 			SELECT idMaq
 			FROM incidencia
@@ -113,7 +113,7 @@ class Maquina {
 
 		UNION -- NO SERV, SI INCID, NO DOC
 		SELECT m.idMaq, NULL, MAX(i.idIncid) AS idIncid, m.nomMaq, NULL, NULL
-		FROM maquina m, incidencia i, docmaquina d
+		FROM maquina m, incidencia i
 		WHERE NOT EXISTS(
 			SELECT idMaq
 			FROM servicio
@@ -126,7 +126,7 @@ class Maquina {
 
 		UNION -- NO SERV, NO INCID, NO DOC
 		SELECT m.idMaq, NULL, NULL, m.nomMaq, NULL, NULL
-		FROM maquina m, docmaquina d
+		FROM maquina m
 		WHERE NOT EXISTS(
 			SELECT idMaq
 			FROM incidencia
