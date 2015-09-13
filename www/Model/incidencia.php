@@ -60,6 +60,11 @@
 			return $sql;
 		}
 
+		public function listaPendientesJefe(){
+			$sql = mysql_query("SELECT * FROM INCIDENCIA WHERE estadoIncid='Pendiente Derivar' OR estadoIncid='Programada'");
+			return $sql;
+		}
+
 		public function listaIncidenciasOpE(){
 			//session_start();
 			$sql = mysql_query("SELECT * FROM OPEXTERNO O RIGHT JOIN INCIDENCIA I ON O.cifEmpr = I.cifEmpr WHERE O.dniUsu = '".$_SESSION['dni']."' AND derivada = 1") ;

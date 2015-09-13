@@ -1,6 +1,7 @@
 <?php
 function navJefe()
 {
+require_once $_SESSION['cribPath'].'Controller/busquedaController.php';
 ?>
 <div id="sidebarJefe"> <!--BARRA LATERAL-->
 	<h1 id="logo"><a href="../usuarios/homeJefeJefe.php"><?= i18n("·Fractum!") ?></a></h1>
@@ -13,7 +14,7 @@ function navJefe()
                         	</a>
                      	</li>
                      	<li class='current'> <a href="../../Controller/incidenciasController.php?accion=Pendientes"><?= i18n("Pendientes:") ?>
-                        <!-- <span class="badge"> <?php echo $_SESSION['pendientes']; ?> </span> </a> </li> -->
+                        <span class="badge"> <?php echo $_SESSION['PendsJefe']; ?> </span> </a> </li>
 						          <li class="current"><a href="../../Controller/incidenciasController.php?accion=Listar"><?= i18n("Gestionar Incidencias") ?></a></li>
                       <li class="current"><a href="../../Controller/usuariosController.php?accion=gestionUsuarios"><?= i18n("Gestionar Usuarios") ?></a></li>
                       <li class="current"><a href="../../Controller/empresasController.php?accion=Listar"><?= i18n("Gestionar Empresas") ?></a></li>

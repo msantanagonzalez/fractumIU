@@ -2,7 +2,7 @@
 require_once $_SESSION['cribPath'].'Controller/bdController.php';
 require_once $_SESSION['cribPath'].'Controller/incidenciasController.php';
 require_once $_SESSION['cribPath'].'Model/buscador.php';
-pendientesInterno();
+pendientes();
 
 if(isset($_POST['buscar'])){	$action = $_POST['buscar']; }
 
@@ -20,7 +20,7 @@ if(isset($action)){
 		default:
 			echo "Opciones no válidas :(";
 			break;
-	}	
+	}
 }
 
 

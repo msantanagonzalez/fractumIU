@@ -24,12 +24,11 @@ if(isset($accion)){
 		case 'Listar':
 			lista();
 			break;
-		case 'Pendientes':
-			//pendientesInterno();
+		default:
 			break;
 	}
 }
-	
+
 
 	function alta(){
 		//session_start();
@@ -194,23 +193,34 @@ if(isset($accion)){
 			}
 	}
 
-	function pendientesInterno(){
-	
-		$dniUsu = $_SESSION['dni'];
-		$incidencia = new Incidencia();
-		$listaPend = $incidencia->listaPendientesInterno($dniUsu);
+	function pendientes(){
 		
+		$incidencia = new Incidencia();
+
+		switch ($_SESSION['tipo']){
+			case 'J':
+				$arrayPendientesJefe = array();
+				$listaPendJefe = $incidencia->listaPendientesJefe();
+				while($data = mysql_fetch_array($listaPendJefe)){array_push($arrayPendientesJefe, $data);}
+				$_SESSION['PendsJefe'] = mysql_num_rows($listaPendJefe);
+				$_SESSION['pendientesJefe'] = $arrayPendientesJefe;
+				break;
+			case 'I':
+				$dniUsu = $_SESSION['dni'];
 				$listaPendientes = array();
-				while($row = mysql_fetch_array($listaPend)){
-					array_push($listaPendientes, $row);
-				}
+				$listaPend = $incidencia->listaPendientesInterno($dniUsu);
+				while($row = mysql_fetch_array($listaPend)){array_push($listaPendientes, $row);}
 				$_SESSION['cantPendientes'] = mysql_num_rows($listaPend);
 				$_SESSION['pendientesInterno'] = $listaPendientes;
-				
-				//header("location: ../View/incidencias/pendientesInterno.php");
-				
+				break;
+			default:
+				break;
+			}
+
+		//header("location: ../View/incidencias/pendientesInterno.php");
+
 	}
-	
+
 	function lista(){
 		//session_start();
 		$responsables = new interno("", "", "", "", "");
@@ -255,38 +265,6 @@ if(isset($accion)){
 				$_SESSION["listaIncidencia1"] = $lista1;
 				header("location: ../View/incidencias/listarExterno.php");
 				break;
-			default:
-				break;
-		}
-	}
-
-	function pendientes(){
-		//session_start();
-
-		$tipo = $_SESSION['tipo'];
-
-		$incidencia = new Incidencia();
-		$listaIncidencias = $incidencia->pendientes($tipo);
-
-		$lista = array();
-		while($row = mysql_fetch_array($listaIncidencias)){
-			array_push($lista, $row);
-		}
-
-		$_SESSION["listaIncidencia"] = $lista;
-
-		switch ($_SESSION['tipo']) {
-			case 'J':
-				//session_write_close();
-				header("location: ../View/incidencias/pendientesJefe.php");
-				break;
-			case 'I':
-				header("location: ../View/incidencias/pendientesInterno.php");
-				//session_write_close();
-				break;
-			case 'E':
-				header("location: ../View/incidencias/pendientesExterno.php");
-				//session_write_close();
 			default:
 				break;
 		}
