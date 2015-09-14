@@ -39,7 +39,7 @@
 				<td>
 					<select required title="Debe seleccionar una maquina" name="idMaquina">
 						<option value="" selected>-</option>
-						<?php $rows = $_SESSION["listaMaquina"]; foreach ($rows as $row){ ?>
+						<?php $rows = $_SESSION["maqsJefe"]; foreach ($rows as $row){ ?>
 						<option value="<?php echo $row['idMaq'];?>"><?php echo $row['idMaq']." - ".$row['nomMaq'];?></option>
 						<?php } ?>
 					</select>
