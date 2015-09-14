@@ -52,6 +52,7 @@
 	</form>
 </div>
 <br>
+
 <h1 id="headerJefe"><a><i><?= i18n("MÁQUINAS") ?></i></a></h1>
 <table class="default">
 		<tr>
@@ -67,10 +68,8 @@
 <form method="POST" action="../../Controller/maquinasController.php">
 	<table class="default">
 		<?php
-            $incidencias = $_SESSION['listaIncidMaquina'];
-            $servicio = $_SESSION['listaServHome'];
-			if(isset($_SESSION['listaMaquina']))
-			$rows = $_SESSION['listaMaquina'];
+			if(isset($_SESSION['maqsJefe']))
+			$rows = $_SESSION['maqsJefe'];
 			if (empty($rows)) {
 			?>
 				<div class="alert alert-warning" role="alert">
@@ -95,10 +94,7 @@
 					 <td width="20%">
 	 				 <?php
 					 	if(isset($row[4])){ ?>
-	 					 <a href="../<?php echo $row[4];?>" target="_blank">
-	 						<img src="../../Resources/images/PDF.png">
-	 							<?php echo $row[5];?>
-	 						</a>
+	 					 <a href="../<?php echo $row[4];?>" target="_blank"> <img src="../../Resources/images/PDF.png"> </a>
 	 				 <?php } else echo "-" ?>
 	 				</td>
                      <td width="10%">
