@@ -19,7 +19,7 @@
 				
 			<tr>
 				<td><?= i18n("Fecha Apertura:") ?></td>
-				<td><input readonly="readonly" required title="Es necesario introducir una fecha de inicio" id="fechaCreacion" type='date' name='FechaCreacion' value='<?php echo date('Y/m/d');?>'></td>
+				<td><input readonly="readonly" required title="Es necesario introducir una fecha de inicio" id="fechaCreacion" type='date' name='FechaCreacion' value='<?php echo date('Y-m-d');?>'></td>
 				<td><?= i18n("Hora Inicio:") ?></td> 
 				<td><input readonly="readonly" id="horaInicio" type='time' class='text' value='<?php echo  date('h:i:s'); ?>'> </td>
 			<!--	<td>"Hora Fin:"</td>  -->
@@ -29,12 +29,12 @@
 				<td><?= i18n("Estado Iteración:") ?></td>
 			    <td><input id="estadoItera" type='text' ></td>
 				<td><?= i18n("Coste Trabajo:") ?></td>
-			    <td><input required title="por favor introduzca el coste de la operacion" id="coste" type='text' ></td>
+			    <td><input required title="Por favor introduzca el coste de la operacion" id="coste" type='text' ></td>
 			</tr>
 			<tr>
 				<td width="30%"><br><?= i18n("Descripción:") ?></td>
 				<td colspan='3' width="75%">
-				<textarea required title="por favor introduzca una breve descripcion" id="des" style="resize:none; text-align:left;" style="t" rows="4" name='descripcion'></textarea>
+				<textarea required title="Por favor introduzca una breve descripcion" id="des" style="resize:none; text-align:left;" style="t" rows="4" name='descripcion'></textarea>
 				</td>
 			</tr>
 			

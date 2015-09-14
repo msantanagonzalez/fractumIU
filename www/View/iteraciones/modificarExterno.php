@@ -20,7 +20,7 @@
 				<td width="25%"><?= i18n("Número Iteración:") ?> </td>
 				<td width="25%"><input type="text" class="text" disabled value="<?php echo $row['nIteracion']; ?>"/></td>
 				<td width="25%"><?= i18n("Coste:") ?> </td>
-				<td width="25%"><input id="coste" type="text" class="text" name="costeIter" value="<?php echo $row['costeIter']; ?>"/></td>
+				<td width="25%"><input required title="Por favor introduzca un coste" id="coste" type="text" class="text" name="costeIter" value="<?php echo $row['costeIter']; ?>"/></td>
 			</tr>
 			<tr>
 				<td width="25%"><?= i18n("Fecha Apertura:") ?> </td>
@@ -39,7 +39,7 @@
 			<tr>
 				<td width="25%"><br><?= i18n("Descripción:") ?></td>
 				<td colspan='3' width="75%">
-					<textarea id="des" style="resize:none; text-align:left;" style="t" rows="4" name="descripIter" ><?php echo $row['descripIter'];?></textarea>
+					<textarea required title="Por favor introduzca una breve descripción" id="des" style="resize:none; text-align:left;" style="t" rows="4" name="descripIter" ><?php echo $row['descripIter'];?></textarea>
 				</td>
 			</tr>
 		</table>

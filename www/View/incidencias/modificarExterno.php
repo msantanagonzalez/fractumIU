@@ -18,7 +18,7 @@ foreach ($rows as $row) { ?>
       </tr>
       <tr>
         <td width="25%"><?= i18n("Fecha Apertura:") ?></td>
-        <td width="25%"><input type="text" class="text" disabled name="fechaApertura" value="<?php echo $row['fAper']; ?>" /></td>
+        <td width="25%"><input readonly="readonly" type="text" class="text" disabled name="fechaApertura" value="<?php echo $row['fAper']; ?>" /></td>
         <td width="25%"><?= i18n("Fecha Cierre:") ?></td>
         <td width="25%"><input type="text" class="text" disabled name="fechaCierre" value="<?php echo $row['fCier']; ?>" /></td>
       </tr>

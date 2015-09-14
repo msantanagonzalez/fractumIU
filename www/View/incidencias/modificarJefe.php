@@ -35,7 +35,7 @@
 			</tr>
 			<tr>
 				<td width="25%"><?= i18n("Fecha Apertura:") ?></td>
-				<td width="25%"><input title="Debe insertar una fecha de Apertura" id="fechaApertura" type="date" class="text" name="fechaApertura" value="<?php echo $iData[0][1]; ?>" required/></td>
+				<td width="25%"><input readonly="readonly" title="Debe insertar una fecha de Apertura" id="fechaApertura" type="date" class="text" name="fechaApertura" value="<?php echo $iData[0][1]; ?>" required/></td>
 				<td width="25%"><?= i18n("Fecha Cierre:") ?></td>
 				<td width="25%"><input title="Debe insertar una fecha de cierre" id="fechaCierre" type="date" class="text" name="fechaCierre" value="<?php echo $iData[0][2]; ?>" required/></td>
 			</tr>

@@ -45,7 +45,7 @@
 		</tr>
 		<tr>
 			<td width="25%"><?= i18n("Fecha Apertura:") ?> </td>
-			<td width="25%"><input title="debe seleccionar una fecha de apertura" required id="fechaInicio" type="date" class="text" name="fInicioSer" value="" /></td>
+			<td width="25%"><input readonly="readonly" title="debe seleccionar una fecha de apertura" required id="fechaInicio" type="date" class="text" name="fInicioSer" value='<?php echo date('Y-m-d');?>' /></td>
 			<td width="25%"><?= i18n("Fecha Cierre:") ?> </td>
 			<td width="25%"> <input title="debe seleccionar una fecha de cierre" required type="date" class="text" name="fFinSer" value="" /></td>
 		</tr>

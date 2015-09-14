@@ -48,7 +48,7 @@
 
 					<?php if($row['estadoItera']==1){?>
 
-							<td width="25%"><input id="coste" type="text" class="text" name="costeIter" value="<?php echo $row['costeIter']; ?>"/></td>
+							<td width="25%"><input required title="Debe introducir un coste" id="coste" type="text" class="text" name="costeIter" value="<?php echo $row['costeIter']; ?>"/></td>
 
 							<?php
 								}
@@ -65,14 +65,14 @@
 				<td width="25%"><?= i18n("Hora Inicio:") ?> </td>
 				<td width="25%"><input type="time" class="text" name="horaInicio" disabled value="<?php echo $row['hInicio']; ?>" /></td>
 				<td width="25%"><?= i18n("Hora Fin:") ?></td>
-				<td width="25%"><input id="horaFin" type="time" class="text" name="hFin" disabled value="<?php echo $row['hFin']; ?>" /></td>
+				<td width="25%"><input id="horaFin" type="time" class="text" name="hFin" disabled value='<?php echo  date('h:i:s'); ?>' /></td>
 			</tr>
 			<br>
 			<tr>
 				<td width="25%"><br><?= i18n("Descripción:") ?></td>
 				<td colspan='5' width="75%">
 				<?php if($row['estadoItera']==1){?>
-						<textarea id="des" style="resize:none; text-align:left;" style="t" rows="5" name="descripIter" ><?php echo $row['descripIter'];?></textarea>
+						<textarea required title="Por favor introduzca una descripcion" id="des" style="resize:none; text-align:left;" style="t" rows="5" name="descripIter" ><?php echo $row['descripIter'];?></textarea>
 						<?php
 							}
 							else{
