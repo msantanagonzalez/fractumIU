@@ -53,8 +53,6 @@
 </div>
 <br>
 
-<?php var_dump($_SESSION['maqsJefe']); ?>
-
 <h1 id="headerJefe"><a><i><?= i18n("MÁQUINAS") ?></i></a></h1>
 <table class="default">
 		<tr>
@@ -96,10 +94,7 @@
 					 <td width="20%">
 	 				 <?php
 					 	if(isset($row[4])){ ?>
-	 					 <a href="../<?php echo $row[4];?>" target="_blank">
-	 						<img src="../../Resources/images/PDF.png">
-	 							<?php echo $row[5];?>
-	 						</a>
+	 					 <a href="../<?php echo $row[4];?>" target="_blank"> <img src="../../Resources/images/PDF.png"> </a>
 	 				 <?php } else echo "-" ?>
 	 				</td>
                      <td width="10%">
