@@ -2,7 +2,9 @@
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 ?>
 
-		<?php $rows = $_SESSION['consultaIncidencia']; ?>
+		<?php 	$rows = $_SESSION['consultaIncidencia'];
+				$ultimaIteracion = $_SESSION['estadoIteracion'];
+		?>
 	<?php foreach ($rows as $row) { ?>
 		<h1 id="headerInterno"><a><i><?= i18n("INCIDENCIA") ?> <?php echo $row['idIncid']; ?></i></a></h1>
 		<div>
@@ -32,9 +34,24 @@
 				<td>
 					<select name='estadoIncidencia'>
 						<option value='<?php echo $row['estadoIncid']; ?>' selected>-- <?php echo $row['estadoIncid']; ?> --</option>
-						<option value='Abierta'>Abierta</option>
+						<?php
+
+							if($row['estadoIncid']!='En Curso'){
+						?>
+						<<option value='Abierta'>Abierta</option>
+							<?php
+							}
+							?>
+
 						<option value='Pendiente'>Pendiente de Derivar</option>
+						<?php
+
+							if(($ultimaIteracion==false) OR ($ultimaIteracion[0][0]!=1)){
+						?>
 						<option value='Cerrada'>Cerrada</option>
+							<?php
+							}
+							?>
 					</select>
 				</td>
 				<td><?= i18n("Máquina:") ?></td>

@@ -8,6 +8,7 @@ foreach ($rows as $row) { ?>
 	<form method="POST" action="../../Controller/incidenciasController.php">
 		<?php
 		require_once $_SESSION['cribPath'].'View/crearMensaje.php';
+		
 		?>
 		<input type="hidden" class="text" name="idIncidencia" value="<?php echo $row['idIncid']; ?>"/>
 		<input type="hidden" class="text" name="derivada" value="<?php echo $row['derivada']; ?>"/>
@@ -78,8 +79,13 @@ foreach ($rows as $row) { ?>
 	<form method="POST" action="../../Controller/iteracionesController.php">
 		<table class="default"><!--TABLA-->
 			<?php
+			
+				$ultimaIteracion = $_SESSION['estadoIteracion'];
+					/*var_dump($ultimaIteracion);*/
 				$rows2 = $_SESSION['listaIteraciones'];
 				foreach ($rows2 as $row2) {
+					
+					
 			?>
 			<tr>
 				<td width="25%"><?php echo $row2['idIncid'];?></td>
@@ -97,10 +103,13 @@ foreach ($rows as $row) { ?>
 <table class="default">
 	<tr>
 			<?php
-
-			if(($row['estadoIncid']!='Cerrada')and ($row['estadoIncid']!='Derivada') AND ($row['estadoIncid']!='Pendiente Derivar')){?>
+			
+			if(($row['estadoIncid']!='Cerrada')AND ($row['estadoIncid']!='Derivada') AND ($row['estadoIncid']!='Pendiente Derivar')AND($ultimaIteracion [0][0]!= 1)){
+			?>
+				
 					<td colspan="4"><a href="../../View/iteraciones/altaInterno.php?accion=altaIteracion&idIncidencia=<?php echo $row['idIncid'] ?>&idMaq=<?php echo $row['idMaq']; ?>"><input type="button"  value="NUEVA ITERACION"/></a></td>
 			<?php
+				
 			}
 			?>
 	</tr>

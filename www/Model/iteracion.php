@@ -116,6 +116,16 @@
 			$resultado = mysql_query($sql) or die(mysql_error());
 			return $resultado;
 		}
+		
+		public function ultimaIteraIncid($idIncid){
+			$sql = mysql_query("SELECT estadoItera FROM iteracion WHERE idIncid = '$idIncid' ORDER BY nIteracion DESC ");
+			if(mysql_num_rows($sql)==0){
+				return false;
+			}else{
+				$estado = mysql_fetch_array($sql);	
+				return $estado;
+			}
+		}
 
 	}
 ?>

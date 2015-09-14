@@ -185,7 +185,19 @@ if(isset($accion)){
 		}
 
 		$_SESSION["listaIteraciones"] = $lista;
+/*---------------------------------------------------------------------------*/
+				$iteracion = new Iteracion("","","","","","","","","");
+				$estadoIteracion= $iteracion->ultimaIteraIncid($idIncid);
+				
+				/*
+				$ultItera = array();
+				while($row = mysql_fetch_array($estadoIteracion)){
+					array_push($ultItera, $row);
+				}
+				*/
+				$_SESSION["estadoIteracion"] = $estadoIteracion;
 
+/*-----------------------------------------------------------------------------*/
 
 		$incidencia = new Incidencia();
 
