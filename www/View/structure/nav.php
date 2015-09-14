@@ -4,7 +4,7 @@ function navJefe()
 require_once $_SESSION['cribPath'].'Controller/busquedaController.php';
 ?>
 <div id="sidebarJefe"> <!--BARRA LATERAL-->
-	<h1 id="logo"><a href="../../Controller/usuariosController.php?accion=nav"><?= i18n("·Fractum!") ?></a></h1>
+	<h1 id="logo"><a href="../usuarios/homeJefeJefe.php"><?= i18n("·Fractum!") ?></a></h1>
             <nav id="nav">
           		<ul>
             		<div align="center">
@@ -37,7 +37,7 @@ function navInterno()
 require_once $_SESSION['cribPath'].'Controller/busquedaController.php';
 ?>
 <div id="sidebarInterno"> <!--BARRA LATERAL-->
-			<h1 id='logo'><a href='../../Controller/usuariosController.php?accion=nav'><?= i18n("·Fractum!") ?></a></h1>
+			<h1 id='logo'><a href='../usuarios/homeInternoInterno.php'><?= i18n("·Fractum!") ?></a></h1>
                 <nav id='nav'>
               		<ul>
                 		<div align='center'>
@@ -72,7 +72,7 @@ function navExterno()
 {
 ?>
 <div id="sidebarExterno"> <!--BARRA LATERAL-->
-			<h1 id='logo'><a href='../../Controller/usuariosController.php?accion=nav'><?= i18n("·Fractum!") ?></a></h1>
+			<h1 id='logo'><a href='../usuarios/homeExternoExterno.php'><?= i18n("·Fractum!") ?></a></h1>
                 <nav id='nav'>
               		<ul>
                 		<div align='center'>

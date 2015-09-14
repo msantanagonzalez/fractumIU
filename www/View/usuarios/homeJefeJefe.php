@@ -52,9 +52,6 @@
 	</form>
 </div>
 <br>
-
-<?php var_dump($_SESSION['maqsJefe']); ?>
-
 <h1 id="headerJefe"><a><i><?= i18n("MÁQUINAS") ?></i></a></h1>
 <table class="default">
 		<tr>
@@ -70,8 +67,10 @@
 <form method="POST" action="../../Controller/maquinasController.php">
 	<table class="default">
 		<?php
-			if(isset($_SESSION['maqsJefe']))
-			$rows = $_SESSION['maqsJefe'];
+            $incidencias = $_SESSION['listaIncidMaquina'];
+            $servicio = $_SESSION['listaServHome'];
+			if(isset($_SESSION['listaMaquina']))
+			$rows = $_SESSION['listaMaquina'];
 			if (empty($rows)) {
 			?>
 				<div class="alert alert-warning" role="alert">

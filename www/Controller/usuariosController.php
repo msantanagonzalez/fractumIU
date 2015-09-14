@@ -453,11 +453,11 @@ switch ($action) {
 
 				$lista = array();
 				$listaMaquinas = $maquina->listaJefe();
-				while($row = mysql_fetch_array($listaMaquinas)){array_push($lista, $row);}
+				while($row = mysql_fetch_array($listaMaquinas)){ array_push($lista, $row); }
 
 
 				$_SESSION["listaServHome"] = $listaServHome;
-				$_SESSION["maqsJefe"] = $lista;
+				$_SESSION["listaMaquina"] = $lista;
 
 				//$servicio = new servicio(); CREAR SIEMPRE EL OBJETO CON LOS ARGUMENTOS DE LA CLASE,AUNQUE SEAN VACIOS
 				$servicio = new servicio("","","","","","","","","");
