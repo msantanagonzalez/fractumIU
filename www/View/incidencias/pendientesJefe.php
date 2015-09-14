@@ -16,7 +16,7 @@
 <form method="POST" action="../../Controller/incidenciasController.php">
 	<table class="default">
 		<?php
-			$rows = $_SESSION['listaIncidencia'];
+			$rows = $_SESSION['pendientesJefe'];
 			if (empty($rows)) {
 			?>
 				<div class="alert alert-warning" role="alert">

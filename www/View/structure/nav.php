@@ -13,7 +13,7 @@ require_once $_SESSION['cribPath'].'Controller/busquedaController.php';
                         		<img src="../../Resources/images/DefaultAvatar.png"><em><strong><br><?= i18n("jefeNegocio:") ?> <?php echo $_SESSION["dni"];?></strong></em><strong></strong>
                         	</a>
                      	</li>
-                     	<li class='current'> <a href="../../Controller/incidenciasController.php?accion=Pendientes"><?= i18n("Pendientes:") ?>
+                     	<li class='current'> <a href="../incidencias/pendientesJefe.php"><?= i18n("Pendientes:") ?>
                         <span class="badge"> <?php echo $_SESSION['PendsJefe']; ?> </span> </a> </li>
 						          <li class="current"><a href="../../Controller/incidenciasController.php?accion=Listar"><?= i18n("Gestionar Incidencias") ?></a></li>
                       <li class="current"><a href="../../Controller/usuariosController.php?accion=gestionUsuarios"><?= i18n("Gestionar Usuarios") ?></a></li>
