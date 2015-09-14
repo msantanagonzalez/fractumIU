@@ -10,6 +10,7 @@
     	<th width="20%">#ID <?= i18n("Máquina") ?></th>
     	<th width="18%"><?= i18n("Servicio") ?></th>
        	<th width="20%"><?= i18n("&Uacute;lt. Incid.") ?></th>
+				<th width="20%"><?= i18n("Documentación") ?></th>
         <th width="10%">&nbsp;</th>
         <th width="10%">&nbsp;</th>
     </tr>
@@ -42,7 +43,15 @@
 							 </a>
 						<?php } else echo "-" ?>
 					 </td>
-                     <td width="10%">
+					 <td width="20%">
+	 				 <?php
+					 	if(isset($row[4])){ ?>
+	 					 <a href="../<?php echo $row[4];?>" target="_blank">
+	 						<img src="../../Resources/images/PDF.png">
+	 						</a>
+	 				 <?php } else echo "-" ?>
+	 				</td>
+          <td width="10%">
  						<input type="button"  value="Consulta" onclick="window.location.href='../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>'"/>
  					</td>
  					<td width="10%">
