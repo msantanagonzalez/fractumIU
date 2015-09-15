@@ -90,8 +90,8 @@
 			mysql_query("UPDATE ITERACION SET estadoItera = '1' WHERE idIncid = '$this->idIncidencia' AND nIteracion='$this->nIteracion'") or die(mysql_error());
 		}
 
-		public function nextId($idIncid){
-			$sql = mysql_query("SELECT MAX(nIteracion) FROM ITERACION WHERE idIncid = '$idIncid'") or die(mysql_error());
+		public function nextId(){
+			$sql = mysql_query("SELECT MAX(nIteracion) FROM ITERACION") or die(mysql_error());
 			if(!$sql){
 				return 1;
 			} else {

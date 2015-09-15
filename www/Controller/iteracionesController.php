@@ -46,10 +46,9 @@ if(isset($accion)){
 		//session_start();
 		$idI = $_POST["idIncid"];
 		$iteracion2 = new Iteracion("","","","","","","","","");
-		$id = mysql_fetch_row($iteracion2->nextId($idI));
+		$id = mysql_fetch_row($iteracion2->nextId());
 		$id[0]++;
 		//$id = NULL;
-
 		$idMaquina = $_POST["idMaq"];
 
 		$iteracion = new Iteracion($idI,"", $_POST["fechaIter"], $_POST["hInicio"], $_POST["hFin"],
