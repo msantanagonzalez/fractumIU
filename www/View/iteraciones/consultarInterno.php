@@ -32,10 +32,6 @@
 		        <td><?= i18n("Hora Fin:") ?></td>
 		        <td><input type='time' disabled value="<?php echo $row['hFin']; ?>"></td>
 		  </tr>
-		    </tr>
-				<td><?= i18n("Documentación:") ?></td>
-		        <td colspan='3'><input type='text' disabled class='text' name="documentacion" value='#001-"Nombre archivo"'/ name='Descripcion_Tarea'></td>
-		    </tr>
 		    <tr>
 				<td colspan='5'><?= i18n("Descripción:") ?></td>
 			</tr>
@@ -81,7 +77,7 @@
 
 			<?php
 			if(($row['dniUsu']==$_SESSION['dni'])&&($row['estadoItera']!=='0')){?>
-				<td colspan="4"><a href="../../Controller/iteracionesController.php?accion=modificarIteracion&idIncidencia=<?php echo $row['idIncid']; ?>&nIteracion=<?php echo $row['nIteracion'];?>"><input type="button" name="Modificar" value="Modificar"></a></td>
+				<td colspan="4"><input type='submit' name='accion' value='Modificar Iteracion' onclick="windows.location.href='../../Controller/iteracionesController.php?idIncidencia=<?php echo $row['idIncid']; ?>&nIteracion=<?php echo $row['nIteracion'];?>'"/></td>
 			<?php
 			}
 			?>
