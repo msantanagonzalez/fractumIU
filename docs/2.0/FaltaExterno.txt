@@ -4,9 +4,12 @@ Falta:
 
 -> Guardar/Finalizar iteración. Arreglar ambos
 -> Arreglar las maquinas. (Refierese, al home, y al listar maquinas, mediante el tratamiento de arrays).
+	Para esto usa el listaJefe() que está perfectamente funcional :)
 -> El numerito de las pendientes.
+	Lo mismo, funcional en jefe e interno, sólo tienes que hacer la consulta concreta xD
 -> Modificar iteración (Pendiente del cambio en el Model).
 -> Arreglar el modificar incidencia. (Se carga al responsable al actualizar).
 
 ** NOTA **
 Hasta que Diego revise el SQL de iteraciones, a mi me salen todas las iteraciones en todas las maquinas, tanto en interno/externo/jefe...
+	Iteraciones en Máquinas? Será en incidencias no?
