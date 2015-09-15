@@ -188,14 +188,14 @@
 					array_push($lista, $row);
 				}
 
-				$_SESSION["listaMaquina"] = $lista;
+				$_SESSION["maqsJefe"] = $lista;
 				$_SESSION["listaServ"] = $listaServ;
 
 				//session_write_close();
 				header("location: ../View/maquinas/listarJefe.php");
 				break;
 			case 'I':
-				$listaMaquinas = $maquina->lista();
+				$listaMaquinas = $maquina->listaJefe();
 				$lista = array();
 
 				while($row = mysql_fetch_array($listaMaquinas)){
@@ -223,7 +223,7 @@
 					array_push($lista2, $row);
 				}
 				$_SESSION["listaMaquina2"] = $lista2;
-				
+
 
 				header("location: ../View/maquinas/listarExterno.php");
 				//session_write_close();

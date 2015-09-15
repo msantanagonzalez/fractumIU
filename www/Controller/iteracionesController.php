@@ -18,7 +18,7 @@ if(isset($accion)){
 		case 'modificadoIteracion':
 			modificadoIteracion();
 			break;
-		case 'modificarIteracion':
+		case 'Modificar Iteracion':
 			modificarIteracion();
 			break;
 		case 'listarIteracion':
@@ -33,6 +33,9 @@ if(isset($accion)){
 			break;
 		case 'NEXTID':
 			siguienteIteracion();
+			break;
+		case 'eliminarDocIteracion':
+			eliminarDocumento();
 			break;
 	}
 }else{
@@ -176,8 +179,8 @@ if(isset($accion)){
 	function listaIteracion(){
 		//session_start();
 		$idIncid =$_REQUEST['idIncid'];
-		$iteracion = new Iteracion($idIncid);
-		$listaIteraciones = $iteracion->lista();
+		$iteracion = new Iteracion();
+		$listaIteraciones = $iteracion->lista($idIncid);
 
 		$lista = array();
 		while($row = mysql_fetch_array($listaIteraciones)){
@@ -188,7 +191,7 @@ if(isset($accion)){
 /*---------------------------------------------------------------------------*/
 				$iteracion = new Iteracion("","","","","","","","","");
 				$estadoIteracion= $iteracion->ultimaIteraIncid($idIncid);
-				
+
 				/*
 				$ultItera = array();
 				while($row = mysql_fetch_array($estadoIteracion)){
@@ -259,6 +262,19 @@ if(isset($accion)){
 			header("location: ../../View/iteraciones/altaExterno.php");
 
 		}
+	}
+
+	function eliminarDocumento(){
+		$idIncid    = $_GET['idMaq'];
+		$idItera = $_GET['iIteracion'];
+		$path    = $_GET['path'];
+		$iteracion = new Iteracion ($idIncid,$idItera);
+		$iteracion->getPathImage($idIncid,$idItera);
+		$iteracion->delPathImage($idIncid,$idItera);
+
+		unlink($path);
+		anadirMensaje("|SUCCESS| Documento de Iteracion: ".$idItera." eliminado","success");
+		consulta();
 	}
 
 ?>

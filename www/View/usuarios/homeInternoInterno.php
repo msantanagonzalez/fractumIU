@@ -12,7 +12,7 @@
         <th width="20%">&nbsp;</th>
     </tr>
 </table>
-<div style="height:107px;width:auto;overflow-y: scroll;"><!--ESTO DA LUGAR AL SCROLL-->
+<div style="height:150px;width:auto;overflow-y: scroll;"><!--ESTO DA LUGAR AL SCROLL-->
     <form method="POST" action="../../Controller/incidenciasController.php">
         <table class="default">
             <?php
@@ -53,10 +53,12 @@
     	<th width="20%">#ID <?= i18n("Máquina:") ?></th>
     	<th width="20%"><?= i18n("Servicio:") ?></th>
        	<th width="20%"><?= i18n("Últ. Incidencia") ?></th>
+				<th width="20%"><?= i18n("Documentación") ?></th>
         <th width="10%">&nbsp;</th>
         <th width="10%">&nbsp;</th>
     </tr>
 </table>
+<div style="height:150px;width:auto;overflow-y: scroll;"><!--ESTO DA LUGAR AL SCROLL-->
 <form method="POST" action="../../Controller/maquinasController.php">
 	<table class="default">
 		<?php
@@ -79,8 +81,16 @@
 					<td width="20%"  name = "idMaq"><?php echo $row['idMaq']; ?></td>
 					<td width="20%"><?php echo $servicio[$cont]; ?></td>
 					<td width="20%"><?php if(!$incidencias[$cont]) echo "-"; else echo $incidencias[$cont][0][0]; ?></td>
-                    <td width="3%"></td>
-					<td width="10%"><a href="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>"><input type="button" name="accion" value="Consultar"></input></a></button></td>
+          <td width="3%"></td>
+          <td width="20%">
+            <?php
+            if(isset($row[4])){ ?>
+            <a href="../<?php echo $row[4];?>" target="_blank">
+              <img src="../../Resources/images/PDF.png">
+            </a>
+            <?php } else echo "-" ?>
+          </td>
+					<td width="20%"><a href="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>"><input type="button" name="accion" value="Consultar"></input></a></button></td>
 				</tr>
 				<?php
                     $cont++;
@@ -89,7 +99,7 @@
 		?>
 	</table>
 </form>
-
+</div>
 <?php
     require_once $_SESSION['cribPath'].'View/structure/footer.php';
 ?>

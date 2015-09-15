@@ -19,8 +19,8 @@
 	<table class="default">
 		<?php
 
-			if(isset($_SESSION['listaMaquina']))
-			$rows = $_SESSION['listaMaquina'];
+			if(isset($_SESSION['maqsJefe']))
+			$rows = $_SESSION['maqsJefe'];
 			if (empty($rows)) {
 			?>
 				<div class="alert alert-warning" role="alert">

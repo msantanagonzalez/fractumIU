@@ -51,8 +51,11 @@
 			mysql_query("UPDATE ITERACION SET estadoItera = '$this->estadoItera' WHERE idIncid = '$this->idIncid' AND nIteracion = '$this->nIteracion'") or die(mysql_error());
 		}
 
-		public function lista(){
-			$sql = mysql_query("SELECT * FROM ITERACION WHERE idIncid = '$this->idIncid'");
+		public function lista($incid){
+			$sql = mysql_query("SELECT i.idIncid, i.nIteracion, i.dniUsu, i.estadoItera, d.urlDocItr FROM ITERACION i JOIN DOCITERACION d WHERE i.idIncid = '13' AND i.nIteracion=d.nIteracion GROUP BY nIteracion
+			UNION
+			SELECT i.idIncid, i.nIteracion, i.dniUsu, i.estadoItera, NULL FROM ITERACION i WHERE NOT EXISTS(SELECT nIteracion FROM DOCITERACION WHERE i.nIteracion=nIteracion) GROUP BY nIteracion
+			ORDER BY 1");
 
 			return $sql;
 		}
@@ -111,18 +114,23 @@
 			mysql_query($sql) or die(mysql_error());
 		}
 
+		public function delPathImage($idIncid,$nIteracion){
+			$sql = "DELETE FROM DOCITERACION WHERE idIncid = '$idIncid' AND nIteracion = '$nIteracion'";
+			mysql_query($sql) or die(mysql_error());
+		}
+
 		public function getPathImage($idIncid,$nIteracion){
 			$sql = "SELECT * FROM DOCITERACION WHERE idIncid = '$idIncid' AND nIteracion = '$nIteracion'";
 			$resultado = mysql_query($sql) or die(mysql_error());
 			return $resultado;
 		}
-		
+
 		public function ultimaIteraIncid($idIncid){
 			$sql = mysql_query("SELECT estadoItera FROM iteracion WHERE idIncid = '$idIncid' ORDER BY nIteracion DESC ");
 			if(mysql_num_rows($sql)==0){
 				return false;
 			}else{
-				$estado = mysql_fetch_array($sql);	
+				$estado = mysql_fetch_array($sql);
 				return $estado;
 			}
 		}

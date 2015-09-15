@@ -70,9 +70,10 @@ foreach ($rows as $row) { ?>
 	<table class="default">
 	    <tr>
 	    	<th width="20%"><?= i18n("Nº Iteración") ?></th>
-			<th width="20%"><?= i18n("Operario") ?></th>
-			<th width="20%"><?= i18n("Estado") ?></th>
-	        <th width="20%">&nbsp;</th>
+				<th width="20%"><?= i18n("Operario") ?></th>
+				<th width="20%"><?= i18n("Estado") ?></th>
+				<th width="20%"><?= i18n("Documentación") ?></th>
+	    	<th width="20%">&nbsp;</th>
 	    </tr>
 	</table>
 	<form method="POST" action="../../Controller/iteracionesController.php">
@@ -85,6 +86,14 @@ foreach ($rows as $row) { ?>
 				<td width="20%"><?php echo $row2['nIteracion'];?></td>
 				<td width="20%"><?php echo $row2['dniUsu']; ?></td>
 				<td width="20%"><?php if($row2['nIteracion']=1) echo "Abierta"; else echo "Cerrada" ?></td>
+				<td width="20%">
+				 <?php if(isset($row2['urlDocItr'])){ ?>
+					 <a href="../<?php echo $row2['urlDocItr'];?>" target="_blank">
+						<img src="../../Resources/images/PDF.png">
+							<?php echo $row2['nDocIter'];?>
+						</a>
+				 <?php } else echo "-" ?>
+				</td>
 				<td width="20%">
 					<input type="button" value="Consulta" onclick="window.location.href='../../Controller/iteracionesController.php?accion=consultaIteracion&idIncid=<?php echo $row2[0] ?>&nIteracion=<?php echo $row2[1] ?>'"/>
 				</td>

@@ -7,42 +7,51 @@
 <table class="default">
     <tr>
     	<th width="20%"><?= i18n("ID") ?></th>
-    	<th width="20%"><?= i18n("Nombre:") ?></th>
-       	<th width="20%"><?= i18n("Servicio:") ?></th>
-		<th width="20%"><?= i18n("Últ. Incidencia") ?></th>
-        <th width="20%"></th>
+      <th width="20%"><?= i18n("Servicio:") ?></th>
+			<th width="20%"><?= i18n("Últ. Incidencia") ?></th>
+		  <th width="20%"><?= i18n("Documentación") ?></th>
+      <th width="20%"></th>
     </tr>
 </table>
 <div style="height:300px;width:auto;overflow-y: scroll;"><!--ESTO DA LUGAR AL SCROLL-->
 
 	<table class="default">
 		<?php
-			$ultimaIncid = $_SESSION['listaIncidMaquina'];
-			$rows = $_SESSION['listaMaquina'];
-			$servicio = $_SESSION['listaServicios'];
-			$cont = 0;
-			foreach ($rows as $row) {
-		?>
-		<tr>
-			<td width="20%"><?php echo $row['idMaq']; ?></td>
-			<td width="20%"><?php echo $row['nomMaq']; ?></td>
-			<td width="20%"><?php echo $servicio[$cont]; ?></td>
-			
-			<?php
-			if (empty($ultimaIncid[$cont][0][0])) {
-			?>
-			<td><?php echo 'Sin Incidencias'; ?></td>
-			<?php
-			}else{	
-			?>
-			
-			<td width="20%"><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $ultimaIncid[$cont][0][0];?>"><?php echo $ultimaIncid[$cont][0][0]; ?></td>
-			
+			if(isset($_SESSION['listaMaquina']))
+				$rows = $_SESSION['listaMaquina'];
+				if (empty($rows)) {
+				?>
+					<div class="alert alert-warning" role="alert">
+					<?= i18n("| INFO |- No hay maquinas para listar") ?>
+					</div>
+				<?php
+				}
+				else{
+	                $cont = 0;
+					foreach ($rows as $row) {
+					?>
+					<tr>
+						<td width="20%"  name = "idMaq"><?php echo $row[0]; ?></td>
+						<td width="20%">
+							<?php if(isset($row[1])){echo "S&Iacute;";} else echo "NO" ?></td>
+						 <td width="20%">
+							<?php if(isset($row[2])){ ?>
+								 <a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row[2]?>">
+									 <?php echo $row[2];?>
+								 </a>
+							<?php } else echo "-" ?>
+						 </td>
+						 <td width="20%">
+		 				 <?php
+						 	if(isset($row[4])){ ?>
+		 					 <a href="../<?php echo $row[4];?>" target="_blank">
+		 						<img src="../../Resources/images/PDF.png">
+		 						</a>
+		 				 <?php } else echo "-" ?>
+		 				</td>
+						<td width="20%"><a href="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row[0];?>"><colspan="4"><input type="button" value="Consultar"</a></td>
 			<?php }
 			?>
-			
-			<td width="20%"><a href="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>"><colspan="4"><input type="button" value="Consultar"</a></td>
-			
 		</tr>
 		<?php
 		 $cont++;

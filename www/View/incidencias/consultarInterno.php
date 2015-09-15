@@ -8,7 +8,7 @@ foreach ($rows as $row) { ?>
 	<form method="POST" action="../../Controller/incidenciasController.php">
 		<?php
 		require_once $_SESSION['cribPath'].'View/crearMensaje.php';
-		
+
 		?>
 		<input type="hidden" class="text" name="idIncidencia" value="<?php echo $row['idIncid']; ?>"/>
 		<input type="hidden" class="text" name="derivada" value="<?php echo $row['derivada']; ?>"/>
@@ -63,38 +63,41 @@ foreach ($rows as $row) { ?>
 		</tr>
 <?php } ?>
 
-
 	</table>
 	<h1 id="headerInterno"><a><i><?= i18n("- ITERACIONES -") ?></i></a></h1>
 	<table class="default"><!--TABLA-->
 	    <tr>
-	    	<th width="15%">ID</th>
-			<th width="15%"><?= i18n("Iteración") ?></th>
-            <th width="20%"><?= i18n("Operario") ?></th>
-            <th width="10%"><?= i18n("Coste") ?></th>
-			<th width="20%"><?= i18n("Estado") ?></th>
-	        <th width="20%"> </th>
+				<th width="20%"><?= i18n("Iteración") ?></th>
+        <th width="20%"><?= i18n("Operario") ?></th>
+				<th width="20%"><?= i18n("Estado") ?></th>
+				<th width="20%"><?= i18n("Documentación") ?></th>
+	      <th width="20%">&nbsp; </th>
 	    </tr>
 	</table>
 	<form method="POST" action="../../Controller/iteracionesController.php">
 		<table class="default"><!--TABLA-->
 			<?php
-			
+
 				$ultimaIteracion = $_SESSION['estadoIteracion'];
 					/*var_dump($ultimaIteracion);*/
 				$rows2 = $_SESSION['listaIteraciones'];
+
 				foreach ($rows2 as $row2) {
-					
-					
+
+
 			?>
 			<tr>
-				<td width="25%"><?php echo $row2['idIncid'];?></td>
-				<td width="25%"><?php echo $row2['nIteracion']; ?></td>
-				<td width="30%"><?php echo $row2['dniUsu']; ?></td>
-				<td width="10%"><?php echo $row2['costeIter']; ?></td>
+				<td width="20%"><?php echo $row2['nIteracion']; ?></td>
+				<td width="20%"><?php echo $row2['dniUsu']; ?></td>
 				<td width="20%"><?php if($row2['estadoItera']==1){echo 'Abierta' ;}else{ echo 'Cerrada';}  ?></td>
-				<td width="5%"><img src="../../Resources/images/PDF.png"></td>
-				<td width="10%"><a href="../../Controller/iteracionesController.php?accion=consultaIteracion&idIncid=<?php echo $row2['idIncid'] ?>&nIteracion=<?php echo $row2['nIteracion'] ?>"><input type="button" value="Consultar"></td>
+				<td width="20%">
+				 <?php if(isset($row2['urlDocItr'])){ ?>
+					<a href="../<?php echo $row2['urlDocItr'];?>" target="_blank">
+						<img src="../../Resources/images/PDF.png">
+					</a>
+				 <?php } else echo "-" ?>
+				</td>
+				<td width="20%"><a href="../../Controller/iteracionesController.php?accion=consultaIteracion&idIncid=<?php echo $row2['idIncid'] ?>&nIteracion=<?php echo $row2['nIteracion'] ?>"><input type="button" value="Consultar"></td>
 			</tr>
 				<?php } ?>
 		</table>
@@ -103,13 +106,13 @@ foreach ($rows as $row) { ?>
 <table class="default">
 	<tr>
 			<?php
-			
+
 			if(($row['estadoIncid']!='Cerrada')AND ($row['estadoIncid']!='Derivada') AND ($row['estadoIncid']!='Pendiente Derivar')AND($ultimaIteracion [0][0]!= 1)){
 			?>
-				
+
 					<td colspan="4"><a href="../../View/iteraciones/altaInterno.php?accion=altaIteracion&idIncidencia=<?php echo $row['idIncid'] ?>&idMaq=<?php echo $row['idMaq']; ?>"><input type="button"  value="NUEVA ITERACION"/></a></td>
 			<?php
-				
+
 			}
 			?>
 	</tr>
