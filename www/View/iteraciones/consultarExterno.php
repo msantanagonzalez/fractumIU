@@ -52,7 +52,7 @@
     <br>
     <table>
 		<tr>
-			<td colspan="4"><a href="../../Controller/iteracionesController.php?accion=modificadoIteracion&idIncidencia=<?php echo $row['idIncid'];?>&nIteracion=<?echo $row['nIteracion'];?>"><input type="button" name="Modificar" value="Modificar"></a></td>
+			<td colspan="4"><a href="../../Controller/iteracionesController.php?accion=Modificar Iteracion&idIncidencia=<?php echo $row['idIncid'];?>&nIteracion=<?echo $row['nIteracion'];?>"><input type="button" name="Modificar" value="Modificar"></a></td>
 		</tr> 
 	</table>
 	<?php } ?>

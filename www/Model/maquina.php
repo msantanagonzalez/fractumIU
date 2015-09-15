@@ -73,7 +73,27 @@ class Maquina {
 		); return $sql;
 	}
 
+	public function listaMaquinasOpEservicio(){
+		$sql = mysql_query("SELECT DISTINCT M.*
+		FROM OPEXTERNO O
+		INNER JOIN EMPRESA E ON O.cifEmpr = E.cifEmpr
+		INNER JOIN SERVICIO S ON O.cifEmpr = S.cifEmpr
+		INNER JOIN MAQUINA M ON S.idMaq = M.idMaq
+		WHERE O.dniUsu = '".$_SESSION['dni']."'");
+		return $sql;
+	}
 
+	public function listaMaquinasOpEIncidencia(){
+ 		$sql = mysql_query(
+			"SELECT DISTINCT M . * , I.fAper
+			FROM OPEXTERNO O
+			INNER JOIN INCIDENCIA I ON O.cifEmpr = I.cifEmpr
+			INNER JOIN MAQUINA M ON I.idMaq = M.idMaq
+			INNER JOIN SERVICIO S ON O.cifEmpr = S.cifEmpr
+			WHERE O.dniUsu ='".$_SESSION['dni']."'");
+
+		return $sql;
+	}
 
 	public function borrar(){
 		$borrarMaquina = "DELETE FROM MAQUINA WHERE idMaq = '$this->idMaquina'";

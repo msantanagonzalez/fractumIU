@@ -46,7 +46,7 @@
 
 	<table class="default">
 		<tr>
-			<td colspan="4"><input type="submit" name="accion" value="Modificado"></td>
+			<td colspan="4"><input type="submit" name="accion" value="modificadoIteracion"></td>
 		</tr>
 			<?php } ?>
 	</table>

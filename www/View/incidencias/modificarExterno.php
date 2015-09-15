@@ -9,6 +9,7 @@ foreach ($rows as $row) { ?>
     <input type="hidden" class="text" name="idIncidencia" value="<?php echo $row['idIncid']; ?>"/>
     <input type="hidden" class="text" name="derivada" value="<?php echo $row['derivada']; ?>"/>
     <input type="hidden" class="text" name="cifEmpr" value="<?php echo $row['cifEmpr']; ?>"/>
+    <input type="hidden" class="text" name="dniResponsable" value="<?php echo $row['dniResponsable']; ?>"/>
     <table class="default">
       <tr>
         <td width="25%"><?= i18n("Apertura:") ?></td>

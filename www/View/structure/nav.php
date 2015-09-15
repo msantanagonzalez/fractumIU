@@ -83,7 +83,7 @@ function navExterno()
                          	</li>
             	<!--NOTIFICACIONES-->
               <li class='current'> <a href="../../Controller/incidenciasController.php?accion=pendiente"><?= i18n("Pendientes:") ?>
-                        <span class="badge"> <?php echo $_SESSION['pendientesExterno']; ?> </span> </a> </li>
+                        <span class="badge"> <?php echo $_SESSION['cantPendientesE']; ?> </span> </a> </li>
               <!-- FIN NOTIFICACIONES-->
 							<li class='current'><strong><a href="../../Controller/incidenciasController.php?accion=Listar"><?= i18n("Listar Incidencias") ?></a></strong></li>
 							<li class='current'><a href="../../Controller/maquinasController.php?accion=Listar"><?= i18n("Listar máquinas") ?></a></li>

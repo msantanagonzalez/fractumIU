@@ -68,21 +68,9 @@ if(isset($accion)){
 			}
 		}
 
-		switch ($_SESSION['tipo']) {
-			case 'J':
-				modEstadoIncidencia();
-				listaIteracion();
-				break;
-			case 'I':
-				modEstadoIncidencia();
-				listaIteracion();
-				break;
-			case 'E':
-				listaIteracion();
-			default:
-				break;
-		}
-
+		
+		modEstadoIncidencia();
+		listaIteracion();
 	}
 
 	function consultaIteracion(){
@@ -181,10 +169,25 @@ if(isset($accion)){
 	}
 
 	function modEstadoIncidencia(){
-
-		$idIncid = $_POST['idIncid'];
-		$incidencia = new Incidencia("", "", "", "", "", "", "", "", "", "");
-		$incidencia->cambiarEstado($idIncid,'En Curso');
+		switch ($_SESSION['tipo']) {
+			case 'J':
+				$idIncid = $_POST['idIncid'];
+				$incidencia = new Incidencia("", "", "", "", "", "", "", "", "", "");
+				$incidencia->cambiarEstado($idIncid,'En Curso');
+				break;
+			case 'I':
+				$idIncid = $_POST['idIncid'];
+				$incidencia = new Incidencia("", "", "", "", "", "", "", "", "", "");
+				$incidencia->cambiarEstado($idIncid,'En Curso');
+				break;
+			case 'E':
+				$idIncid = $_POST['idIncid'];
+				$incidencia = new Incidencia("", "", "", "", "", "", "", "", "", "");
+				$incidencia->cambiarEstado($idIncid,'En Curso Externo');
+				break;
+			default:
+				break;
+		}
 
 	}
 
