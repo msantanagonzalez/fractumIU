@@ -81,9 +81,10 @@ function navExterno()
                             		<img src='../../Resources/images/DefaultAvatar.png'><em><strong><br><?= i18n("operarioExterno:") ?><?php echo $_SESSION["dni"];?></strong></em><strong></strong></img>
                             	</a>
                          	</li>
-                         	<!--NOTIFICACIONES-->
-							<!-- <li class='current'><a href="../../Controller/incidenciasController.php?accion=Pendientes"><?= i18n("Pendientes:") ?> <span class="badge"><?php echo $_SESSION['pendientes']; ?></span></a></li> -->
-							<!-- FIN NOTIFICACIONES-->
+            	<!--NOTIFICACIONES-->
+              <li class='current'> <a href="../../Controller/incidenciasController.php?accion=pendiente"><?= i18n("Pendientes:") ?>
+                        <span class="badge"> <?php echo $_SESSION['pendientesExterno']; ?> </span> </a> </li>
+              <!-- FIN NOTIFICACIONES-->
 							<li class='current'><strong><a href="../../Controller/incidenciasController.php?accion=Listar"><?= i18n("Listar Incidencias") ?></a></strong></li>
 							<li class='current'><a href="../../Controller/maquinasController.php?accion=Listar"><?= i18n("Listar máquinas") ?></a></li>
                             <li class='current'><strong><a href="../../Controller/serviciosController.php?accion=Listar"><?= i18n("Listar Servicios") ?></a></strong></li>

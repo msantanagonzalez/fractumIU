@@ -24,6 +24,9 @@ if(isset($accion)){
 		case 'Listar':
 			lista();
 			break;
+		case 'pendiente':
+			pendientes();
+			break;
 		default:
 			break;
 	}
@@ -212,6 +215,15 @@ if(isset($accion)){
 				while($row = mysql_fetch_array($listaPend)){array_push($listaPendientes, $row);}
 				$_SESSION['cantPendientes'] = mysql_num_rows($listaPend);
 				$_SESSION['pendientesInterno'] = $listaPendientes;
+				break;
+			case 'E':
+				$dniUsu = $_SESSION['dni'];
+				$listaPendientes = array();
+				$listaPend = $incidencia->listaPendientesExterno();
+				while($row = mysql_fetch_array($listaPend)){array_push($listaPendientes, $row);}
+				$_SESSION['cantPendientesE'] = mysql_num_rows($listaPend);
+				$_SESSION['pendientesExterno'] = $listaPendientes;
+				header("location: ../View/incidencias/pendientesExterno.php");
 				break;
 			default:
 				break;

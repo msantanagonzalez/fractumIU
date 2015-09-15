@@ -44,12 +44,12 @@ if(isset($accion)){
 
 	function altaIteracion(){
 		//session_start();
-
+		$idI = $_POST["idIncid"];
 		$iteracion2 = new Iteracion("","","","","","","","","");
-		$id = mysql_fetch_row($iteracion2->nextId());
+		$id = mysql_fetch_row($iteracion2->nextId($idI));
 		$id[0]++;
 		//$id = NULL;
-		$idI = $_POST["idIncid"];
+		
 		$idMaquina = $_POST["idMaq"];
 
 		$iteracion = new Iteracion($idI,"", $_POST["fechaIter"], $_POST["hInicio"], $_POST["hFin"],
@@ -69,8 +69,21 @@ if(isset($accion)){
 			}
 		}
 
-		modEstadoIncidencia();
-		listaIteracion();
+		switch ($_SESSION['tipo']) {
+			case 'J':
+				modEstadoIncidencia();
+				listaIteracion();
+				break;
+			case 'I':
+				modEstadoIncidencia();
+				listaIteracion();
+				break;
+			case 'E':
+				listaIteracion();
+			default:
+				break;
+		}
+		
 	}
 
 	function consultaIteracion(){
@@ -248,20 +261,10 @@ if(isset($accion)){
 	function siguienteIteracion(){
 		//session_start();
 
-		$idIncid = $_POST['idIncid'];
-		$iteracion = new Iteracion($idIncid);
+		$idIncidencia = $_GET['idIncid'];
+		$idMaq = $_GET['idMaq'];
 
-		$nIteracion = $iteracion->nextId();
-
-		$_SESSION["idIncid"] = $idIncid;
-		$_SESSION["nIteracion"] = $nIteracion;
-
-		if($nIteracion == 1){
-			header("location: ../../View/iteraciones/altaExterno.php");
-		} else {
-			header("location: ../../View/iteraciones/altaExterno.php");
-
-		}
+		header("location: ../../View/iteraciones/altaExterno.php?idIncidencia=$idIncidencia&idMaq=$idMaq");
 	}
 
 	function eliminarDocumento(){

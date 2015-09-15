@@ -65,6 +65,13 @@
 			return $sql;
 		}
 
+		public function listaPendientesExterno(){
+			$sql = mysql_query("SELECT * FROM OPEXTERNO O INNER JOIN INCIDENCIA I ON O.cifEmpr = I.cifEmpr	WHERE O.dniUsu ='".$_SESSION['dni']."' AND (I.estadoIncid = 'Derivada' OR I.estadoIncid='En Curso Externo')");
+
+			return $sql;
+		}
+
+
 		public function listaIncidenciasOpE(){
 			//session_start();
 			$sql = mysql_query("SELECT * FROM OPEXTERNO O RIGHT JOIN INCIDENCIA I ON O.cifEmpr = I.cifEmpr WHERE O.dniUsu = '".$_SESSION['dni']."' AND derivada = 1") ;

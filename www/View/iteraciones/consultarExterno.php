@@ -33,11 +33,11 @@
 		        <td><?= i18n("Hora Fin:") ?></td>
 		        <td><input type='time' disabled value="<?php echo $row['hFin']; ?>"></td>
 				<td><?= i18n("Estado Iteración:") ?></td>
-		        <td><input type='time' disabled value="<?php echo $row['estadoItera']; ?>"></td>
+		        <td><input type='text' disabled value="<?php echo $row['estadoItera']; ?>"></td>
 		  </tr>
 		    </tr>
 				<td><?= i18n("Documentación:") ?></td>
-		        <td colspan='3'><input type='text' disabled class='text' name="documentacion" value='#001-"Nombre archivo"'/ name='Descripcion_Tarea'></td>
+		        <td colspan='3'><input type='text' disabled class='text' name="documentacion" name='Descripcion_Tarea'></td>
 		    </tr>
 		    <tr>
 				<td colspan='5'><?= i18n("Descripción:") ?></td>
@@ -52,7 +52,7 @@
     <br>
     <table>
 		<tr>
-			<td colspan="4"><a href="../../Controller/iteracionesController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid'];?>&nIteracion=<?echo $row['nIteracion'];?>"><input type="button" name="Modificar" value="Modificar"></a></td>
+			<td colspan="4"><a href="../../Controller/iteracionesController.php?accion=modificadoIteracion&idIncidencia=<?php echo $row['idIncid'];?>&nIteracion=<?echo $row['nIteracion'];?>"><input type="button" name="Modificar" value="Modificar"></a></td>
 		</tr> 
 	</table>
 	<?php } ?>

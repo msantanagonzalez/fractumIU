@@ -75,7 +75,7 @@ foreach ($rows as $row) { ?>
 				<td width="20%"><?php echo $row2['dniUsu']; ?></td>
 				<td width="20%"><?php echo $row2['costeIter']; ?></td>
 				<td width="10%"><img src="../../Resources/images/PDF.png"></td>
-				<td width="10%"><button><a href="../../Controller/iteracionesController.php?accion=Consulta&idIncid=<?php echo $row2['idIncid'] ?>&nIteracion=<?php echo $row2['nIteracion'] ?>">Consultar</a></button></td>
+				<td width="10%"><button><a href="../../Controller/iteracionesController.php?accion=consultaIteracion&idIncid=<?php echo $row2['idIncid'] ?>&nIteracion=<?php echo $row2['nIteracion'] ?>">Consultar</a></button></td>
 			</tr>
 			<?php } ?>
      	</tr>
@@ -85,7 +85,7 @@ foreach ($rows as $row) { ?>
 		<tr>
 		<?php if ($row['estadoIncid'] == "Derivada") { ?>
 		<td colspan="2"></td>
-			<td colspan="4"><a href="../../Controller/iteracionesController.php?accion=NEXTID&idIncid=<?php echo $row2['idIncid'] ?>"><input type="button" value="NUEVA ITERACION"></a></td>
+			<td colspan="4"><a href="../../Controller/iteracionesController.php?accion=NEXTID&idIncid=<?php echo $row['idIncid'] ?>&idMaq=<?php echo $row['idMaq'] ?>"><input type="button" value="NUEVA ITERACION"></a></td>
 		</tr>
 		<?php  } elseif ($row['estadoIncid'] == "En Curso Externo") { ?>
 			<td colspan="2"></td>

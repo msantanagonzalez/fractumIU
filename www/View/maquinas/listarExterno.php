@@ -51,7 +51,6 @@
 	<tr>
 		<th width="5%"><?= i18n("ID") ?></th>
 		<th width="10%"><?= i18n("Nombre:") ?></th>
-	    <th width="10%"><?= i18n("Servicio") ?></th>
 	    <th width="10%"><?= i18n("Ultima Incidencia") ?></th>
 	    <th width="10%"><?= i18n("Nº serie") ?></th>
 		<th width="15%"> </th>
@@ -67,11 +66,10 @@
     <tr>
       	<td width="10%"><?php echo $row1['idMaq']; ?></th>
       	<td width="25%"><?php echo $row1['nomMaq']; ?></td>
-        <td width="25%">No</td>
         <td width="25%"><?php echo $row1['fAper'];?></td>
         <td width="25%"><?php echo $row1['nSerie'];?></td>
     	<td width="10%">
- 				<input type="button"  value="Consulta" onclick="window.location.href='../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>'"/>
+ 				<input type="button"  value="Consulta" onclick="window.location.href='../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row1['idMaq'];?>'"/>
  		</td> 
  	</tr>
     <?php }

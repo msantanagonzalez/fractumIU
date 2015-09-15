@@ -51,10 +51,10 @@
 			mysql_query("UPDATE ITERACION SET estadoItera = '$this->estadoItera' WHERE idIncid = '$this->idIncid' AND nIteracion = '$this->nIteracion'") or die(mysql_error());
 		}
 
-		public function lista($incid){
-			$sql = mysql_query("SELECT i.idIncid, i.nIteracion, i.dniUsu, i.estadoItera, d.urlDocItr FROM ITERACION i JOIN DOCITERACION d WHERE i.idIncid = '13' AND i.nIteracion=d.nIteracion GROUP BY nIteracion
+		public function lista($idIncid){
+			$sql = mysql_query("SELECT i.idIncid, i.nIteracion, i.dniUsu, i.estadoItera, d.urlDocItr, i.costeIter FROM ITERACION i JOIN DOCITERACION d WHERE i.idIncid = '$this->idIncid' AND i.nIteracion=d.nIteracion GROUP BY nIteracion
 			UNION
-			SELECT i.idIncid, i.nIteracion, i.dniUsu, i.estadoItera, NULL FROM ITERACION i WHERE NOT EXISTS(SELECT nIteracion FROM DOCITERACION WHERE i.nIteracion=nIteracion) GROUP BY nIteracion
+			SELECT i.idIncid, i.nIteracion, i.dniUsu, i.estadoItera, i.costeIter, NULL FROM ITERACION i WHERE NOT EXISTS(SELECT nIteracion FROM DOCITERACION WHERE i.nIteracion=nIteracion) GROUP BY nIteracion
 			ORDER BY 1");
 
 			return $sql;
@@ -90,8 +90,8 @@
 			mysql_query("UPDATE ITERACION SET estadoItera = '1' WHERE idIncid = '$this->idIncidencia' AND nIteracion='$this->nIteracion'") or die(mysql_error());
 		}
 
-		public function nextId(){
-			$sql = mysql_query("SELECT MAX(nIteracion) FROM ITERACION") or die(mysql_error());
+		public function nextId($idIncid){
+			$sql = mysql_query("SELECT MAX(nIteracion) FROM ITERACION WHERE idIncid = '$this->idIncid'") or die(mysql_error());
 			if(!$sql){
 				return 1;
 			} else {
