@@ -37,7 +37,34 @@
 						<textarea style="resize:none" class="text" rows="5" name='descripcionHistoricoIncidencia' disabled><?php echo $row['descripIter']; ?></textarea>
 					</td>
 				</tr>
-
+				<?php
+				$rows = $_SESSION['documentoIteracion'];
+				if (empty($rows)) {
+					?>
+					<tr>
+						<td colspan="4"><?= i18n("Documentación:") ?>
+						<div class="alert alert-info" role="alert">
+						<?= i18n("| INFO |- Iteración sin documento.") ?>
+						</div>
+						</td>
+					</tr>
+					<?php
+					}else{
+						foreach ($rows as $documento) {
+						?>
+						<tr>
+							<td colspan="2"><?= i18n("Documentación:") ?></td>
+							<td colspan="2">
+							<a href="../<?php echo $documento['urlDocItr'];?>" target="_blank">
+							<img src="../../Resources/images/PDF.png">
+							<br>
+							<?php echo $documento['nDocIter'];?>
+							</a>
+							</td>
+						</tr>
+						<?php
+					}
+				} ?>
 			</table>
 	<?php } ?>
 </form>
