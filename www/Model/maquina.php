@@ -54,117 +54,23 @@ class Maquina {
 	}
 
 	public function listaJefe(){
-		$sql = mysql_query(" SELECT m.idMaq, s.idServ, MAX(i.idIncid) AS idIncid, m.nomMaq, d.urlDocMaq, d.nDocMaq
-		FROM maquina m, servicio s, incidencia i, docmaquina d
-		WHERE i.idMaq = m.idMaq AND s.idMaq = m.idMaq AND d.idMaq = m.idMaq  GROUP BY idMaq
-
-		UNION -- SI SERV, NO INCID, SI DOC
-		SELECT m.idMaq, s.idServ, NULL, m.nomMaq, d.urlDocMaq, d.nDocMaq
-		FROM maquina m, servicio s, docmaquina d
-		WHERE NOT EXISTS(
-			SELECT idMaq
-			FROM incidencia
-			WHERE m.idMaq = idMaq
-		) AND s.idMaq = m.idMaq AND d.idMaq = m.idMaq GROUP BY idMaq
-
-		UNION -- NO SERV, SI INCID, SI DOC
-		SELECT m.idMaq, NULL, MAX(i.idIncid) AS idIncid, m.nomMaq, d.urlDocMaq, d.nDocMaq
-		FROM maquina m, incidencia i, docmaquina d
-		WHERE NOT EXISTS(
-			SELECT idMaq
-			FROM servicio
-			WHERE m.idMaq = idMaq
-		) AND i.idMaq = m.idMaq AND d.idMaq = m.idMaq GROUP BY idMaq
-
-		UNION -- NO SERV, NO INCID, SI DOC
-		SELECT m.idMaq, NULL, NULL, m.nomMaq, d.urlDocMaq, d.nDocMaq
-		FROM maquina m, docmaquina d
-		WHERE NOT EXISTS(
-			SELECT idMaq
-			FROM incidencia
-			WHERE m.idMaq = idMaq
-		) AND NOT EXISTS(
-			SELECT idMaq
-			FROM servicio
-			WHERE m.idMaq = idMaq
-		) AND d.idMaq = m.idMaq GROUP BY idMaq
-
-		UNION-- SI SERV, SI INCID, NO DOC
-		SELECT m.idMaq, s.idServ, MAX(i.idIncid) AS idIncid, m.nomMaq, NULL, NULL
-		FROM maquina m, servicio s, incidencia i
-		WHERE NOT EXISTS(
-			SELECT idMaq
-			FROM docmaquina
-			WHERE m.idMaq = idMaq
-		) AND i.idMaq = m.idMaq AND s.idMaq = m.idMaq  GROUP BY idMaq
-
-		UNION -- SI SERV, NO INCID, NO DOC
-		SELECT m.idMaq, s.idServ, NULL, m.nomMaq, NULL, NULL
-		FROM maquina m, servicio s
-		WHERE NOT EXISTS(
-			SELECT idMaq
-			FROM incidencia
-			WHERE m.idMaq = idMaq
-		) AND NOT EXISTS(
-			SELECT idMaq
-			FROM docmaquina
-			WHERE m.idMaq = idMaq
-		) AND s.idMaq = m.idMaq GROUP BY idMaq
-
-		UNION -- NO SERV, SI INCID, NO DOC
-		SELECT m.idMaq, NULL, MAX(i.idIncid) AS idIncid, m.nomMaq, NULL, NULL
-		FROM maquina m, incidencia i
-		WHERE NOT EXISTS(
-			SELECT idMaq
-			FROM servicio
-			WHERE m.idMaq = idMaq
-		) AND NOT EXISTS(
-			SELECT idMaq
-			FROM docmaquina
-			WHERE m.idMaq = idMaq
-		) AND i.idMaq = m.idMaq GROUP BY idMaq
-
-		UNION -- NO SERV, NO INCID, NO DOC
-		SELECT m.idMaq, NULL, NULL, m.nomMaq, NULL, NULL
-		FROM maquina m
-		WHERE NOT EXISTS(
-			SELECT idMaq
-			FROM incidencia
-			WHERE m.idMaq = idMaq
-		) AND NOT EXISTS(
-			SELECT idMaq
-			FROM servicio
-			WHERE m.idMaq = idMaq
-		) AND NOT EXISTS(
-			SELECT idMaq
-			FROM docmaquina
-			WHERE m.idMaq = idMaq
-		) GROUP BY idMaq; ");
-
-		return $sql;
-	}
-
-
-	public function listaMaquinasOpEservicio(){
-		$sql = mysql_query("SELECT DISTINCT M.*
-		FROM OPEXTERNO O
-		INNER JOIN EMPRESA E ON O.cifEmpr = E.cifEmpr
-		INNER JOIN SERVICIO S ON O.cifEmpr = S.cifEmpr
-		INNER JOIN MAQUINA M ON S.idMaq = M.idMaq
-		WHERE O.dniUsu = '".$_SESSION['dni']."'");
-		return $sql;
-	}
-
-	public function listaMaquinasOpEIncidencia(){
 		$sql = mysql_query(
-			"SELECT DISTINCT M . * , I.fAper
-			FROM OPEXTERNO O
-			INNER JOIN INCIDENCIA I ON O.cifEmpr = I.cifEmpr
-			INNER JOIN MAQUINA M ON I.idMaq = M.idMaq
-			INNER JOIN SERVICIO S ON O.cifEmpr = S.cifEmpr
-			WHERE O.dniUsu ='".$_SESSION['dni']."'");
+			"SELECT m.idMaq, s.idServ, max(i.idIncid) idIncid, m.nomMaq, d.urlDocMaq
+			FROM maquina m
+			RIGHT JOIN incidencia i ON m.idMaq = i.idMaq
+			RIGHT JOIN servicio s ON m.idMaq = s.idMaq
+			RIGHT JOIN docmaquina d ON m.idMaq = d.idMaq
+			WHERE m.idMaq IS NOT NULL GROUP BY m.idMaq
 
-		return $sql;
+			UNION
+
+			SELECT m.idMaq, s.idServ, max(i.idIncid) idIncid, m.nomMaq, d.urlDocMaq
+			FROM maquina m
+			LEFT JOIN incidencia i ON m.idMaq = i.idMaq
+			LEFT JOIN servicio s ON m.idMaq = s.idMaq
+			LEFT JOIN docmaquina d ON m.idMaq = d.idMaq
+			WHERE m.idMaq IS NOT NULL GROUP BY m.idMaq;"
+		); return $sql;
 	}
 
 

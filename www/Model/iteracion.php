@@ -91,7 +91,7 @@
 		}
 
 		public function nextId($idIncid){
-			$sql = mysql_query("SELECT MAX(nIteracion) FROM ITERACION WHERE idIncid = '$this->idIncid'") or die(mysql_error());
+			$sql = mysql_query("SELECT MAX(nIteracion) FROM ITERACION WHERE idIncid = '$idIncid'") or die(mysql_error());
 			if(!$sql){
 				return 1;
 			} else {
