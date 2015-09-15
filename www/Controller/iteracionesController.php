@@ -49,7 +49,7 @@ if(isset($accion)){
 		$id = mysql_fetch_row($iteracion2->nextId($idI));
 		$id[0]++;
 		//$id = NULL;
-		
+
 		$idMaquina = $_POST["idMaq"];
 
 		$iteracion = new Iteracion($idI,"", $_POST["fechaIter"], $_POST["hInicio"], $_POST["hFin"],
@@ -83,7 +83,7 @@ if(isset($accion)){
 			default:
 				break;
 		}
-		
+
 	}
 
 	function consultaIteracion(){

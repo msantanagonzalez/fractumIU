@@ -52,9 +52,9 @@
 		}
 
 		public function lista($idIncid){
-			$sql = mysql_query("SELECT i.idIncid, i.nIteracion, i.dniUsu, i.estadoItera, d.urlDocItr, i.costeIter FROM ITERACION i JOIN DOCITERACION d WHERE i.idIncid = '$this->idIncid' AND i.nIteracion=d.nIteracion GROUP BY nIteracion
+			$sql = mysql_query("SELECT i.idIncid, i.nIteracion, i.dniUsu, i.estadoItera, d.urlDocItr, i.costeIter FROM ITERACION i JOIN DOCITERACION d WHERE i.idIncid = '$idIncid' AND i.nIteracion=d.nIteracion GROUP BY nIteracion
 			UNION
-			SELECT i.idIncid, i.nIteracion, i.dniUsu, i.estadoItera, i.costeIter, NULL FROM ITERACION i WHERE NOT EXISTS(SELECT nIteracion FROM DOCITERACION WHERE i.nIteracion=nIteracion) GROUP BY nIteracion
+			SELECT i.idIncid, i.nIteracion, i.dniUsu, i.estadoItera, NULL, i.costeIter FROM ITERACION i WHERE NOT EXISTS(SELECT nIteracion FROM DOCITERACION WHERE i.nIteracion=nIteracion) GROUP BY nIteracion
 			ORDER BY 1");
 
 			return $sql;
