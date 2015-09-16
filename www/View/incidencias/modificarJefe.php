@@ -63,7 +63,8 @@
 				<td><?= i18n("Empresa:") ?></td>
 				<td>
 					<select required name='cifEmpr'>
-						<option title="Debe seleccionar una empresa" value="<?php echo $iData[0][9] ?>" selected>-</option>
+						<option title="Debe seleccionar una empresa" value="<?php echo $iData[0][9] ?>" selected hidden><?php if($iData[0][9]=='DEFAULT'){echo '-';}else{ echo $iData[0][9];}?></option>
+						<option value='DEFAULT'>-</option>
 						<?php foreach ($empresas as $key){
 							if($key['cifEmpr'] != 'DEFAULT'){
 							?>
