@@ -2,14 +2,21 @@
 
 Falta:
 
--> Guardar/Finalizar iteración. Arreglar ambos 
+-> Guardar/Finalizar iteración. Arreglar ambos DONE
 -> Arreglar las maquinas. (Refierese, al home, y al listar maquinas, mediante el tratamiento de arrays).
+
 	Para esto usa el listaJefe() que está perfectamente funcional :)
--> El numerito de las pendientes. DONE
+
+		No puedo, por que tengo que filtrar por cifEmpr... y por ese metodo salen todas, que es mi mayor problema, que no lo doy unido y quitado los repetidos... no fui capaz
+
+
+-> El numerito de las pendientes. (Falta agregarlo al loguin).
 -> Modificar iteración (Pendiente del cambio en el Model). DONE
--> Arreglar el modificar incidencia. (Se carga al responsable al actualizar).
+-> Arreglar el modificar incidencia. (Se carga al responsable al actualizar). DONE
 
 ** NOTA **
 Hasta que Diego revise el SQL de iteraciones, a mi me salen todas las iteraciones en todas las maquinas, tanto en interno/externo/jefe...
+
 	Iteraciones en Máquinas? Será en incidencias no? 
-YES YES
+
+YES YES. FIXED.

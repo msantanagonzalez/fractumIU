@@ -34,7 +34,12 @@
 				<td><?= i18n("Iterador:") ?></td>
 				<td width="25%"><input id="dniResponsable" type='text' class="text" name="dniResponsable" disabled value="<?php echo $row['dniUsu']; ?>"></td>
 				<td><?= i18n("Estado Iteración:") ?></td>
-				<td width="25%"><input id="estadoItera" type="text" class="text" name="estadoItera" value="<?php echo $row['estadoItera']; ?>" /></td>
+				<td width="25%">
+					<select name='estadoItera'>
+            			<option value='1' selected>-- Abierta --</option>
+            			<option value='0'>Finalizada</option>
+          			</select>
+				</td>
 			</tr>
 			<tr>
 				<td width="25%"><br><?= i18n("Descripción:") ?></td>

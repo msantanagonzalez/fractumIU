@@ -222,8 +222,8 @@
 				while($row = mysql_fetch_array($listaMaquinas2)){
 					array_push($lista2, $row);
 				}
-				$_SESSION["listaMaquina2"] = $lista2;
 
+				$_SESSION["listaMaquina2"] = $lista2;
 
 				header("location: ../View/maquinas/listarExterno.php");
 				//session_write_close();

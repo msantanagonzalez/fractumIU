@@ -51,9 +51,9 @@
 	</div>
 	<table>
 		<tr> 
-			<td width='25%'><input type='submit' name='accion' value='GUARDAR TRABAJO'></a> </td>
-			<td width='25%'><input type='submit' name='accion' value='CERRAR'></a></td>
+			<td width='25%'></td>
 			<td width='25%'><input type='submit' name='accion' value='altaIteracion'></a></td>
+			<td width='25%'></td>
 		</tr>
 	</table>
 </form>
