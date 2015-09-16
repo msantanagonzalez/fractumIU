@@ -9,7 +9,8 @@
 		 foreach ($rows as $row) { ?>
 			 <h1 id="headerInterno"><a><i><?= i18n("ITERACIÓN") ?> <?php echo $row['idIncid']; ?></i></a></h1>
 			 <div style='height:350px;width:auto;overflow-y: scroll;'>
-			 	<form method="POST" onsubmit="return modificarIteracion()" action="../../Controller/iteracionesController.php">
+			 	<form method="POST" onsubmit="return modificarIteracion()" action="../../Controller/iteracionesController.php" enctype="multipart/form-data">
+					<input type="hidden" class="text" name="idMaq" value="<?php echo $row['idMaq']; ?>"/>
 		 <input type="hidden" class="text" name="idIncid" value="<?php echo $row['idIncid']; ?>"/>
 		 <input type="hidden" class="text" name="nIteracion" value="<?php echo $row['nIteracion']; ?>"/>
 		 <input type="hidden" class="text" name="fechaIter" value="<?php echo $row['fechaIter']; ?>"/>
@@ -91,7 +92,7 @@
 				<tr>
 					<td><?= i18n("Documentación:") ?></td>
 					<td><img src="../../Resources/images/PDF.png"></td>
-					<td colspan="2"><input type="file" name="docMaquina" id="docMaquina"></td>
+					<td colspan="2"><input type="file" name="docIteracion" id="docIteracion"></td>
 				</tr>
 				<tr>
 				<td colspan="4"><input  type="submit" name="accion" value="modificadoIteracion"></td>
@@ -107,7 +108,7 @@
 						<img src="../../Resources/images/PDF.png">
 						</a>
 						<br>
-						<a href="../../Controller/iteracionesController.php?accion=eliminarDocIteracion&idI=<?php echo $row['idIncid'];?>&idIteracion=<?php echo $row['nIteracion'];?>&path=<?php echo $row['urlDocItr'];?>">
+						<a href="../../Controller/iteracionesController.php?accion=eliminarDocIteracion&idIncid=<?php echo $row['idIncid'];?>&nIteracion=<?php echo $row['nIteracion'];?>&path=<?php echo $row['urlDocItr'];?>">
 						<?php echo "Eliminar";?>
 						</a>
 						</td>

@@ -147,7 +147,7 @@ if(isset($accion)){
 
 	function modificadoIteracion(){
 		//session_start();
-
+		$idMaquina = $_POST['idMaq'];
 		$idIncid = $_POST['idIncid'];
 		$estadoIter = $_POST['estadoItera'];
 		$nIteracion = $_POST['nIteracion'];
@@ -162,6 +162,14 @@ if(isset($accion)){
 		$iteracion->setEstado($estadoIter);
 		$iteracion->modEstado();
 		$iteracion->modificacion();
+
+		# Subida de archivo
+		if(!empty($_FILES['docIteracion'])){
+			list($guardado,$path,$nombreArchivo) = subirArchivo($idMaquina,$idIncid,$nIteracion,"iteracion");
+			if($guardado==1){
+				$iteracion->setPathImage($idIncid,$nIteracion,$path,$nombreArchivo);
+			}
+		}
 
 		header("location: iteracionesController.php?accion=consultaIteracion&idIncid=$idIncid&nIteracion=$nIteracion");
 	}
@@ -268,8 +276,8 @@ if(isset($accion)){
 	}
 
 	function eliminarDocumento(){
-		$idIncid    = $_GET['idI'];
-		$idItera = $_GET['idIteracion'];
+		$idIncid    = $_GET['idIncid'];
+		$idItera = $_GET['nIteracion'];
 		$path    = $_GET['path'];
 		$iteracion = new Iteracion ($idIncid,$idItera);
 		$iteracion->getPathImage($idIncid,$idItera);
@@ -277,7 +285,7 @@ if(isset($accion)){
 
 		unlink($path);
 		anadirMensaje("|SUCCESS| Documento de Iteracion: ".$idItera." eliminado","success");
-		consulta();
+		consultaIteracion();
 	}
 
 ?>

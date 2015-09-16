@@ -36,8 +36,15 @@
 							'$this->descripIter','$this->costeIter','$this->dniUsu')") or die(mysql_error());
 		}
 
+/*		NO USO ESTE METODO CONSULTA PORQUE NECESITO USAR EL ID DE MÁQUINA PARA MODIFICAR DESDE LA CONSULTA POR ESO USO EL DE DEBAJO
 		public function consulta(){
 			$sql = mysql_query("SELECT * FROM ITERACION WHERE idIncid = '$this->idIncid' AND nIteracion = '$this->nIteracion'") or die(mysql_error());
+
+			return $sql;
+		}*/
+
+		public function consulta(){
+			$sql = mysql_query("SELECT * FROM ITERACION, INCIDENCIA WHERE ITERACION.idIncid=INCIDENCIA.idIncid AND ITERACION.idIncid = '$this->idIncid' AND ITERACION.nIteracion = '$this->nIteracion'") or die(mysql_error());
 
 			return $sql;
 		}
