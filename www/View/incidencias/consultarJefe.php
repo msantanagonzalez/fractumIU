@@ -28,7 +28,7 @@ foreach ($rows as $row) { ?>
 				<td><?= i18n("Estado:") ?></td>
 				<td><input type="text" class="text" disabled name="estadoIncidencia" value='<?php echo $row['estadoIncid']; ?>'/></td>
 				<td><?= i18n("Empresa:") ?></td>
-				<td><input type="text" class="text" disabled name="cifEmpr" value="-"/><td>
+				<td><input type="text" class="text" disabled name="cifEmpr" value="<?php if($row['cifEmpr']=='DEFAULT'){echo '-';}else{ echo $row['cifEmpr'];}?>"/><td>
 			</tr>
 			<tr>
 				<td><?= i18n("Máquina:") ?></td>
