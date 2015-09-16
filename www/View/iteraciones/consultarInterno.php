@@ -74,9 +74,6 @@
 		<tr>
 
 			<?php
-			echo $rows[0]['idIncid'];
-			echo "-";
-			echo $rows[0]['nIteracion'];
 
 			if(($rows[0]['dniUsu']==$_SESSION['dni'])&&($rows[0]['estadoItera']!=='0')){?>
 				<td colspan="4"><input type='submit' name='accion' value='Modificar Iteracion'/></td>
