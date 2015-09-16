@@ -84,17 +84,42 @@
 
 				</td>
 			</tr>
+			<?php
+			$rows = $_SESSION['documentoIteracion'];
+			if (empty($rows)) {
+				?>
+				<tr>
+					<td><?= i18n("Documentación:") ?></td>
+					<td><img src="../../Resources/images/PDF.png"></td>
+					<td colspan="2"><input type="file" name="docMaquina" id="docMaquina"></td>
+				</tr>
+				<tr>
+				<td colspan="4"><input  type="submit" name="accion" value="modificadoIteracion"></td>
+				</tr>
+				<?php
+				}else{
+					foreach ($rows as $row) {
+					?>
+					<tr>
+						<td colspan="2"><?= i18n("Documentación:") ?></td>
+						<td colspan="2">
+						<a href="../<?php echo $row['urlDocItr'];?>" target="_blank">
+						<img src="../../Resources/images/PDF.png">
+						</a>
+						<br>
+						<a href="../../Controller/iteracionesController.php?accion=eliminarDocIteracion&idI=<?php echo $row['idIncid'];?>&idIteracion=<?php echo $row['nIteracion'];?>&path=<?php echo $row['urlDocItr'];?>">
+						<?php echo "Eliminar";?>
+						</a>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4"><input  type="submit" name="accion" value="modificadoIteracion"></td>
+					</tr>
+					<?php
+					}
+				} ?>
 		</table>
-
-	<table class="default">
-
-		<tr>
-
-			<td colspan="4"><input type="submit" name="accion" value="modificadoIteracion"></td>
-
-		</tr>
-			<?php } ?>
-	</table>
+	<?php } ?>
 	</form>
 </div>
 

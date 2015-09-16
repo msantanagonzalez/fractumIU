@@ -54,7 +54,7 @@ if(isset($accion)){
 		$iteracion->alta();
 		$id = mysql_fetch_row($iteracion2->nextId());
 		//$id[0]++;
-		
+
 		if(empty($_FILES['docIteracion'])){
 			anadirMensaje("|WARNING| Iteracion: ".$id[0]." creada sin documentacion","warning");
 		}else{
@@ -268,8 +268,8 @@ if(isset($accion)){
 	}
 
 	function eliminarDocumento(){
-		$idIncid    = $_GET['idMaq'];
-		$idItera = $_GET['iIteracion'];
+		$idIncid    = $_GET['idI'];
+		$idItera = $_GET['idIteracion'];
 		$path    = $_GET['path'];
 		$iteracion = new Iteracion ($idIncid,$idItera);
 		$iteracion->getPathImage($idIncid,$idItera);
