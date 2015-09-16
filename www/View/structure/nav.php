@@ -70,6 +70,7 @@ require_once $_SESSION['cribPath'].'Controller/busquedaController.php';
 
 function navExterno()
 {
+  require_once $_SESSION['cribPath'].'Controller/busquedaController.php';
 ?>
 <div id="sidebarExterno"> <!--BARRA LATERAL-->
 			<h1 id='logo'><a href='../../Controller/usuariosController.php?accion=nav'><?= i18n("·Fractum!") ?></a></h1>
@@ -82,7 +83,7 @@ function navExterno()
                             	</a>
                          	</li>
             	<!--NOTIFICACIONES-->
-              <li class='current'> <a href="../../Controller/incidenciasController.php?accion=pendiente"><?= i18n("Pendientes:") ?>
+              <li class='current'> <a href="../incidencias/pendientesExterno.php"><?= i18n("Pendientes:") ?>
                         <span class="badge"> <?php echo $_SESSION['cantPendientesE']; ?> </span> </a> </li>
               <!-- FIN NOTIFICACIONES-->
 							<li class='current'><strong><a href="../../Controller/incidenciasController.php?accion=Listar"><?= i18n("Listar Incidencias") ?></a></strong></li>

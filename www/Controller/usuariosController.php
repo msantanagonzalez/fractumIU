@@ -561,17 +561,16 @@ switch ($action) {
 	function listaMaquinasExternoProvisional(){
 		$maquina = new Maquina("","","","","");
 		$servicio = new Servicio("","","","","","","","","");
-		$listaMaquinas1 = $maquina->listaMaquinasOpEservicio();
-		$lista1 = array();
-		while($row = mysql_fetch_array($listaMaquinas1)){
-			array_push($lista1, $row);
-		}
-		$_SESSION["listaMaquina1"] = $lista1;
-		$listaMaquinas2 = $maquina->listaMaquinasOpEIncidencia();
+		$usuario = new usuario($_SESSION["dni"],"","","","");
+		$cifEmpr = $usuario->getEmpresaExterna();
+		$listaMaquinas2 = $maquina->listaExterno($cifEmpr[0]);
+
 		$lista2 = array();
+
 		while($row = mysql_fetch_array($listaMaquinas2)){
 			array_push($lista2, $row);
 		}
+
 		$_SESSION["listaMaquina2"] = $lista2;
 	}
 

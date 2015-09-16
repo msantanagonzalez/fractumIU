@@ -223,7 +223,6 @@ if(isset($accion)){
 				while($row = mysql_fetch_array($listaPend)){array_push($listaPendientes, $row);}
 				$_SESSION['cantPendientesE'] = mysql_num_rows($listaPend);
 				$_SESSION['pendientesExterno'] = $listaPendientes;
-				header("location: ../View/incidencias/pendientesExterno.php");
 				break;
 			default:
 				break;
