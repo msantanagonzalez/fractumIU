@@ -46,16 +46,15 @@ if(isset($accion)){
 		//session_start();
 		$idI = $_POST["idIncid"];
 		$iteracion2 = new Iteracion("","","","","","","","","");
-		$id = mysql_fetch_row($iteracion2->nextId());
-		$id[0]++;
 		//$id = NULL;
 		$idMaquina = $_POST["idMaq"];
 
 		$iteracion = new Iteracion($idI,"", $_POST["fechaIter"], $_POST["hInicio"], $_POST["hFin"],
 										$_POST["estadoItera"],  $_POST["descripIter"], $_POST["costeIter"], $_SESSION['dni']);
 		$iteracion->alta();
-		//echo $id[0];
-		# Subida de archivo Incompleta
+		$id = mysql_fetch_row($iteracion2->nextId());
+		//$id[0]++;
+		
 		if(empty($_FILES['docIteracion'])){
 			anadirMensaje("|WARNING| Iteracion: ".$id[0]." creada sin documentacion","warning");
 		}else{
@@ -68,7 +67,7 @@ if(isset($accion)){
 			}
 		}
 
-		
+
 		modEstadoIncidencia();
 		listaIteracion();
 	}
