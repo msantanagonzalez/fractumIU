@@ -116,9 +116,8 @@ if(isset($accion)){
 
 	function modificarIteracion(){
 		//session_start();
-
-		$idIteracion = $_REQUEST['idIncidencia'];
-		$nIteracion = $_REQUEST['nIteracion'];
+		$idIteracion = $_GET['idIncidencia'];
+		$nIteracion = $_GET['nIteracion'];
 
 		$iteracion = new Iteracion($idIteracion, $nIteracion);
 		$consultaIteracion = $iteracion->consulta();
