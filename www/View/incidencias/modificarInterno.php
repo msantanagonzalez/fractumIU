@@ -43,7 +43,7 @@
 							}
 							?>
 
-						<option value='Pendiente'>Pendiente de Derivar</option>
+						<option value='Pendiente Derivar'>Pendiente de Derivar</option>
 						<?php
 
 							if(($ultimaIteracion==false) OR ($ultimaIteracion[0][0]!=1)){

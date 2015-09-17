@@ -5,35 +5,33 @@ Nota2: revisar el trabajo antes de subirlo (no vale de nada subir algo que no fu
 ************************************************************************************************************************************************
 
 Jefe
-	Dani - Falta "Pendientes".
-	Diego - En consultar incidencia, donde se listan las iteraciones falta un encabezado que ponga documentación (si no tiene un guión, si tiene un símbolo de pdf que abra al documentación correspondiente).
-	Diego - Mostrar error al subir una imagen con un tamaño mayor al permitido.
-	Diego - En iteraciones - consultar: mostrar la documentación correspondiente.
-	Diego - En incidencias - consultar, donde se listan las iteraciones falta un encabezado que ponga documentación (si no tiene un guión, si tiene un símbolo de pdf que abra al documentación correspondiente).
-	Diego - En gestionar máquinas y en home, mostrar el botón pdf en el listado.
-	Dani - Cambiar $sql de listaJefe (máquinas). Falla si sólo hay máquinas y no hay incidencias, por ejemplo.
-	Dani - Quitar la empresa default al momento de modificar la incidencia.
+	(DONE) Dani - Falta "Pendientes".
+	(DONE) Diego - En consultar incidencia, donde se listan las iteraciones falta un encabezado que ponga documentación (si no tiene un guión, si tiene un símbolo de pdf que abra al documentación correspondiente).
+	(NOPE) Diego - Mostrar error al subir una imagen con un tamaño mayor al permitido.
+	(DONE) Diego - En iteraciones - consultar: mostrar la documentación correspondiente.
+	(DONE) Diego - En gestionar máquinas y en home, mostrar el botón pdf en el listado.
+	(DONE) Dani - Cambiar $sql de listaJefe (máquinas). Falla si sólo hay máquinas y no hay incidencias, por ejemplo.
+	(DONE) Dani - Quitar la empresa default al momento de modificar la incidencia.
 
 Interno
-	María & Ray - En pendientes, cambiar botones.
-	Diego - En incidencias - consultar, si tienes documentación que la muestre.
-	Diego - Iteraciones - modificar: agregar para eliminar documentación.
-	María & Ray - No se puede abrir una iteración mientres no se cierre la anterior.
-	Diego - Si una iteración no tiene documentación y está abierta, al modificarla, se debe poder subir la documentación.
-	Diego - Si la iteración está abierta y tiene un documento, al darle a modificar, se debe poder eliminar ese documento.
-	María & Ray - En iteraciones - consultar, meter scroll de izquierda a derecha.
-	María & Ray - No se puede cerrar una incidencia si hay iteraciones abiertas.
-	María & Ray - Si una incidencia está "en curso", no puede pasar a "abierta".
+	(DONE) María & Ray - En pendientes, cambiar botones.
+	(DONE/en listar iteraciones) Diego - En incidencias - consultar, si tienes documentación que la muestre.
+	(DONE) Diego - Iteraciones - modificar: agregar para eliminar documentación.
+	(DONE) María & Ray - No se puede abrir una iteración mientres no se cierre la anterior.
+	(DONE) Diego - Si una iteración no tiene documentación y está abierta, al modificarla, se debe poder subir la documentación.
+	(DONE) Diego - Si la iteración está abierta y tiene un documento, al darle a modificar, se debe poder eliminar ese documento.
+	(DONE/no es necesario) María & Ray - En iteraciones - consultar, meter scroll de izquierda a derecha.
+	(NOPE) María & Ray - No se puede cerrar una incidencia si hay iteraciones abiertas.
+	(DONE) María & Ray - Si una incidencia está "en curso", no puede pasar a "abierta".
 
 Externo
-	Sergio - la columna "mantenimiento" de máquina muestra datos erróneos en el home
-	Sergio - en incidencias - consultar: undefined variable row2, el botón nueva iteración no lleva a ningún sitio, no se muestran las iteraciones
-	Sergio - En máquinas - listar: datos erróneos de las máquinas y la cabecera se repite varias veces.
-	Diego - Fallo al mostrar la documentación.
-	Sergio - Falta pendientes.
+	(DONE) Sergio - la columna "mantenimiento" de máquina muestra datos erróneos en el home
+	(NOPE) Sergio - en incidencias - consultar: undefined variable row2, el botón nueva iteración no lleva a ningún sitio, no se muestran las iteraciones
+	(DONE) Sergio - En máquinas - listar: datos erróneos de las máquinas y la cabecera se repite varias veces.
+	(NOPE) Diego - Fallo al mostrar la documentación.
+	(NOPE) Sergio - Falta pendientes.
 
 Alejandro:
--al crear una iteración, donde está hora de inicio tiene que ser disabled y coger la hora del sistema y hora fin debería de aparecer disabled. Cuando se modifica la iteración y se cierra, la hora de inicio ya está en la bd y la hora de fin se tiene que coger del sistema.
--donde haya fechas de apertura, que coja la fecha del sistema. en la de cierre, no debe aparecer nada hasta que se cierra la incidencia. se puede modificar la fecha cuando el estado de la incidencia sea "programada".
-
+(DONE) -al crear una iteración, donde está hora de inicio tiene que ser disabled y coger la hora del sistema y hora fin debería de aparecer disabled. Cuando se modifica la iteración y se cierra, la hora de inicio ya está en la bd y la hora de fin se tiene que coger del sistema.
+(NOPE) -donde haya fechas de apertura, que coja la fecha del sistema. en la de cierre, no debe aparecer nada hasta que se cierra la incidencia. se puede modificar la fecha cuando el estado de la incidencia sea "programada".
 Marco & Héctor: revisión y online.
