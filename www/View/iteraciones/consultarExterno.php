@@ -8,7 +8,7 @@
 
 	<div style='height:350px;width:auto;overflow-y: scroll;'>
 	<form method="POST" action="../../Controller/iteracionesController.php">
-	<?php $rows = $_SESSION['consultaIteracion']; 
+	<?php $rows = $_SESSION['consultaIteracion'];
 	 foreach ($rows as $row) { ?>
 		<table class='default'>
 			<tr>
@@ -50,17 +50,17 @@
 				</td>
 		    </tr>
 		</table>
- 	
+
     <br>
     <table>
 		<tr>
 
 			<?php if ($row['estadoItera'] == 1) { ?>
-				<td colspan="4"><a href="../../Controller/iteracionesController.php?accion=Modificar Iteracion&idIncidencia=<?php echo $row['idIncid'];?>&nIteracion=<?echo $row['nIteracion'];?>"><input type="button" name="Modificar" value="Modificar"></a></td>	
+				<td colspan="4"><a href="../../Controller/iteracionesController.php?accion=Modificar_Iteracion&idIncidencia=<?php echo $row['idIncid'];?>&nIteracion=<?php echo $row['nIteracion'];?>"><input type="button" name="Modificar" value="Modificar"></a></td>
           	<?php } else { ?>
-				<td colspan="4"><a href="../../Controller/usuariosController.php?accion=nav"><input type="button" name="Modificar" value="Volver"></a></td>		
+				<td colspan="4"><a href="../../Controller/usuariosController.php?accion=nav"><input type="button" name="Modificar" value="Volver"></a></td>
           	<?php } ?>
-		</tr> 
+		</tr>
 	</table>
 	<?php } ?>
 </form>

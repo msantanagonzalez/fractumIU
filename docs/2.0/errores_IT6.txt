@@ -1,23 +1,30 @@
+NOTA: Fecha de entrega: Lunes 21 de septiembre antes de las 17:00, POR CADA DIA TARDE, SE SEGUIRAN DISMINUYENDO LOS DIAS DISPONIBLES PARA TRABAJAR.
+
 Alejandro:
   En Interno->
-    * View/incidencias/altaInterno.php = Campo "Fecha cierre" debe estar disabled(se debe coger automaticamente cuando se cierre la incidencia).
+    * View/incidencias/altaInterno.php = Campo "Fecha cierre" debe estar disabled(se debe coger automaticamente cuando se cierre la incidencia) y en la bd, deberia aparecer vacio.
     * View/iteraciones/consultarInterno.php = Campo "Hora fin" no deberia tener valor si la iteracion no esta cerrada, no guarda la hora de cierre en la bd.
+  En Externo->
+    * View/iteraciones/consultarExterno.php = Campo "Hora fin" no deberia tener valor si la iteracion no esta cerrada, no guarda la hora de cierre en la bd.
 
 Maria & Ray:
   En Interno->
     * Meter,en todas las vistas de interno, el require del controlador de mensajes, para evitar acumulacion de mensajes en otras vistas.
-    * View/incidencias/consultarInterno.php = Si hay alguna iteracion abierta, no se debe permitir modificar la incidencia.
+    * View/incidencias/consultarInterno.php = Si hay alguna iteracion abierta, no se debe permitir modificar la incidencia. Si hay una iteracion en estado "En Curso Externo" no se debe permitir modificar la incidencia.
+    * View/incidencias/modificarInterno.php = Si la incidencia esta en "Pendiente Cierre", solo puede cambiar de estado a "Pendiente Derivar" o "Cerrada".
 
 Dani & Casanova:
   En jefe->
     * View/incidencias/consultarJefe.php = El estado de las iteraciones es erroneo. Undefined index: nDocIter en linea 93.
-    * View/servicios/altaJefe.php = Undefined index listaMaquina en linea 40, este error sale si no listas antes las maquinas.
+    * View/servicios/altaJefe.php = Undefined index listaMaquina en linea 40.
+    * Meter,en todas las vistas de jefe, el require del controlador de mensajes, para evitar acumulacion de mensajes en otras vistas.
   En Externo->
     * Falta todo lo relacionado a documentacion(Casanova).
 
 Sergio:
   En Externo->
     * View/incidencias/pendientesExterno.php = El estado debe ser "abierta" no derivada(por lo menos en la vista).
-    * View/maquinas/consultarExterno.php = El estado debe ser "abierta" no derivada(por lo menos en la vista).
-    * View/incidencias/consultarExterno.php = El boton nueva iteracion no lleva a ningun lado.
-    NOTA: NO SE PUEDE PROBAR FUNCIONABILIDAD EN LAS INCIDENCIAS, SOLUCIONAR LO DE LA ITERACION ASAP.
+    * View/maquinas/consultarExterno.php = El estado debe ser "abierta" no derivada(por lo menos en la vista). Aparecen incidencias derivadas de otra empresa y permite trabajar en ellas, esto no deberia ser asi.
+    * Meter,en todas las vistas de externo, el require del controlador de mensajes, para evitar acumulacion de mensajes en otras vistas.
+    * View/incidencias/consultarExterno.php = Si hay una iteracion abierta, no deberias poder modificar la incidencia.
+    * View/incidencias/modificarExterno.php = Al cambiar de estado la incidencia a "Finalizado", peta por todos lados.

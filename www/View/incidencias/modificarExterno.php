@@ -10,6 +10,12 @@ foreach ($rows as $row) { ?>
     <input type="hidden" class="text" name="derivada" value="<?php echo $row['derivada']; ?>"/>
     <input type="hidden" class="text" name="cifEmpr" value="<?php echo $row['cifEmpr']; ?>"/>
     <input type="hidden" class="text" name="dniResponsable" value="<?php echo $row['dniResponsable']; ?>"/>
+    <input type="hidden" class="text" name="dniApertura" value="<?php echo $row['dniApertura']; ?>"/>
+    <input readonly="readonly" type="hidden" class="text" name="fechaApertura" value="<?php echo $row['fAper']; ?>"/>
+    <input type="hidden" class="text" name="fechaCierre" value="<?php echo $row['fCier']; ?>" />
+    <input type="hidden" class="text" name="idMaquina" value="<?php echo $row['idMaq']; ?>" />
+    <input type="hidden" class="text" name="descripcion" value="<?php echo $row['descripIncid']; ?>" />
+
     <table class="default">
       <tr>
         <td width="25%"><?= i18n("Apertura:") ?></td>

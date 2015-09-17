@@ -26,7 +26,7 @@ Interno
 
 Externo
 	(DONE) Sergio - la columna "mantenimiento" de máquina muestra datos erróneos en el home
-	(NOPE) Sergio - en incidencias - consultar: undefined variable row2, el botón nueva iteración no lleva a ningún sitio, no se muestran las iteraciones
+	(DONE) Sergio - en incidencias - consultar: undefined variable row2, el botón nueva iteración no lleva a ningún sitio, no se muestran las iteraciones
 	(DONE) Sergio - En máquinas - listar: datos erróneos de las máquinas y la cabecera se repite varias veces.
 	(NOPE) Diego - Fallo al mostrar la documentación.
 	(NOPE) Sergio - Falta pendientes.

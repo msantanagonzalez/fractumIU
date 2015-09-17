@@ -55,7 +55,7 @@
 
 		public function listaPendientesInterno($dniUsu){
 
-			$sql = mysql_query("SELECT * FROM INCIDENCIA WHERE dniResponsable='$dniUsu' AND (estadoIncid='Abierta' OR estadoIncid='Programada' OR estadoIncid='Pendiente Derivar' OR estadoIncid='En Curso') ");
+			$sql = mysql_query("SELECT * FROM INCIDENCIA WHERE dniResponsable='$dniUsu' AND (estadoIncid='Abierta' OR estadoIncid='Programada' OR estadoIncid='Pendiente Derivar' OR estadoIncid='En Curso' OR estadoIncid='Pendiente Cierre') ");
 
 			return $sql;
 		}

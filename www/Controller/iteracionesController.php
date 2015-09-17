@@ -18,7 +18,7 @@ if(isset($accion)){
 		case 'modificadoIteracion':
 			modificadoIteracion();
 			break;
-		case 'Modificar Iteracion':
+		case 'Modificar_Iteracion':
 			modificarIteracion();
 			break;
 		case 'listarIteracion':
@@ -272,7 +272,7 @@ if(isset($accion)){
 		$idIncidencia = $_GET['idIncid'];
 		$idMaq = $_GET['idMaq'];
 
-		header("location: ../../View/iteraciones/altaExterno.php?idIncidencia=$idIncidencia&idMaq=$idMaq");
+		header("location: ../View/iteraciones/altaExterno.php?idIncidencia=$idIncidencia&idMaq=$idMaq");
 	}
 
 	function eliminarDocumento(){
