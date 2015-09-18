@@ -85,7 +85,7 @@ foreach ($rows as $row) { ?>
 			<tr>
 				<td width="20%"><?php echo $row2['nIteracion'];?></td>
 				<td width="20%"><?php echo $row2['dniUsu']; ?></td>
-				<td width="20%"><?php if($row2['nIteracion']=1) echo "Abierta"; else echo "Cerrada" ?></td>
+				<td width="20%"><?php if($row2['estadoItera']==1){echo 'Abierta' ;}else{ echo 'Cerrada';}  ?></td>
 				<td width="20%">
 				 <?php if(isset($row2['urlDocItr'])){ ?>
 					 <a href="../<?php echo $row2['urlDocItr'];?>" target="_blank">
