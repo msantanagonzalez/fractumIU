@@ -1,7 +1,6 @@
 <?php
 	$userType="jefe";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
-	require_once $_SESSION['cribPath'].'View/crearMensaje.php';
 ?>
 
 <h1 id="headerJefe"><a><i><?= i18n("MÁQUINAS") ?></i></a></h1>

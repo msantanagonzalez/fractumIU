@@ -18,7 +18,7 @@ if(isset($accion)){
 		case 'modificadoIteracion':
 			modificadoIteracion();
 			break;
-		case 'Modificar_Iteracion':
+		case 'Modificar Iteracion':
 			modificarIteracion();
 			break;
 		case 'listarIteracion':

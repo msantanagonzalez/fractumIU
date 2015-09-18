@@ -37,7 +37,7 @@
 			<td width="25%">
 				<select title="Seleccione una maquina" required name="idMaq" id="idMaq">
 					<option value="" selected>-</option>
-					<?php $rows = $_SESSION["listaMaquina"]; foreach ($rows as $row){ ?>
+					<?php $rows = $_SESSION["maqsJefe"]; foreach ($rows as $row){ ?>
 					<option value="<?php echo $row['idMaq'];?>"><?php echo $row['idMaq']." - ".$row['nomMaq'];?></option>
 					<?php } ?>
 				</select>
@@ -59,7 +59,7 @@
 		<tr>
 			<td width="25%"><br><?= i18n("Descripción:") ?></td>
 			<td colspan='3'width="75%">
-				<textarea  id="des" style="resize:none; text-align:left;" style="t" rows="4" name='descripSer'>Mantenimiento completo, coste de piezas no incluido.</textarea>
+				<textarea  id="des" style="resize:none; text-align:left;" style="t" rows="4" name='descripSer'> </textarea>
 			</td>
 		</tr>
 		<tr>

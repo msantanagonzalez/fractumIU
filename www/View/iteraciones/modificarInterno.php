@@ -15,6 +15,7 @@
 		 <input type="hidden" class="text" name="nIteracion" value="<?php echo $row['nIteracion']; ?>"/>
 		 <input type="hidden" class="text" name="fechaIter" value="<?php echo $row['fechaIter']; ?>"/>
 		 <input type="hidden" class="text" name="hInicio" value="<?php echo $row['hInicio']; ?>"/>
+		 <input type="hidden" class="text" name="hFin" value="<?php echo $row['hFin']; ?>"/>
 		<table class="default">
 			<tr>
 				<td><?= i18n("Identificador Incidencia:") ?></td>
