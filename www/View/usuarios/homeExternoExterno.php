@@ -45,7 +45,7 @@
 	          	<td width="17%">En Curso</td>
           <?php } else { ?>
               <td width="17%">Realizada</td>
-          <?php } ?> 
+          <?php } ?>
          <td width="10%">
  				   <input type="button"  value="Consulta" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>'"/>
  		     </td>
@@ -64,6 +64,7 @@
         <th width="10%">ID</th>
         <th width="25%"><?= i18n("Nombre:") ?></th>
         <th width="25%"><?= i18n("Mantenimiento") ?></th>
+				<th width="20%"><?= i18n("Documentación") ?></th>
         <th width="15%"> </th>
     </tr>
 </table>
@@ -87,14 +88,22 @@
     <form method="POST" action="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>">
 
     <tr>
-      <td width="10%"><?php echo $row['idMaq']; ?></th>
+      <td width="25%"><?php echo $row['idMaq']; ?></th>
       <td width="25%"><?php echo $row['nomMaq']; ?></td>
       <?php if ($row['idServ']) { ?>
         <td>Si</td>
       <?php } else { ?>
         <td>No</td>
       <?php } ?>
-      <td width="10%">
+      <td width="25%">
+            <?php
+            if(isset($row[4])){ ?>
+            <a href="../<?php echo $row[4];?>" target="_blank">
+              <img src="../../Resources/images/PDF.png">
+            </a>
+            <?php } else echo "-" ?>
+          </td>
+      <td width="25%">
         <input type="button"  value="Consulta" onclick="window.location.href='../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>'"/>
     </td>
     </tr>
