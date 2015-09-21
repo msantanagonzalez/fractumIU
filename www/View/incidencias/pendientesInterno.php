@@ -1,5 +1,6 @@
 <?php
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
+	require_once $_SESSION['cribPath'].'View/messages/messages_ga.php';
 ?>
 
 <h1 id="headerInterno"><a><i><?= i18n("INCIDENCIAS") ?></i></a></h1>

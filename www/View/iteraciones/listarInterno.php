@@ -1,6 +1,7 @@
 <?php
 	$userType="interno";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
+	require_once $_SESSION['cribPath'].'View/messages/messages_ga.php';
 ?>
 
 <h1 id="headerJefe"><a><i><?= i18n("- ITERACIONES -") ?></i></a></h1>

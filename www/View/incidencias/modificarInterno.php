@@ -1,5 +1,6 @@
 <?php
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
+	require_once $_SESSION['cribPath'].'View/messages/messages_ga.php';
 ?>
 
 		<?php 	$rows = $_SESSION['consultaIncidencia'];
@@ -48,6 +49,15 @@
 
 							if(($ultimaIteracion==false) OR ($ultimaIteracion[0][0]!=1)){
 						?>
+						<option value='Cerrada'>Cerrada</option>
+							<?php
+							}
+							?>
+						<?php
+
+							if($row['estadoIncid']=='Pendiente Cierre'){
+						?>
+						<option value='Pendiente Derivar'>Pendiente Derivar</option>
 						<option value='Cerrada'>Cerrada</option>
 							<?php
 							}

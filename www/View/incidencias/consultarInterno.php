@@ -1,5 +1,6 @@
 <?php
 require_once $_SESSION['cribPath'].'View/structure/header.php';
+require_once $_SESSION['cribPath'].'View/messages/messages_ga.php';
 $rows = $_SESSION['consultaIncidencia'];
 
 foreach ($rows as $row) { ?>
@@ -54,8 +55,9 @@ foreach ($rows as $row) { ?>
 	<table class="default">
 		<tr>
 			<?php
-
-			if(($row['dniApertura']==$_SESSION['dni']) and ($row['estadoIncid']!='Cerrada') and ($row['estadoIncid']!='Derivada')){?>
+			
+			$ultimaIteracion = $_SESSION['estadoIteracion'];
+			if(($row['dniApertura']==$_SESSION['dni']) and ($row['estadoIncid']!='Cerrada') and ($row['estadoIncid']!='Derivada')and (($ultimaIteracion [0][0]!= 1) or ($ultimaIteracion [0][0] == 'En Curso Externo'))){?>
 					<td colspan="4"><a href="../../Controller/incidenciasController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid']; ?>"><input type="button" name="accion" value="Modificar"></td>
 			<?php
 			}

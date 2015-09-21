@@ -1,6 +1,7 @@
 <?php
     $userType="interno";
     require_once $_SESSION['cribPath'].'View/structure/header.php';
+	require_once $_SESSION['cribPath'].'View/messages/messages_ga.php';
 ?>
 <h1 id="headerInterno"><a><?= i18n("- INCIDENCIAS -") ?></a></h1> <!--SECCIÓN-->
 <table class="default">

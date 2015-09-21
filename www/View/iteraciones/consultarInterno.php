@@ -1,6 +1,7 @@
 <?php
 	$userType="interno";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
+	require_once $_SESSION['cribPath'].'View/messages/messages_ga.php';
 	$rows = $_SESSION['consultaIteracion'];?>
 		 <h1 id='headerInterno'><a><?= i18n("- DETALLES TRABAJO -") ?></a></h1>
 		 	<div style='height:350px;width:auto;overflow-y: scroll;'>
