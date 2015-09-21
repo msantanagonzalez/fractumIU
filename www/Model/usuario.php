@@ -142,7 +142,6 @@ class usuario{
 	public function getEmpresaExterna(){
 		$sql = mysql_query("SELECT cifEmpr FROM OPEXTERNO WHERE dniUsu = '$this->dniUsu'");
 		$sql2 = mysql_fetch_array($sql);
-		print_r($sql2);
 		return $sql2;
 	}
 

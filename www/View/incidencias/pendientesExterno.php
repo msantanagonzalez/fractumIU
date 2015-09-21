@@ -30,7 +30,13 @@
 				<td width="20%"><?php echo $row['idIncid'];?></td>
 				<td width="20%"><?php echo $row['dniResponsable'];?></td>
 				<td width="20%"><?php echo $row['fAper']; ?></td>
-				<td width="20%"><?php echo $row['estadoIncid']; ?></td>
+				<?php if ($row['estadoIncid'] == "Derivada") { ?>
+          		<td width="17%">Abierta</td>
+		          <?php } else if($row['estadoIncid'] == "En Curso Externo") { ?>
+			          	<td width="17%">En Curso</td>
+		          <?php } else { ?>
+		              <td width="17%">Realizada</td>
+		          <?php } ?> 
 				<td width="20%">
 				<input type="button" value="Consulta" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>'"/>
 				</td>

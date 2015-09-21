@@ -66,7 +66,7 @@ foreach ($rows as $row) { ?>
    	<table class="default"><!--TABLA-->
 		<tr>
 			<?php
-				
+				$iteracionesAcabadas = 1;
 				foreach ($rows2 as $row2) {
 			?>
 			<tr>
@@ -74,7 +74,8 @@ foreach ($rows as $row) { ?>
 				<td width="20%"><?php echo $row2['nIteracion']; ?></td>
 				<td width="20%"><?php echo $row2['dniUsu']; ?></td>			
 				
-				<?php if ($row2['estadoItera'] == "1") { ?>
+				<?php if ($row2['estadoItera'] == "1") { 
+						$iteracionesAcabadas = 0; ?>
 					<td colspan="2">Abierta</td>
 				<?php  } elseif ($row2['estadoItera'] == "0") { ?>
 					<td colspan="2">Finalizada</td>
@@ -87,15 +88,18 @@ foreach ($rows as $row) { ?>
    	</table>
 <table>
 <?php } ?>
-		<tr>
-		<?php if ($row['estadoIncid'] == "Derivada") { ?>
-		<td colspan="2"></td>
-			<td colspan="50"><a href="../../Controller/iteracionesController.php?accion=NEXTID&idIncid=<?php echo $row['idIncid'] ?>&idMaq=<?php echo $row['idMaq'] ?>"><input type="button" value="NUEVA ITERACION"></a></td>
-		</tr>
-		<?php  } elseif ($row['estadoIncid'] == "En Curso Externo") { ?>
+	<?php $cif = $_SESSION["cifEmpr"];
+		if ($row['cifEmpr'] == $cif) { ?>
+			<tr>
+			<?php if ($row['estadoIncid'] == "Derivada") { ?>
 			<td colspan="2"></td>
-			<td colspan="50"><a href="../../Controller/incidenciasController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid'] ?>"><input type="button" value="MODIFICAR"></a></td>
-		</tr>
+				<td colspan="50"><a href="../../Controller/iteracionesController.php?accion=NEXTID&idIncid=<?php echo $row['idIncid'] ?>&idMaq=<?php echo $row['idMaq'] ?>"><input type="button" value="NUEVA ITERACION"></a></td>
+			</tr>
+			<?php  } elseif ($row['estadoIncid'] == "En Curso Externo" && $iteracionesAcabadas == 1) { ?>
+				<td colspan="2"></td>
+				<td colspan="50"><a href="../../Controller/incidenciasController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid'] ?>"><input type="button" value="MODIFICAR"></a></td>
+			</tr>
+			<?php } ?>
 		<?php } ?>
 	</table>
 </div>

@@ -81,7 +81,7 @@ switch ($action) {
 				case 'E':
 					listaMaquinasExternoProvisional();
 					listaIncidenciasExternoProvisional();
-
+					guardaEmpresa();
 					header('location:../View/usuarios/homeExternoExterno.php');
 					break;
 			}
@@ -590,7 +590,11 @@ switch ($action) {
 		$_SESSION["listaIncidencia1"] = $lista1;
 	}
 
-
+	function guardaEmpresa () {
+		$usuario = new usuario($_SESSION["dni"],"","","","");
+		$cifEmpr = $usuario->getEmpresaExterna();
+		$_SESSION["cifEmpr"] = $cifEmpr[0];
+	}
 
 
 ?>
