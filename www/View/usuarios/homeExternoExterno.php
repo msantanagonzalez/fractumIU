@@ -61,11 +61,11 @@
 <h1 id="headerExterno"><a><?= i18n("- MÁQUINAS -") ?> </a></h1> <!--SECCIÓN-->
 <table class="default"><!--TABLA-->
     <tr>
-        <th width="10%">ID</th>
+        <th width="25%">ID</th>
         <th width="25%"><?= i18n("Nombre:") ?></th>
         <th width="25%"><?= i18n("Mantenimiento") ?></th>
-				<th width="20%"><?= i18n("Documentación") ?></th>
-        <th width="15%"> </th>
+				<th width="25%"><?= i18n("Documentación") ?></th>
+        <th width="25%"> </th>
     </tr>
 </table>
 <div style="height:107px;width:auto;overflow-y: scroll;"><!--ESTO DA LUGAR AL SCROLL-->
