@@ -5,7 +5,7 @@
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
 <h1 id="headerExterno"><a><i><?= i18n("ITERACIÓN") ?> $#IDincidencia</i></a></h1>
 <div>
-	<form method="POST" onsubmit="return modificarIteracion()" action="../../Controller/iteracionesController.php">
+	<form method="POST" onsubmit="return modificarIteracion()" action="../../Controller/iteracionesController.php" enctype="multipart/form-data">
 
 		<?php $rows = $_SESSION['consultaIteracion'];
 		 foreach ($rows as $row) { ?>
@@ -47,14 +47,42 @@
 					<textarea required title="Por favor introduzca una breve descripción" id="des" style="resize:none; text-align:left;" style="t" rows="4" name="descripIter" ><?php echo $row['descripIter'];?></textarea>
 				</td>
 			</tr>
+			<?php
+			$rows = $_SESSION['documentoIteracion'];
+			if (empty($rows)) {
+				?>
+				<tr>
+					<td><?= i18n("Documentación:") ?></td>
+					<td><img src="../../Resources/images/PDF.png"></td>
+					<td colspan="2"><input type="file" name="docIteracion" id="docIteracion"></td>
+				</tr>
+				<tr>
+				<td colspan="4"><input  type="submit" name="accion" value="modificadoIteracion"></td>
+				</tr>
+				<?php
+				}else{
+					foreach ($rows as $row) {
+					?>
+					<tr>
+						<td colspan="2"><?= i18n("Documentación:") ?></td>
+						<td colspan="2">
+						<a href="../<?php echo $row['urlDocItr'];?>" target="_blank">
+						<img src="../../Resources/images/PDF.png">
+						</a>
+						<br>
+						<a href="../../Controller/iteracionesController.php?accion=eliminarDocIteracion&idIncid=<?php echo $row['idIncid'];?>&nIteracion=<?php echo $row['nIteracion'];?>&path=<?php echo $row['urlDocItr'];?>">
+						<?php echo "Eliminar";?>
+						</a>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4"><input  type="submit" name="accion" value="modificadoIteracion"></td>
+					</tr>
+					<?php
+					}
+				} ?>
 		</table>
-
-	<table class="default">
-		<tr>
-			<td colspan="4"><input type="submit" name="accion" value="modificadoIteracion"></td>
-		</tr>
-			<?php } ?>
-	</table>
+	<?php } ?>
 	</form>
 </div>
 
