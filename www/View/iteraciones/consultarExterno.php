@@ -26,7 +26,7 @@
 		        <td><?= i18n("Hora Inicio:") ?></td>
 		        <td><input type='time' disabled value="<?php echo $row['hInicio']; ?>"></td>
 		        <td><?= i18n("Hora Fin:") ?></td>
-		        <td><input type='time' disabled value="<?php echo $row['hFin']; ?>"></td>
+		        <td><input type='time' disabled value="<?php if($rows[0]['estadoItera']==1){echo 'NULL';}else{echo echo $rows[0]['hFin'];}  ?>"></td>
 		    </tr>
 			<br>
 		    <tr>

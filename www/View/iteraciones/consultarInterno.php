@@ -29,7 +29,8 @@
 		        <td><?= i18n("Hora Inicio:") ?></td>
 		        <td><input type='time' disabled value="<?php echo $rows[0]['hInicio']; ?>"></td>
 		        <td><?= i18n("Hora Fin:") ?></td>
-		        <td><input type='time' disabled value="<?php echo $rows[0]['hFin']; ?>"></td>
+		       <!-- <td><input type='time' disabled value="<?php echo $rows[0]['hFin']; ?>"></td> -->
+				<td><input type='time' disabled value="<?php if($rows[0]['estadoItera']==1){echo 'NULL';}else{echo echo $rows[0]['hFin'];}  ?>"></td>
 		  </tr>
 		    <tr>
 				<td colspan='5'><?= i18n("Descripción:") ?></td>

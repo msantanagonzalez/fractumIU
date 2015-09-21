@@ -20,8 +20,9 @@
 			<tr>
 				<td><?= i18n("Fecha Apertura:") ?></td>
 				<td><input readonly="readonly" title="Se necesita una fecha de apertura" id="fechaApertura" type='date' name='fechaApertura' value='<?php echo date('Y-m-d');?>' required/></td>
-				<td><?= i18n("Fecha Cierre:") ?></td>
-				<td><input title="Se necesita una fecha de Cierre" id="fechaCierre" type='date' name='fechaCierre' value='' required/></td>
+				 <td><?= i18n("Fecha Cierre:") ?></td> 
+				 <td><input readonly="readonly" id="fechaCierre" type='date' name='fechaCierre' value="<?php if($rows[0]['estadoIncid']=="Cerrada"){echo 'NULL';}else{echo echo $rows[0]['fCier'];}  ?>" /></td>
+			
 			</tr>
 			<tr>
 				<td><?= i18n("Estado:") ?></td>
