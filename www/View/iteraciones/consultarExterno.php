@@ -37,18 +37,42 @@
 	          		<td><input type='text' disabled value="Finalizada"></td>
           		<?php } ?>
 		  	</tr>
-		    </tr>
-				<td><?= i18n("Documentación:") ?></td>
-		        <td colspan='3'><input type='text' disabled class='text' name="documentacion" name='Descripcion_Tarea'></td>
-		    </tr>
 		    <tr>
 				<td colspan='5'><?= i18n("Descripción:") ?></td>
 			</tr>
-			</tr>
+			<tr>
 				<td colspan='5'>
 					<textarea style="resize:none" class="text" rows="5" name='descripcionHistoricoIncidencia' disabled><?php echo $row['descripIter']; ?></textarea>
 				</td>
-		    </tr>
+		  </tr>
+			<?php
+				$array = $_SESSION['documentoIteracion'];
+				if (empty($array)) {
+					?>
+					<tr>
+						<td colspan="4"><?= i18n("Documentación:") ?>
+						<div class="alert alert-info" role="alert">
+						<?= i18n("| INFO |- Iteración sin documento.") ?>
+						</div>
+						</td>
+					</tr>
+					<?php
+					}else{
+						foreach ($array as $documento) {
+						?>
+						<tr>
+							<td colspan="2"><?= i18n("Documentación:") ?></td>
+							<td colspan="2">
+							<a href="../<?php echo $documento['urlDocItr'];?>" target="_blank">
+							<img src="../../Resources/images/PDF.png">
+							<br>
+							<?php echo $documento['nDocIter'];?>
+							</a>
+							</td>
+						</tr>
+						<?php
+					}
+				} ?>
 		</table>
 
     <br>

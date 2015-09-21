@@ -41,8 +41,8 @@
 			</td>
 			<td width="20%">
 			<?php
-			 if(isset($row[4])){ ?>
-				<a href="../<?php echo $row[4];?>" target="_blank">
+			 if(isset($row['urlDocMaq'])){ ?>
+				<a href="../<?php echo $row['urlDocMaq'];?>" target="_blank">
 				 <img src="../../Resources/images/PDF.png">
 				 </a>
 			<?php } else echo "-" ?>

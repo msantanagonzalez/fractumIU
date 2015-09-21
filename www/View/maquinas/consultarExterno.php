@@ -25,10 +25,37 @@
 					<textarea style="resize:none" rows="4" name='descripcionApertura' disabled><?php echo $row['descripMaq']; ?></textarea>
 				</td>
 		    </tr>
-			<tr>
-				<td><?= i18n("Documentación:") ?></td>
-		        <td><img src="../../Resources/images/PDF.png"></td>
-			</tr>
+				<?php
+						$rows = $_SESSION['documentoMaquina'];
+						if (empty($rows)) {
+							?>
+							<tr>
+								<td colspan="4"><?= i18n("Documentación:") ?>
+								<div class="alert alert-info" role="alert">
+								<?= i18n("| INFO |- Maquina sin documento") ?>
+								</div>
+								</td>
+							</tr>
+							<tr>
+							<td colspan="4"><input  type="submit" name="accion" value="Modificar"></td>
+							</tr>
+							<?php
+							}else{
+								foreach ($rows as $documento) {
+								?>
+								<tr>
+									<td colspan="2"><?= i18n("Documentación:") ?></td>
+									<td colspan="2">
+									<a href="../<?php echo $documento['urlDocMaq'];?>" target="_blank">
+									<img src="../../Resources/images/PDF.png">
+									<br>
+									<?php echo $documento['nDocMaq'];?>
+									</a>
+									</td>
+								</tr>
+								<?php
+								}
+						} ?>
 			<?php } ?>
 		</table>
 	</div>
@@ -62,15 +89,15 @@
 	          	<td width="17%">En Curso</td>
           	<?php } else { ?>
              	 <td width="17%">Realizada</td>
-          	<?php } ?> 
+          	<?php } ?>
 			<td width="10%">
-	 		
+
  				   <input type="button"  value="Consulta" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row2['idIncid'];?>'"/>
- 		   
+
  		     </td>
 		</tr>
-		<?php } 
-		} 	
+		<?php }
+		}
 		if($alert == 0) { ?>
           <div class="alert alert-warning" role="alert">
           <?= i18n("| INFO |- No hay incidencias relativas a esta maquina") ?>
