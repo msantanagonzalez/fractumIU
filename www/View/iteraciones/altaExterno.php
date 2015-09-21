@@ -7,7 +7,7 @@
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
 <h1 id="headerExterno"><a><?= i18n("- NUEVA ITERACION DE EMPLEADO EXTERNO -") ?></a></h1>
 <br>
-<form name='FormAltaIteracion' onsubmit= "return comprobarAltaIteracion()" action='../../Controller/iteracionesController.php' method='POST'>
+<form name='FormAltaIteracion' onsubmit= "return comprobarAltaIteracion()" action='../../Controller/iteracionesController.php' method='POST' enctype='multipart/form-data'>
 	<div style='height:350px;width:auto;overflow-y: scroll;'>
 	<input type="hidden" class="text" name="idMaq" value='<?php $idMaq ?>'/>
 	<input type="hidden" class="text" name="idIncid" value='<?php echo $idIncid; ?>'>
@@ -19,11 +19,11 @@
 				<td><?= i18n("ID Incidencia:") ?></td>
 				<td><input id="idIncid"  type='text' name='idIncid' value='<?php echo $idIncid; ?>' disabled ></td>
 			</tr>
-				
+
 			<tr>
 				<td><?= i18n("Fecha Apertura:") ?></td>
 				<td><input readonly="readonly" required title="Es necesario introducir una fecha de inicio" id="fechaCreacion" type='date' name='fechaIter' value='<?php echo date('Y-m-d');?>'></td>
-				<td><?= i18n("Hora Inicio:") ?></td> 
+				<td><?= i18n("Hora Inicio:") ?></td>
 				<td><input readonly="readonly" name="hInicio" id="horaInicio" type='time' class='text' value='<?php echo  date('h:i:s'); ?>'> </td>
 			<!--	<td>"Hora Fin:"</td>  -->
 				<td><input type="hidden" name="hFin" id="horaFin" type='time' class='text' value='<?php echo date('h:i:s', strtotime('+26 hour')); ?>'> </td>
@@ -40,7 +40,7 @@
 				<textarea required title="Por favor introduzca una breve descripcion" name="descripIter" id="des" style="resize:none; text-align:left;" style="t" rows="4" name='descripcion'></textarea>
 				</td>
 			</tr>
-			
+
 			<tr>
 				<td><?= i18n("Documentación:") ?></td>
 			</tr>
@@ -50,7 +50,7 @@
 		</table>
 	</div>
 	<table>
-		<tr> 
+		<tr>
 			<td width='25%'></td>
 			<td width='25%'><input type='submit' name='accion' value='altaIteracion'></a></td>
 			<td width='25%'></td>

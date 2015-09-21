@@ -26,12 +26,12 @@ foreach ($rows as $row) { ?>
 				<td>
 					<select name='estadoIncidencia' disabled>
 					<?php if ($row['estadoIncid'] == "Derivada") { ?>
-			          		<option>Abierta</option> 
+			          		<option>Abierta</option>
 			          <?php } else if($row['estadoIncid'] == "En Curso Externo") { ?>
-				          	<option>En Curso</option> 
+				          	<option>En Curso</option>
 			          <?php } else { ?>
-			              <option>Realizada</option> 
-			          <?php } ?> 
+			              <option>Realizada</option>
+			          <?php } ?>
 
 					</select>
 				</td>
@@ -51,15 +51,15 @@ foreach ($rows as $row) { ?>
 			<?php } ?>
 		</table>
 	</form>
-	<?php $rows2 = $_SESSION['listaIteraciones']; 
+	<?php $rows2 = $_SESSION['listaIteraciones'];
 	if (!empty($rows2)) { ?>
 	<h1 id="headerExterno"><a><?= i18n("- ITERACIONES -") ?></a></h1> <!--SECCIÓN-->
 	<table class="default"><!--TABLA-->
-       	<tr>
-			<th width="20%"><?= i18n("ID") ?></th>
-        	<th width="20%"><?= i18n("Iteración") ?></th>
-            <th width="20%"><?= i18n("Operario") ?></th>
-            <th width="20%"><?= i18n("Estado") ?></th>
+    <tr>
+      <th width="20%"><?= i18n("Iteración") ?></th>
+      <th width="20%"><?= i18n("Operario") ?></th>
+      <th width="20%"><?= i18n("Estado") ?></th>
+			<th width="20%"><?= i18n("Documentación") ?></th>
 			<th width="20%"> </th>
      	</tr>
     </table>
@@ -70,17 +70,16 @@ foreach ($rows as $row) { ?>
 				foreach ($rows2 as $row2) {
 			?>
 			<tr>
-				<td width="20%"><?php echo $row2['idIncid'];?></td>
 				<td width="20%"><?php echo $row2['nIteracion']; ?></td>
-				<td width="20%"><?php echo $row2['dniUsu']; ?></td>			
-				
-				<?php if ($row2['estadoItera'] == "1") { 
-						$iteracionesAcabadas = 0; ?>
-					<td colspan="2">Abierta</td>
-				<?php  } elseif ($row2['estadoItera'] == "0") { ?>
-					<td colspan="2">Finalizada</td>
-				<?php } ?>
-				<td colspan="2"></td>
+				<td width="20%"><?php echo $row2['dniUsu']; ?></td>
+				<td width="20%"><?php if($row2['estadoItera']==1){echo 'Abierta' ;}else{ echo 'Cerrada';}  ?></td>
+				<td width="20%">
+				 <?php if(isset($row2['urlDocItr'])){ ?>
+					<a href="../<?php echo $row2['urlDocItr'];?>" target="_blank">
+						<img src="../../Resources/images/PDF.png">
+					</a>
+				 <?php } else echo "-" ?>
+				</td>
 				<td colspan="4"><a href="../../Controller/iteracionesController.php?accion=consultaIteracion&idIncid=<?php echo $row2['idIncid'] ?>&nIteracion=<?php echo $row2['nIteracion'] ?>"><input type="button" value="Consulta"></a></td>
 			</tr>
 			<?php } ?>
