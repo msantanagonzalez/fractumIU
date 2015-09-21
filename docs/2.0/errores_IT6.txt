@@ -9,9 +9,9 @@ Alejandro:
 
 Maria & Ray:
   En Interno->
-    * Meter,en todas las vistas de interno, el require del controlador de mensajes, para evitar acumulacion de mensajes en otras vistas.
-    * View/incidencias/consultarInterno.php = Si hay alguna iteracion abierta, no se debe permitir modificar la incidencia. Si hay una iteracion en estado "En Curso Externo" no se debe permitir modificar la incidencia.
-    * View/incidencias/modificarInterno.php = Si la incidencia esta en "Pendiente Cierre", solo puede cambiar de estado a "Pendiente Derivar" o "Cerrada".
+    (DONE) * Meter,en todas las vistas de interno, el require del controlador de mensajes, para evitar acumulacion de mensajes en otras vistas.
+    (DONE) * View/incidencias/consultarInterno.php = Si hay alguna iteracion abierta, no se debe permitir modificar la incidencia. Si hay una iteracion en estado "En Curso Externo" no se debe permitir modificar la incidencia.
+    (NOPE) * View/incidencias/modificarInterno.php = Si la incidencia esta en "Pendiente Cierre", solo puede cambiar de estado a "Pendiente Derivar" o "Cerrada".
 
 Dani & Casanova:
   En jefe->
