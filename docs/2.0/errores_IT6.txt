@@ -15,16 +15,16 @@ Maria & Ray:
 
 Dani & Casanova:
   En jefe->
-    * View/incidencias/consultarJefe.php = El estado de las iteraciones es erroneo. Undefined index: nDocIter en linea 93.
-    * View/servicios/altaJefe.php = Undefined index listaMaquina en linea 40.
-    * Meter,en todas las vistas de jefe, el require del controlador de mensajes, para evitar acumulacion de mensajes en otras vistas.
+    (DONE incidencias/NOPE undefined index) * View/incidencias/consultarJefe.php = El estado de las iteraciones es erroneo. Undefined index: nDocIter en linea 93.
+    (DONE) * View/servicios/altaJefe.php = Undefined index listaMaquina en linea 40.
+    (DONE) * Meter,en todas las vistas de jefe, el require del controlador de mensajes, para evitar acumulacion de mensajes en otras vistas.
   En Externo->
-    * Falta todo lo relacionado a documentacion(Casanova).
+    (DONE) * Falta todo lo relacionado a documentacion(Casanova).
 
 Sergio:
   En Externo->
-    * View/incidencias/pendientesExterno.php = El estado debe ser "abierta" no derivada(por lo menos en la vista).
-    * View/maquinas/consultarExterno.php = El estado debe ser "abierta" no derivada(por lo menos en la vista). Aparecen incidencias derivadas de otra empresa y permite trabajar en ellas, esto no deberia ser asi.
-    * Meter,en todas las vistas de externo, el require del controlador de mensajes, para evitar acumulacion de mensajes en otras vistas.
-    * View/incidencias/consultarExterno.php = Si hay una iteracion abierta, no deberias poder modificar la incidencia.
-    * View/incidencias/modificarExterno.php = Al cambiar de estado la incidencia a "Finalizado", peta por todos lados.
+    (DONE) * View/incidencias/pendientesExterno.php = El estado debe ser "abierta" no derivada(por lo menos en la vista).
+    (DONE) * View/maquinas/consultarExterno.php = El estado debe ser "abierta" no derivada(por lo menos en la vista). Aparecen incidencias derivadas de otra empresa y permite trabajar en ellas, esto no deberia ser asi.
+    (DONE) * Meter,en todas las vistas de externo, el require del controlador de mensajes, para evitar acumulacion de mensajes en otras vistas.
+    (DONE) * View/incidencias/consultarExterno.php = Si hay una iteracion abierta, no deberias poder modificar la incidencia.
+    (DONE) * View/incidencias/modificarExterno.php = Al cambiar de estado la incidencia a "Finalizado", peta por todos lados.

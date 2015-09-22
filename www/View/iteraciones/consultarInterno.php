@@ -77,7 +77,7 @@
 			<?php
 
 			if(($rows[0]['dniUsu']==$_SESSION['dni'])&&($rows[0]['estadoItera']!=='0')){?>
-				<td colspan="4"><input type='submit' name='accion' value='Modificar Iteracion'/></td>
+				<td colspan="4"><input type='submit' name='accion' value='Modificar_Iteracion'/></td>
 			<?php
 			}
 			?>

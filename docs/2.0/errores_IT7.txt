@@ -1,0 +1,17 @@
+Fecha de entrega: 25 de Septiembre del 2015 antes de las 17:00
+
+Sergio:
+  Externo=>
+    View/incidencias/consultarExterno.php = Al cerrar una iteracion no permite crear otra iteracion, se modifica directamente la incidencia.
+
+Casanova:
+  Externo=>
+    Si se crea una iteracion sin documentacion, al modificar la iteracion y subir documentacion la carpeta se crea fuera de la maquina.
+
+Alejandro:
+  En Interno->
+    * View/incidencias/altaInterno.php = Campo "Fecha cierre" debe estar disabled(se debe coger automaticamente cuando se cierre la incidencia) y en la bd, deberia aparecer vacio.
+    * View/iteraciones/consultarInterno.php = Campo "Hora fin" no deberia tener valor si la iteracion no esta cerrada, no guarda la hora de cierre en la bd.
+  En Externo->
+    * View/iteraciones/consultarExterno.php = Campo "Hora fin" no deberia tener valor si la iteracion no esta cerrada, no guarda la hora de cierre en la bd.
+  En todo el proyecto: Multi-idiomas.
