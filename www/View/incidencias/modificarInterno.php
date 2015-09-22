@@ -37,9 +37,9 @@
 						<option value='<?php echo $row['estadoIncid']; ?>' selected>-- <?php echo $row['estadoIncid']; ?> --</option>
 						<?php
 
-							if($row['estadoIncid']!='En Curso'){
+							if(($row['estadoIncid']!='En Curso')and($row['estadoIncid']!='Pendiente Cierre')){
 						?>
-						<<option value='Abierta'>Abierta</option>
+						<option value='Abierta'>Abierta</option>
 							<?php
 							}
 							?>
@@ -49,15 +49,6 @@
 
 							if(($ultimaIteracion==false) OR ($ultimaIteracion[0][0]!=1)){
 						?>
-						<option value='Cerrada'>Cerrada</option>
-							<?php
-							}
-							?>
-						<?php
-
-							if($row['estadoIncid']=='Pendiente Cierre'){
-						?>
-						<option value='Pendiente Derivar'>Pendiente Derivar</option>
 						<option value='Cerrada'>Cerrada</option>
 							<?php
 							}
