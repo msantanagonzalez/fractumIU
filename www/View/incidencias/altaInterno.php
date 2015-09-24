@@ -1,6 +1,7 @@
 <?php
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 	require_once $_SESSION['cribPath'].'View/messages/messages_ga.php';
+	$rows = $_SESSION['consultaIncidencia'];
 ?>
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
 <h1 id="headerInterno"><a><i><?= i18n("NUEVA INCIDENCIA") ?></i></a></h1>
@@ -23,9 +24,10 @@
 				 <td><?= i18n("Fecha Cierre:") ?></td>
 				 <?php
 				 //DA ERROR PORQUE FALTA EL FOR EACH
+				 foreach($rows as $row) {
 				  ?>
-				 <td><input readonly="readonly" id="fechaCierre" type='date' name='fechaCierre' value="<?php if($rows[0]['estadoIncid']=="Cerrada"){echo 'NULL';}else{echo $rows[0]['fCier'];}  ?>" /></td>
-
+				 <td><input readonly="readonly" id="fechaCierre" type='date' name='fechaCierre' value="<?php if($row['estadoIncid']=="Cerrada"){echo 'NULL';}else{echo $row['fCier'];}  ?>" /></td>
+				 <?php } ?>
 			</tr>
 			<tr>
 				<td><?= i18n("Estado:") ?></td>
