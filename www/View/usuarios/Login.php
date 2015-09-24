@@ -1,7 +1,6 @@
 <?php
+include_once '../../Controller/common.php';
 //session_start(); 
-require_once $_SESSION['cribPath'].'View/messages/messages_ga.php';
-require_once $_SESSION['cribPath'].'Model/I18n.php';
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -24,13 +23,13 @@ require_once $_SESSION['cribPath'].'Model/I18n.php';
 	</head>
 	<body class="left-sidebar">
 		<div style="width:50%; height:50%; margin:auto auto">
-			<h1 id="headerJefe"><a><i><?= i18n("Login") ?></i></a></h1>
+			<h1 id="headerJefe"><a><i>Login</i></a></h1>
 				<form method="POST" action="../../Controller/usuariosController.php">
 					<table class="default">
 						<tr>
-							<td width="25%"><?= i18n("Usuario:") ?> </td>
+							<td width="25%"><?php echo $lang['USUARIO']; ?></td>
 							<td width="25%"><input title="Por favor introduzca un nombre de usuario" required type="text" class="text" name="dniUsu" placeholder="DNI:"/></td>
-							<td width="25%"><?= i18n("Contraseña:") ?> </td>
+							<td width="25%"><?php echo $lang['CONTRASENA']; ?> </td>
 							<td width="25%"> <input  title="Por favor introduzca su password" required type="password" class="text" name="passUsu" placeholder="Contraseña:" /></td>
 						</tr>
 						<tr>
@@ -42,11 +41,11 @@ require_once $_SESSION['cribPath'].'Model/I18n.php';
 				require_once $_SESSION['cribPath'].'View/crearMensaje.php';
 				?>
 				<ul>
-				<li><a href="../../Controller/LanguageController.php?lang=es">español
-				<?php i18n("Español"); ?>
+				<li><a href="login.php?lang=es">español
+			
 				</a></li>
-				<li><a href="../../Controller/LanguageController.php?lang=ga">gallego
-				<?php i18n("Galego"); ?>
+				<li><a href="login.php?lang=ga">gallego
+				
 				</a></li>
 			</ul>
 		</div>

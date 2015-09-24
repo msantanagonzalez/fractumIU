@@ -1,15 +1,16 @@
 <?php
+    include_once '../../Controller/common.php';
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 ?>
 
-<h1 id="headerExterno"><a><i><?= i18n("INCIDENCIAS") ?></i></a></h1>
+<h1 id="headerExterno"><a><i><?php echo $lang['INCIDENCIAS_BIG']; ?></i></a></h1>
 <table class="default">
     <tr>
-    	<th width="17%">#ID <?= i18n("Inc.") ?></th>
-       	<th width="17%"><?= i18n("Responsable") ?></th>
-        <th width="17%"><?= i18n("ID Máquina") ?></th>
-    	<th width="17%"><?= i18n("Apertura:") ?></th>
-        <th width="17%"><?= i18n("Estado:") ?></th>
+    	<th width="17%">#ID <?php echo $lang['INC']; ?></th>
+       	<th width="17%"><?php echo $lang['RESPONSABLE']; ?></th>
+        <th width="17%"><?php echo $lang['ID_MAQUINA']; ?></th>
+    	<th width="17%"><?php echo $lang['APERTURA']; ?></th>
+        <th width="17%"><?php echo $lang['ESTADO']; ?></th>
         <th width="17%">&nbsp;</th>
     </tr>
 </table>

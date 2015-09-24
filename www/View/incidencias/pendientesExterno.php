@@ -1,14 +1,14 @@
 <?php
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
-	
+	   include_once '../../Controller/common.php';
 ?>
-<h1 id="headerExterno"><a><i><?= i18n("INCIDENCIAS PENDIENTES") ?></i></a></h1>
+<h1 id="headerExterno"><a><i><?php echo $lang['INCIDENCIAS_BIG']; ?></i></a></h1>
 <table class="default">
     <tr>
-    	<th width="20%">#ID <?= i18n("Inc.") ?></th>
-       	<th width="20%"><?= i18n("Responsable:") ?></th>
-    	<th width="20%"><?= i18n("Apertura") ?></th>
-        <th width="20%"><?= i18n("Estado") ?></th>
+    	<th width="20%">#ID <?php echo $lang['INC']; ?></th>
+       	<th width="20%"><?php echo $lang['RESPONSABLE']; ?></th>
+    	<th width="20%"><?php echo $lang['APERTURA']; ?></th>
+        <th width="20%"><?php echo $lang['ESTADO']; ?></th>
         <th width="20%">&nbsp;</th>
     </tr>
 </table>
@@ -19,7 +19,7 @@
 			if (empty($rows)) {
 			?>
 				<div class="alert alert-warning" role="alert">
-				<?= i18n("| INFO |- No hay incidencias para listar") ?>
+			<?php echo $lang['INFO_NO_INCID']; ?>
 				</div>
 			<?php
 			}

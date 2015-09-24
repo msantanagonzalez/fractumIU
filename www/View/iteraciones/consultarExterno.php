@@ -1,9 +1,10 @@
 <?php
+   include_once '../../Controller/common.php';
 	$userType="externo";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 ?>
 
-<h1 id='headerExterno'><a><?= i18n("- DETALLES TRABAJO -") ?></a></h1>
+<h1 id='headerExterno'><a><?php echo $lang['DETALLES_TRABAJO_BIG']; ?></a></h1>
 
 
 	<div style='height:350px;width:auto;overflow-y: scroll;'>
@@ -12,25 +13,25 @@
 	 foreach ($rows as $row) { ?>
 		<table class='default'>
 			<tr>
-				<td><?= i18n("Identificador Incidencia:") ?></td>
+				<td><?php echo $lang['IDENTIFICADOR_INCIDENCIA']; ?></td>
 				<td><input type='text' disabled name="numeroIncidencia" value="<?php echo $row['idIncid']; ?>"></td>
-				<td><?= i18n("Número Iteración") ?></td>
+				<td><?php echo $lang['NUMERO_ITERACION']; ?></td>
 		        <td><input type='text' disabled name="numeroTrabajo" value="<?php echo $row['nIteracion']; ?>"></td>
-		        <td><?= i18n("Coste") ?></td>
+		        <td><?php echo $lang['COSTE']; ?></td>
 		        <td><input type='text'  disabled name="coste" value="<?php echo $row['costeIter']; ?>"></td>
 			</tr>
 
 			<tr>
-		        <td><?= i18n("Fecha Apertura:") ?></td>
+		        <td><?php echo $lang['FECHA_APERTURA']; ?></td>
 		        <td><input type='date' disabled value="<?php echo $row['fechaIter']; ?>"></td>
-		        <td><?= i18n("Hora Inicio:") ?></td>
+		        <td><?php echo $lang['HORA_INICIO']; ?></td>
 		        <td><input type='time' disabled value="<?php echo $row['hInicio']; ?>"></td>
-		        <td><?= i18n("Hora Fin:") ?></td>
+		        <td><?php echo $lang['HORA_FIN']; ?></td>
 		        <td><input type='time' disabled value="<?php if($rows[0]['estadoItera']==1){echo 'NULL';}else{echo $rows[0]['hFin'];}  ?>"></td>
 		    </tr>
 			<br>
 		    <tr>
-				<td><?= i18n("Estado Iteración:") ?></td>
+				<td><?php echo $lang['ESTADO_ITERACION']; ?></td>
 		        <?php if ($row['estadoItera'] == 1) { ?>
           			<td><input type='text' disabled value="Abierta"></td>
           		<?php } else { ?>
@@ -38,7 +39,7 @@
           		<?php } ?>
 		  	</tr>
 		    <tr>
-				<td colspan='5'><?= i18n("Descripción:") ?></td>
+				<td colspan='5'><?php echo $lang['DESCRIPCION']; ?></td>
 			</tr>
 			<tr>
 				<td colspan='5'>
@@ -50,9 +51,9 @@
 				if (empty($array)) {
 					?>
 					<tr>
-						<td colspan="4"><?= i18n("Documentación:") ?>
+						<td colspan="4"><?php echo $lang['DOCUMENTACION']; ?>
 						<div class="alert alert-info" role="alert">
-						<?= i18n("| INFO |- Iteración sin documento.") ?>
+						<?php echo $lang['INFO_NO_DOC']; ?>
 						</div>
 						</td>
 					</tr>

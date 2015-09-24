@@ -1,4 +1,5 @@
 <?php
+   include_once '../../Controller/common.php';
 	$userType="interno";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 	require_once $_SESSION['cribPath'].'View/messages/messages_ga.php';
@@ -8,7 +9,7 @@
 <table class="default">
     <tr>
     	<th width="28%">#idIncidencia</th>
-    	<th width="40%"><?= i18n("Número Iteración") ?></th>
+    	<th width="40%"><?php echo $lang['NUMERO_ITERACION']; ?></th>
         <th width="10%">&nbsp;</th>
         <th width="10%">&nbsp;</th>
     </tr>

@@ -1,13 +1,14 @@
 <?php
+   include_once '../../Controller/common.php';
 	$userType="jefe";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 ?>
 
-<h1 id="headerJefe"><a><i><?= i18n("- ITERACIONES -") ?></i></a></h1>
+<h1 id="headerJefe"><a><i><?php echo $lang['ITERACIONES_BIG']; ?></i></a></h1>
 <table class="default">
     <tr>
     	<th width="28%">#idIncidencia</th>
-    	<th width="40%"><?= i18n("Número Iteración") ?></th>
+    	<th width="40%"><?php echo $lang['NUMERO_ITERACION']; ?></th>
         <th width="10%">&nbsp;</th>
         <th width="10%">&nbsp;</th>
     </tr>

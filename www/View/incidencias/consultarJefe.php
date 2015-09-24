@@ -1,9 +1,10 @@
 <?php
+include_once '../../Controller/common.php';
 require_once $_SESSION['cribPath'].'View/structure/header.php';
 $rows = $_SESSION['consultaIncidencia'];
 $hasServicios = $_SESSION['consultaServicios'];
 foreach ($rows as $row) { ?>
-<h1 id="headerJefe"><a><i><?= i18n("INCIDENCIA") ?> <?php echo $row['idIncid']; ?></i></a></h1>
+<h1 id="headerJefe"><a><i><?php echo $lang['INCIDENCIA']; ?> <?php echo $row['idIncid']; ?></i></a></h1>
 <div style='height:650px;width:auto;overflow-y: scroll;'>
 	<form method="POST" action="../../Controller/incidenciasController.php">
 
@@ -13,27 +14,27 @@ foreach ($rows as $row) { ?>
 		<table class="default">
 
 			<tr>
-				<td width="25%"><?= i18n("Apertura:") ?> </td>
+				<td width="25%"><?php echo $lang['APERTURA']; ?> </td>
 				<td width="25%"><input type="text" class="text" disabled name="dniApertura" value="<?php echo $row['dniApertura']; ?>"/></td>
-				<td width="25%"><?= i18n("Responsable:") ?> </td>
+				<td width="25%"><?php echo $lang['RESPONSABLE']; ?> </td>
 				<td width="25%"><input type="text" class="text" disabled name="dniResponsable" value="<?php echo $row['dniResponsable']; ?>"/></td>
 			</tr>
 			<tr>
-				<td width="25%"><?= i18n("Fecha Apertura:") ?> </td>
+				<td width="25%"><?php echo $lang['FECHA_APERTURA']; ?> </td>
 				<td width="25%"><input type="text" class="text" disabled name="fechaApertura" value="<?php echo $row['fAper']; ?>" /></td>
-				<td width="25%"><?= i18n("Fecha Cierre:") ?> </td>
+				<td width="25%"><?php echo $lang['FECHA_CIERRE']; ?> </td>
 				<td width="25%"><input type="text" class="text" disabled name="fechaCierre" value="<?php echo $row['fCier']; ?>" /></td>
 			</tr>
 			<tr>
-				<td><?= i18n("Estado:") ?></td>
+				<td><?php echo $lang['ESTADO']; ?></td>
 				<td><input type="text" class="text" disabled name="estadoIncidencia" value='<?php echo $row['estadoIncid']; ?>'/></td>
-				<td><?= i18n("Empresa:") ?></td>
+				<td><?php echo $lang['EMPRESA']; ?></td>
 				<td><input type="text" class="text" disabled name="cifEmpr" value="<?php if($row['cifEmpr']=='DEFAULT'){echo '-';}else{ echo $row['cifEmpr'];}?>"/><td>
 			</tr>
 			<tr>
-				<td><?= i18n("Máquina:") ?></td>
+				<td><?php echo $lang['MAQUINA']; ?></td>
 			 <td><input type="text" class="text" disabled name="idMaquina" value='<?php echo $row['idMaq']; ?>'/></td>
-				<td><?= i18n("Servicios:") ?></td>
+				<td><?php echo $lang['SERVICIOS']; ?></td>
 				<td>
 					<?php
 					if($hasServicios){
@@ -49,7 +50,7 @@ foreach ($rows as $row) { ?>
 				</td>
 			</tr>
 			<tr>
-				<td width="25%"><br><?= i18n("Descripción:") ?></td>
+				<td width="25%"><br><?php echo $lang['DESCRIPCION']; ?></td>
 				<td colspan='3' width="75%">
 					<textarea style="resize:none; text-align:left;" style="t" rows="4" name='descripcion' disabled> <?php echo $row['descripIncid'];?> </textarea>
 				</td>
@@ -66,13 +67,13 @@ foreach ($rows as $row) { ?>
 		?>
 		</tr>
 	</table>
-	<h1 id="headerJefe"><a><i><?= i18n("- ITERACIONES -") ?></i></a></h1>
+	<h1 id="headerJefe"><a><i><?php echo $lang['ITERACIONES']; ?></i></a></h1>
 	<table class="default">
 	    <tr>
-	    	<th width="20%"><?= i18n("Nº Iteración") ?></th>
-				<th width="20%"><?= i18n("Operario") ?></th>
-				<th width="20%"><?= i18n("Estado") ?></th>
-				<th width="20%"><?= i18n("Documentación") ?></th>
+	    	<th width="20%"><?php echo $lang['NUMERO_ITERACION']; ?></th>
+				<th width="20%"><?php echo $lang['OPERARIO']; ?></th>
+				<th width="20%"><?php echo $lang['ESTADO']; ?></th>
+				<th width="20%"><?php echo $lang['DOCUMENTACION']; ?></th>
 	    	<th width="20%">&nbsp;</th>
 	    </tr>
 	</table>

@@ -1,4 +1,5 @@
 <?php
+  include_once '../../Controller/common.php';
 	$userType="jefe";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 ?>
@@ -8,7 +9,7 @@
 	$hasServicios = $_SESSION['consultaServicios'];
 	$empresas = $_SESSION['listaEmpresasJefe'];
  ?>
-<h1 id="headerJefe"><a><i><?= i18n("INCIDENCIA") ?> <?php echo $iData[0][0]; ?> </i></a></h1>
+<h1 id="headerJefe"><a><i><?php echo $lang['INCIDENCIA_BIG']; ?> <?php echo $iData[0][0]; ?> </i></a></h1>
 <div>
 	<form name="formModificarIncidencia" onsubmit="return comprobarModificarIncidenciaJefe()" method="POST" action="../../Controller/incidenciasController.php">
 			<input type="hidden" class="text" name="idIncidencia" value="<?php echo $iData[0][0]; ?>"/>
@@ -19,9 +20,9 @@
 
 		<table class="default">
 			<tr>
-				<td width="25%"><?= i18n("Apertura:") ?> </td>
+				<td width="25%"><?php echo $lang['APERTURA']; ?> </td>
 				<td width="25%"><input type="text" class="text" disabled value="<?php echo $iData[0][4]; ?>"/></td>
-				<td width="25%"><?= i18n("Responsable:") ?></td>
+				<td width="25%"><?php echo $lang['RESPONSABLE']; ?></td>
 				<td width="25%">
 					<select required title="Debe seleccionar a un responsable" name="dniResponsable" id="dniResponsable">
 						<option value='<?php echo $iData[0][3];; ?>' hidden selected><?php echo $iData[0][3]; ?></option>
@@ -34,13 +35,13 @@
 				</td>
 			</tr>
 			<tr>
-				<td width="25%"><?= i18n("Fecha Apertura:") ?></td>
+				<td width="25%"><?php echo $lang['FECHA_APERTURA']; ?></td>
 				<td width="25%"><input readonly="readonly" title="Debe insertar una fecha de Apertura" id="fechaApertura" type="date" class="text" name="fechaApertura" value="<?php echo $iData[0][1]; ?>" required/></td>
-				<td width="25%"><?= i18n("Fecha Cierre:") ?></td>
+				<td width="25%"><?php echo $lang['FECHA_CIERRE']; ?></td>
 				<td width="25%"><input title="Debe insertar una fecha de cierre" id="fechaCierre" type="date" class="text" name="fechaCierre" value="<?php echo $iData[0][2]; ?>" required/></td>
 			</tr>
 			<tr>
-				<td><?= i18n("Estado:") ?></td>
+				<td><?php echo $lang['ESTADO']; ?></td>
 				<td>
 					<select title="Seleccione o no una opcion" required name='estadoIncidencia'>
 						<option value='<?php echo $iData[0][6]; ?>' hidden selected><?php echo $iData[0][6]; ?></option>
@@ -60,7 +61,7 @@
 
 					</select>
 				</td>
-				<td><?= i18n("Empresa:") ?></td>
+				<td><?php echo $lang['EMPRESA']; ?></td>
 				<td>
 					<select required name='cifEmpr'>
 						<option title="Debe seleccionar una empresa" value="<?php echo $iData[0][9] ?>" selected hidden><?php if($iData[0][9]=='DEFAULT'){echo '-';}else{ echo $iData[0][9];}?></option>
@@ -76,13 +77,13 @@
 				<td>
 			</tr>
 			<tr>
-				<td><?= i18n("Máquina:") ?></td>
+				<td><?php echo $lang['MAQUINAS_BIG']; ?></td>
 				<td>
 					<select disabled>
 					  	<option value='<?php echo $iData[0][5]; ?>' selected><?php echo $iData[0][5]; ?></option>
 					</select>
 				 </td>
-				 <td><?= i18n("Servicios:") ?></td>
+				 <td><?php echo $lang['SERVICIOS_BIG']; ?></td>
  				<td>
  					<?php
  					if($hasServicios){
@@ -98,7 +99,7 @@
  				</td>
 			</tr>
 			<tr>
-				<td width="25%"><br><?= i18n("Descripción:") ?></td>
+				<td width="25%"><br><?php echo $lang['DESCRIPCION']; ?></td>
 				<td colspan='3' width="75%">
 					<textarea style="resize:none; text-align:left;" style="t" rows="4" disabled> <?php echo $iData[0][8];?></textarea>
 				</td>

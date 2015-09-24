@@ -1,14 +1,15 @@
 <?php
+    include_once '../../Controller/common.php';
 	$userType="jefe";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 	require_once $_SESSION['cribPath'].'View/crearMensaje.php';
 ?>
 
-<h1 id="headerJefe"><a><i><?= i18n("EMPRESA") ?></i></a></h1>
+<h1 id="headerJefe"><a><i><?php echo $lang['EMPRESA']; ?></i></a></h1>
 <table class="default">
     <tr>
-    	<th width="28%"><?= i18n("#CIF") ?></th>
-    	<th width="40%"><?= i18n("Nombre") ?></th>
+    	<th width="28%"><?php echo $lang['CIF']; ?></th>
+    	<th width="40%"><?php echo $lang['NOMBRE']; ?></th>
         <th width="10%">&nbsp;</th>
         <th width="10%">&nbsp;</th>
     </tr>
@@ -21,7 +22,7 @@
 			if (empty($rows)) {
 			?>
 				<div class="alert alert-warning" role="alert">
-				<?= i18n("| INFO |- No hay empresas para listar ") ?>
+				<?php echo $lang['INFO_NO_MAQ']; ?>
 
 				</div>
 			<?php

@@ -1,9 +1,10 @@
 <?php
+  include_once '../../Controller/common.php';
   require_once $_SESSION['cribPath'].'View/structure/header.php';
-
+  include_once '../../Controller/common.php';
 $rows = $_SESSION['consultaIncidencia'];
 foreach ($rows as $row) { ?>
-<h1 id="headerExterno"><a><i><?= i18n("INCIDENCIA") ?> <?php echo $row['idIncid']; ?></i></a></h1>
+<h1 id="headerExterno"><a><i><?php echo $lang['INCIDENCIAS_BIG']; ?><?php echo $row['idIncid']; ?></i></a></h1>
 <div style='height:525px;width:auto;overflow-y: scroll;'>
   <form method="POST" action="../../Controller/incidenciasController.php">
     <input type="hidden" class="text" name="idIncidencia" value="<?php echo $row['idIncid']; ?>"/>
@@ -18,26 +19,26 @@ foreach ($rows as $row) { ?>
 
     <table class="default">
       <tr>
-        <td width="25%"><?= i18n("Apertura:") ?></td>
+        <td width="25%"><?php echo $lang['APERTURA']; ?></td>
         <td width="25%"><input type="text" class="text" disabled name="dniApertura" value="<?php echo $row['dniApertura']; ?>"/></td>
-        <td width="25%"><?= i18n("Responsable:") ?></td>
+        <td width="25%"><?php echo $lang['RESPONSABLE']; ?></td>
         <td width="25%"><input type="text" class="text" disabled name="dniResponsable" value="<?php echo $row['dniResponsable']; ?>"/></td>
       </tr>
       <tr>
-        <td width="25%"><?= i18n("Fecha Apertura:") ?></td>
+        <td width="25%"><?php echo $lang['FECHA_APERTURA']; ?></td>
         <td width="25%"><input readonly="readonly" type="text" class="text" disabled name="fechaApertura" value="<?php echo $row['fAper']; ?>" /></td>
-        <td width="25%"><?= i18n("Fecha Cierre:") ?></td>
+        <td width="25%"><?php echo $lang['FECHA_CIERRE']; ?></td>
         <td width="25%"><input type="text" class="text" disabled name="fechaCierre" value="<?php echo $row['fCier']; ?>" /></td>
       </tr>
       <tr>
-        <td><?= i18n("Estado:") ?></td>
+        <td><?php echo $lang['ESTADO']; ?></td>
         <td>
           <select name='estadoIncidencia'>
             <option value='<?php echo $row['estadoIncid']; ?>' selected>-- En Curso --</option>
             <option value='Pendiente Cierre'>Finalizada</option>
           </select>
         </td>
-        <td><?= i18n("Máquina:") ?></td>
+        <td><?php echo $lang['MAQUINA']; ?></td>
         <td>
           <select name='idMaquina' disabled>
               <option value='<?php echo $row['idMaq']; ?>' selected><?php echo $row['idMaq']; ?></option>
@@ -45,7 +46,7 @@ foreach ($rows as $row) { ?>
          </td>
       </tr>
       <tr>
-        <td width="25%"><br><?= i18n("Descripción:") ?></td>
+        <td width="25%"><br><?php echo $lang['DESCRIPCION']; ?></td>
         <td colspan='3' width="75%">
           <textarea style="resize:none; text-align:left;" style="t" rows="4" name='descripcion' disabled><?php echo $row['descripIncid'];?></textarea>
         </td>

@@ -1,16 +1,17 @@
 <?php
+    include_once '../../Controller/common.php';
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 	require_once $_SESSION['cribPath'].'View/messages/messages_ga.php';
 ?>
 
-<h1 id="headerInterno"><a><i><?= i18n("INCIDENCIAS") ?></i></a></h1>
+<h1 id="headerInterno"><a><i><?php echo $lang['INCIDENCIAS_BIG']; ?></i></a></h1>
 <table class="default">
     <tr>
-    	<th width="17%">#ID <?= i18n("Inc.") ?></th>
-       	<th width="17%"><?= i18n("Responsable:") ?></th>
-    	<th width="17%"><?= i18n("Apertura:") ?></th>
-        <th width="17%"><?= i18n("Estado:") ?></th>
-        <th width="17%"><?= i18n("Derivada") ?></th>
+    	<th width="17%">#ID <?php echo $lang['INC']; ?></th>
+       	<th width="17%"><?php echo $lang['RESPONSABLE']; ?></th>
+    	<th width="17%"><?php echo $lang['APERTURA']; ?></th>
+        <th width="17%"><?php echo $lang['ESTADO']; ?></th>
+        <th width="17%"><?php echo $lang['DERIVADA']; ?></th>
         <th width="17%">&nbsp;</th>
     </tr>
 </table>
@@ -21,7 +22,7 @@
 			if (empty($rows)) {
 			?>
 				<div class="alert alert-warning" role="alert">
-				<?= i18n("| INFO |- No hay incidencias para listar") ?>
+				<?php echo $lang['INFO_NO_INCID']; ?>
 				 
 				</div>
 			<?php

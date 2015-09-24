@@ -1,4 +1,5 @@
 <?php
+    include_once '../../Controller/common.php';
 function navJefe()
 {
 require_once $_SESSION['cribPath'].'Controller/busquedaController.php';
@@ -10,7 +11,7 @@ require_once $_SESSION['cribPath'].'Controller/busquedaController.php';
             		<div align="center">
                    		<li class="current">
                         	<a href="../../Controller/usuariosController.php?accion=consultar&dniUsu=<?php echo $_SESSION["dni"];?>">
-                        		<img src="../../Resources/images/DefaultAvatar.png"><em><strong><br><?= i18n("jefeNegocio:") ?> <?php echo $_SESSION["dni"];?></strong></em><strong></strong>
+                        		<img src="../../Resources/images/DefaultAvatar.png"><em><strong><br>Jefe de Negocio <?php echo $_SESSION["dni"];?></strong></em><strong></strong>
                         	</a>
                      	</li>
                      	<li class='current'> <a href="../incidencias/pendientesJefe.php"><?= i18n("Pendientes:") ?>
