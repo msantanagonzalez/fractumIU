@@ -9,6 +9,7 @@
 
 		<?php $rows = $_SESSION['consultaIteracion'];
 		 foreach ($rows as $row) { ?>
+		<input type="hidden" class="text" name="idMaq" value="<?php echo $row['idMaq']; ?>"/>
 		 <input type="hidden" class="text" name="idIncid" value="<?php echo $row['idIncid']; ?>"/>
 		 <input type="hidden" class="text" name="nIteracion" value="<?php echo $row['nIteracion']; ?>"/>
 		 <input type="hidden" class="text" name="fechaIter" value="<?php echo $row['fechaIter']; ?>"/>
