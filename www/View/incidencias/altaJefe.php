@@ -3,7 +3,7 @@
 	$userType="jefe";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 ?>
-<h1 id="headerJefe"><a><i><?= i18n("NUEVA INCIDENCIA") ?></i></a></h1>
+<h1 id="headerJefe"><a><i><?php echo $lang['NUEVA_INCIDENCIA']; ?></i></a></h1>
 <form name='FormAltaIncidencia' onsubmit="return comprobarAltaIncidenciaJefe()" action='../../Controller/incidenciasController.php' method='POST'>
 	<input type="hidden" class="text" name="idIncidencia" value="NULL"/>
 	<input type="hidden" class="text" name="derivada" value="0"/>
@@ -13,9 +13,9 @@
 	<input type="hidden" class='text' name='fechaCierre' value=''/>
 		<table class='default'>
 		   	<tr>
-				<td><?= i18n("Apertura:") ?></td>
+				<td><?php echo $lang['APERTURA']; ?></td>
 				<td><input type='text' class='text' disabled value='<?php echo $_SESSION['dni']; ?>'/></td>
-				<td><?= i18n("Responsable:") ?></td>
+				<td><?php echo $lang['RESPONSABLE']; ?></td>
 				<td>
 					<select required title="Debe seleccionar a un responsable" name="dniResponsable" id="dniResponsable">
 						<option value="" selected>-</option>
@@ -28,15 +28,15 @@
 				</td>
 			</tr>
 			<tr>
-				<td><?= i18n("Fecha Apertura:") ?></td>
+				<td><?php echo $lang['FECHA_APERTURA']; ?></td>
 				<td><input readonly="readonly" title="Debe seleccionar una fecha de apertura" type='date' name='fechaApertura' value='<?php echo date('Y-m-d');?>' required/></td>
-				<td><?= i18n("Fecha Cierre:") ?></td>
+				<td><?php echo $lang['FECHA_CIERRE']; ?></td>
 				<td><input title="Seleccione fecha de cierre" title="Debe seleccionar una fecha de cierre" type="date" name='fechaCierre' value='' required/></td>
 			</tr>
 			<tr>
-				<td><?= i18n("Estado:") ?></td>
+				<td><?php echo $lang['ESTADO']; ?></td>
 				<td> <input required disabled type='text' class='text' name='estadoIncidencia' value='Programada' selected/> </td>
-				<td><?= i18n("Máquina:") ?></td>
+				<td><?php echo $lang['MAQUINA']; ?></td>
 				<td>
 					<select required title="Debe seleccionar una maquina" name="idMaquina">
 						<option value="" selected>-</option>
@@ -47,7 +47,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td width="25%"><br><?= i18n("Descripción:") ?></td>
+				<td width="25%"><br><?php echo $lang['DESCRIPCION']; ?></td>
 				<td colspan='3'width="75%">
 					<textarea id="des" style="resize:none; text-align:left;" style="t" rows="4" name='descripIncid'>  </textarea>
 				</td>

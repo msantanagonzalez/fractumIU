@@ -1,1 +1,0 @@
-Aquí irá la documentación.
