@@ -1,6 +1,5 @@
 <?php
-include_once '../../Controller/common.php';
-//session_start(); 
+	include_once '../../Controller/common.php';
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -30,24 +29,26 @@ include_once '../../Controller/common.php';
 							<td width="25%"><?php echo $lang['USUARIO']; ?></td>
 							<td width="25%"><input title="Por favor introduzca un nombre de usuario" required type="text" class="text" name="dniUsu" placeholder="DNI:"/></td>
 							<td width="25%"><?php echo $lang['CONTRASENA']; ?> </td>
-							<td width="25%"> <input  title="Por favor introduzca su password" required type="password" class="text" name="passUsu" placeholder="Contraseña:" /></td>
+							<td width="25%"><input title="Por favor introduzca su password" required type="password" class="text" name="passUsu" placeholder="Contraseña:" /></td>
+						</tr>
+						<tr>
+							<td>Seleccione un idioma: </td>
+							<td width="25%">
+								<select required title="Selecciona un idioma" name='idioma' >
+									<option value="" selected>		-</option>
+									<option value='es'><?php echo $lang['ESPAÑOL']; ?></option>
+									<option value='ga'><?php echo $lang['GALLEGO']; ?></option>
+								</select>
+							</td>
+							<!--<td width="25%"><a href="login.php?lang=es"><?php echo $lang['ESPAÑOL']; ?></a></td>
+							<td width="25%"><a href="login.php?lang=ga"><?php echo $lang['GALLEGO']; ?></a></td>-->
 						</tr>
 						<tr>
 							<td width="20%" colspan="4"><input type="submit" name="accion" value="login"></td>
 						</tr>
 					</table>
 				</form>
-				<?php
-				require_once $_SESSION['cribPath'].'View/crearMensaje.php';
-				?>
-				<ul>
-				<li><a href="login.php?lang=es"><?php echo $lang['ESPAÑOL']; ?> 
-			
-				</a></li>
-				<li><a href="login.php?lang=ga"><?php echo $lang['GALLEGO']; ?> 
-				
-				</a></li>
-			</ul>
+				<?php require_once $_SESSION['cribPath'].'View/crearMensaje.php'; ?>
 		</div>
 	</body>
 </html>

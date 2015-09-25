@@ -2,7 +2,6 @@
     include_once '../../Controller/common.php';
 	$userType="interno";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
-	require_once $_SESSION['cribPath'].'View/messages/messages_ga.php';
 
 	$datosUsuario = $_SESSION["datosUsuario"];
 	$datosInterno = $_SESSION["datosInterno"];

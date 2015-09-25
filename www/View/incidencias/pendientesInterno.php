@@ -1,7 +1,6 @@
 <?php
-   include_once '../../Controller/common.php';
+   	include_once '../../Controller/common.php';
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
-	require_once $_SESSION['cribPath'].'View/messages/messages_ga.php';
 ?>
 
 <h1 id="headerInterno"><a><i><?php echo $lang['INCIDENCIAS_BIG']; ?></i></a></h1>

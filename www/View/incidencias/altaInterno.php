@@ -1,7 +1,6 @@
 <?php
     include_once '../../Controller/common.php';
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
-	require_once $_SESSION['cribPath'].'View/messages/messages_ga.php';
 	$rows = $_SESSION['consultaIncidencia'];
 ?>
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
@@ -34,7 +33,7 @@
 				<td><?php echo $lang['ESTADO']; ?></td>
 				<td>
 					<select required title="Debe seleccionar un estado para esta incidencia" name='estadoIncidencia' >
-						<<option value="" selected>		-</option>
+						<option value="" selected>		-</option>
 						<option value='Abierta'><?php echo $lang['ABIERTA']; ?></option>
 						<option value='Pendiente Derivar'><?php echo $lang['PENDIENTE_DE_DERIVAR']; ?></option>
 					</select>

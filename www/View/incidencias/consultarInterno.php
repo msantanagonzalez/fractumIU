@@ -1,7 +1,6 @@
 <?php
 include_once '../../Controller/common.php';
 require_once $_SESSION['cribPath'].'View/structure/header.php';
-require_once $_SESSION['cribPath'].'View/messages/messages_ga.php';
 $rows = $_SESSION['consultaIncidencia'];
 
 foreach ($rows as $row) { ?>

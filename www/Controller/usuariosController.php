@@ -64,6 +64,10 @@ switch ($action) {
 		$usuario = new usuario($dniUsu, "", "", $passUsu, "" );
 		$recurso = $usuario->login();
 
+		// Language
+		$language = $_POST['idioma'];
+		$_SESSION['lang'] = $language;
+
 		# This is how to use the "Recurso"
 		if($recurso != false )
 		{

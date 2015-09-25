@@ -2,7 +2,6 @@
     include_once '../../Controller/common.php';
 	$userType="interno";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
-	require_once $_SESSION['cribPath'].'View/messages/messages_ga.php';
 ?>
 
 <h1 id="headerInterno"><a><i><?php echo $lang['MAQUINAS_BIG']; ?></i></a></h1>

@@ -2,7 +2,6 @@
    include_once '../../Controller/common.php';
 	$userType="interno";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
-	require_once $_SESSION['cribPath'].'View/messages/messages_ga.php';
 ?>
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
 

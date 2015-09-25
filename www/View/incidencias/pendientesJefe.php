@@ -1,5 +1,5 @@
 <?php
-   include_once '../../Controller/common.php';
+   	include_once '../../Controller/common.php';
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 	require_once $_SESSION['cribPath'].'View/crearMensaje.php';
 ?>

@@ -2,8 +2,6 @@
 	include_once '../../Controller/common.php';
 	$userType="jefe";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
-	require_once $_SESSION['cribPath'].'View/messages/messages_ga.php';
-
 ?>
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
 <h1 id="headerJefe"><a><i><?php echo $lang['EMPRESA']; ?></i></a></h1>

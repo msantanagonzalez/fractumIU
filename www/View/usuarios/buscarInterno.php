@@ -3,7 +3,6 @@
 	$userType	=	"jefe";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 	require_once $_SESSION['cribPath'].'View/crearMensaje.php';
-	require_once $_SESSION['cribPath'].'View/messages/messages_ga.php';
 	//---- Meter esto en todas las vistas ----
 	require_once $_SESSION['cribPath'].'Controller/generalController.php';
 	checkIfLogged();

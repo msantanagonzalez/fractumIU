@@ -14,7 +14,6 @@
 		break;
 }
 
-//require_once("../messages/messages_ga.php");
 require_once $_SESSION['cribPath'].'Model/I18n.php';
 require_once $_SESSION['cribPath'].'View/crearMensaje.php';
 

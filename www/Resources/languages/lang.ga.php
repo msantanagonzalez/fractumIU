@@ -29,7 +29,26 @@ $lang['INFO_NO_MAQ'] = 'Non hai máquinas por listar';
 $lang['INFO_NO_DOC'] = '| INFO |- Iteración sen documento.';
 
 //view/structure/nav
+// Jefe
 $lang['JEFENEGOCIO'] = 'Xefe de Negocio';
+$lang['PENDIENTES'] = 'Pendentes';
+$lang['GESTIONARINCIDENCIAS'] = 'Xestionar incidencias';
+$lang['GESTIONARUSUARIOS'] = 'Xestionar usuarios';
+$lang['GESTIONAREMPRESAS'] = 'Xestionar empresas';
+$lang['GESTIONARMAQUINAS'] = 'Xestionar máquinas';
+$lang['GESTIONARSERVICIOS'] = 'Xestionar servizos';
+$lang['LOGOUT'] = 'Pechar sesión';
+
+// Interno
+$lang['OPERARIOINTERNO'] = 'Operario interno';
+$lang['LISTARINCIDENCIAS'] = 'Listar incidencias';
+$lang['ALTAINCIDENCIA'] = 'Alta incidencia';
+$lang['LISTARMAQUINAS'] = 'Listar máquinas';
+$lang['CONTACTOJEFE'] = 'Contacto xefe';
+
+// Externo
+$lang['OPERARIOEXTERNO'] = 'Operario externo';
+$lang['LISTARSERVICIOS'] = 'Listar servizos';
 
 //view/incidencias/consultarJefe
 $lang['INCIDENCIA'] = 'Incidencia';
@@ -308,5 +327,7 @@ $lang['EXT'] = 'Ext ';
 
 //modificarJefeJefe
 //todo incluido
+
+$_SESSION['language'] = $lang;
 ?>
 
