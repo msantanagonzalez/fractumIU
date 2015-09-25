@@ -41,10 +41,10 @@ include_once '../../Controller/common.php';
 				require_once $_SESSION['cribPath'].'View/crearMensaje.php';
 				?>
 				<ul>
-				<li><a href="login.php?lang=es">español
+				<li><a href="login.php?lang=es"><?php echo $lang['ESPAÑOL']; ?> 
 			
 				</a></li>
-				<li><a href="login.php?lang=ga">gallego
+				<li><a href="login.php?lang=ga"><?php echo $lang['GALLEGO']; ?> 
 				
 				</a></li>
 			</ul>

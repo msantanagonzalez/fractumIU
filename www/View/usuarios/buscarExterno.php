@@ -1,4 +1,5 @@
 <?php
+    include_once '../../Controller/common.php';
 	$userType	=	"jefe";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 	require_once $_SESSION['cribPath'].'View/crearMensaje.php';
@@ -11,14 +12,14 @@
 <div style='height:525px;width:auto;overflow-y: scroll;'>
 
 	<!-- SUBGRUPO DE INCIDENCIAS -->
-	<h1 id="headerExterno"><a><i><?= i18n("INCIDENCIAS") ?></i></a></h1>
+	<h1 id="headerExterno"><a><i><?php echo $lang['INCIDENCIAS_BIG']; ?></i></a></h1>
 	<table class="default">
 	    <tr>
-	    	<th width="15%">#ID <?= i18n("Inc.") ?></th>
-	       	<th width="15%"><?= i18n("Problema") ?></th>
-	        <th width="15%"><?= i18n("Últ. operario") ?> </th>
-	    	<th width="13%"><?= i18n("Fecha") ?></th>
-	        <th width="17%"><?= i18n("Estado") ?></th>
+	    	<th width="15%">#ID <?php echo $lang['INC']; ?></th>
+	       	<th width="15%"><?php echo $lang['PROBLEMA']; ?></th>
+	        <th width="15%"><?php echo $lang['ULTIMO_OPERARIO']; ?> </th>
+	    	<th width="13%"><?php echo $lang['FECHA']; ?></th>
+	        <th width="17%"><?php echo $lang['ESTADO']; ?></th>
 	        <th width="17%">&nbsp;</th>
 	    </tr>
 	</table>
@@ -55,12 +56,12 @@
 	</form>
 
 	<!-- SUBGRUPO DE MAQUINAS -->
-	<h1 id="headerExterno"><a><i><?= i18n("MÁQUINAS INCIDENCIAS") ?></i></a></h1>
+	<h1 id="headerExterno"><a><i><?php echo $lang['MAQUINAS_INCIDENCIAS_BIG']; ?></i></a></h1>
 	<table class="default">
 	  <tr>
-	    <th width="12%">#ID <?= i18n("Máquina") ?></th>
-	  	<th width="9%"><?= i18n("Servicio") ?></th>
-	   	<th width="12%"><?= i18n("Últ. Incidencia") ?></th>
+	    <th width="12%"><?php echo $lang['ID_MAQUINA']; ?></th>
+	  	<th width="9%"><?php echo $lang['SERVICIO']; ?></th>
+	   	<th width="12%"><?php echo $lang['ULT_INCID']; ?></th>
 	    <th width="10%">&nbsp;</th>
 	    <th width="10%">&nbsp;</th>
 	  </tr>
@@ -73,7 +74,7 @@
 			if (empty($rows)) {
 			?>
 				<div class="alert alert-warning" role="alert">
-					<?= i18n("| INFO |- Ningún resultado en máquinas.") ?>
+					<?php echo $lang['INFO_NO_MAQ']; ?>
 				</div>
 				<?php
 				}else{
@@ -81,9 +82,9 @@
 					?>
 						<tr>
 							<td width="20%"  name = "idMaq"><?php echo $row['idMaq']; ?></td>
-							<td width="20%"><?= i18n("Si") ?></td>
+							<td width="20%"><?php echo $lang['SI']; ?></td>
 							<!-- FALTA MARCAR LA FECHA DE LA ULTIMA INCIDENCIA DE LA MAQUINA-->
-							<td width="20%">13/09/2014</td>
+							<td width="20%"><?php echo $lang['FECHA_EXAMPLE']; ?></td>
 							<td width="10%">
 								<input type="button"  value="Consulta" onclick="window.location.href='../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>'"/>
 							</td>

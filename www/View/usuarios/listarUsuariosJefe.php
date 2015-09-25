@@ -1,15 +1,16 @@
 <?php
+    include_once '../../Controller/common.php';
 	$userType="jefe";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 	require '../crearMensaje.php';
 ?>
-            	<h1 id="headerJefe"><a><i><?= i18n("OPERARIOS INTERNOS") ?></i></a></h1>
+            	<h1 id="headerJefe"><a><i><?php echo $lang['OPERARIOS_INTERNOS_BIG']; ?></i></a></h1>
 
             	<table class="default">
                     <tr>
-                    	<th width="20%">#ID <?= i18n("Int.") ?></th>
-                    	<th width="20%"><?= i18n("Nombre/Apelidos") ?></th>
-                       	<th width="20%"><?= i18n("Teléfono") ?></th>
+                    	<th width="20%">#ID <?php echo $lang['INT']; ?></th>
+                    	<th width="20%"><?php echo $lang['NOMBRE_APELLIDOS']; ?></th>
+                       	<th width="20%"><?php echo $lang['TELEFONO']; ?></th>
                         <th width="20%">&nbsp;</th>
                         <th width="20%">&nbsp;</th>
 
@@ -23,7 +24,7 @@
 							if (empty($resul2)) {
 							?>
 								<div class="alert alert-warning" role="alert">
-								<?= i18n("| INFO |- No hay usuarios internos para listar") ?>
+							<?php echo $lang['INFO_NO_OP_INTERNO']; ?>
 								</div>
 							<?php
 							}
@@ -46,14 +47,14 @@
 				<!--FIN SECCIÓN-->
 				<br>
 				<!--IINICIO SECCIÓN-->
-            	<h1 id="headerJefe"><a><i><?= i18n("OPERARIOS EXTERNOS") ?></i></a></h1>
+            	<h1 id="headerJefe"><a><i><?php echo $lang['OPERARIOS_EXTERNOS_BIG']; ?></i></a></h1>
 
             	<table class="default">
                     <tr>
-                    	<th width="20%">#ID <?= i18n("Ext.") ?></th>
-                    	<th width="21%"><?= i18n("Nombre/Apelidos") ?></th>
-                       	<th width="16%"><?= i18n("Teléfono") ?></th>
-                        <th width="20%"><?= i18n("Empresa") ?></th>
+                    	<th width="20%"><?php echo $lang['ID']; ?><?php echo $lang['EXT']; ?></th>
+                    	<th width="21%"><?php echo $lang['NOMBRE_APELLIDOS']; ?></th>
+                       	<th width="16%"><?php echo $lang['TELEFONO']; ?></th>
+                        <th width="20%"><?php echo $lang['EMPRESA']; ?></th>
                         <th width="10%">&nbsp;</th>
                         <th width="10%">&nbsp;</th>
                     </tr>
@@ -67,7 +68,7 @@
 							if (empty($resul2)) {
 							?>
 								<div class="alert alert-warning" role="alert">
-								<?= i18n("| INFO |- No hay usuarios externos para listar ") ?>
+								<?php echo $lang['INFO_NO_OP_EXTERNO']; ?>
 								</div>
 							<?php
 							}

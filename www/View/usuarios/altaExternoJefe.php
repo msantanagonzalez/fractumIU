@@ -1,15 +1,16 @@
 <?php
+    include_once '../../Controller/common.php';
 	$userType="jefe";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 ?>
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
-<h1 id="headerJefe"><a><i><?= i18n("ALTA OPERARIO EXTERNO") ?></i></a></h1>
+<h1 id="headerJefe"><a><i><?php echo $lang['ALTA_OPERARIO_EXTERNO_BIG']; ?></i></a></h1>
 <form  onsubmit="return altaOperarioExterno()" method="POST" action="../../Controller/usuariosController.php">
 	<table class="default">
 		<tr> 
-			<td width="25%"><?= i18n("DNI Operario Externo:") ?> </td> 
+			<td width="25%"><?php echo $lang['DNI_OPERARIO_EXTERNO']; ?></td> 
 			<td width="25%"><input id="dni" type="text" class="text" name="dni"/></td> 
-			<td width="25%"><?= i18n("Empresa:") ?> </td>
+			<td width="25%"><?php echo $lang['EMPRESA']; ?></td>
 			<td width="25%">
 			<select title="Seleccione una empresa" required name="cif">
 			  <option value="">----</option>
@@ -25,9 +26,9 @@
 			</td>
 		</tr>
 		<tr> 
-			<td width="25%"><?= i18n("Nombre:") ?> </td> 
+			<td width="25%"><?php echo $lang['NOMBRE']; ?> </td> 
 			<td width="25%"><input id="nombre" type="text" class="text" name="nombre"/></td> 
-			<td width="25%"><?= i18n("Apellidos:") ?> </td> 
+			<td width="25%"><?php echo $lang['APELLIDOS']; ?></td> 
 			<td width="25%"> <input id="apellidos" type="text" class="text" name="apellidos"/></td>
 		</tr>
 		<tr>

@@ -1,4 +1,5 @@
 <?php
+    include_once '../../Controller/common.php';
     $userType="externo";
     require_once $_SESSION['cribPath'].'View/structure/header.php';
     //---- Meter esto en todas las vistas ----
@@ -7,14 +8,14 @@
   // ----------------------------------------
 ?>
 
-<h1 id="headerExterno"><a><?= i18n("- INCIDENCIAS -") ?></a></h1> <!--SECCIÓN-->
+<h1 id="headerExterno"><a><?php echo $lang['INCIDENCIAS_BIG']; ?></a></h1> <!--SECCIÓN-->
 <table class="default">
     <tr>
-      <th width="17%">#ID <?= i18n("Inc.") ?></th>
-        <th width="17%"><?= i18n("Últ. operario") ?></th>
-        <th width="17%"><?= i18n("Responsable") ?> </th>
-      <th width="17%"><?= i18n("Fecha Apertura") ?></th>
-        <th width="17%"><?= i18n("Estado:") ?></th>
+      <th width="17%">#ID<?php echo $lang['INC']; ?></th>
+        <th width="17%"><?php echo $lang['ULTIMO_OPERARIO']; ?></th>
+        <th width="17%"><?php echo $lang['RESPONSABLE']; ?> </th>
+      <th width="17%"><?php echo $lang['FECHA_APERTURA']; ?></th>
+        <th width="17%"><?php echo $lang['ESTADO']; ?></th>
         <th width="17%">&nbsp;</th>
     </tr>
 </table>
@@ -27,7 +28,7 @@
         if (empty($rows)) {
         ?>
           <div class="alert alert-warning" role="alert">
-          <?= i18n("| INFO |- No hay incidencias para listar") ?>
+        <?php echo $lang['INFO_NO_INCID']; ?>
           </div>
         <?php
         }
@@ -58,13 +59,13 @@
   </form>
 </div>
 <br>
-<h1 id="headerExterno"><a><?= i18n("- MÁQUINAS -") ?> </a></h1> <!--SECCIÓN-->
+<h1 id="headerExterno"><a><?php echo $lang['MAQUINAS_BIG']; ?></a></h1> <!--SECCIÓN-->
 <table class="default"><!--TABLA-->
     <tr>
-        <th width="20%">ID</th>
-        <th width="20%"><?= i18n("Nombre:") ?></th>
-        <th width="20%"><?= i18n("Mantenimiento") ?></th>
-				<th width="20%"><?= i18n("Documentación") ?></th>
+        <th width="20%"><?php echo $lang['ID']; ?></th>
+        <th width="20%"><?php echo $lang['NOMBRE']; ?></th>
+        <th width="20%"><?php echo $lang['MANTENIMIENTO']; ?></th>
+				<th width="20%"><?php echo $lang['ULT_INCID']; ?></th>
         <th width="20%">&nbsp; </th>
     </tr>
 </table>
@@ -78,7 +79,7 @@
         if (empty($rows)) {
         ?>
           <div class="alert alert-warning" role="alert">
-          <?= i18n("| INFO |- No hay maquinas para listar") ?>
+        <?php echo $lang['INFO_NO_MAQ']; ?>
           </div>
         <?php
         }

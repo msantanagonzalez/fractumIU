@@ -1,15 +1,16 @@
 <?php
+ include_once '../../../Controller/common.php';
 	$userType="externo";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 ?>
 
-<h1 id="headerExterno"><a>- MAQUINAS -</a></h1> <!--SECCIÓN-->
+<h1 id="headerExterno"><a><?php echo $lang['MAQUINAS_BIG']; ?></a></h1> <!--SECCIÓN-->
 <table class="default"><!--TABLA-->
 	<tr>
-		<th width="10%">ID</th>
-		<th width="25%">Nombre</th>
-	    <th width="25%">Mantenimiento</th>
-	    <th width="25%">Ult. Incidencia</th>
+		<th width="10%"><?php echo $lang['ID']; ?></th>
+		<th width="25%"><?php echo $lang['USUARIO']; ?></th>
+	    <th width="25%"><?php echo $lang['MANTENIMIENTO']; ?></th>
+	    <th width="25%"><?php echo $lang['ULT_INCIDENCIA']; ?></th>
 		<th width="15%"> </th>
 	</tr>
 </table>
@@ -25,8 +26,8 @@
 		<tr>
 			<td width="10%"><?php echo $row['idMaq']; ?></th>
 			<td width="25%"><?php echo $row['nomMaq']; ?></td>
-		    <td width="25%">No</td>
-		    <td width="25%">10/11/2013</td>
+		    <td width="25%"><?php echo $lang['NO']; ?></td>
+		    <td width="25%"><?php echo $lang['FECHA_EXAMPLE']; ?></td>
 			<td width="15%"><button href='../../Controller/maquinasController.php?accion=consulta&idMaquina'=<?php echo $row['idMaq']; ?>">Consultar</button></td>
 		</tr>
 		<?php } ?>

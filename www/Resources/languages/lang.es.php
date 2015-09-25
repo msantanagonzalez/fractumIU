@@ -7,6 +7,8 @@ Language: Spanish
 
 $lang = array();
 //LOGIN
+$lang['ESPAÑOL'] = 'Español';
+$lang['GALLEGO'] = 'Gallego';
 $lang['USUARIO'] = 'Usuario';
 $lang['CONTRASENA'] = 'Contraseña';
 
@@ -219,6 +221,7 @@ $lang['MAQUINAS_INCIDENCIAS_BIG'] = '- MAQUINAS INCIDENCIAS -';
 ////////////////////////////////////SERVICIOS/////////////////////////////////
 
 //consultarJefe
+$lang['SERVICIOS_ASOCIADOS'] = '- SERVICIOS ASOCIADOS -';
 $lang['SERVICIO_BIG'] = '- SERVICIO -';
 $lang['SERVICIOS_BIG'] = '- SERVICIOS -';
 $lang['CIF_EMPRESA'] = 'CIF Empresa:';

@@ -1,17 +1,18 @@
 <?php
+    include_once '../../Controller/common.php';
 	$userType="externo";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 	require '../crearMensaje.php';
 ?>
 
-<h1 id="headerExterno"><a><i><?= i18n("SERVICIOS") ?></i></a></h1>
+<h1 id="headerExterno"><a><i><?php echo $lang['SERVICIOS_BIG']; ?></i></a></h1>
 <table class="default">
     <tr>
-		<th width="10%">#ID <?= i18n("Servicio:") ?></th>
-    	<th width="10%">#ID <?= i18n("Máquina:") ?></th>
-    	<th width="10%"><?= i18n("Periodicidad:") ?></th>
-       	<th width="10%"><?= i18n("Coste:") ?></th>
-       	<th width="10%"><?= i18n("Empresa:") ?></th>
+		<th width="10%"><?php echo $lang['ID_SERVICIO']; ?></th>
+    	<th width="10%"><?php echo $lang['ID_MAQUINA']; ?></th>
+    	<th width="10%"><?php echo $lang['PERIODICIDAD']; ?></th>
+       	<th width="10%"><?php echo $lang['COSTE']; ?></th>
+       	<th width="10%"><?php echo $lang['EMPRESA']; ?></th>
         <th width="10%">&nbsp;</th>
         <th width="10%">&nbsp;</th>
     </tr>
@@ -24,7 +25,7 @@
 		if (empty($resul2)) {
 		?>
 			<div class="alert alert-warning" role="alert">
-			<?= i18n("| INFO |- No hay servicios para listar") ?>
+			<?php echo $lang['INFO_NO_SERV']; ?>
 			 
 			</div>
 		<?php

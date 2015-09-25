@@ -7,6 +7,8 @@ Language: Galician
 
 $lang = array();
 //LOGIN
+$lang['ESPAÑOL'] = 'Español';
+$lang['GALLEGO'] = 'Galego';
 $lang['USUARIO'] = 'Usuario';
 $lang['CONTRASENA'] = 'Contrasinal';
 
@@ -24,7 +26,7 @@ $lang['SERVICIO'] = 'Servizo';
 $lang['SERVICIOS'] = 'Servizos';
 $lang['ULT_INCID'] = 'Derradeira Incidencia';
 $lang['INFO_NO_MAQ'] = 'Non hai máquinas por listar';
-$lang['INFO_NO_DOC'] = '| INFO |- Iteración sin documento.';
+$lang['INFO_NO_DOC'] = '| INFO |- Iteración sen documento.';
 
 //view/structure/nav
 $lang['JEFENEGOCIO'] = 'Xefe de Negocio';
@@ -213,6 +215,7 @@ $lang['MAQUINAS_INCIDENCIAS_BIG'] = '- MÁQUINAS INCIDENCIAS -';
 ////////////////////////////////////SERVICIOS/////////////////////////////////
 
 //consultarJefe
+$lang['SERVICIOS_ASOCIADOS'] = '- SERVIZOS ASOCIADOS -';
 $lang['SERVICIO_BIG'] = '- SERVIZO -';
 $lang['SERVICIOS_BIG'] = '- SERVIZOS -';
 $lang['CIF_EMPRESA'] = 'CIF Empresa:';

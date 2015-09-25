@@ -1,4 +1,5 @@
 <?php
+    include_once '../../Controller/common.php';
 	$userType="jefe";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 
@@ -7,7 +8,7 @@
 	foreach ($rows as $row) {
 ?>
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
-<h1 id="headerJefe"><a><i><?= i18n("MÁQUINA ") ?><?php echo $row['idMaq']; ?></i></a></h1>
+<h1 id="headerJefe"><a><i><?php echo $lang['MAQUINA_BIG']; ?><?php echo $row['idMaq']; ?></i></a></h1>
 
 <form method="POST" onsubmit="return modificarMaquina()" action="../../Controller/maquinasController.php" enctype="multipart/form-data">
 
@@ -21,20 +22,20 @@
 
 	<table class="default">
 		<tr>
-			<td width="25%">#ID <?= i18n("Máquina:") ?></td>
+			<td width="25%"><?php echo $lang['ID_MAQUINA']; ?></td>
 			<td width="25%"><input type="text" class="text" disabled name="idMaq" value="<?php echo $row['idMaq']; ?>"/></td>
-			<td width="25%">#N&uacute;m. <?= i18n("serie:") ?></td>
+			<td width="25%"><?php echo $lang['NUMERO_DE_SERIE']; ?></td>
 			<td width="25%"> <input id="numSerie" type="text" class="text"  name="nSerie" value="<?php echo $row['nSerie']; ?>"/></td>
 		</tr>
 		<tr>
-			<td width="25%"><?= i18n("Nombre:") ?></td>
+			<td width="25%"><?php echo $lang['NOMBRE']; ?></td>
 			<td width="25%"><input id="nomMaq" type="text" class="text" name="nomMaq" value="<?php echo $row['nomMaq']; ?>"/></td>
-			<td width="25%"><?= i18n("Coste:") ?></td>
+			<td width="25%"><?php echo $lang['COSTE']; ?></td>
 			<td width="25%"><input id="coste" type="text" class="text"  name="costeMaq" value="<?php echo $row['costeMaq']; ?>"/></td>
 			<td width="25%"></td>
 		</tr>
 		<tr>
-			<td width="25%"><br><?= i18n("Descripción:") ?></td>
+			<td width="25%"><br><?php echo $lang['DESCRIPCION']; ?></td>
 			<td colspan='3' width="75%">
 				<textarea id="des" style="resize:none; text-align:left;" style="t" rows="4"  name="descripMaq" ><?php echo $row['descripMaq']; ?></textarea>
 			</td>
@@ -44,7 +45,7 @@
 		if (empty($rows)) {
 			?>
 			<tr>
-				<td><?= i18n("Documentación:") ?></td>
+				<td><?php echo $lang['DOCUMENTACION']; ?></td>
 				<td><img src="../../Resources/images/PDF.png"></td>
 				<td colspan="2"><input type="file" name="docMaquina" id="docMaquina"></td>
 			</tr>
@@ -56,7 +57,7 @@
 				foreach ($rows as $documento) {
 				?>
 				<tr>
-					<td colspan="2"><?= i18n("Documentación:") ?></td>
+					<td colspan="2"><?php echo $lang['DOCUMENTACION']; ?></td>
 					<td colspan="2">
 					<a href="../<?php echo $documento['urlDocMaq'];?>" target="_blank">
 					<img src="../../Resources/images/PDF.png">

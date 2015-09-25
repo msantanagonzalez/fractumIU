@@ -1,14 +1,15 @@
 <?php
+   include_once '../../../Controller/common.php';
 	$userType="jefe";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 ?>
 
-<h1 id="headerJefe"><a><i>M&Aacute;QUINAS</i></a></h1>
+<h1 id="headerJefe"><a><i><?php echo $lang['MAQUINAS_BIG']; ?></i></a></h1>
 <table class="default">
     <tr>
-    	<th width="20%">#ID M&aacute;q.</th>
-    	<th width="20%">Servicio</th>
-       	<th width="20%">&Uacute;lt. incidencia</th>
+    	<th width="20%"><?php echo $lang['ID_MAQUINA']; ?></th>
+    	<th width="20%"><?php echo $lang['SERVICIO']; ?></th>
+       	<th width="20%"><?php echo $lang['ULT_INCID']; ?></th>
         <th width="10%">&nbsp;</th>
         <th width="10%">&nbsp;</th>
     </tr>
@@ -22,8 +23,8 @@
 
 		<tr> 
 			<td width="20%"  name = "idMaq"><?php echo $row['idMaq']; ?></td> 
-			<td width="20%">Sí</td> 
-			<td width="20%">13/09/2014</td> 
+			<td width="20%"><?php echo $lang['SI']; ?></td> 
+			<td width="20%"><?php echo $lang['FECHA_EXAMPLE2']; ?></td> 
 			<td width="10%"><button><a href="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>">Consultar</a></button></td>
 			<td width="10%"><button><a href="../../Controller/maquinasController.php?accion=Eliminar&idMaq=<?php echo $row['idMaq'];?>">Eliminar</a></button></td>
 		</tr>

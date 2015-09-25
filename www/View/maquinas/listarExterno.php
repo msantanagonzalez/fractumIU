@@ -1,15 +1,16 @@
 <?php
+	include_once '../../Controller/common.php';
 	$userType="externo";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 ?>
 
-<h1 id="headerExterno"><a><?= i18n("- MAQUINAS -") ?></a></h1> <!--SECCIÓN-->
+<h1 id="headerExterno"><a><?php echo $lang['MAQUINAS_BIG']; ?></a></h1> <!--SECCIÓN-->
 <table class="default"><!--TABLA-->
 	<tr>
-		<th width="20%"><?= i18n("ID") ?></th>
-		<th width="20%"><?= i18n("Nombre:") ?></th>
-	  <th width="20%"><?= i18n("Servicio") ?></th>
-		<th width="20%"><?= i18n("Documentación") ?></th>
+		<th width="20%"><?php echo $lang['ID']; ?></th>
+		<th width="20%"><?php echo $lang['NOMBRE']; ?></th>
+	  <th width="20%"><?php echo $lang['SERVICIO']; ?></th>
+		<th width="20%"><?php echo $lang['DOCUMENTACION']; ?></th>
 		<th width="20%"> </th>
 	</tr>
 </table>
@@ -24,7 +25,7 @@
         if (empty($rows)) {
         ?>
           <div class="alert alert-warning" role="alert">
-          <?= i18n("| INFO |- No hay maquinas para listar") ?>
+        <?php echo $lang['INFO_NO_MAQ']; ?>
           </div>
         <?php
         }

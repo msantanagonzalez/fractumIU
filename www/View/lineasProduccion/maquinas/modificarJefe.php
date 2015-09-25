@@ -1,4 +1,5 @@
 <?php
+  include_once '../../../Controller/common.php';
 	$userType="jefe";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 	
@@ -7,7 +8,7 @@
 	foreach ($rows as $row) { 
 ?>
 
-<h1 id="headerJefe"><a><i>M&Aacute;QUINA <?php echo $row['idMaq']; ?></i></a></h1>
+<h1 id="headerJefe"><a><i><?php echo $lang['MAQUINA_BIG']; ?> <?php echo $row['idMaq']; ?></i></a></h1>
 
 <form method="POST" action="../../Controller/maquinasController.php">
 	
@@ -21,20 +22,20 @@
 		
 	<table class="default">
 		<tr> 
-			<td width="25%">#ID M&aacute;quina: </td> 
+			<td width="25%"><?php echo $lang['ID_MAQUINA']; ?>  </td> 
 			<td width="25%"><input type="text" class="text" disabled name="idMaq" value="<?php echo $row['idMaq']; ?>"/></td> 
-			<td width="25%">#N&uacute;m. serie: </td> 
+			<td width="25%"><?php echo $lang['NUMERO_SERIE']; ?></td> 
 			<td width="25%"> <input type="text" class="text" disabled name="nSerie" value="<?php echo $row['nSerie']; ?>"/></td>
 		</tr>
 		<tr> 
-			<td width="25%">Nombre: </td> 
+			<td width="25%"><?php echo $lang['NOMBRE']; ?> </td> 
 			<td width="25%"><input type="text" class="text" name="nomMaq" value="<?php echo $row['nomMaq']; ?>"/></td> 
-			<td width="25%">Coste: </td> 
+			<td width="25%"><?php echo $lang['COSTE']; ?> </td> 
 			<td width="25%"><input type="text" class="text" disabled name="costeMaq" value="<?php echo $row['costeMaq']; ?>"/></td> 
 			<td width="25%"></td>
 		</tr>
 		<tr>
-			<td width="25%"><br>Descripci&oacute;n:</td>
+			<td width="25%"><br><?php echo $lang['DESCRIPCION']; ?></td>
 			<td colspan='3' width="75%">
 				<textarea style="resize:none; text-align:left;" style="t" rows="4" disabled name="descripMaq" >
 				<?php echo $row['descripMaq']; ?>
@@ -42,7 +43,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>Documentacion:</td>
+			<td><?php echo $lang['DOCUMENTACION']; ?></td>
         	<td><img src="../../Recursos/images/PDF.png"></td>
         	<td colspan="2"><input type="file" name="accion" value="Subir"></td>
 		</tr>

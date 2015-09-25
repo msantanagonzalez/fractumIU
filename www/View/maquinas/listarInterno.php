@@ -1,16 +1,17 @@
 <?php
+    include_once '../../Controller/common.php';
 	$userType="interno";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 	require_once $_SESSION['cribPath'].'View/messages/messages_ga.php';
 ?>
 
-<h1 id="headerInterno"><a><i><?= i18n("- MÁQUINAS -") ?></i></a></h1>
+<h1 id="headerInterno"><a><i><?php echo $lang['MAQUINAS_BIG']; ?></i></a></h1>
 <table class="default">
     <tr>
-    	<th width="20%"><?= i18n("ID") ?></th>
-      <th width="20%"><?= i18n("Servicio:") ?></th>
-			<th width="20%"><?= i18n("Últ. Incidencia") ?></th>
-		  <th width="20%"><?= i18n("Documentación") ?></th>
+    	<th width="20%"><?php echo $lang['ID']; ?></th>
+      <th width="20%"><?php echo $lang['SERVICIO']; ?></th>
+			<th width="20%"><?php echo $lang['ULT_INCID']; ?></th>
+		  <th width="20%"><?php echo $lang['DOCUMENTACION']; ?></th>
       <th width="20%"></th>
     </tr>
 </table>
@@ -23,7 +24,7 @@
 				if (empty($rows)) {
 				?>
 					<div class="alert alert-warning" role="alert">
-					<?= i18n("| INFO |- No hay maquinas para listar") ?>
+					<?php echo $lang['INFO_NO_MAQ']; ?>
 					</div>
 				<?php
 				}

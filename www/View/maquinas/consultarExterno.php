@@ -1,24 +1,25 @@
 <?php
+    include_once '../../Controller/common.php';
 	$userType="externo";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 	$rows = $_SESSION['consultaMaquina'];
 	foreach ($rows as $row) {
 ?>
 
-<h1 id="headerExterno"><a><i><?= i18n("MÁQUINA ") ?><?php echo $row['nomMaq']; ?></i></a></h1>
+<h1 id="headerExterno"><a><i><?php echo $lang['MAQUINA_BIG']; ?><?php echo $row['nomMaq']; ?></i></a></h1>
 <form method='POST' action='../../Controller/maquinasController.php?idMaq=<?php echo $row['idMaq'];?>'>
 
 	<div style='height:350px;width:auto;overflow-y: scroll;'>
 		<table class='default'>
 
 			<tr>
-				<td>#ID <?= i18n("Máquina:") ?></td>
+				<td><?php echo $lang['ID_MAQUINA']; ?></td>
 				<td><input type='text' class="text"  disabled   name='idMaq' value='<?php echo $row['idMaq']; ?>' /></td>
-				<td>#N&uacute;m. <?= i18n("serie:") ?></td>
+				<td><?php echo $lang['NUMERO_DE_SERIE']; ?></td>
 				<td><input type='text'class="text"  disabled  name='nSerie' value='<?php echo $row['nSerie']; ?>' /></td>
 			</tr>
 			<tr>
-				<td colspan='4'><?= i18n("Descripción:") ?></td>
+				<td colspan='4'><?php echo $lang['DESCRIPCION']; ?></td>
 			</tr>
 			<tr>
 		        <td colspan='4'>
@@ -30,9 +31,9 @@
 						if (empty($rows)) {
 							?>
 							<tr>
-								<td colspan="4"><?= i18n("Documentación:") ?>
+								<td colspan="4"><?php echo $lang['DOCUMENTACION']; ?>
 								<div class="alert alert-info" role="alert">
-								<?= i18n("| INFO |- Maquina sin documento") ?>
+								<?php echo $lang['INFO_NO_DOC']; ?>
 								</div>
 								</td>
 							</tr>
@@ -44,7 +45,7 @@
 								foreach ($rows as $documento) {
 								?>
 								<tr>
-									<td colspan="2"><?= i18n("Documentación:") ?></td>
+									<td colspan="2"><?php echo $lang['DOCUMENTACION']; ?></td>
 									<td colspan="2">
 									<a href="../<?php echo $documento['urlDocMaq'];?>" target="_blank">
 									<img src="../../Resources/images/PDF.png">
@@ -60,13 +61,13 @@
 		</table>
 	</div>
 </form>
-<h1 id="headerExterno"><a><i><?= i18n("INCIDENCIAS RELATIVAS") ?></i></a></h1>
+<h1 id="headerExterno"><a><i><?php echo $lang['INCIDENCIAS_RELATIVAS']; ?></i></a></h1>
 <table class="default">
     <tr>
-    	<th width="20%">#ID <?= i18n("Inc.") ?></th>
-    	<th width="20%"><?= i18n("Responsable:") ?></th>
-       	<th width="20%"><?= i18n("Operario:") ?></th>
-        <th width="20%"><?= i18n("Estado:") ?></th>
+    	<th width="20%">#ID <?php echo $lang['INC']; ?></th>
+    	<th width="20%"><?php echo $lang['RESPONSABLE']; ?></th>
+       	<th width="20%"><?php echo $lang['OPERARIO']; ?></th>
+        <th width="20%"><?php echo $lang['ESTADO']; ?></th>
         <th width="20%">&nbsp;</th>
     </tr>
 </table>
@@ -100,7 +101,7 @@
 		}
 		if($alert == 0) { ?>
           <div class="alert alert-warning" role="alert">
-          <?= i18n("| INFO |- No hay incidencias relativas a esta maquina") ?>
+          <?php echo $lang['INFO_NO_INCID']; ?>
           </div>
         <?php
 		}?>

@@ -1,4 +1,5 @@
 <?php
+    include_once '../../Controller/common.php';
 	$userType="jefe";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 	require_once $_SESSION['cribPath'].'View/crearMensaje.php';
@@ -7,26 +8,26 @@
 	 foreach ($rows as $row) {
 ?>
 
-<h1 id="headerJefe"><a><i><?= i18n("MÁQUINA ") ?><?php echo $row['idMaq']; ?></i></a></h1>
+<h1 id="headerJefe"><a><i><?php echo $lang['MAQUINA_BIG']; ?><?php echo $row['idMaq']; ?></i></a></h1>
 
 	<form method="POST" action="../../Controller/maquinasController.php?idMaq=<?php echo $row['idMaq'];?>">
 	<table class="default">
 
 		<tr>
-			<td width="25%">#ID <?= i18n("Máquina:") ?> </td>
+			<td width="25%"><?php echo $lang['ID_MAQUINA']; ?></td>
 			<td width="25%"><input type="text" class="text" disabled name="idMaq"  value="<?php echo $row['idMaq']; ?>"/></td>
-			<td width="25%">#N&uacute;m. <?= i18n("serie:") ?></td>
+			<td width="25%"><?php echo $lang['NUMERO_DE_SERIE']; ?></td>
 			<td width="25%"> <input type="text" class="text" disabled name="nSerie"  value="<?php echo $row['nSerie']; ?>"/></td>
 		</tr>
 		<tr>
-			<td width="25%"><?= i18n("Nombre:") ?> </td>
+			<td width="25%"><?php echo $lang['NOMBRE']; ?></td>
 			<td width="25%"><input type="text" class="text" disabled name="nomMaq"  value="<?php echo $row['nomMaq']; ?>"/></td>
-			<td width="25%"><?= i18n("Coste:") ?></td>
+			<td width="25%"><?php echo $lang['COSTE']; ?></td>
 			<td width="25%"><input type="text" class="text" disabled name="costeMaq"  value="<?php echo $row['costeMaq']; ?>"/></td>
 
 		</tr>
 		<tr>
-			<td width="25%"><br><?= i18n("Descripción:") ?></td>
+			<td width="25%"><br><?php echo $lang['DESCRIPCION']; ?></td>
 			<td colspan='3' width="75%">
 				<textarea style="resize:none; text-align:left;" style="t" rows="4" name='descripMaq' disabled><?php echo $row['descripMaq']; ?></textarea>
 			</td>
@@ -36,9 +37,9 @@
 		if (empty($rows)) {
 			?>
 			<tr>
-				<td colspan="4"><?= i18n("Documentación:") ?>
+				<td colspan="4"><?php echo $lang['DOCUMENTACION']; ?>
 				<div class="alert alert-info" role="alert">
-				<?= i18n("| INFO |- Maquina sin documento") ?>
+			<?php echo $lang['INFO_NO_DOC_MAQUINA']; ?>
 				</div>
 				</td>
 			</tr>
@@ -50,7 +51,7 @@
 				foreach ($rows as $documento) {
 				?>
 				<tr>
-					<td colspan="2"><?= i18n("Documentación:") ?></td>
+					<td colspan="2"><?php echo $lang['DOCUMENTACION']; ?></td>
 					<td colspan="2">
 					<a href="../<?php echo $documento['urlDocMaq'];?>" target="_blank">
 					<img src="../../Resources/images/PDF.png">
@@ -68,13 +69,13 @@
 		} ?>
 		</table>
 </form>
-<h1 id="headerJefe"><a><i><?= i18n("INCIDENCIAS RELATIVAS") ?></i></a></h1>
+<h1 id="headerJefe"><a><i><?php echo $lang['INCIDENCIAS_RELATIVAS']; ?></i></a></h1>
 <table class="default">
     <tr>
-    	<th width="20%">#ID <?= i18n("Inc.") ?></th>
-    	<th width="20%"><?= i18n("Responsable:") ?></th>
-       	<th width="20%"><?= i18n("Operario:") ?></th>
-        <th width="20%"><?= i18n("Estado:") ?></th>
+    	<th width="20%">#ID <?php echo $lang['INC']; ?></th>
+    	<th width="20%"><?php echo $lang['RESPONSABLE']; ?></th>
+       	<th width="20%"><?php echo $lang['OPERARIO']; ?></th>
+        <th width="20%"><?php echo $lang['ESTADO']; ?></th>
         <th width="20%">&nbsp;</th>
     </tr>
 </table>
@@ -97,12 +98,12 @@
 	</table>
 </form>
 
-<h1 id="headerJefe"><a><i><?= i18n("SERVICIOS ASOCIADOS") ?></i></a></h1>
+<h1 id="headerJefe"><a><i><?php echo $lang['SERVICIOS_ASOCIADOS']; ?></i></a></h1>
 <table class="default">
     <tr>
-    	<th width="25%">#ID <?= i18n("Serv.") ?></th>
-    	<th width="25%"><?= i18n("Perdiodicidad") ?></th>
-       	<th width="25%"><?= i18n("Coste") ?></th>
+    	<th width="25%"><?php echo $lang['ID_SERVICIO']; ?></th>
+    	<th width="25%"><?php echo $lang['PERIODICIDAD']; ?></th>
+       	<th width="25%"><?php echo $lang['COSTE']; ?></th>
         <th width="25%">&nbsp;</th>
     </tr>
 </table>

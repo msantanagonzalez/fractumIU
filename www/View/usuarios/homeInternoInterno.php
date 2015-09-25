@@ -1,15 +1,16 @@
 <?php
+    include_once '../../Controller/common.php';
     $userType="interno";
     require_once $_SESSION['cribPath'].'View/structure/header.php';
 	require_once $_SESSION['cribPath'].'View/messages/messages_ga.php';
 ?>
-<h1 id="headerInterno"><a><?= i18n("- INCIDENCIAS -") ?></a></h1> <!--SECCIÓN-->
+<h1 id="headerInterno"><a><?php echo $lang['INCIDENCIAS_BIG']; ?></a></h1> <!--SECCIÓN-->
 <table class="default">
     <tr>
-        <th width="20%">#ID <?= i18n("Inc.") ?></th>
-        <th width="20%"><?= i18n("Últ. operario") ?></th>
-        <th width="20%"><?= i18n("Últ. iteración") ?> </th>
-        <th width="20%"><?= i18n("Estado:") ?></th>
+        <th width="20%">#ID <?php echo $lang['INC']; ?></th>
+        <th width="20%"><?php echo $lang['ULTIMO_OPERARIO']; ?></th>
+        <th width="20%"><?php echo $lang['ULTIMA_ITERACION']; ?> </th>
+        <th width="20%"><?php echo $lang['ESTADO']; ?></th>
         <th width="20%">&nbsp;</th>
     </tr>
 </table>
@@ -24,7 +25,7 @@
                 if (empty($rows)) {
                 ?>
                     <div class="alert alert-warning" role="alert">
-                    <?= i18n("| INFO |- No hay incidencias para listar") ?>
+                  <?php echo $lang['INFO_NO_INCID']; ?> 
                     </div>
                 <?php
                 }
@@ -48,13 +49,13 @@
     </form>
 </div>
 <br>
-<h1 id="headerInterno"><a><i><?= i18n("- MÁQUINAS -") ?></i></a></h1>
+<h1 id="headerInterno"><a><i><?php echo $lang['MAQUINAS_BIG']; ?></i></a></h1>
 <table class="default">
     <tr>
-    	<th width="20%">#ID <?= i18n("Máquina:") ?></th>
-    	<th width="20%"><?= i18n("Servicio:") ?></th>
-       	<th width="20%"><?= i18n("Últ. Incidencia") ?></th>
-				<th width="20%"><?= i18n("Documentación") ?></th>
+    	<th width="20%"><?php echo $lang['ID_MAQUINA']; ?></th>
+    	<th width="20%"><?php echo $lang['SERVICIO']; ?></th>
+       	<th width="20%"><?php echo $lang['ULT_INCID']; ?></th>
+				<th width="20%"><?php echo $lang['DOCUMENTACION']; ?></th>
         <th width="10%">&nbsp;</th>
         <th width="10%">&nbsp;</th>
     </tr>
@@ -70,7 +71,7 @@
 			if (empty($rows)) {
 			?>
 				<div class="alert alert-warning" role="alert">
-				<?= i18n("| INFO |- No hay maquinas para listar") ?>
+			<?php echo $lang['INFO_NO_MAQ']; ?>
 				</div>
 			<?php
 			}
