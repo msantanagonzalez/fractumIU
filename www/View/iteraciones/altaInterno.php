@@ -18,9 +18,9 @@
 	<div style='height:350px;width:auto;overflow-y: scroll;'>
 		<table class='default'>
 			<tr>
-				<td><?php echo $lang['ID INCIDENCIA']; ?></td>
+				<td><?php echo $lang['ID_INCIDENCIA']; ?></td>
 				<td><input id="idIncid"  type='text' name='idIncid' value='<?php echo $idIncid; ?>' disabled ></td>
-				<td><?php echo $lang['ID USUARIO']; ?></td>
+				<td><?php echo $lang['ID_USUARIO']; ?></td>
 				<td><input   type='text'  value='<?php echo $_SESSION['dni']; ?>' disabled ></td>
 			</tr>
 

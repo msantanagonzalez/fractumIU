@@ -1,7 +1,6 @@
 <?php
     include_once '../../Controller/common.php';
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
-	$rows = $_SESSION['consultaIncidencia'];
 ?>
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
 <h1 id="headerInterno"><a><i><?php echo $lang['NUEVA_INCIDENCIA']; ?></i></a></h1>
@@ -21,13 +20,7 @@
 			<tr>
 				<td><?php echo $lang['FECHA_APERTURA']; ?></td>
 				<td><input readonly="readonly" title="Se necesita una fecha de apertura" id="fechaApertura" type='date' name='fechaApertura' value='<?php echo date('Y-m-d');?>' required/></td>
-				 <td><?php echo $lang['FECHA_CIERRE']; ?></td>
-				 <?php
-				 //DA ERROR PORQUE FALTA EL FOR EACH
-				 foreach($rows as $row) {
-				  ?>
-				 <td><input readonly="readonly" id="fechaCierre" type='date' name='fechaCierre' value="<?php if($row['estadoIncid']=="Cerrada"){echo 'NULL';}else{echo $row['fCier'];}  ?>" /></td>
-				 <?php } ?>
+				<td><input readonly="readonly" id="fechaCierre" type='hidden' name='fechaCierre' value="<?php echo null; ?>" /></td>
 			</tr>
 			<tr>
 				<td><?php echo $lang['ESTADO']; ?></td>
