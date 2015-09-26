@@ -132,16 +132,24 @@ if(isset($accion)){
 		//session_start();
 		switch ($_SESSION['tipo']) {
 			case 'J':
-				if($_POST['estadoIncidencia']=='Derivada'){
+				/*if($_POST['estadoIncidencia']=='Derivada'){
 					$derivada = 1;
-				} else $derivada = 0;
+				} else $derivada = 0;*/
+
+				if($_POST['cifEmpr']!='DEFAULT'){
+					$derivada = 1;
+					$estado = 'Derivada';
+				}else{
+					$derivada = 0;
+					$estado = $_POST['estadoIncidencia'];
+				}
 
 				$idIncidencia = $_POST['idIncidencia'];
 				$dniApertura = $_POST['dniApertura'];
 				$dniResponsable = $_POST['dniResponsable'];
 				$fechaApertura = $_POST['fechaApertura'];
 				$fechaCierre = $_POST['fechaCierre'];
-				$estadoIncidencia = $_POST['estadoIncidencia'];
+				$estadoIncidencia = $estado;
 				$idMaquina = $_POST['idMaquina'];
 				$descripcion = $_POST['descripcion'];
 				$cifEmpr = $_POST['cifEmpr'];
@@ -197,7 +205,7 @@ if(isset($accion)){
 	}
 
 	function pendientes(){
-		
+
 		$incidencia = new Incidencia();
 
 		switch ($_SESSION['tipo']){

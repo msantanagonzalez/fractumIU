@@ -17,6 +17,7 @@
 			<input type="hidden" class="text" name="idMaquina" value="<?php echo $iData[0][5]; ?>"/>
 			<input type="hidden" class="text" name='descripcion' value="<?php echo $iData[0][8];?>"/>
 			<input type="hidden" class="text" name='cifEmpr' value="<?php echo $iData[0][9];?>"/>
+			<input type="hidden" class="text" name='estadoIncidencia' value="<?php echo $iData[0][6];?>"/>
 
 		<table class="default">
 			<tr>
@@ -43,36 +44,33 @@
 			<tr>
 				<td><?php echo $lang['ESTADO']; ?></td>
 				<td>
-					<select title="Seleccione o no una opcion" required name='estadoIncidencia'>
-						<option value='<?php echo $iData[0][6]; ?>' hidden selected><?php echo $iData[0][6]; ?></option>
-						<?php
-						if($iData[0][6] == 'Programada'){
-						?>
-						<option value='Cerrada'>Cerrada</option>
-						<?php
-						}else{
-						?>
-						<option value='Derivada'>Derivada</option>
-						<option value='Cerrada'>Cerrada</option>
-						<?php
-						}
-						?>
-
-
-					</select>
+                    <?php if($iData[0][6]!='Pendiente Derivar'){?>
+					    <select title="Seleccione o no una opcion" required name='estadoIncidencia'>
+                            <option hidden selected value='<?php echo $iData[0][6]; ?>'>
+                                <?php echo $iData[0][6]; ?>
+                            </option>
+    						<?php if($iData[0][6] == 'Programada'){?>
+    						    <option value='Cerrada'>Cerrada</option>
+    						<?php;}else{?>
+    	                        <option value='Cerrada'>Cerrada</option>
+    						<?php;}?>
+                        </select>
+                    <?php ;}else{ ?>
+                        <input disabled type="text" class="text" name="estadoIncidencia" value="Elige empresa ->>"/>
+                    <?php ;} ?>
 				</td>
 				<td><?php echo $lang['EMPRESA']; ?></td>
 				<td>
 					<select required name='cifEmpr'>
-						<option title="Debe seleccionar una empresa" value="<?php echo $iData[0][9] ?>" selected hidden><?php if($iData[0][9]=='DEFAULT'){echo '-';}else{ echo $iData[0][9];}?></option>
-						<option value='DEFAULT'>-</option>
+						<option title="Debe seleccionar una empresa" value="<?php echo $iData[0][9] ?>" hidden selected>
+                            <?php if($iData[0][9]=='DEFAULT'){echo '-';}else{ echo $iData[0][9];}?>
+                        </option>
+						<?php if($iData[0][9]!='DEFAULT'){?> <option value='DEFAULT'>-</option> <?php;}?>
 						<?php foreach ($empresas as $key){
-							if($key['cifEmpr'] != 'DEFAULT'){
-							?>
-								<option value='<?php echo $key['cifEmpr']; ?>'><?php echo $key['cifEmpr']; ?></option>
-							<?php
-							}
-						}?>
+                            if($key['cifEmpr'] != 'DEFAULT' && ($iData[0][9]!=$key['cifEmpr'])){?>
+                                    <option value='<?php echo $key['cifEmpr']; ?>'><?php echo $key['cifEmpr']; ?></option>
+                                <?php;}?>
+							<?php;}?>
 					</select>
 				<td>
 			</tr>
