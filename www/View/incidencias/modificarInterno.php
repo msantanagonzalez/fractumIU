@@ -27,8 +27,7 @@
 			<tr>
 				<td width="25%"><?php echo $lang['FECHA_APERTURA']; ?></td>
 				<td width="25%"><input readonly="readonly" title="Debe seleccionar una fecha de apertura" id="fechaApertura" type="date" class="text" name="fechaApertura" value="<?php echo $row['fAper']; ?>" required/></td>
-				<td width="25%"><?php echo $lang['FECHA_CIERRE']; ?> </td>
-				<td width="25%"><input title="Debe seleccionar una fecha de cierre" id="fechaCierre" type="date" class="text" name="fechaCierre" value="<?php echo $row['fCier']; ?>" required/></td>
+			
 			</tr>
 			<tr>
 				<td><?php echo $lang['ESTADO']; ?></td>

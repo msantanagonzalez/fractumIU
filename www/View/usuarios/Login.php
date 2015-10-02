@@ -35,8 +35,7 @@
 							<td>Seleccione un idioma: </td>
 							<td width="25%">
 								<select required title="Selecciona un idioma" name='idioma' >
-									<option value="" selected>		-</option>
-									<option value='es'><?php echo $lang['ESPAÑOL']; ?></option>
+									<option selected value='es'><?php echo $lang['ESPAÑOL']; ?></option>
 									<option value='ga'><?php echo $lang['GALLEGO']; ?></option>
 								</select>
 							</td>
