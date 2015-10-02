@@ -148,7 +148,14 @@ if(isset($accion)){
 				$dniApertura = $_POST['dniApertura'];
 				$dniResponsable = $_POST['dniResponsable'];
 				$fechaApertura = $_POST['fechaApertura'];
-				$fechaCierre = $_POST['fechaCierre'];
+				
+				if($_POST['estadoIncidencia'] == 'Cerrada'){
+				
+				$fechaCierre = date('Y-m-d');
+				} else {
+					$fechaCierre= 'NULL';
+				}
+			
 				$estadoIncidencia = $estado;
 				$idMaquina = $_POST['idMaquina'];
 				$descripcion = $_POST['descripcion'];
@@ -195,7 +202,7 @@ if(isset($accion)){
 				$dniApertura = $_POST['dniApertura'];
 				$dniResponsable = $_POST['dniResponsable'];
 				$fechaApertura = $_POST['fechaApertura'];
-				$fechaCierre = $_POST['fechaCierre'];
+				$fechaCierre = 'NULL';
 				$estadoIncidencia = $_POST['estadoIncidencia'];
 				$idMaquina = $_POST['idMaquina'];
 				$descripcion = $_POST['descripcion'];

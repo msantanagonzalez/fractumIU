@@ -19,8 +19,10 @@ foreach ($rows as $row) { ?>
 			<tr>
 				<td width="25%"><?php echo $lang['FECHA_APERTURA']; ?></td>
 				<td width="25%"><input type="text" class="text" disabled name="fechaApertura" value="<?php echo $row['fAper']; ?>" /></td>
+				<?php if($row['estadoIncid'] == 'Cerrada' ) {?>
 				<td width="25%"><?php echo $lang['FECHA_CIERRE']; ?></td>
 				<td width="25%"><input type="text" class="text" disabled name="fechaCierre" value="<?php echo $row['fCier']; ?>" /></td>
+				<?php } ?>
 			</tr>
 			<tr>
 				<td><?php echo $lang['ESTADO']; ?></td>

@@ -38,8 +38,7 @@
 			<tr>
 				<td width="25%"><?php echo $lang['FECHA_APERTURA']; ?></td>
 				<td width="25%"><input readonly="readonly" title="Debe insertar una fecha de Apertura" id="fechaApertura" type="date" class="text" name="fechaApertura" value="<?php echo $iData[0][1]; ?>" required/></td>
-				<td width="25%"><?php echo $lang['FECHA_CIERRE']; ?></td>
-				<td width="25%"><input title="Debe insertar una fecha de cierre" id="fechaCierre" type="date" class="text" name="fechaCierre" value="<?php echo $iData[0][2]; ?>" required/></td>
+		
 			</tr>
 			<tr>
 				<td><?php echo $lang['ESTADO']; ?></td>
