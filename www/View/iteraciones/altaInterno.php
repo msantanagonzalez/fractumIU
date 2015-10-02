@@ -1,5 +1,5 @@
 <?php
-   include_once '../../Controller/common.php';
+    include_once '../../Controller/common.php';
 	$userType="interno";
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 	$idIncid=$_REQUEST['idIncidencia'];
@@ -29,7 +29,6 @@
 				<td><input required readonly="readonly" title="Es necesario introducir una fecha de inicio" id="fechaIter" type='date' name='fechaIter' value='<?php echo date('Y-m-d');?>'/></td>
 				<td><?php echo $lang['HORA_INICIO']; ?></td>
 				<td><input readonly="readonly" title="Es necesario introducir una hora de inicio" id="hInicio" type='time' name='hInicio' class='text' value='<?php echo  date('h:i:s'); ?>'> </td>
-				<!--<td><?= i18n("Hora Fin:") ?></td>-->
 				<td><input type="hidden" title="es necesario introducir una hora de fin" id="hFin" type='time' name='hFin' class='text' value='<?php echo date('h:i:s', strtotime('+26 hour')); ?>'> </td>
 			</tr>
 			<tr>
