@@ -51,26 +51,28 @@
                             </option>
     						<?php if($iData[0][6] == 'Programada'){?>
     						    <option value='Cerrada'>Cerrada</option>
-    						<?php;}else{?>
+    						<?php }else{ ?>
     	                        <option value='Cerrada'>Cerrada</option>
-    						<?php;}?>
+    						<?php } ?>
                         </select>
-                    <?php ;}else{ ?>
+                    <?php }else{ ?>
                         <input disabled type="text" class="text" name="estadoIncidencia" value="Elige empresa ->>"/>
-                    <?php ;} ?>
+                    <?php } ?>
 				</td>
 				<td><?php echo $lang['EMPRESA']; ?></td>
 				<td>
 					<select required name='cifEmpr'>
 						<option title="Debe seleccionar una empresa" value="<?php echo $iData[0][9] ?>" hidden selected>
-                            <?php if($iData[0][9]=='DEFAULT'){echo '-';}else{ echo $iData[0][9];}?>
+                            <?php if($iData[0][9]=='DEFAULT'){ echo '-'; }else{ echo $iData[0][9]; }?>
                         </option>
-						<?php if($iData[0][9]!='DEFAULT'){?> <option value='DEFAULT'>-</option> <?php;}?>
-						<?php foreach ($empresas as $key){
-                            if($key['cifEmpr'] != 'DEFAULT' && ($iData[0][9]!=$key['cifEmpr'])){?>
+<?php 					if($iData[0][9]!='DEFAULT'){ ?> 
+						<option value='DEFAULT'>-</option> 
+<?php 					}
+ 						foreach ($empresas as $key){
+                            if($key['cifEmpr'] != 'DEFAULT' && ($iData[0][9]!=$key['cifEmpr'])){ ?>
                                     <option value='<?php echo $key['cifEmpr']; ?>'><?php echo $key['cifEmpr']; ?></option>
-                                <?php;}?>
-							<?php;}?>
+<?php 						}
+						} ?>
 					</select>
 				<td>
 			</tr>
@@ -80,35 +82,27 @@
 					<select disabled>
 					  	<option value='<?php echo $iData[0][5]; ?>' selected><?php echo $iData[0][5]; ?></option>
 					</select>
-				 </td>
-				 <td><?php echo $lang['SERVICIOS_BIG']; ?></td>
+				</td>
+				<td><?php echo $lang['SERVICIOS_BIG']; ?></td>
  				<td>
- 					<?php
- 					if($hasServicios){
- 						?>
- 							<input type="checkbox" checked disabled/>
- 						<?php
- 					}else{
- 						?>
- 							<input type="checkbox" disabled/>
- 						<?php
- 					}
- 					?>
+<?php				if($hasServicios){ ?>
+ 						<input type="checkbox" checked disabled/>
+<?php 				}else{ ?>
+						<input type="checkbox" disabled/>
+<?php 				} ?>
  				</td>
 			</tr>
 			<tr>
 				<td width="25%"><br><?php echo $lang['DESCRIPCION']; ?></td>
-				<td colspan='3' width="75%">
-					<textarea style="resize:none; text-align:left;" style="t" rows="4" disabled> <?php echo $iData[0][8];?></textarea>
-				</td>
+				<td colspan='3' width="75%"><textarea style="resize:none; text-align:left;" style="t" rows="4" disabled><?php echo $iData[0][8]; ?></textarea></td>
 			</tr>
 		</table>
 
-	<table class="default">
-		<tr>
-			<td colspan="4"><input type="submit" name="accion" value="Modificado"></td>
-		</tr>
-	</table>
+		<table class="default">
+			<tr>
+				<td colspan="4"><input type="submit" name="accion" value="Modificado"></td>
+			</tr>
+		</table>
 	</form>
 </div>
 
