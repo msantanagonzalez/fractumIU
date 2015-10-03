@@ -1,0 +1,42 @@
+********************************* FECHA ENTREGA: martes 6, antes de las 17:00 *********************************
+
+
+1.- Jefe (Dani), Interno (María y Ray), Externo (Sergio)
+	Meter en todas las vistas
+		require_once("../../Controller/generalController.php");
+		checkIfLogged();
+
+2.- Jefe (Diego), Interno (María y Ray), Externo (Sergio)
+	En los botones blancos, si se tiene el "onclick" se puede cambiar el texto sin ningún problema.
+	En los botones amarillos, cambiar la etiqueta "input" por "button" y antes de cerrar la etiqueta "button", meter el texto deseado.
+	(Dani) Nota: poner el estilo adecuado para la etiqueta "button" (css). 
+
+3.- Sergio
+	View/maquinas/consultarExterno.php
+		-sobra botón modificar
+		* Esto aparece en aquellas que no tienen documentación.
+
+4.- Diego
+	View/incidencias/modificarJefe.php
+		-value estado erróneo. Mostrar "pendiente derivar"
+		* Esto ocurre cuando un interno solicita derivar una incidencia y el jefe tiene que dar la aprobación.
+		-quitar fecha cierre (quitar input y guardar null en la bd).
+
+5.- Sergio
+	View/iteraciones/modificarExterno.php
+		-Encabezado erróneo.
+
+6.- Diego
+	No mostrar mensaje de error si no es necesario (ej: si no se sube documentación, que no aparezca el mensaje de doc. errónea).
+
+7.- Sergio
+	View/incidencias/consultarExterno.php
+		-Sobra botón "modificar" si la iteración de esa incidencia no está cerrada.
+
+8.- Diego
+	View/incidencias/consultarJefe.php
+		-Notice: Undefined index: nDocIter in C:\xampp\htdocs\Fractum\View\incidencias\consultarJefe.php on line 94
+
+9.- María y Ray
+	View/iteraciones/altaInterno.php
+		-Sobra botón "cerrar".
