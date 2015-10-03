@@ -16,6 +16,7 @@
 
 //require_once $_SESSION['cribPath'].'Model/I18n.php';
 require_once $_SESSION['cribPath'].'View/crearMensaje.php';
+require_once("../../Controller/generalController.php"); checkIfLogged();
 
 function headerJefe(){
 ?>
