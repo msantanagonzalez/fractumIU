@@ -7,7 +7,7 @@ if($online == 1){
 	}
 }else{
 	function connectBD(){
-        mysql_connect("localhost","AdminFractum","Fractum");
+        @mysql_connect("localhost","AdminFractum","Fractum");
 				mysql_select_db("FractumDB");
 	}
 }
