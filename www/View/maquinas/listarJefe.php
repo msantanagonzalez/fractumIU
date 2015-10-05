@@ -8,7 +8,7 @@
 <table class="default">
     <tr>
     	<th width="20%"><?php echo $lang['ID_MAQUINA']; ?></th>
-    	<th width="18%"<?php echo $lang['SERVICIO']; ?></th>
+    	<th width="18%"><?php echo $lang['SERVICIO']; ?></th>
        	<th width="20%"><?php echo $lang['ULT_INCID']; ?></th>
 				<th width="20%"><?php echo $lang['DOCUMENTACION']; ?></th>
         <th width="10%">&nbsp;</th>
@@ -67,7 +67,7 @@
 </form>
 <table class="default">
 	<tr>
-		<td colspan="4"><a href="altaJefe.php"><input type="submit" name="Alta" value="Alta M&aacute;quina"/></a></td>
+		<td colspan="4"><a href="altaJefe.php"><button>Alta M&aacute;quina</button></a></td>
 	</tr>
 </table>
 

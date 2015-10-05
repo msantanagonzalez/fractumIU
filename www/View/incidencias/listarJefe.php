@@ -46,7 +46,7 @@
 <table>
 	<tr>
 		<th width="20%"></th>
-		<th width="40%"><a href="altaJefe.php"><input type="submit" name="alta" value="Alta"></a></th>
+		<th width="40%"><a href="altaJefe.php"><button type="submit" name="alta">Alta</button></a></th>
 		<th width="20%"></th>
 	</tr>
 </table>

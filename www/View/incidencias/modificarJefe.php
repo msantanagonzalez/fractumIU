@@ -101,7 +101,7 @@
 
 		<table class="default">
 			<tr>
-				<td colspan="4"><input type="submit" name="accion" value="Modificado"></td>
+				<td colspan="4"><button type="submit" name="accion" value="Modificado">Guardar</button></td>
 			</tr>
 		</table>
 	</form>

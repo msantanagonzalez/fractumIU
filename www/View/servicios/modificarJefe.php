@@ -59,7 +59,7 @@
 		</tr>
 		<?php } ?>
 		<tr>
-			<td colspan="4"><a href="../../Controller/serviciosController.php?accion=Guardar&idServ=<?php echo $row['idServ']; ?>"><input type="submit" name="accion" value="Guardar"></a></td>
+			<td colspan="4"><a href="../../Controller/serviciosController.php?accion=Guardar&idServ=<?php echo $row['idServ']; ?>"><button type="submit" name="accion" value="Guardar">Guardar</button></a></td>
 		</tr>
 
 	</table>

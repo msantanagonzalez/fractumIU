@@ -53,7 +53,7 @@
 
 <table class="default">
 	<tr>
-		<td colspan="4"><a href="../../Controller/serviciosController.php?accion=accesoAltaServicio"><input type="submit" name="accion" value="Alta"/></a></td>
+		<td colspan="4"><a href="../../Controller/serviciosController.php?accion=accesoAltaServicio"><button type="submit" name="accion" value="Alta">Alta</button></a></td>
 	</tr>
 </table>
 

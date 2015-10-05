@@ -64,7 +64,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td colspan="4"><a href="../../Controller/serviciosController.php?accion=Alta"><input type="submit" name="accion" value="Alta"/></a></td>
+			<td colspan="4"><a href="../../Controller/serviciosController.php"><button name="accion" value="Alta">Alta</button></a></td>
 		</tr>
 	</table>
 </form>

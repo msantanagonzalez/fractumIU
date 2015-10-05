@@ -58,7 +58,7 @@
 				<th width="20%">
 				</th>
 				<th width="40%">
-					<input type='submit' name='accion' value='Alta'>
+					<button type='submit' name='accion' value='Alta'>Alta</button>
 				</th>
 				<th width="20%">
 				</th>
