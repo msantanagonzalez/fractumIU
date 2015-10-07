@@ -93,7 +93,6 @@ foreach ($rows as $row) { ?>
 				 <?php if(isset($row2['urlDocItr'])){ ?>
 					 <a href="../<?php echo $row2['urlDocItr'];?>" target="_blank">
 						<img src="../../Resources/images/PDF.png">
-							<?php echo $row2['nDocIter'];?>
 						</a>
 				 <?php } else echo "-" ?>
 				</td>
