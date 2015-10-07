@@ -24,7 +24,7 @@
 			<td width="25%"> <input id="mailEmpr" type="text" class="text" name="mailEmpr" value="<?php echo $empresa['mailEmpr']; ?>"/></td>
 		</tr>
 		<tr>
-			<td width="20%" colspan="4"><input type="submit" name="accion" value="Guardar"></td>
+			<td width="20%" colspan="4"><button type="submit" name="accion" value="Guardar">Guardar</button></td>
 		</tr>
 	</table>
 	<?php } ?>
