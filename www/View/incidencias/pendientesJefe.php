@@ -34,7 +34,7 @@
 				<td width="20%"><?php echo $row['fAper']; ?></td>
 				<td width="20%"><?php echo $row['estadoIncid']; ?></td>
 				<td width="20%">
-				<input type="button" value="Consulta" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>'"/>
+				<button type="button" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>'"><?php echo $lang['CONSULTAR']; ?></button>
 				</td>
 			</tr>
 			<?php

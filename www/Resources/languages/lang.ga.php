@@ -255,6 +255,7 @@ $lang['EXAMPLE_MES4'] = '12 meses';
 //altaJefe
 $lang['ALTA_SERVICIO_BIG'] = '- ALTA SERVIZO -';
 $lang['MANTENIMIENTO_DESCRIPCION'] = 'Mantemento completo, custo de pezas non incluído.';
+$lang['ALTA_SERVICIO'] = 'Alta Servicio';
 
 //consultarExterno
 //todo incluido

@@ -43,7 +43,7 @@
 							<td width="25%"><a href="login.php?lang=ga"><?php echo $lang['GALLEGO']; ?></a></td>-->
 						</tr>
 						<tr>
-							<td width="20%" colspan="4"><input type="submit" name="accion" value="login"></td>
+							<td width="20%" colspan="4"><button type="submit" name="accion" value="login">Login</button></td>
 						</tr>
 					</table>
 				</form>
