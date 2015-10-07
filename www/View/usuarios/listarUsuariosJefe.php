@@ -92,8 +92,8 @@
 					<br>
 				<table class="default">
 			 		<tr>
-						<td colspan="2"><a href="../../Controller/usuariosController.php?accion=accesoAltaExterno"><input type="submit" name="piAlta" value="Alta Externo"/></a></td>
-						<td colspan="2"><a href="altaInternoJefe.php"><input type="submit" name="piAlta" value="Alta Interno"/></a></td>
+						<td colspan="2"><a href="../../Controller/usuariosController.php?accion=accesoAltaExterno"><button type="submit" name="piAlta">Alta Externo</button></a></td>
+						<td colspan="2"><a href="altaInternoJefe.php"><button type="submit" name="piAlta">Alta Interno</button></a></td>
 					</tr>
 			 	</table>
 
