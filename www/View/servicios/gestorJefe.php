@@ -39,8 +39,8 @@
 					<td width="10%"><?php echo $row['periodicidad'];?></td>
 					<td width="10%"><?php echo $row['costeSer'];?></td>
 					<td width="7%"><?php echo $row['cifEmpr'];?></td>
-					<td width="5%"><input type="button" value="Consulta" onclick="window.location.href='../../Controller/serviciosController.php?accion=Consulta&idServ=<?php echo $row['idServ']; ?>'"/></td>
-					<td width="5%"><input type="button" value="Eliminar" onclick="window.location.href='../../Controller/serviciosController.php?accion=Eliminar&idServ=<?php echo $row['idServ']; ?>'"/></td>
+					<td width="5%"><button type="button" onclick="window.location.href='../../Controller/serviciosController.php?accion=Consulta&idServ=<?php echo $row['idServ']; ?>'"><?php echo $lang['CONSULTAR']; ?></button></td>
+					<td width="5%"><button type="button" onclick="window.location.href='../../Controller/serviciosController.php?accion=Eliminar&idServ=<?php echo $row['idServ']; ?>'"><?php echo $lang['ELIMINAR']; ?></button></td>
 				</tr>
 			</form>
 			<?php
@@ -53,7 +53,7 @@
 
 <table class="default">
 	<tr>
-		<td colspan="4"><a href="../../Controller/serviciosController.php?accion=accesoAltaServicio"><button type="submit" name="accion" value="Alta">Alta</button></a></td>
+		<td colspan="4"><a href="../../Controller/serviciosController.php?accion=accesoAltaServicio"><button type="submit" name="accion" value="Alta"><?php echo $lang['ALTA_SERVICIO']; ?></button></a></td>
 	</tr>
 </table>
 

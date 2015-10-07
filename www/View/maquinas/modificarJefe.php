@@ -50,7 +50,7 @@
 				<td colspan="2"><input type="file" name="docMaquina" id="docMaquina"></td>
 			</tr>
 			<tr>
-			<td colspan="4"><button name="accion" value="Guardar">Guardar</button></td>
+			<td colspan="4"><button name="accion" value="Guardar"><?php echo $lang['GUARDAR']; ?></button></td>
 			</tr>
 			<?php
 			}else{
@@ -69,7 +69,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="4"><button name="accion" value="Guardar">Guardar</button></td>
+					<td colspan="4"><button name="accion" value="Guardar"><?php echo $lang['GUARDAR']; ?></button></td>
 				</tr>
 				<?php
 				}

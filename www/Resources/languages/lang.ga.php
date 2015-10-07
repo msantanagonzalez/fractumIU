@@ -208,6 +208,7 @@ $lang['DESCRIPCION_MAQUINA'] = 'Descrición da Máquina';
 ////////////////////////////////////MAQUINAS/////////////////////////////////
 
 //altaJefe
+$lang['ALTA_MAQUINA'] = 'Alta Maquina';
 //todo incluidos
 
 //consultarExterno

@@ -214,6 +214,7 @@ $lang['DESCRIPCION_MAQUINA'] = 'Descripcion de la Maquina';
 ////////////////////////////////////MAQUINAS/////////////////////////////////
 
 //altaJefe
+$lang['ALTA_MAQUINA'] = 'Alta Maquina';
 //todo incluidos
 
 //consultarExterno
@@ -260,6 +261,7 @@ $lang['EXAMPLE_MES4'] = '12 meses';
 //altaJefe
 $lang['ALTA_SERVICIO_BIG'] = '- ALTA SERVICIO -';
 $lang['MANTENIMIENTO_DESCRIPCION'] = 'Mantenimiento completo, coste de piezas no incluido.';
+$lang['ALTA_SERVICIO'] = 'Alta Servicio';
 
 //consultarExterno
 //todo incluido

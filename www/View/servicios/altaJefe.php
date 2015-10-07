@@ -64,7 +64,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td colspan="4"><a href="../../Controller/serviciosController.php"><button name="accion" value="Alta">Alta</button></a></td>
+			<td colspan="4"><a href="../../Controller/serviciosController.php"><button name="accion" value="Alta"><?php echo $lang['ALTA_SERVICIO']; ?></button></a></td>
 		</tr>
 	</table>
 </form>

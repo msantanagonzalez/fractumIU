@@ -31,7 +31,7 @@
         	<td colspan="2"><input type="file" name="docMaquina" id="docMaquina"></td>
 		</tr>
 		<tr>
-			<td colspan="4"><button name="accion" value="Alta">Alta</button></td>
+			<td colspan="4"><button name="accion" value="Alta"><?php echo $lang['ALTA_MAQUINA']; ?></button></td>
 		</tr>
 	</table>
 </form>
