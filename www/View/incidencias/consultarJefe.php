@@ -63,7 +63,7 @@ foreach ($rows as $row) { ?>
 	<table class="default">
 		<tr>
 		<?php if(($row['estadoIncid'] == 'Programada') || ($row['estadoIncid'] == 'Pendiente Derivar')){ ?>
-		<td colspan="4"><a href="../../Controller/incidenciasController.php?accion=Modificar&idIncidencia=<?php echo $row[0]; ?>"><input type="submit" name="Modificar" value="Modificar"></a></td>
+		<td colspan="4"><a href="../../Controller/incidenciasController.php?accion=Modificar&idIncidencia=<?php echo $row[0]; ?>"><button type="submit" name="Modificar" value="Modificar"><?php echo $lang['MODIFICAR']; ?></button></a></td>
 		<?php
 		}
 		?>
@@ -97,7 +97,7 @@ foreach ($rows as $row) { ?>
 				 <?php } else echo "-" ?>
 				</td>
 				<td width="20%">
-					<button type="button" onclick="window.location.href='../../Controller/iteracionesController.php?accion=consultaIteracion&idIncid=<?php echo $row2[0] ?>&nIteracion=<?php echo $row2[1] ?>'">Consultar</button>
+					<button type="button" onclick="window.location.href='../../Controller/iteracionesController.php?accion=consultaIteracion&idIncid=<?php echo $row2[0] ?>&nIteracion=<?php echo $row2[1] ?>'"><?php echo $lang['CONSULTAR']; ?></button>
 				</td>
 			</tr>
 			<?php } ?>

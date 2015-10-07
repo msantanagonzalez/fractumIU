@@ -58,7 +58,7 @@
 				<th width="20%">
 				</th>
 				<th width="40%">
-					<button type='submit' name='accion' value='Alta'>Alta</button>
+					<button type='submit' name='accion' value='Alta'><?php echo $lang['ALTAINCIDENCIA']; ?></button>
 				</th>
 				<th width="20%">
 				</th>

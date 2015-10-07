@@ -34,7 +34,7 @@
 		</tr>
 		<?php } ?>
 		<tr>
-			<td width="20%" colspan="4"><button type="submit" name="pModificar">Modificar</button></td>
+			<td width="20%" colspan="4"><button type="submit" name="pModificar"><?php echo $lang['MODIFICAR']; ?></button></td>
 		</tr>
 	</table>
 </form>

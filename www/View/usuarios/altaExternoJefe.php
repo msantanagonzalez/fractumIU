@@ -32,14 +32,14 @@
 			<td width="25%"> <input id="apellidos" type="text" class="text" name="apellidos"/></td>
 		</tr>
 		<tr>
-			<td colspan="4"><button type="submit" name="accion" value="altaExterno">Alta Externo</button></td>
+			<td colspan="4"><button type="submit" name="accion" value="altaExterno"><?php echo $lang['ALTA_EXTERNO']; ?></button></td>
 		</tr>
 	</table>
 </form>
 
 <table>
 	<tr>
-		<td colspan="4"><button type="button" onclick='window.print(); return false;'>Imprimir</button></td>
+		<td colspan="4"><button type="button" onclick='window.print(); return false;'><?php echo $lang['IMPRIMIR']; ?></button></td>
 	</tr>
 </table>
 <?php

@@ -33,11 +33,11 @@
 				<tr>
 					<td width="31%"><?php echo $row['cifEmpr'];?></td>
 					<td width="40%"><?php echo $row['nomEmpr']; ?></td>
-					<td width="10%"><button type="button" onclick="window.location.href='../../Controller/empresasController.php?accion=Consulta&cifEmpr=<?php echo $row['cifEmpr']; ?>'"/>Consultar</button></td>
+					<td width="10%"><button type="button" onclick="window.location.href='../../Controller/empresasController.php?accion=Consulta&cifEmpr=<?php echo $row['cifEmpr']; ?>'"/><?php echo $lang['CONSULTAR']; ?></button></td>
 					<?php
 					if ($row['cifEmpr'] != 'DEFAULT'){
 					?>
-					<td width="10%"><button type="button" onclick="window.location.href='../../Controller/empresasController.php?accion=Eliminar&cifEmpr=<?php echo $row['cifEmpr']; ?>'">Eliminar</button></td>
+					<td width="10%"><button type="button" onclick="window.location.href='../../Controller/empresasController.php?accion=Eliminar&cifEmpr=<?php echo $row['cifEmpr']; ?>'"><?php echo $lang['ELIMINAR']; ?></button></td>
 					<?php
 					}
 					?>

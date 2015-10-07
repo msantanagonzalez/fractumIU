@@ -34,7 +34,7 @@
 				<td width="20%"><?php echo $row['fAper']; ?></td>
 				<td width="20%"><?php echo $row['estadoIncid']; ?></td>
 				<td width="20%">
-				<input type="button" value="Consulta" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>'"/>
+				<button type="button" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>'"><?php echo $lang['CONSULTAR']; ?></button>
 				</td>
 			</tr>
 			<?php
@@ -46,7 +46,7 @@
 <table>
 	<tr>
 		<th width="20%"></th>
-		<th width="40%"><a href="altaJefe.php"><button type="submit" name="alta">Alta</button></a></th>
+		<th width="40%"><a href="altaJefe.php"><button type="submit" name="alta"><?php echo $lang['ALTAINCIDENCIA']; ?></button></a></th>
 		<th width="20%"></th>
 	</tr>
 </table>

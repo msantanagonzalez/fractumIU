@@ -35,8 +35,8 @@
 											<td width="20%" name = "dni"><?php echo $usuario['dniUsu']; ?> </td>
 											<td width="20%" name = "nombre"><?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></td>
 											<td width="20%" name = "telefono"><?php echo $usuario['telefOpeInt']; ?> </td>
-											<td width="20%"><input type="button" value="Consulta" onclick="window.location.href='../../Controller/usuariosController.php?accion=consultar&dniUsu=<?php echo $usuario['dniUsu'];?>'"></td>
-											<td width="20%"><input type="button" value="Eliminar" onclick="window.location.href='../../Controller/usuariosController.php?accion=eliminar&dniUsu=<?php echo $usuario['dniUsu'];?>'"></td>
+											<td width="20%"><button type="button" onclick="window.location.href='../../Controller/usuariosController.php?accion=consultar&dniUsu=<?php echo $usuario['dniUsu'];?>'"><?php echo $lang['CONSULTAR']; ?></button></td>
+											<td width="20%"><button type="button" onclick="window.location.href='../../Controller/usuariosController.php?accion=eliminar&dniUsu=<?php echo $usuario['dniUsu'];?>'"><?php echo $lang['ELIMINAR']; ?></button></td>
 										</tr>
 								<?php
 								}
@@ -80,8 +80,8 @@
 											<td width="20%" name = "nombre"><?php echo $usuario['nomUsu']." ".$usuario['apellUsu']; ?></td>
 											<td width="20%" name = "telefono"><?php echo $usuario['telefEmpr']; ?> </td>
 											<td width="17%" name = "empresa"><?php echo $usuario['nomEmpr']; ?> </td>
-											<td width="7%"><input type="button" value="Consulta" onclick="window.location.href='../../Controller/usuariosController.php?accion=consultar&dniUsu=<?php echo $usuario['dniUsu'];?>'"></td>
-											<td width="7%"><input type="button" value="Eliminar" onclick="window.location.href='../../Controller/usuariosController.php?accion=eliminar&dniUsu=<?php echo $usuario['dniUsu'];?>'"></td>
+											<td width="7%"><button type="button" onclick="window.location.href='../../Controller/usuariosController.php?accion=consultar&dniUsu=<?php echo $usuario['dniUsu'];?>'"><?php echo $lang['CONSULTAR']; ?></button></td>
+											<td width="7%"><button type="button" onclick="window.location.href='../../Controller/usuariosController.php?accion=eliminar&dniUsu=<?php echo $usuario['dniUsu'];?>'"><?php echo $lang['ELIMINAR']; ?></button></td>
 										</tr>
 								<?php
 								}
@@ -92,8 +92,8 @@
 					<br>
 				<table class="default">
 			 		<tr>
-						<td colspan="2"><a href="../../Controller/usuariosController.php?accion=accesoAltaExterno"><button type="submit" name="piAlta">Alta Externo</button></a></td>
-						<td colspan="2"><a href="altaInternoJefe.php"><button type="submit" name="piAlta">Alta Interno</button></a></td>
+						<td colspan="2"><a href="../../Controller/usuariosController.php?accion=accesoAltaExterno"><button type="submit" name="piAlta"><?php echo $lang['ALTA_EXTERNO']; ?></button></a></td>
+						<td colspan="2"><a href="altaInternoJefe.php"><button type="submit" name="piAlta"><?php echo $lang['ALTA_INTERNO']; ?></button></a></td>
 					</tr>
 			 	</table>
 

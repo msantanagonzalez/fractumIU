@@ -29,7 +29,7 @@
 			<?php
 			if($row['cifEmpr'] != 'DEFAULT'){
 			?>
-			<td colspan="4"><a href="../../Controller/empresasController.php?accion=Modificar&cifEmpr=<?php echo $row['cifEmpr']; ?>"><button type="submit" name="pModificar">Modificar</button></a></td>
+			<td colspan="4"><a href="../../Controller/empresasController.php?accion=Modificar&cifEmpr=<?php echo $row['cifEmpr']; ?>"><button type="submit" name="pModificar"><?php echo $lang['MODIFICAR']; ?></button></a></td>
 			<?php
 			}
 			?>

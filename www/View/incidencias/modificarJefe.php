@@ -101,7 +101,7 @@
 
 		<table class="default">
 			<tr>
-				<td colspan="4"><button type="submit" name="accion" value="Modificado">Guardar</button></td>
+				<td colspan="4"><button type="submit" name="accion" value="Modificado"><?php echo $lang['GUARDAR']; ?></button></td>
 			</tr>
 		</table>
 	</form>

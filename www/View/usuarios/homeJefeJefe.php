@@ -42,7 +42,7 @@
 					<td width="17%"><?php echo $row['fCier']; ?></td>
 					<td width="17%"><?php echo $row['estadoIncid']; ?></td>
 					<td width="17%">
-						<input type="button" value="Consulta" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>'"/>
+						<button type="button" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>'"><?php echo $lang['CONSULTAR']; ?></button>
 					</td>
 				</tr>
 				<?php
@@ -99,10 +99,10 @@
 	 				 <?php } else echo "-" ?>
 	 				</td>
                      <td width="10%">
- 						<input type="button"  value="Consulta" onclick="window.location.href='../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>'"/>
+ 						<button type="button" onclick="window.location.href='../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>'"><?php echo $lang['CONSULTAR']; ?></button>
  					</td>
  					<td width="10%">
- 						<input type="button" value="Eliminar" onclick="window.location.href='../../Controller/maquinasController.php?accion=Eliminar&idMaq=<?php echo $row['idMaq'];?>'">
+ 						<button type="button" onclick="window.location.href='../../Controller/maquinasController.php?accion=Eliminar&idMaq=<?php echo $row['idMaq'];?>'"><?php echo $lang['ELIMINAR']; ?></button>
  					</td>
 				</tr>
 				<?php

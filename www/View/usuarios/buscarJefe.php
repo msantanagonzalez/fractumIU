@@ -46,7 +46,7 @@
 						<td width="17%"><?php echo $row['fAper']; ?></td>
 						<td width="17%"><?php echo $row['estadoIncid']; ?></td>
 						<td width="17%">
-							<input type="button" value="Consulta" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>'"/>
+							<button type="button" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>'"><?php echo $lang['CONSULTAR']; ?></button>
 						</td>
 					</tr>
 					<?php
@@ -85,8 +85,8 @@
 					<td width="20%" name = "dni"><?php echo $row['dniUsu']; ?> </td>
 					<td width="20%" name = "nombre"><?php echo $row['nomUsu']." ".$row['apellUsu']; ?></td>
 					<td width="20%" name = "telefono"><?php echo $row['telefOpeInt']; ?> </td>
-					<td width="20%"><input type="button" value="Consulta" onclick="window.location.href='../../Controller/usuariosController.php?accion=consultar&dniUsu=<?php echo $row['dniUsu'];?>'"></td>
-					<td width="20%"><input type="button" value="Eliminar" onclick="window.location.href='../../Controller/usuariosController.php?accion=eliminar&dniUsu=<?php echo $row['dniUsu'];?>'"></td>
+					<td width="20%"><button type="button" onclick="window.location.href='../../Controller/usuariosController.php?accion=consultar&dniUsu=<?php echo $row['dniUsu'];?>'"><?php echo $lang['CONSULTAR']; ?></button></td>
+					<td width="20%"><button type="button" onclick="window.location.href='../../Controller/usuariosController.php?accion=eliminar&dniUsu=<?php echo $row['dniUsu'];?>'"><?php echo $lang['ELIMINAR']; ?></button></td>
 				</tr>
 			<?php
 			}
@@ -125,8 +125,8 @@
 					<td width="20%" name = "nombre"><?php echo $row['nomUsu']." ".$row['apellUsu']; ?></td>
 					<td width="20%" name = "telefono"><?php echo $row['telefEmpr']; ?> </td>
 					<td width="17%" name = "empresa"><a href='../../Controller/empresasController.php?accion=Consulta&cifEmpr=<?php echo $row['cifEmpr'];?>'><?php echo $row['nomEmpr']; ?></a></td>
-					<td width="7%"><input type="button" value="Consulta" onclick="window.location.href='../../Controller/usuariosController.php?accion=consultar&dniUsu=<?php echo $row['dniUsu'];?>'"></td>
-					<td width="7%"><input type="button" value="Eliminar" onclick="window.location.href='../../Controller/usuariosController.php?accion=eliminar&dniUsu=<?php echo $row['dniUsu'];?>'"></td>
+					<td width="7%"><button type="button" onclick="window.location.href='../../Controller/usuariosController.php?accion=consultar&dniUsu=<?php echo $row['dniUsu'];?>'"><?php echo $lang['CONSULTAR']; ?></button></td>
+					<td width="7%"><button type="button" onclick="window.location.href='../../Controller/usuariosController.php?accion=eliminar&dniUsu=<?php echo $row['dniUsu'];?>'"><?php echo $lang['ELIMINAR']; ?></button></td>
 				</tr>
 				<?php
 			}
@@ -165,10 +165,10 @@
 							<!-- FALTA MARCAR LA FECHA DE LA ULTIMA INCIDENCIA DE LA MAQUINA-->
 							<td width="20%"><?php echo $lang['FECHA_EXAMPLE']; ?></td>
 							<td width="10%">
-								<input type="button"  value="Consulta" onclick="window.location.href='../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>'"/>
+								<button type="button" onclick="window.location.href='../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>'"><?php echo $lang['CONSULTAR']; ?></button>
 							</td>
 							<td width="10%">
-								<input type="button" value="Eliminar" onclick="window.location.href='../../Controller/maquinasController.php?accion=Eliminar&idMaq=<?php echo $row['idMaq'];?>'">
+								<button type="button" onclick="window.location.href='../../Controller/maquinasController.php?accion=Eliminar&idMaq=<?php echo $row['idMaq'];?>'"><?php echo $lang['ELIMINAR']; ?></button>
 							</td>
 						</tr>
 					<?php

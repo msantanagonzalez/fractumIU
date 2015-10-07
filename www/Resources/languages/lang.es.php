@@ -1,5 +1,5 @@
 <?php
-/* 
+/*
 ------------------
 Language: Spanish
 ------------------
@@ -73,8 +73,8 @@ $lang['CORREO'] = 'Correo';
 
 
 //empresas/modificarJefe
-$lang['MODIFICAR_EMPRESA'] = 'MODIFICAR EMPRESA';
-
+$lang['MODIFICAR'] = 'Modificar';
+$lang['GUARDAR'] = 'Guardar';
 //empresas/consultarJefe
 //todos incluidos
 
@@ -266,14 +266,19 @@ $lang['MANTENIMIENTO_DESCRIPCION'] = 'Mantenimiento completo, coste de piezas no
 
 ////////////////////////////////////USUARIOS/////////////////////////////////
 
+//imprimirGenerico
+$lang['IMPRIMIR'] = 'Imprimir';
+
 //altaExternoJefe
 $lang['ALTA_OPERARIO_EXTERNO_BIG'] = '- ALTA OPERARIO EXTERNO -';
 $lang['DNI_OPERARIO_EXTERNO'] = 'DNI Operario Externo: ';
 $lang['APELLIDOS'] = 'Apellidos: ';
+$lang['ALTA_EXTERNO'] = 'Alta Externo';
 
 //altaInternoJefe
 $lang['ALTA_OPERARIO_INTERNO_BIG'] = '- ALTA OPERARIO INTERNO -';
 $lang['ID_INTERNO'] = 'ID Interno: ';
+$lang['ALTA_INTERNO'] = 'Alta Interno';
 
 //buscarExterno
 $lang['PROBLEMA'] = 'Problema: ';

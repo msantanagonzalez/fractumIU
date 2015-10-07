@@ -24,8 +24,8 @@
 			<td width="25%"><input id="mail" type="text" class="text" name="correo" value="" /></td>
 		</tr>
 		<tr>
-			<td colspan="4"><button type="submit" name="accion" value="altaInterno">Alta Interno</button></td>
-		</tr> 
+			<td colspan="4"><button type="submit" name="accion" value="altaInterno"><?php echo $lang['ALTA_INTERNO']; ?></button></td>
+		</tr>
 	</table>
 </form>
 
