@@ -33,14 +33,14 @@
 				<tr>
 					<td width="31%"><?php echo $row['cifEmpr'];?></td>
 					<td width="40%"><?php echo $row['nomEmpr']; ?></td>
-					<td width="10%"><input type="button" value="Consulta" onclick="window.location.href='../../Controller/empresasController.php?accion=Consulta&cifEmpr=<?php echo $row['cifEmpr']; ?>'"/></td>
+					<td width="10%"><button type="button" onclick="window.location.href='../../Controller/empresasController.php?accion=Consulta&cifEmpr=<?php echo $row['cifEmpr']; ?>'"/>Consultar</button></td>
 					<?php
 					if ($row['cifEmpr'] != 'DEFAULT'){
 					?>
-					<td width="10%"><input type="button" value="Eliminar" onclick="window.location.href='../../Controller/empresasController.php?accion=Eliminar&cifEmpr=<?php echo $row['cifEmpr']; ?>'"></td>
+					<td width="10%"><button type="button" onclick="window.location.href='../../Controller/empresasController.php?accion=Eliminar&cifEmpr=<?php echo $row['cifEmpr']; ?>'">Eliminar</button></td>
 					<?php
 					}
-					?>					
+					?>
 				</tr>
 				<?php
 }				}
@@ -50,7 +50,7 @@
 </form>
 <table class="default">
 	<tr>
-		<td colspan="4"><a href="altaEmpresa.php"><input type="submit" name="sAlta" value="Alta Empresa"/></a></td>
+		<td colspan="4"><a href="altaEmpresa.php"><button type="submit" name="sAlta">Alta Empresa</button></a></td>
 	</tr>
 </table>
 

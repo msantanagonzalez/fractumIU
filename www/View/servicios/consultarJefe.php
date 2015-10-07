@@ -45,7 +45,7 @@
 </form>
 <table class="default">
 	<tr>
-		<td colspan="4"><input type="submit" value="Modificar" onclick="window.location.href='../../Controller/serviciosController.php?accion=Modificar&idServ=<?php echo $row['idServ']; ?>'"></td>
+		<td colspan="4"><button type="button" onclick="window.location.href='../../Controller/serviciosController.php?accion=Modificar&idServ=<?php echo $row['idServ']; ?>'">Modificar</button></td>
 	</tr>
 </table>
 

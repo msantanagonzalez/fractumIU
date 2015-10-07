@@ -93,12 +93,11 @@ foreach ($rows as $row) { ?>
 				 <?php if(isset($row2['urlDocItr'])){ ?>
 					 <a href="../<?php echo $row2['urlDocItr'];?>" target="_blank">
 						<img src="../../Resources/images/PDF.png">
-							<?php echo $row2['nDocIter'];?>
 						</a>
 				 <?php } else echo "-" ?>
 				</td>
 				<td width="20%">
-					<input type="button" value="Consulta" onclick="window.location.href='../../Controller/iteracionesController.php?accion=consultaIteracion&idIncid=<?php echo $row2[0] ?>&nIteracion=<?php echo $row2[1] ?>'"/>
+					<button type="button" onclick="window.location.href='../../Controller/iteracionesController.php?accion=consultaIteracion&idIncid=<?php echo $row2[0] ?>&nIteracion=<?php echo $row2[1] ?>'">Consultar</button>
 				</td>
 			</tr>
 			<?php } ?>

@@ -44,7 +44,7 @@
 				</td>
 			</tr>
 			<tr>
-			<td colspan="4"><input  type="submit" name="accion" value="Modificar"></td>
+			<td colspan="4"><button type="submit" name="accion" value="Modificar">Modificar</button></td>
 			</tr>
 			<?php
 			}else{
@@ -61,7 +61,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="4"><input  type="submit" name="accion" value="Modificar"></td>
+					<td colspan="4"><button type="submit" name="accion" value="Modificar">Modificar</button></td>
 				</tr>
 				<?php
 				}
@@ -91,7 +91,7 @@
 			<td width="20%"><?php echo $row2['dniApertura']; ?></td>
 			<td width="20%"><?php echo $row2['estadoIncid']; ?></td>
 			<td width="20%">
-				<input type="button" value="Consultar" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row2['idIncid'];?>'"/>
+				<button type="button" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row2['idIncid'];?>'">Consultar</button>
 			</td>
 		</tr>
 		<?php } ?>
@@ -118,7 +118,7 @@
 			<td width="25%"><?php echo $row2[1]; ?></td>
 			<td width="25%"><?php echo $row2[2]; ?></td>
 			<td width="25%">
-				<input type="button" value="Consultar" onclick="window.location.href='../../Controller/serviciosController.php?accion=Consulta&idServ=<?php echo $row2[0];?>'"/>
+				<button type="button" onclick="window.location.href='../../Controller/serviciosController.php?accion=Consulta&idServ=<?php echo $row2[0];?>'">Consultar</button>
 			</td>
 		</tr>
 		<?php } ?>

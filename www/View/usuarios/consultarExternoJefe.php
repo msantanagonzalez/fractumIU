@@ -33,7 +33,7 @@
 		</tr>
 		<?php } ?>
 		<tr>
-			<td width="20%" colspan="4"><input type="submit" name="peModificar" value="Modificar"></td>
+			<td width="20%" colspan="4"><button type="submit" name="peModificar">Modificar</button></td>
 		</tr>
 	</table>
 </form>
