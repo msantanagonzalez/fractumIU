@@ -75,15 +75,20 @@ foreach ($rows as $row) { ?>
 			<tr>
 				<td width="20%"><?php echo $row2['nIteracion']; ?></td>
 				<td width="20%"><?php echo $row2['dniUsu']; ?></td>
-				<td width="20%"><?php if($row2['estadoItera']==1){echo 'Abierta' ;}else{ echo 'Cerrada';}  ?></td>
+				<td width="20%"><?php if($row2['estadoItera']==1){
+					echo 'Abierta' ;
+					$iteracionesAcabadas = 0;
+					}else{ 
+						echo 'Cerrada';
+				}  ?></td>
 				<td width="20%">
 				 <?php if(isset($row2['urlDocItr'])){ ?>
 					<a href="../<?php echo $row2['urlDocItr'];?>" target="_blank">
 						<img src="../../Resources/images/PDF.png">
 					</a>
 				 <?php } else echo "-" ?>
-				</td>
-				<td colspan="4"><a href="../../Controller/iteracionesController.php?accion=consultaIteracion&idIncid=<?php echo $row2['idIncid'] ?>&nIteracion=<?php echo $row2['nIteracion'] ?>"><input type="button" value="Consulta"></a></td>
+				</td>			
+				<td colspan="4"><input type="button" value="Consulta" onclick="window.location.href='../../Controller/iteracionesController.php?accion=consultaIteracion&idIncid=<?php echo $row2['idIncid'] ?>&nIteracion=<?php echo $row2['nIteracion'] ?>'"/></td>
 			</tr>
 			<?php } ?>
      	</tr>
@@ -99,7 +104,7 @@ foreach ($rows as $row) { ?>
 			</tr>
 			<?php  } elseif ($row['estadoIncid'] == "En Curso Externo" && $iteracionesAcabadas == 1) { ?>
 				<td colspan="2"></td>
-				<td colspan="50"><a href="../../Controller/incidenciasController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid'] ?>"><input type="button" value="MODIFICAR"></a></td>
+				<td colspan="50"><input type="button" value="MODIFICAR" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid'] ?>'"/></td>
 			</tr>
 			<?php } ?>
 		<?php } ?>

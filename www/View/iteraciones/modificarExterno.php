@@ -4,7 +4,7 @@
 	require_once $_SESSION['cribPath'].'View/structure/header.php';
 ?>
 <script type="text/javascript" src="../../Resources/js/Validaciones.js"></script>
-<h1 id="headerExterno"><a><i><?php echo $lang['ITERACION_BIG']; ?> $#IDincidencia</i></a></h1>
+<h1 id="headerExterno"><a><i><?php echo $lang['ITERACION_BIG']; ?> $#IDiteracion</i></a></h1>
 <div>
 	<form method="POST" onsubmit="return modificarIteracion()" action="../../Controller/iteracionesController.php" enctype="multipart/form-data">
 

@@ -15,8 +15,6 @@
 	View/maquinas/consultarExterno.php
 		-sobra botón modificar
 		* Esto aparece en aquellas que no tienen documentación.
-		(Sergio: Lo he probado muchisimas veces y no me sucede... y es imposible en esa vista, no existe ese boton para externo)
-
 
 4.- Diego
 	View/incidencias/modificarJefe.php
