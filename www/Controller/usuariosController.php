@@ -264,7 +264,6 @@ switch ($action) {
 									if (!empty($_POST['correoUsu'])){
 									$correoUsu = $_POST['correoUsu'];
 									}else{$correoUsu = $jefe['mailJefe'];}
-									echo $jefe['mailJefe'];
 									if (!empty($_POST['telUsu'])){
 									$telUsu = $_POST['telUsu'];
 									}else{$telUsu = $jefe['telefJefe'];}

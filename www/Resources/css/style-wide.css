@@ -1,9 +1,9 @@
 /*CSS QUE DETERMINA...*/
 
 	body{min-width: 1200px;}
-	body,input,textarea,select{font-size: 12pt;}
+	body,input,button,textarea,select{font-size: 12pt;}
 
-			
+
 				.box{} /* CAJA */
 				.box.post{}
 				.box.post h2{font-size: 3.25em; 	line-height: 1.25em;	}
@@ -46,9 +46,9 @@
 						font-size: 1.5em;
 						font-weight: 700;
 						color: #1b252a;}
-				
+
 				.box.post .info .stats{position: relative; z-index: 1;}
-				.box.post .info .stats li{margin: 1.25em 0 0 0;}	
+				.box.post .info .stats li{margin: 1.25em 0 0 0;}
 				.box.post .info .stats li a{
 						position: relative;
 						display: block;
@@ -65,5 +65,5 @@
 						opacity: 0.35;}
 
 	#content{padding: 3em 5em 8em 5em;} /*CONTENIDO*/
-		body.left-sidebar #content{margin-left: 21em;}		
+		body.left-sidebar #content{margin-left: 21em;}
 		body.right-sidebar #content{margin-right: 14em; 	margin-left: 7em;}
