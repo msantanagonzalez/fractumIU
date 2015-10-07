@@ -67,7 +67,7 @@
 </form>
 <table class="default">
 	<tr>
-		<td colspan="4"><a href="altaJefe.php"><button><?php echo $lang['ALTA_MAQUINA']; ?></button></a></td>
+		<td colspan="4"><a href="altaJefe.php"><button type='submit'><?php echo $lang['ALTA_MAQUINA']; ?></button></a></td>
 	</tr>
 </table>
 

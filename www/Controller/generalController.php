@@ -67,10 +67,10 @@ function subirMaquina($idMaquina,$ext_permitidas,$limite){
 					anadirMensaje("|INFO| Archivo: ".$nombre."|".$tipo."|".$tamano."Mb - Guardado" ,"info");
 					return array(1,$path,$nombre);
 				  }
-
-		}else{
-			anadirMensaje("|ERROR|Error al subir archivo: ".$nombre."|".$tipo."|".$tamano."Mb" ,"danger");
-		}
+			}
+		//else{
+		// 	anadirMensaje("|ERROR|Error al subir archivo: ".$nombre."|".$tipo."|".$tamano."Mb" ,"danger");
+		// }
 	}
 
 	function subirIteracion($idMaquina,$idIncidencia,$idIteracion,$ext_permitidas,$limite){
