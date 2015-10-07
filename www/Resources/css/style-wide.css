@@ -1,7 +1,8 @@
 /*CSS QUE DETERMINA...*/
 
 	body{min-width: 1200px;}
-	body,input,button,textarea,select{font-size: 12pt;}
+	button[type="button"]{font-size: 10pt;}
+	body,input,button[type="submit"],button[type="reset"],textarea,select{font-size: 12pt;}
 
 
 				.box{} /* CAJA */

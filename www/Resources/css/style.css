@@ -15,7 +15,7 @@
 			-ms-animation: none !important;
 			animation: none !important;}
 
-	body,input,button,textarea,select{font-family: 'Source Sans Pro', sans-serif; font-weight: 400;	color: #565656;}
+	body,input,button[type="submit"],button[type="reset"],textarea,select{font-family: 'Source Sans Pro', sans-serif; font-weight: 400;	color: #565656;}
 	a{color: #c94663;}
 	strong, b{font-weight: 700; 	color: #232323;}
 	h2,h3,h4,h5,h6{font-family: 'Open Sans Condensed', sans-serif; font-weight: 700; color: #232323;}
