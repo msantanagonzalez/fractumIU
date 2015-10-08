@@ -59,10 +59,10 @@ foreach ($rows as $row) { ?>
 	<h1 id="headerExterno"><a><?php echo $lang['ITERACIONES_BIG']; ?></a></h1> <!--SECCIÓN-->
 	<table class="default"><!--TABLA-->
     <tr>
-      <th width="20%"><?= i18n("Iteración") ?></th>
-      <th width="20%"><?= i18n("Operario") ?></th>
-      <th width="20%"><?= i18n("Estado") ?></th>
-			<th width="20%"><?= i18n("Documentación") ?></th>
+      <th width="20%"><?php echo $lang['ITERACION'] ?></th>
+      <th width="20%"><?php echo $lang['OPERARIO'] ?></th>
+      <th width="20%"><?php echo $lang['ESTADO'] ?></th>
+			<th width="20%"><?php echo $lang['DOCUMENTACION'] ?></th>
 			<th width="20%"> </th>
      	</tr>
     </table>
@@ -78,7 +78,7 @@ foreach ($rows as $row) { ?>
 				<td width="20%"><?php if($row2['estadoItera']==1){
 					echo 'Abierta' ;
 					$iteracionesAcabadas = 0;
-					}else{ 
+					}else{
 						echo 'Cerrada';
 				}  ?></td>
 				<td width="20%">
@@ -87,7 +87,7 @@ foreach ($rows as $row) { ?>
 						<img src="../../Resources/images/PDF.png">
 					</a>
 				 <?php } else echo "-" ?>
-				</td>			
+				</td>
 				<td colspan="4"><input type="button" value="Consulta" onclick="window.location.href='../../Controller/iteracionesController.php?accion=consultaIteracion&idIncid=<?php echo $row2['idIncid'] ?>&nIteracion=<?php echo $row2['nIteracion'] ?>'"/></td>
 			</tr>
 			<?php } ?>

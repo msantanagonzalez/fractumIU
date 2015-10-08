@@ -57,11 +57,11 @@ foreach ($rows as $row) { ?>
 	<table class="default">
 		<tr>
 			<?php
-			
+
 			$ultimaIteracion = $_SESSION['estadoIteracion'];
 			if(($row['dniApertura']==$_SESSION['dni']) and ($row['estadoIncid']!='Cerrada') and ($row['estadoIncid']!='Derivada')and (($ultimaIteracion [0][0]!= 1) or ($ultimaIteracion [0][0] == 'En Curso Externo'))){?>
-					<td colspan="4"><a href="../../Controller/incidenciasController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid']; ?>"><input type="button" name="accion" value="Modificar"></td>
-			<?php
+					<td colspan="4"><a href="../../Controller/incidenciasController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid']; ?>"><button type="submit" name="Modificar" value="Modificar"><?php echo $lang['MODIFICAR']; ?></button></a></td>
+				<?php
 			}
 			?>
 		</tr>
@@ -101,7 +101,8 @@ foreach ($rows as $row) { ?>
 					</a>
 				 <?php } else echo "-" ?>
 				</td>
-				<td width="20%"><a href="../../Controller/iteracionesController.php?accion=consultaIteracion&idIncid=<?php echo $row2['idIncid'] ?>&nIteracion=<?php echo $row2['nIteracion'] ?>"><input type="button" value="Consultar"></td>
+				<td width="20%"><button type="button" onclick="window.location.href='../../Controller/iteracionesController.php?accion=consultaIteracion&idIncid=<?php echo $row2[0] ?>&nIteracion=<?php echo $row2[1] ?>'"><?php echo $lang['CONSULTAR']; ?></button>
+
 			</tr>
 				<?php } ?>
 		</table>
@@ -114,7 +115,8 @@ foreach ($rows as $row) { ?>
 			if(($row['estadoIncid']!='Cerrada')AND ($row['estadoIncid']!='Derivada') AND ($row['estadoIncid']!='Pendiente Derivar')AND($ultimaIteracion [0][0]!= 1)){
 			?>
 
-					<td colspan="4"><a href="../../View/iteraciones/altaInterno.php?accion=altaIteracion&idIncidencia=<?php echo $row['idIncid'] ?>&idMaq=<?php echo $row['idMaq']; ?>"><input type="button"  value="NUEVA ITERACION"/></a></td>
+					<td colspan="4"><button type="button" onclick="window.location.href='../../View/iteraciones/altaInterno.php?accion=altaIteracion&idIncidencia=<?php echo $row['idIncid'] ?>&idMaq=<?php echo $row['idMaq']; ?>'"><?php echo $lang['NUEVA_ITERACION_EMPLEADO_INTERNO']; ?></button></td>
+
 			<?php
 
 			}

@@ -43,7 +43,7 @@
 							</td>
 						</tr>
 						<tr>
-						<td colspan="4"><input  type="submit" name="accion" value="Modificar"></td>
+						<td colspan="4"><button type="submit" name="accion" value="Modificar"><?php echo $lang['MODIFICAR']; ?></button></td>
 						</tr>
 						<?php
 						}else{
@@ -60,7 +60,8 @@
 								</td>
 							</tr>
 							<tr>
-								<td colspan="4"><a href="../incidencias/altaInterno.php?maq=<?php echo $row['nomMaq']; ?>"><input type='button' value='Alta Incidencia'></a></td>
+								<td colspan="4"><button type="button" onclick="window.location.href='../../Controller/incidencias/altaInterno.php?maq=<?php echo $row['nomMaq']; ?>"><?php echo $lang['ALTA INCIDENCIA']; ?></button>
+			
 							</tr>
 							<?php
 							}
@@ -117,8 +118,8 @@
 			<td width="20%"><?php echo $row2['dniResponsable']; ?></td>
 			<td width="20%"><?php echo $row2['dniApertura']; ?></td>
 			<td width="20%"><?php echo $row2['estadoIncid']; ?></td>
-			<td width="10%"><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row2['idIncid'] ?>"><input type="button" value="Consultar"></td>
-
+			<td width="10%">
+			<button type="button" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row2['idIncid'];?>'"><?php echo $lang['CONSULTAR']; ?></button>
 		</tr>
 		<?php } ?>
 	</table>

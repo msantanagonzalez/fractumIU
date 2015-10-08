@@ -1,0 +1,15 @@
+********************************* FECHA ENTREGA: Lunes 12, antes de las 17:00 *********************************
+1. Maria y Ray(Interno)
+    -En los botones blancos,cambiar la etiqueta "input" por "button" en las vistas que falten.
+      Ejemplo: <button type="button" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>'"><?php echo $lang['CONSULTAR']; ?></button>
+
+2. Casanova
+        -Aun hay mensajes de error de tipo "|ERROR|Error al subir archivo:|" cuando no se selecciona un archivo.
+        
+3. Sergio
+    -Aun hay input type=button en las vistas, cambiar a <button>.
+      Ejemplo: <button type="button" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>'"><?php echo $lang['CONSULTAR']; ?></button>
+    -Sin hacer de la it8:
+      View/maquinas/consultarExterno.php
+  		-sobra botón modificar
+  		* Esto aparece en aquellas que no tienen documentación.

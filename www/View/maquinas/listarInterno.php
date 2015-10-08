@@ -50,7 +50,7 @@
 		 						</a>
 		 				 <?php } else echo "-" ?>
 		 				</td>
-						<td width="20%"><a href="../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row[0];?>"><colspan="4"><input type="button" value="Consultar"</a></td>
+						<td width="20%"><button type="button" onclick="window.location.href='../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>'"><?php echo $lang['CONSULTAR']; ?></button>
 			<?php }
 			?>
 		</tr>

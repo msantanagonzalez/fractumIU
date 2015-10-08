@@ -45,7 +45,7 @@
 <table>
 	<tr>
 		<th width="20%"></th>
-		<th width="40%"><a href="altaInterno.php"><input type="button" name="alta" value="Alta"></a></th>
+		<th width="40%"><a href="altaInterno.php"><button type="submit" name="alta"><?php echo $lang['ALTAINCIDENCIA']; ?></button></a></th>
 		<th width="20%"></th>
 	</tr>
 </table>

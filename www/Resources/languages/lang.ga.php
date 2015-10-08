@@ -138,7 +138,7 @@ $lang['COSTE_TRABAJO'] = 'Custo Traballo:';
 $lang['DOCUMENTACION'] = 'Documentación:';
 
 //iteraciones/altaInterno
-$lang['NUEVA_ITERACION_EMPLEADO_INTERNO'] = '- NOVA ITERACION DE EMPREGADO INTERNO -';
+$lang['NUEVA_ITERACION_EMPLEADO_INTERNO'] = 'Nova Iteración';
 $lang['ID_USUARIO'] = 'ID Usuario';
 
 //iteraciones/consultarExterno

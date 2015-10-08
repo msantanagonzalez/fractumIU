@@ -34,7 +34,7 @@
 				<td width="17%"><?php echo $row['dniApertura'];?></a></td> <!-- Falta linkar al perfil del usuario. -->
 				<td width="17%"><?php echo $row['fAper']; ?></td>
 				<td width="17%"><?php echo $row['estadoIncid']; ?></td>
-				<td width="10%"><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid'];?>"><input type="button" name="accion" value="Consultar"></input></a></button></td>
+				<td width="10%"><button type="button" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>'"><?php echo $lang['CONSULTAR']; ?></button>
 				
 			</tr>
 			<?php 

@@ -54,7 +54,6 @@
 	</div>
 	<table>
 		<tr>
-			<td width='25%'><input type='submit' name='accion' value='CERRAR'></td>
 			<td width='25%'><input type='submit' name='accion' value='altaIteracion'></td>
 
 		</tr>
