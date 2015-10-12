@@ -96,9 +96,10 @@ function subirMaquina($idMaquina,$ext_permitidas,$limite){
 			anadirMensaje("|INFO| Archivo: ".$nombre." - Guardado" ,"info");
 			return array(1,$path,$nombre);
 			}
-		}else{
-			anadirMensaje("|ERROR|Error al subir archivo: ".$nombre."|" ,"danger");
 		}
+		// else{
+		// 	anadirMensaje("|ERROR|Error al subir archivo: ".$nombre."|" ,"danger");
+		// }
 	}
 
 	function eliminarDir($carpeta)
