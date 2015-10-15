@@ -26,7 +26,7 @@
 		?>
 			<div class="alert alert-warning" role="alert">
 			<?php echo $lang['INFO_NO_SERV']; ?>
-			 
+
 			</div>
 		<?php
 		}
@@ -36,20 +36,20 @@
 			<form method="POST" action="../../Controller/serviciosController.php">
 				<tr>
 					<td width="10%"><?php echo $row['idServ'];?></td>
-					<td width="10%"><?php echo $row['idMaq'];?></td> 
-					<td width="10%"><?php echo $row['periodicidad'];?></td> 
+					<td width="10%"><?php echo $row['idMaq'];?></td>
+					<td width="10%"><?php echo $row['periodicidad'];?></td>
 					<td width="10%"><?php echo $row['costeSer'];?></td>
-					<td width="10%"><?php echo $row['cifEmpr'];?></td> 
+					<td width="10%"><?php echo $row['cifEmpr'];?></td>
 					<td width="10%">
- 						<input type="button"  value="Consulta" onclick="window.location.href='../../Controller/serviciosController.php?accion=Consulta&idServ=<?php echo $row['idServ']; ?>'"/>
+ 						<button type="button"  value="Consulta" onclick="window.location.href='../../Controller/serviciosController.php?accion=Consulta&idServ=<?php echo $row['idServ']; ?>'"><?php echo $lang['CONSULTAR'] ?></button>
  					</td>
 				</tr>
 			</form>
-			<?php 
-			} 
+			<?php
+			}
 		}
 		?>
-		
+
 	</table>
 </div>
 

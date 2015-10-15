@@ -27,7 +27,7 @@ foreach ($rows as $row) { ?>
       <tr>
         <td width="25%"><?php echo $lang['FECHA_APERTURA']; ?></td>
         <td width="25%"><input readonly="readonly" type="text" class="text" disabled name="fechaApertura" value="<?php echo $row['fAper']; ?>" /></td>
-        
+
       </tr>
       <tr>
         <td><?php echo $lang['ESTADO']; ?></td>
@@ -55,7 +55,7 @@ foreach ($rows as $row) { ?>
 
     <table class="default">
       <tr>
-        <td colspan="4"><input type="submit" name="accion" value="Modificado"></td>
+        <td colspan="4"><button type="submit" name="accion" value="Modificado"><?php echo $lang['MODIFICAR'] ?></button></td>
       </tr>
     </table>
   </form>

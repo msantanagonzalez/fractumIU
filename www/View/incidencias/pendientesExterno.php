@@ -36,9 +36,9 @@
 			          	<td width="17%">En Curso</td>
 		          <?php } else { ?>
 		              <td width="17%">Realizada</td>
-		          <?php } ?> 
+		          <?php } ?>
 				<td width="20%">
-				<input type="button" value="Consulta" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>'"/>
+				<button type="button" value="Consulta" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>'"><?php echo $lang['CONSULTAR'] ?></button>
 				</td>
 			</tr>
 			<?php
