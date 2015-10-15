@@ -88,7 +88,7 @@ foreach ($rows as $row) { ?>
 					</a>
 				 <?php } else echo "-" ?>
 				</td>
-				<td colspan="4"><input type="button" value="Consulta" onclick="window.location.href='../../Controller/iteracionesController.php?accion=consultaIteracion&idIncid=<?php echo $row2['idIncid'] ?>&nIteracion=<?php echo $row2['nIteracion'] ?>'"/></td>
+				<td colspan="4"><button type="button" value="Consulta" onclick="window.location.href='../../Controller/iteracionesController.php?accion=consultaIteracion&idIncid=<?php echo $row2['idIncid'] ?>&nIteracion=<?php echo $row2['nIteracion'] ?>'"><?php echo $lang['CONSULTAR'] ?></button></td>
 			</tr>
 			<?php } ?>
      	</tr>
@@ -100,11 +100,11 @@ foreach ($rows as $row) { ?>
 			<tr>
 			<?php if ($row['estadoIncid'] == "Derivada") { ?>
 			<td colspan="2"></td>
-				<td colspan="50"><a href="../../Controller/iteracionesController.php?accion=NEXTID&idIncid=<?php echo $row['idIncid'] ?>&idMaq=<?php echo $row['idMaq'] ?>"><input type="button" value="NUEVA ITERACION"></a></td>
+				<td colspan="50"><a href="../../Controller/iteracionesController.php?accion=NEXTID&idIncid=<?php echo $row['idIncid'] ?>&idMaq=<?php echo $row['idMaq'] ?>"><button type="submit" value="NUEVA ITERACION"><?php echo $lang['NUEVA_ITERACION_EMPLEADO_INTERNO'] ?></button></a></td>
 			</tr>
 			<?php  } elseif ($row['estadoIncid'] == "En Curso Externo" && $iteracionesAcabadas == 1) { ?>
 				<td colspan="2"></td>
-				<td colspan="50"><input type="button" value="MODIFICAR" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid'] ?>'"/></td>
+				<td colspan="50"><button type="button" value="MODIFICAR" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Modificar&idIncidencia=<?php echo $row['idIncid'] ?>'"><?php echo $lang['MODIFICAR'] ?></button></td>
 			</tr>
 			<?php } ?>
 		<?php } ?>

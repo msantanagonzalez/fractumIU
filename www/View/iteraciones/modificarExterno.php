@@ -59,7 +59,7 @@
 					<td colspan="2"><input type="file" name="docIteracion" id="docIteracion"></td>
 				</tr>
 				<tr>
-				<td colspan="4"><input  type="submit" name="accion" value="modificadoIteracion"></td>
+				<td colspan="4"><button  type="submit" name="accion" value="modificadoIteracion"><?php echo $lang['MODIFICARITERACION'] ?></button></td>
 				</tr>
 				<?php
 				}else{
@@ -78,7 +78,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td colspan="4"><input  type="submit" name="accion" value="modificadoIteracion"></td>
+						<td colspan="4"><button  type="submit" name="accion" value="modificadoIteracion"><?php echo $lang['MODIFICARITERACION'] ?></button></td>
 					</tr>
 					<?php
 					}

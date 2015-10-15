@@ -37,9 +37,6 @@
 								</div>
 								</td>
 							</tr>
-							<tr>
-							<td colspan="4"><input  type="submit" name="accion" value="Modificar"></td>
-							</tr>
 							<?php
 							}else{
 								foreach ($rows as $documento) {
@@ -93,7 +90,7 @@
           	<?php } ?>
 			<td width="10%">
 
- 				   <input type="button"  value="Consulta" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row2['idIncid'];?>'"/>
+ 				   <button type="button"  value="Consulta" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row2['idIncid'];?>'"><?php echo $lang['CONSULTAR'] ?> </button>
 
  		     </td>
 		</tr>

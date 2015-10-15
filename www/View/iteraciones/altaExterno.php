@@ -53,7 +53,7 @@
 	<table>
 		<tr>
 			<td width='25%'></td>
-			<td width='25%'><input type='submit' name='accion' value='altaIteracion'></a></td>
+			<td width='25%'><button type='submit' name='accion' value='altaIteracion'><?php echo $lang['NUEVA_ITERACION_EMPLEADO_INTERNO'] ?></button></td>
 			<td width='25%'></td>
 		</tr>
 	</table>

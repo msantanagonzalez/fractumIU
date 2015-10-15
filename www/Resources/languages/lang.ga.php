@@ -145,6 +145,8 @@ $lang['ID_USUARIO'] = 'ID Usuario';
 $lang['DETALLES_TRABAJO_BIG'] = '- DETALLES TRABALLO -';
 $lang['IDENTIFICADOR_INCIDENCIA'] = 'Identificador Incidencia:';
 $lang['NUMERO_ITERACION'] = 'Numero Iteración:';
+//añadido
+$lang['VOLVER'] = 'Voltar';
 
 //iteraciones/consultarInterno
 //todo incluidos
@@ -165,6 +167,7 @@ $lang['NUMERO_ITERACION'] = 'Numero Iteración:';
 //iteraciones/modificarExterno
 $lang['ITERACION_BIG'] = '- ITERACIÓN -';
 $lang['ITERADOR'] = 'Iterador:';
+$lang['MODIFICARITERACION'] = 'Modificar';
 
 //iteraciones/modificarInterno
 //todo incluidos

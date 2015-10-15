@@ -48,7 +48,7 @@
               <td width="17%">Realizada</td>
           <?php } ?>
          <td width="10%">
- 				   <input type="button"  value="Consulta" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>'"/>
+ 				   <button type="button"  value="Consulta" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>'"><?php echo $lang['CONSULTAR']; ?> </button>
  		     </td>
         </tr>
         <?php
@@ -105,7 +105,7 @@
             <?php } else echo "-" ?>
           </td>
       <td width="20%">
-        <input type="button"  value="Consulta" onclick="window.location.href='../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>'"/>
+        <button type="button"  value="Consulta" onclick="window.location.href='../../Controller/maquinasController.php?accion=Consulta&idMaq=<?php echo $row['idMaq'];?>'"><?php echo $lang['CONSULTAR']; ?></button>
     </td>
     </tr>
     <?php } ?>

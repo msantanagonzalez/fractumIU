@@ -78,18 +78,20 @@
 
     <br>
     <table>
-		<tr>
 
-			<?php if ($row['estadoItera'] == 1) { ?>
-				<td colspan="4"><a href="../../Controller/iteracionesController.php?accion=Modificar_Iteracion&idIncidencia=<?php echo $row['idIncid'];?>&nIteracion=<?php echo $row['nIteracion'];?>"><input type="button" name="Modificar" value="Modificar"></a></td>
-          	<?php } else { ?>
-				<td colspan="4"><a href="../../Controller/usuariosController.php?accion=nav"><input type="button" name="Modificar" value="Volver"></a></td>
-          	<?php } ?>
-		</tr>
 	</table>
 	<?php } ?>
 </form>
 </div>
+<tr>
+
+  <?php if ($row['estadoItera'] == 1) { ?>
+    <td colspan="4"><a href="../../Controller/iteracionesController.php?accion=Modificar_Iteracion&idIncidencia=<?php echo $row['idIncid'];?>&nIteracion=<?php echo $row['nIteracion'];?>"><button type="submit" name="Modificar" value="Modificar"><?php echo $lang['MODIFICAR'] ?></button></a></td>
+        <?php } else { ?>
+    <td colspan="4"><a href="../../Controller/usuariosController.php?accion=nav"><button type="submit" name="Modificar" value="Volver"><?php echo $lang['VOLVER'] ?></button></a></td>
+        <?php } ?>
+</tr>
+
 <?php
 	require_once $_SESSION['cribPath'].'View/structure/footer.php';
 ?>

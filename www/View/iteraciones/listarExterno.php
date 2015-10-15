@@ -15,12 +15,12 @@
 </table>
 <form method="POST" action="../../Controller/iteracionesController.php">
 	<table class="default">
-		<?php 
+		<?php
 			$rows = $_SESSION['listarIteraciones'];
 			foreach ($rows as $row) {
 		?>
-		<tr> 
-			<td width="30%"><?php echo $row['idIncid'];?></td>  
+		<tr>
+			<td width="30%"><?php echo $row['idIncid'];?></td>
 			<td width="40%"><?php echo $row['nIteracion']; ?></td>
 			<td width="10%"><button><a href="../../Controller/iteracionesController.php?accion=Consulta&idIncid=<?php echo $row['idIncid'];?>&nIteracion=<?php echo $row['nIteracion'];?>">Consultar</a></button></td>
 		</tr>
@@ -29,7 +29,7 @@
 </form>
 <table class="default">
 	<tr>
-		<td colspan="4"><a href="altaExterno.php"><input type="button" name="sAlta" value="Alta Iteracion"/></a></td>
+		<td colspan="4"><a href="altaExterno.php"><button type="button" name="sAlta" value="Alta Iteracion"><?php echo $lang['NUEVA_ITERACION_EMPLEADO_INTERNO'] ?></button></a></td>
 	</tr>
 </table>
 
