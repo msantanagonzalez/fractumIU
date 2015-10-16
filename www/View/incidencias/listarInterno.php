@@ -35,7 +35,9 @@
 				<td width="17%"><?php echo $row['fAper']; ?></td>
 				<td width="17%"><?php echo $row['estadoIncid']; ?></td>
 				<td width="17%"><?php if($row['derivada'] == "0") echo "-"; else echo $row['cifEmpr']; ?></td> 
-				<td width="17%"><a href="../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>"><input type="button" name="accion" value="Consulta"></input></a></td>
+				<td width="17%">
+								<button type="button" onclick="window.location.href='../../Controller/incidenciasController.php?accion=Consulta&idIncidencia=<?php echo $row['idIncid']; ?>'"><?php echo $lang['CONSULTAR']; ?></button>
+				</td>
 			</tr>
 			<?php } 
 			}
